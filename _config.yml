@@ -4,6 +4,12 @@ google_analytics: UA-134924634-2
 releasename: 2.2.9.1
 releasetag: 2.2.9.1701
 releasebuild: 2.2.9.1701
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
 exclude:
  - "bin"
  - "obj"

@@ -1,4 +1,4 @@
-﻿## OCSP Must Staple
+## OCSP Must Staple
 This extension can be added to the CSR with the command line option `--ocsp-must-staple`
 
 ## Private key reuse

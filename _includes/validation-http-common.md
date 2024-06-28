@@ -1,4 +1,4 @@
-﻿## Warmup
+## Warmup
 
 Before allowing the ACME server to validate, the program will attempt to request
 the validation file itself and note the result of that request in the log. A side 

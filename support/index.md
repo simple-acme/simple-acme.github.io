@@ -1,4 +1,6 @@
-﻿# Community support
+---
+---
+# Community support
 If you run into trouble please open an issue [here](https://github.com/win-acme/win-acme/issues).
 Please check to see if your issue is covered in the [manual](/manual/) before you create a 
 new issue. Describe the exact steps you took and try to reproduce it while running with the `--verbose` 
