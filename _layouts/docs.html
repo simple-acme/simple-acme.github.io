@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<div class="container py-3">
+    <div class="row">
+        {% if page.sidebar %}
+            <div class="col-sm-4">
+                {% include sidebar.html %}
+            </div>
+            <div class="col-sm-8">
+            {{ content }}   
+            </div>
+        {% else %}
+            <div class="col">
+                {{ content }}+877
+            </div>
+        {% endif %}
+    </div>
+</div>
