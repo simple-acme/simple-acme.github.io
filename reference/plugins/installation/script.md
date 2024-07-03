@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # Script
 Runs an external script or executable after a succesful renewal. This may be a `.bat`, `.ps1` or even `.exe`.
 You provide the program with the path to the script and it will run automatically.

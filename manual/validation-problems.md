@@ -1,7 +1,5 @@
 ---
-sidebar: manual
 ---
-
 # Validation problems
 Validation is an important aspect of the ACME and Let's Encrypt, but there are many subtle ways 
 that it can fail. This page is meant for people who run into problems to help figure out what 

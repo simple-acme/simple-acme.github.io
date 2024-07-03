@@ -1,7 +1,5 @@
 ---
-sidebar: manual
 ---
-
 # Automatic renewal
 
 ## Scheduled task

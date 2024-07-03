@@ -1,7 +1,5 @@
 ---
-sidebar: manual
 ---
-
 # Microsoft Exchange
 Choose the domains that you want to generate the certificate for. Note that Let's Encrypt only 
 issues certificates to public domains, that means no Active Directory server names or domain suffixes

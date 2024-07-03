@@ -1,7 +1,5 @@
 ---
-sidebar: manual
 ---
-
 # Remote Desktop Services
 How to generate a Certificate for Microsoft Remote Desktop Servers
 

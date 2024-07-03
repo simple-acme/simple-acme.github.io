@@ -1,12 +1,17 @@
 ﻿{% assign z = '' | append:  page.url %}
 {% assign x = include.item.url | append: '.html' %}
-<li>
-    <a href="{{ include.item.url }}" {% if z==x or z==include.item.url %}style="color: #e83e8c;" {% endif %}>{{ include.item.title }}</a>
+{% assign active=false %}
+{% assign indent = include.level | plus: 1 %}
+{% if z==x or z==include.item.url %}{%assign active=true %}{% endif %}
+<li class="nav-item{% if include.level == 1 %} section-title mt-1{% else %} ms-{{ indent }}{% endif %} ">
+    {% if include.level == 1 %}
+    <span class="theme-icon-holder me-2"><svg class="svg-inline--fa fa-box" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="box" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M50.7 58.5L0 160H208V32H93.7C75.5 32 58.9 42.3 50.7 58.5zM240 160H448L397.3 58.5C389.1 42.3 372.5 32 354.3 32H240V160zm208 32H0V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V192z"></path></svg><!-- <i class="fas fa-box"></i> Font Awesome fontawesome.com --></span>
+    {% endif %}
+    <a class="nav-link{% if active %} active{% endif %}" href="{{ include.item.url }}">{{ include.item.title }}</a>
     {% if include.item.subs %}
-        <ul class="sidebar">
-            {% for sub in include.item.subs %}
-                {% include sidebarlevel.html item=sub %}
-            {% endfor %}
-        </ul>
+        {% for sub in include.item.subs %}
+            {% assign next_level = include.level | plus: 1 %}
+            {% include sidebarlevel.html item=sub level=next_level %}
+        {% endfor %}
     {% endif %}
 </li>

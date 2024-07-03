@@ -1,7 +1,5 @@
 ---
-sidebar: manual
 ---
-
 # System requirements
 Officially, Microsoft only supports Windows Server 2016 and higher
 for .NET7, which this program builds and depends on. If you're stuck 

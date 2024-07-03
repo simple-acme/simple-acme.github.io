@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # User Store
 Like the built-in [certificate store](/reference/plugins/store/certificatestore) plugin, 
 this one places the certificate in the Windows Certificate Store. However, instead of 

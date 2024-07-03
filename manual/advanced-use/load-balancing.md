@@ -1,7 +1,5 @@
 ---
-sidebar: manual
 ---
-
 # Load balancing
 Some pointers on win-acme and load balancing.
 

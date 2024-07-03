@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # Order plugins
 
 Order plugins are responsible for conversion of your source into one or more actual 

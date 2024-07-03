@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # Command line arguments
 Here are all the command line arguments the program accepts.
 

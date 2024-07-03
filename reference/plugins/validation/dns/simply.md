@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # Simply 
 Create the record at [Simply](https://www.simply.com/). This requires an account name and API key.
 

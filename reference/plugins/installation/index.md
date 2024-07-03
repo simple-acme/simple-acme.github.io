@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # Installation plugins
 Installation plugins are responsible for making the necessary changes to your 
 application(s) after successfully creating or renewing a certificate. Currently 

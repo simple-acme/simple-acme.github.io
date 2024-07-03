@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # Dreamhost
 Update record at [Dreamhost](https://www.dreamhost.com/)
 

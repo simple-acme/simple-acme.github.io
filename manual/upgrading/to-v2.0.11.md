@@ -1,7 +1,5 @@
 ---
-sidebar: manual
 ---
-
 # Migration from v1.9.x to v2.0.11
 The following does not apply to you. Please just follow the steps for the 
 [v1.9.x to v2.0.x](/manual/upgrading/to-v2.0.0) migration.

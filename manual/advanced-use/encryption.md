@@ -1,7 +1,5 @@
 ---
-sidebar: manual
 ---
-
 # Encryption
 The program uses Microsoft Data Protection API to add a layer of security 
 to sensitive information that is stored in the `ConfigPath`. Encryption is

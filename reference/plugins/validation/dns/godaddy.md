@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # GoDaddy
 Update record at [GoDaddy](https://www.godaddy.com/)
 

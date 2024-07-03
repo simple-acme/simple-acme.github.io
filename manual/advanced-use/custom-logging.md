@@ -1,7 +1,5 @@
 ---
-sidebar: manual
 ---
-
 # Custom logging
 The program uses [Serilog](https://serilog.net/) for logging which is a powerful extensible library.
 

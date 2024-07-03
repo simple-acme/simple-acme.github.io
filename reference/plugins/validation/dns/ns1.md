@@ -1,8 +1,6 @@
 ---
-sidebar: reference
 ---
-
-# Domainnameshop 
+# NS1 
 Create the record at [NS1](https://ns1.com/). This requires an API key .
 
 {% include plugin-seperate.md %}

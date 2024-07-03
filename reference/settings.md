@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # Settings.json
 Some of the applications' settings can be modified in a file called `settings.json`. 
 If this file is not present when the program starts it will be automatically 

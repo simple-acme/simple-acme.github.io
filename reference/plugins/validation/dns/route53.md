@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # Route53
 Create the record in Amazon AWS [Route53](https://aws.amazon.com/route53/)
 

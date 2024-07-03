@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # Azure DNS 
 Create the record in Microsoft [Azure DNS](https://azure.microsoft.com/en-us/services/dns/).
 

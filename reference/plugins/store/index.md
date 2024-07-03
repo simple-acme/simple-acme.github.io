@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # Store plugins
 Store plugins are responsible for storing issued certificates in their permanent 
 location(s). The program will cache the certificate in a `.pfx` file in its 

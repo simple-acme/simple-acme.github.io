@@ -1,5 +1,4 @@
 ---
-sidebar: manual
 ---
 # Examples
 There are some [example scripts](https://github.com/win-acme/win-acme/tree/master/dist/Scripts) 

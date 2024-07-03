@@ -1,7 +1,5 @@
 ---
-sidebar: manual
 ---
-
 # Advanced use
 The default settings works well for the most common use case, but there are many 
 reasons to go for full options mode. For example:

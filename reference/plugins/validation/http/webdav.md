@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # WebDAV
 This plugin pushes the validation challenge to a WebDav path.
 

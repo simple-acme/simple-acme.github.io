@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # Tencent
 Create the record at [Tencent](https://www.tencent.com/). This requires an API key.
 

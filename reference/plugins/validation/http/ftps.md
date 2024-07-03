@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # FTP(S)
 This plugin uploads the validation challenge to a (secure) FTP server.
 

@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # Script
 Run an external script or program to create or update the validation records.
 

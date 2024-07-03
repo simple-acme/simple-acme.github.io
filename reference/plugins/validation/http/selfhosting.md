@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # Self-hosting
 This plugin launches a temporary built-in web listener that stores the validation 
 response in memory. It can share port 80 with IIS and other (Microsoft) software 

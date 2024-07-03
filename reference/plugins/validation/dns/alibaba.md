@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # Alibaba Cloud / Aliyun 
 Create the record at [Alibaba Cloud](https://www.alibabacloud.com/). This requires an API key.
 

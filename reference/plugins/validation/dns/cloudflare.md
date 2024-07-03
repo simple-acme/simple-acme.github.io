@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # Cloudflare 
 Create the record in [Cloudflare DNS](https://www.cloudflare.com/dns/).
 

@@ -1,7 +1,5 @@
 ---
-sidebar: manual
 ---
-
 # Renewal management
 This program is primarily used to create certificates, but the nature of ACME encourages certificates to be 
 replaced regularly. We call a sequence of certificates, created with specific settings, a **renewal**. It's the 

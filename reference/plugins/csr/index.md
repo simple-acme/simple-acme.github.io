@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # CSR plugins
 
 CSR plugins are responsible for providing certificate requests that the ACME server can sign. 

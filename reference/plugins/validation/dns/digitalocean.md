@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # DigitalOcean 
 Create the record in [DigitalOcean](https://www.digitalocean.com/).
 

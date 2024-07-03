@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # PemFiles
 Designed for [Apache](/manual/advanced-use/examples/apache), nginx and other web servers. 
 Exports a `.pem` file for the certificate and private key and places them in 

@@ -1,7 +1,5 @@
 ---
-sidebar: manual
 ---
-
 # Migration from v1.9.5+ to v1.9.9
 This version introduced the ability to store information about renewals in a file instead of 
 the registry. This has several advantages including easier replication, backups, etc.

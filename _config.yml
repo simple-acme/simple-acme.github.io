@@ -6,7 +6,21 @@ defaults:
     scope:
       path: ""
     values:
-      layout: "default"
+      layout: default
+  -
+    scope:
+      path: manual
+      type: pages
+    values:
+      layout: docs
+      sidebar: manual     
+  -
+    scope:
+      path: reference
+      type: pages
+    values:
+      layout: docs
+      sidebar: reference          
 exclude:
  - "bin"
  - "obj"

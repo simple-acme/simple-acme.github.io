@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # RSA
 Default plugin, generates 3072 bits RSA key pairs. The number of bits can be configured in 
 [settings.json](/reference/settings) but may not be less than 2048. For 

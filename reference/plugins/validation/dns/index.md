@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # DNS validation
 DNS validation works as follows:
 - For each domain, e.g. `sub.example.com`, the ACME server provides a 

@@ -1,5 +1,5 @@
-﻿<ul class="sidebar">
+﻿<ul class="section-items list-unstyled nav flex-column pb-3">
     {% for item in site.data.sitemap[page.sidebar] %}
-        {% include sidebarlevel.html item=item %}
+        {% include sidebarlevel.html item=item level=1 %}
     {% endfor %}
 </ul>

@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # Plugins
 
 Conceptually win-acme works by chaining together five components also known as plugins, which can be 

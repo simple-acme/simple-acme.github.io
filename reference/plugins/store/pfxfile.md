@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # PfxFile
 Exports a `.pfx` archive including the certificate, its private key and the chain, 
 and places it in the path provided by the `--pfxfilepath` parameter, or the 

@@ -1,8 +1,5 @@
 ---
-sidebar: manual
-layout: default
 ---
-
 # Getting started
 
 ## Installation

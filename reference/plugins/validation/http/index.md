@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # HTTP validation
 HTTP validation works as follows:
 - For each domain (e.g. `sub.example.com`), the ACME server sends a 

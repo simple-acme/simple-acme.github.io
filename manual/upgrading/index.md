@@ -1,7 +1,5 @@
 ---
-sidebar: manual
 ---
-
 # Upgrading
 When evolving win-acme, we strive for backwards compatibility and in-place upgrades. A typical upgrade can be 
 deleting everything from the program directory and extracting the new files. This can even be automated by 

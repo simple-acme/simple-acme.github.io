@@ -1,7 +1,5 @@
 ---
-sidebar: manual
 ---
-
 # Private keys
 
 ACME is all about automation and certificates are typically considered to 

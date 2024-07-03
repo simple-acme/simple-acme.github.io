@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # DigitalOcean 
 Create the record at [DNS Made Easy](https://dnsmadeeasy.com/).
 

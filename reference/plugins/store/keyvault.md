@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # Azure KeyVault 
 Store the certificate in [Azure KeyVault](https://azure.microsoft.com/en-us/services/key-vault/).
 

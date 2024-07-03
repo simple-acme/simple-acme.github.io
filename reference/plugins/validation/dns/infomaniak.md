@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # InfoManiak
 Update record at [Infomaniak](https://www.infomaniak.com/)
 

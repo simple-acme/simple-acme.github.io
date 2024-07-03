@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # Source plugins
 
 A source plugin is responsible for providing information about a (potential) certificate to the rest of the program. 

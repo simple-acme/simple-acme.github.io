@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # Windows Certificate Store
 Default plugin, saves certificates to the Windows Certificate store. Which store is used is based on the following priorities:
 

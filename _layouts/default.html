@@ -20,7 +20,12 @@
         <div class="branding docs-branding">
             <div class="container-fluid position-relative py-2">
                 <div class="docs-logo-wrapper">
-	                <div class="site-logo"><a class="navbar-brand" href="/"><img class="logo-icon me-2" src="/assets/172954279.jpeg" style="height:3rem" alt="logo">
+	                <button id="docs-sidebar-toggler" class="docs-sidebar-toggler docs-sidebar-visible me-2 d-xl-none" type="button">
+	                    <span></span>
+	                    <span></span>
+	                    <span></span>
+	                </button>
+                    <div class="site-logo"><a class="navbar-brand" href="/"><img class="logo-icon me-2" src="/assets/172954279.jpeg" style="height:3rem" alt="logo">
                         <span class="logo-text">simple<span class="text-alt">-acme</span></span></a>
                     </div>    
                 </div>
@@ -64,7 +69,7 @@
             </div>
         </div>
     </div>
-    
+    <script src="{{ 'assets/docs.js' | relative_url }}"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3HN24B5RT0"></script>
     <script>
       window.dataLayer = window.dataLayer || [];

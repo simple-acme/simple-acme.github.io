@@ -1,7 +1,5 @@
 ---
-sidebar: manual
 ---
-
 # Migration from <=1.9.4 to v1.9.5
 Version 1.9.5 and later store information in system-wide folders and registry locations by 
 default, but still support reading configuration data from user specific locations. As such 

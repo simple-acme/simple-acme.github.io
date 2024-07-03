@@ -1,7 +1,5 @@
 ---
-sidebar: manual
 ---
-
 # Secrets
 
 Some plugins require authentication information such as a password or API key

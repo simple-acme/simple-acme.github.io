@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # acme-dns
 Use an [acme-dns](https://github.com/joohoi/acme-dns) server to handle the validation records. 
 The plugin will ask you to choose an endpoint to use. For testing the `https://auth.acme-dns.io/` 

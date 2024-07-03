@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # Elliptic Curve
 Generates ECDSA keys based on the `secp384r1` curve. The curve to use can be 
 configured in [settings.json](/reference/settings) but currently only 

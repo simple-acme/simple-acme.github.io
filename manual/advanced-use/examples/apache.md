@@ -1,7 +1,5 @@
 ---
-sidebar: manual
 ---
-
 # Apache
 To get the certificate in the correct format for Apache (i.e. `.pem` files), you have to active 
 the [PemFiles plugin](/reference/plugins/store/pemfiles) for each of your renewals. 

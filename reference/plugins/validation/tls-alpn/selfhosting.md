@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # Self-hosting
 This plugin launches a temporary built-in TCP listener that stores the 
 validation details in memory. This requires exclusive access to the port,

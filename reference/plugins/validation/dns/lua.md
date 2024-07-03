@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # LuaDNS 
 Create the record in [LuaDNS](http://www.luadns.com/)
 

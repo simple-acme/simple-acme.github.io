@@ -1,7 +1,5 @@
 ---
-sidebar: manual
 ---
-
 # With downtime
 If you're willing to incur some downtime none of the following steps are required,
 you can simply install win-acme on the new machine and re-request all certificates

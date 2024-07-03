@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # IIS
 Create source based on bindings configured in IIS. 
 - Automatically updates webroot path (useful for [FileSystem validation](/reference/plugins/validation/http/filesystem))

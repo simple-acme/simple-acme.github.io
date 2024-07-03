@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # IIS
 Create or update bindings in IIS, according to the following logic:
 

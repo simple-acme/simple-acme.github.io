@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # DNSEXIT
 Create the record at [DNSExit.com](https://dnsexit.com/). This requires an API key.
 

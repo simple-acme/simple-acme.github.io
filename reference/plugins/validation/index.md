@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # Validation plugins
 
 A validation plugin is responsible for providing the ACME server with proof that you own the identifiers 

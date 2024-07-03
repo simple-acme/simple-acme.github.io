@@ -1,7 +1,5 @@
 ---
-sidebar: reference
 ---
-
 # Manual
 The client will show the record that is supposed to be created on screen and it will have 
 to be created manually by whatever means necessary. Obviously not good for unattended operation 
