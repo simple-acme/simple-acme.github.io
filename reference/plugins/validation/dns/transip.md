@@ -9,8 +9,7 @@ to roughly double either `PreValidateDnsRetryCount` and/or `PreValidateDnsRetryI
 {% include plugin-seperate.md %}
 
 ## Setup
-This requires you to activate the API in the "my account" section of the control panel and to create
-a key pair for win-acme.
+This requires you to activate the API in the "my account" section of the control panel and to create a key pair for simple-acme.
 
 ## Unattended 
 - Key inline

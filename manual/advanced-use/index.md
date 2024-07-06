@@ -53,7 +53,7 @@ for each subsequent [renewal](/manual/automatic-renewal).
 ## Unattended
 By providing the right [command line arguments](/reference/cli) at start up you can do 
 everything that is possible in interactive mode (and more) without having to jump through the menu's.
-This is great way to make win-acme part of a larger automation workflow.
+This is great way to make simple-acme part of a larger automation workflow.
 
 An easy way to get started with unattended operation is to set up some certificates manually first and then 
 use the `L` option in the renewal manager to see the equivalent command line arguments. Note that some 

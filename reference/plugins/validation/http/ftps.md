@@ -12,7 +12,7 @@ by the FluentFTP project explains the reasons behind and limitations of this met
 
 Using this requires:
    - A change in `settings.config`: `Validation.Ftp.UseGnuTls = true`
-   - The pluggable **x64** release of win-acme (it is not available for x86 or ARM due to limitiations of the upstream package, and also doesn't work on the trimmed build) 
+   - The pluggable **x64** release of simple-acme (it is not available for x86 or ARM due to limitiations of the upstream package, and also doesn't work on the trimmed build) 
    - Download and extract the additonal artifact `gnutls.v{build}.x64.zip`
 
 ## Unattended 

@@ -2,7 +2,7 @@
 ---
 # Plugins
 
-Conceptually win-acme works by chaining together five components also known as plugins, which can be 
+Conceptually simple-acme works by chaining together five components also known as plugins, which can be 
 mixed and matched to support many use cases. Using the "default settings" mode of the UI, the default 
 for each plugin will be chosen for you. These defaults can be changed in [settings.json](/reference/settings). 
 

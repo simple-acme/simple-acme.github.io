@@ -12,6 +12,9 @@ manual:
 - title: System requirements
   url: /manual/system-requirements
 
+- title: Installation
+  url: /manual/installation
+
 - title: Getting started
   url: /manual/getting-started
 

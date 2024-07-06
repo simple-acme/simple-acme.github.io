@@ -15,7 +15,7 @@ layout: home
 	[PEM files](/reference/plugins/store/pemfiles), 
 	[PFX/PKCS12 files](/reference/plugins/store/pfxfile) or
 	[Azure KeyVault](/reference/plugins/store/keyvault)
-- Send notifications on success or failure.
+- Send notifications on success and/or failure.
 
 # Compatibility
 - Free initiatives like [Let's Encrypt](https://letsencrypt.org/) and [ZeroSSL](https://zerossl.com/).
@@ -32,7 +32,7 @@ layout: home
 - Runs on x86, x64 and ARM.
 
 # Automation
-- Completely unattended operation from the command line.
+- Completely unattended operation from the [command line](/reference/cli).
 - `xcopy` installation and upgrade process.
 - Available on NuGet.org as a dotnet tool.
 - Secret management allowing central rotation of API keys (protected by Windows DPAPI). 

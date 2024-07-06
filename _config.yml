@@ -1,6 +1,6 @@
-releasename: 2.2.9.1
-releasetag: 2.2.9.1701
-releasebuild: 2.2.9.1701
+releasename: 2.3.0
+releasetag: 2.3.0.1800
+releasebuild: 2.3.0.1800
 defaults:
   -
     scope:

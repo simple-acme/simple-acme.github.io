@@ -23,7 +23,7 @@ or from the interactive menu to get new certificates with exportable keys.
 
 When renewal is not an option and you need to get the current certificate,
 you can find a `.pfx` file in the CertificatePath (which defaults to 
-`%programdata%\win-acme\$baseuri$\certificates`). You can access the passwords for 
+`%programdata%\simple-acme\$baseuri$\certificates`). You can access the passwords for 
 these cache files from the main menu (`Manage Renewals` > `Show details`) or you 
 can decrypt the configuration files (`More options` > `Decrypt`) and 
 subsequently find the passwords in the corresponding `.renewal.json` files.
@@ -33,7 +33,7 @@ If you don't want your private key to change, you can use the option
 `--reuse-privatekey` when setting up the renewal.
 
 ## Private key cache
-By default win-acme retains a copy of the private key in its certificate cache.
+By default simple-acme retains a copy of the private key in its certificate cache.
 These files are both encrypted and protected by access control lists in the 
 file system. If you disable this in [settings.json](/reference/settings) by
 setting `Cache.ReuseDays` to `0`.

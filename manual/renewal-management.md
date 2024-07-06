@@ -13,7 +13,7 @@ IIS users and the option `M` offers full options, for example for Apache, Exchan
 The command line even offers some options that the menu does not, check out the documentation 
 about [plugins](/reference/plugins/) to read all about it.
 - It's also possible to add `.json` files to the folder yourself, either manually or using some clever tooling or 
-scripting, to create a lighty coupled integration between your own management tools and win-acme.
+scripting, to create a lighty coupled integration between your own management tools and simple-acme.
 
 ## Modification
 Many users mistakenly try to modify their renewal by issuing commands like `--renew --webroot C:\NewRoot` 
@@ -30,7 +30,7 @@ fully reconfigure it, or change a single stage/plugin.
 From the command line you can modify a renewal by re-creating it. If it turns out that a newly configured 
 certificate has the same friendly name as a previously created one, then the older settings will be 
 overwritten. When this happens in interactive mode the user is asked to confirm this, but in unattended 
-mode the script or program calling win-acme is assumed to know the consequences of its actions. If you
+mode the script or program calling simple-acme is assumed to know the consequences of its actions. If you
 actually intend to create two very similar certificates, add the `--id` parameter to make them unique 
 and prevent overwrites based on the friendly name.
 
@@ -56,7 +56,7 @@ not when simply replacing or cancelling it. Revocation can be done from the main
 The effects are the same as above.
 
 ## Internals
-Renewals are stored in the `ConfigPath` which typically means `%ProgramData%\win-acme\acme-v02.api.letsencrypt.org`, 
+Renewals are stored in the `ConfigPath` which typically means `%ProgramData%\simple-acme\acme-v02.api.letsencrypt.org`, 
 though that can be changed in [settings.json](/reference/settings). Each file that fits the pattern 
 `*.renewal.json` is considered to be a renewal. 
 

@@ -2,12 +2,12 @@
 ---
 # With downtime
 If you're willing to incur some downtime none of the following steps are required,
-you can simply install win-acme on the new machine and re-request all certificates
+you can simply install simple-acme on the new machine and re-request all certificates
 after the DNS has been switched over. 
 
 In the renewal manager you can use the `L` option to generate the command line 
 options that may be helpful to recreate the certificates on the new machine. Note
-that depending on your use of win-acme this may not be foolproof. Some things which
+that depending on your use of simple-acme this may not be foolproof. Some things which
 are possible to do through the GUI and/or by manipulating `.json` files behind the
 scenes are impossible to translate to command line arguments. Also you may be missing 
 certain dependancies on the new machine, such as vault secrets, acme-dns 
@@ -20,7 +20,7 @@ To migrate to another machine without downtime, you may follow these steps.
 - [Decrypt](/manual/advanced-use/encryption) the configuration files. 
 - Review [settings.json](/reference/settings) to check if all paths and services 
 configured there are available on/from the new machine.
-- Review firewalls and other security settings to make sure than win-acme will be able 
+- Review firewalls and other security settings to make sure than simple-acme will be able 
 to access all the resources it might need for validation (e.g. FTP services, 
 Azure Managed Resource Identity, etc.).
 
@@ -32,7 +32,7 @@ take into account.
 
 ## Move configuration 
 Move the configuration files to the new machine. They are stored in the `ConfigPath` 
-(typically `%ProgramData%\win-acme\acme-v02.api.letsencrypt.org`, though 
+(typically `%ProgramData%\simple-acme\acme-v02.api.letsencrypt.org`, though 
 that can be customized in [settings.json](/reference/settings)). Move these files 
 to new other machine. 
 

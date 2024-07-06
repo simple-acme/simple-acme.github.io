@@ -5,7 +5,7 @@ Like the built-in [certificate store](/reference/plugins/store/certificatestore)
 this one places the certificate in the Windows Certificate Store. However, instead of 
 using the `LocalSystem` location, it employes the `CurrentUser` location. 
 
-This means the certificate will only be available to whichever user is running the win-acme 
+This means the certificate will only be available to whichever user is running the simple-acme 
 executable. The advantage of this is that you don't need administrator rights to be able to 
 use this plugin, as is required for the built-in one.
 

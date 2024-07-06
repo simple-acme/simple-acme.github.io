@@ -204,7 +204,7 @@ will fail. Instead you need to type `--key "\"-foo\""`.
    --scriptparameters
      Parameters for the script to run after retrieving the
      certificate. Refer to
-     https://win-acme.com/reference/plugins/installation/script
+     https://simple-acme.com/reference/plugins/installation/script
      for further instructions.
 
 ```

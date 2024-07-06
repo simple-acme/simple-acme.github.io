@@ -21,7 +21,7 @@ The following variables can be provided from the program to the script as comman
 | `{OldCertCommonName}`        |  Common name (primary domain name) of the previously issued certificate |
 | `{OldCertFriendlyName}`        |  Friendly name of the previously issued certificate |
 | `{OldCertThumbprint}`        |  Thumbprint of the previously issued certificate |
-| `{vault://json/mysecret}`        |  Secret from the [vault](https://www.win-acme.com/manual/advanced-use/secret-management) |
+| `{vault://json/mysecret}`        |  Secret from the [vault](https://www.simple-acme.com/manual/advanced-use/secret-management) |
 
 *) Will be empty if cache is disabled 
 

@@ -6,7 +6,7 @@ Run an external script or program to create or update the validation records.
 ## Create
 A script to create the DNS record must be provided. The arguments passed to the 
 script will be `create {Identifier} {RecordName} {Token}` by default, where the
-following replacements are made by win-acme:
+following replacements are made by simple-acme:
 
 | Value          |  Replaced with |
 |----------------|----------------|
@@ -15,7 +15,7 @@ following replacements are made by win-acme:
 | `{ZoneName}`   | registerable domain, e.g. `example.com`														|
 | `{NodeName}`   | registerable domain, e.g. `_acme-challenge.sub`												|
 | `{Token}`      | content of the TXT record, e.g. `DGyRejmCefe7v4NfDGDKfA`										|     
-| `{vault://json/mysecret}`        |  Secret from the [vault](https://www.win-acme.com/manual/advanced-use/secret-management)|
+| `{vault://json/mysecret}`        |  Secret from the [vault](https://www.simple-acme.com/manual/advanced-use/secret-management)|
 
 The order and format of arguments may be customized by providing a diffent argument string. 
 For example if your script needs arguments like:
@@ -47,7 +47,7 @@ effect when `DisableParallelism` is set to `false` in `settings.config`. You may
 ## Resources
 A lot of good reference scripts are available from the 
 [POSH-ACME](https://github.com/rmbolger/Posh-ACME/tree/master/Posh-ACME/DnsPlugins)
-project. Note that these scripts are **not compatible** with win-acme. You will have
+project. Note that these scripts are **not compatible** with simple-acme. You will have
 to make changes (e.g. in terms of accepted parameter and such) in order to use them.
 
 ## Unattended

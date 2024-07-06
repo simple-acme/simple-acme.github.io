@@ -22,6 +22,7 @@ window.onresize=function()
 
 
 function responsiveSidebar() {
+	if (!sidebar) { return; }
     let w = window.innerWidth;
 	if(w >= 1200) {
 	    // if larger 

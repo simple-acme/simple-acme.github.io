@@ -10,7 +10,7 @@ settings.
 ## Client
 
 ### `ClientName`
-Default: `"win-acme"`
+Default: `"simple-acme"`
 
 The name of the client, which comes back in the scheduled task and the 
 `ConfigurationPath`.
@@ -427,7 +427,7 @@ Default: `true`
 
 If your goal is to get a certificate for `example.com` using DNS validation, 
 but the DNS provider for that domain does not support automation and/or your 
-security policy doesn't allow third party tools like win-acme to access the 
+security policy doesn't allow third party tools like simple-acme to access the 
 DNS configuration, then you can set up a CNAME from `_acme-challenge.example.com` 
 to another (sub)domain under your control that doesn't have these limitations. 
 [acme-dns](/reference/plugins/validation/dns/acme-dns) is based on this principle, 
