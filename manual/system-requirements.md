@@ -15,14 +15,16 @@ they are not supported anymore.
 - .NET5 (should work on Windows 2008): version [2.1.20](https://github.com/win-acme/win-acme/releases/tag/v2.1.20])
 - .NET4 (backup if above fails to run): version [2.0.12.1](https://github.com/win-acme/win-acme/releases/tag/v2.0.11.705)
 
-# Common startup problems
+## Startup problems
+If simple-acme fails to start, you can try the following:
 - You may need to install [Microsoft Visual C++ 2015 Redistributable Update 3](https://www.microsoft.com/download/details.aspx?id=52685)
 - If you run into an error about `api-ms-win-crt-runtime-l1-1-0.dll` you may need [KB2999226](https://support.microsoft.com/help/2999226/update-for-universal-c-runtime-in-windows).
 - If you run into an error about `hostfxr.dll` you may need [KB2533623](https://support.microsoft.com/help/2533623/microsoft-security-advisory-insecure-library-loading-could-allow-remot).
-- If you run into an error like `Failure processing application bundle.`, perhaps [this thread](https://github.com/win-acme/win-acme/issues/1632) might provide a solution.
+- If you run into an error like `Failure processing application bundle`, perhaps [this thread](https://github.com/win-acme/win-acme/issues/1632) might provide a solution.
 - If the program doesn't seem to start but an error like `Microsoft.Windows.Apprep.ChxApp_cw5n1h2txyewy:App.AppXc99k5qnnsvxj5szemm7fp3g7y08we5vm.mca` appears in the Event Viewer [this thread](https://github.com/win-acme/win-acme/issues/1491) might provide a solution. 
 
 ## Microsoft IIS
+Not all features of this program can work on older versions of IIS.
 
 ### Server Name Indication
 Server Name Indication (SNI) is supported from IIS 8.0 (Windows Server 2012) and above. This feature allows you to have multiple HTTPS certificates on the same IP address. Without it, you can only configure a single certificate per IP address. 
