@@ -1,5 +1,8 @@
 ---
+layout: docs
+sidebar: main
 ---
+
 # Community support
 If you run into trouble please open an issue [here](https://github.com/simple-acme/simple-acme/issues).
 Please check to see if your issue is covered in the [manual](/manual/) before you create a 

@@ -7,7 +7,8 @@ layout: default
     <div class="theme-bg-shapes-left"></div>
     <div class="container">
         <h3 class="mb-2 text-white mb-3">simple-acme</h3>
-        <div class="section-intro text-white mb-3 single-col-max mx-auto">A swiss army knife for ACME certificate management.<br>Easy to get started, surprisingly versatile.</div>
+        <div class="section-intro text-white mb-3 single-col-max mx-auto">A swiss army knife for ACME certificate
+            management.<br>Easy to get started, surprisingly versatile.</div>
     </div>
 </section>
 
@@ -15,40 +16,33 @@ layout: default
     <div class="container">
         <div class="docs-overview pt-3">
             <div class="row justify-content-center">
-                <div class="callout-block callout-block-info pb-3">
-                    <div class="content">
-                        <h4 class="callout-title">
-                            <span class="callout-icon-holder me-1">
-                                <svg class="svg-inline--fa fa-circle-info" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-info" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"></path></svg><!-- <i class="fas fa-info-circle"></i> Font Awesome fontawesome.com -->
-                            </span>
-                            win-acme user?
-                        </h4>
-                        <p>simple-acme is a backwards compatible, drop-in replacement built by the same team. Find out why here.</p>
+                <div class="col-lg-6 col-12 py-3">
+                    {{ content }}
+                </div>
+                <div class="col-lg-6 col-12 py-3">
+                    <div class="justify-content-center">
+                        <img src="/assets/screenshot.png" class="img-fluid" alt="screenshot">
                     </div>
                 </div>
             </div>
         </div>
-        <div class="docs-overview pt-3">
-            <div class="row justify-content-center single-col-max">
-                {{ content }}
-            </div>
-        </div>   
-        <div class="docs-overview pt-3">
-            <div class="justify-content-center">
-                <img src="/assets/screenshot.png" class="img-fluid" alt="screenshot">
-            </div>
-        </div>       
     </div>
 </div>
 <div class="container">
-    <div class="docs-overview py-5">
+    <div class="docs-overview">
         <div class="row justify-content-center">
             <div class="col-12 col-lg-4 py-3">
                 <div class="card shadow-sm">
                     <div class="card-body">
                         <h5 class="card-title mb-3">
                             <span class="theme-icon-holder card-icon-holder me-2">
-                                <svg class="svg-inline--fa fa-signs-post" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="signs-post" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M224 32H64C46.3 32 32 46.3 32 64v64c0 17.7 14.3 32 32 32H441.4c4.2 0 8.3-1.7 11.3-4.7l48-48c6.2-6.2 6.2-16.4 0-22.6l-48-48c-3-3-7.1-4.7-11.3-4.7H288c0-17.7-14.3-32-32-32s-32 14.3-32 32zM480 256c0-17.7-14.3-32-32-32H288V192H224v32H70.6c-4.2 0-8.3 1.7-11.3 4.7l-48 48c-6.2 6.2-6.2 16.4 0 22.6l48 48c3 3 7.1 4.7 11.3 4.7H448c17.7 0 32-14.3 32-32V256zM288 480V384H224v96c0 17.7 14.3 32 32 32s32-14.3 32-32z"></path></svg><!-- <i class="fas fa-map-signs"></i> Font Awesome fontawesome.com -->
+                                <svg class="svg-inline--fa fa-signs-post" aria-hidden="true" focusable="false"
+                                    data-prefix="fas" data-icon="signs-post" role="img"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+                                    <path fill="currentColor"
+                                        d="M224 32H64C46.3 32 32 46.3 32 64v64c0 17.7 14.3 32 32 32H441.4c4.2 0 8.3-1.7 11.3-4.7l48-48c6.2-6.2 6.2-16.4 0-22.6l-48-48c-3-3-7.1-4.7-11.3-4.7H288c0-17.7-14.3-32-32-32s-32 14.3-32 32zM480 256c0-17.7-14.3-32-32-32H288V192H224v32H70.6c-4.2 0-8.3 1.7-11.3 4.7l-48 48c-6.2 6.2-6.2 16.4 0 22.6l48 48c3 3 7.1 4.7 11.3 4.7H448c17.7 0 32-14.3 32-32V256zM288 480V384H224v96c0 17.7 14.3 32 32 32s32-14.3 32-32z">
+                                    </path>
+                                </svg><!-- <i class="fas fa-map-signs"></i> Font Awesome fontawesome.com -->
                             </span>
                             <span class="card-title-text">Getting started</span>
                         </h5>
@@ -64,14 +58,20 @@ layout: default
                     <div class="card-body">
                         <h5 class="card-title mb-3">
                             <span class="theme-icon-holder card-icon-holder me-2">
-                                <svg class="svg-inline--fa fa-arrow-down" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"></path></svg><!-- <i class="fas fa-arrow-down"></i> Font Awesome fontawesome.com -->
+                                <svg class="svg-inline--fa fa-arrow-down" aria-hidden="true" focusable="false"
+                                    data-prefix="fas" data-icon="arrow-down" role="img"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg="">
+                                    <path fill="currentColor"
+                                        d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z">
+                                    </path>
+                                </svg><!-- <i class="fas fa-arrow-down"></i> Font Awesome fontawesome.com -->
                             </span>
                             <span class="card-title-text">Download</span>
                         </h5>
                         <div class="card-text">
                             Downloads for various operating systems and platforms.
                         </div>
-                        <a class="card-link-mask" href="docs-page.html#section-2"></a>
+                        <a class="card-link-mask" href="/download"></a>
                     </div>
                 </div>
             </div>
@@ -80,12 +80,18 @@ layout: default
                     <div class="card-body">
                         <h5 class="card-title mb-3">
                             <span class="theme-icon-holder card-icon-holder me-2">
-                                <svg class="svg-inline--fa fa-book-open-reader" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="book-open-reader" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M160 96a96 96 0 1 1 192 0A96 96 0 1 1 160 96zm80 152V512l-48.4-24.2c-20.9-10.4-43.5-17-66.8-19.3l-96-9.6C12.5 457.2 0 443.5 0 427V224c0-17.7 14.3-32 32-32H62.3c63.6 0 125.6 19.6 177.7 56zm32 264V248c52.1-36.4 114.1-56 177.7-56H480c17.7 0 32 14.3 32 32V427c0 16.4-12.5 30.2-28.8 31.8l-96 9.6c-23.2 2.3-45.9 8.9-66.8 19.3L272 512z"></path></svg>
+                                <svg class="svg-inline--fa fa-book-open-reader" aria-hidden="true" focusable="false"
+                                    data-prefix="fas" data-icon="book-open-reader" role="img"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+                                    <path fill="currentColor"
+                                        d="M160 96a96 96 0 1 1 192 0A96 96 0 1 1 160 96zm80 152V512l-48.4-24.2c-20.9-10.4-43.5-17-66.8-19.3l-96-9.6C12.5 457.2 0 443.5 0 427V224c0-17.7 14.3-32 32-32H62.3c63.6 0 125.6 19.6 177.7 56zm32 264V248c52.1-36.4 114.1-56 177.7-56H480c17.7 0 32 14.3 32 32V427c0 16.4-12.5 30.2-28.8 31.8l-96 9.6c-23.2 2.3-45.9 8.9-66.8 19.3L272 512z">
+                                    </path>
+                                </svg>
                             </span>
                             <span class="card-title-text">Manual</span>
                         </h5>
                         <div class="card-text">
-                            How to get the most out of the tool.						    
+                            How to get the most out of the tool.
                         </div>
                         <a class="card-link-mask" href="docs-page.html#section-3"></a>
                     </div><!--//card-body-->
@@ -96,12 +102,19 @@ layout: default
                     <div class="card-body">
                         <h5 class="card-title mb-3">
                             <span class="theme-icon-holder card-icon-holder me-2">
-                                <svg class="svg-inline--fa fa-gears fa-fw" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="gears" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" data-fa-i2svg=""><path fill="currentColor" d="M308.5 135.3c7.1-6.3 9.9-16.2 6.2-25c-2.3-5.3-4.8-10.5-7.6-15.5L304 89.4c-3-5-6.3-9.9-9.8-14.6c-5.7-7.6-15.7-10.1-24.7-7.1l-28.2 9.3c-10.7-8.8-23-16-36.2-20.9L199 27.1c-1.9-9.3-9.1-16.7-18.5-17.8C173.9 8.4 167.2 8 160.4 8h-.7c-6.8 0-13.5 .4-20.1 1.2c-9.4 1.1-16.6 8.6-18.5 17.8L115 56.1c-13.3 5-25.5 12.1-36.2 20.9L50.5 67.8c-9-3-19-.5-24.7 7.1c-3.5 4.7-6.8 9.6-9.9 14.6l-3 5.3c-2.8 5-5.3 10.2-7.6 15.6c-3.7 8.7-.9 18.6 6.2 25l22.2 19.8C32.6 161.9 32 168.9 32 176s.6 14.1 1.7 20.9L11.5 216.7c-7.1 6.3-9.9 16.2-6.2 25c2.3 5.3 4.8 10.5 7.6 15.6l3 5.2c3 5.1 6.3 9.9 9.9 14.6c5.7 7.6 15.7 10.1 24.7 7.1l28.2-9.3c10.7 8.8 23 16 36.2 20.9l6.1 29.1c1.9 9.3 9.1 16.7 18.5 17.8c6.7 .8 13.5 1.2 20.4 1.2s13.7-.4 20.4-1.2c9.4-1.1 16.6-8.6 18.5-17.8l6.1-29.1c13.3-5 25.5-12.1 36.2-20.9l28.2 9.3c9 3 19 .5 24.7-7.1c3.5-4.7 6.8-9.5 9.8-14.6l3.1-5.4c2.8-5 5.3-10.2 7.6-15.5c3.7-8.7 .9-18.6-6.2-25l-22.2-19.8c1.1-6.8 1.7-13.8 1.7-20.9s-.6-14.1-1.7-20.9l22.2-19.8zM112 176a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zM504.7 500.5c6.3 7.1 16.2 9.9 25 6.2c5.3-2.3 10.5-4.8 15.5-7.6l5.4-3.1c5-3 9.9-6.3 14.6-9.8c7.6-5.7 10.1-15.7 7.1-24.7l-9.3-28.2c8.8-10.7 16-23 20.9-36.2l29.1-6.1c9.3-1.9 16.7-9.1 17.8-18.5c.8-6.7 1.2-13.5 1.2-20.4s-.4-13.7-1.2-20.4c-1.1-9.4-8.6-16.6-17.8-18.5L583.9 307c-5-13.3-12.1-25.5-20.9-36.2l9.3-28.2c3-9 .5-19-7.1-24.7c-4.7-3.5-9.6-6.8-14.6-9.9l-5.3-3c-5-2.8-10.2-5.3-15.6-7.6c-8.7-3.7-18.6-.9-25 6.2l-19.8 22.2c-6.8-1.1-13.8-1.7-20.9-1.7s-14.1 .6-20.9 1.7l-19.8-22.2c-6.3-7.1-16.2-9.9-25-6.2c-5.3 2.3-10.5 4.8-15.6 7.6l-5.2 3c-5.1 3-9.9 6.3-14.6 9.9c-7.6 5.7-10.1 15.7-7.1 24.7l9.3 28.2c-8.8 10.7-16 23-20.9 36.2L315.1 313c-9.3 1.9-16.7 9.1-17.8 18.5c-.8 6.7-1.2 13.5-1.2 20.4s.4 13.7 1.2 20.4c1.1 9.4 8.6 16.6 17.8 18.5l29.1 6.1c5 13.3 12.1 25.5 20.9 36.2l-9.3 28.2c-3 9-.5 19 7.1 24.7c4.7 3.5 9.5 6.8 14.6 9.8l5.4 3.1c5 2.8 10.2 5.3 15.5 7.6c8.7 3.7 18.6 .9 25-6.2l19.8-22.2c6.8 1.1 13.8 1.7 20.9 1.7s14.1-.6 20.9-1.7l19.8 22.2zM464 304a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"></path></svg><!-- <i class="fas fa-cogs fa-fw"></i> Font Awesome fontawesome.com -->
+                                <svg class="svg-inline--fa fa-gears fa-fw" aria-hidden="true" focusable="false"
+                                    data-prefix="fas" data-icon="gears" role="img" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 640 512" data-fa-i2svg="">
+                                    <path fill="currentColor"
+                                        d="M308.5 135.3c7.1-6.3 9.9-16.2 6.2-25c-2.3-5.3-4.8-10.5-7.6-15.5L304 89.4c-3-5-6.3-9.9-9.8-14.6c-5.7-7.6-15.7-10.1-24.7-7.1l-28.2 9.3c-10.7-8.8-23-16-36.2-20.9L199 27.1c-1.9-9.3-9.1-16.7-18.5-17.8C173.9 8.4 167.2 8 160.4 8h-.7c-6.8 0-13.5 .4-20.1 1.2c-9.4 1.1-16.6 8.6-18.5 17.8L115 56.1c-13.3 5-25.5 12.1-36.2 20.9L50.5 67.8c-9-3-19-.5-24.7 7.1c-3.5 4.7-6.8 9.6-9.9 14.6l-3 5.3c-2.8 5-5.3 10.2-7.6 15.6c-3.7 8.7-.9 18.6 6.2 25l22.2 19.8C32.6 161.9 32 168.9 32 176s.6 14.1 1.7 20.9L11.5 216.7c-7.1 6.3-9.9 16.2-6.2 25c2.3 5.3 4.8 10.5 7.6 15.6l3 5.2c3 5.1 6.3 9.9 9.9 14.6c5.7 7.6 15.7 10.1 24.7 7.1l28.2-9.3c10.7 8.8 23 16 36.2 20.9l6.1 29.1c1.9 9.3 9.1 16.7 18.5 17.8c6.7 .8 13.5 1.2 20.4 1.2s13.7-.4 20.4-1.2c9.4-1.1 16.6-8.6 18.5-17.8l6.1-29.1c13.3-5 25.5-12.1 36.2-20.9l28.2 9.3c9 3 19 .5 24.7-7.1c3.5-4.7 6.8-9.5 9.8-14.6l3.1-5.4c2.8-5 5.3-10.2 7.6-15.5c3.7-8.7 .9-18.6-6.2-25l-22.2-19.8c1.1-6.8 1.7-13.8 1.7-20.9s-.6-14.1-1.7-20.9l22.2-19.8zM112 176a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zM504.7 500.5c6.3 7.1 16.2 9.9 25 6.2c5.3-2.3 10.5-4.8 15.5-7.6l5.4-3.1c5-3 9.9-6.3 14.6-9.8c7.6-5.7 10.1-15.7 7.1-24.7l-9.3-28.2c8.8-10.7 16-23 20.9-36.2l29.1-6.1c9.3-1.9 16.7-9.1 17.8-18.5c.8-6.7 1.2-13.5 1.2-20.4s-.4-13.7-1.2-20.4c-1.1-9.4-8.6-16.6-17.8-18.5L583.9 307c-5-13.3-12.1-25.5-20.9-36.2l9.3-28.2c3-9 .5-19-7.1-24.7c-4.7-3.5-9.6-6.8-14.6-9.9l-5.3-3c-5-2.8-10.2-5.3-15.6-7.6c-8.7-3.7-18.6-.9-25 6.2l-19.8 22.2c-6.8-1.1-13.8-1.7-20.9-1.7s-14.1 .6-20.9 1.7l-19.8-22.2c-6.3-7.1-16.2-9.9-25-6.2c-5.3 2.3-10.5 4.8-15.6 7.6l-5.2 3c-5.1 3-9.9 6.3-14.6 9.9c-7.6 5.7-10.1 15.7-7.1 24.7l9.3 28.2c-8.8 10.7-16 23-20.9 36.2L315.1 313c-9.3 1.9-16.7 9.1-17.8 18.5c-.8 6.7-1.2 13.5-1.2 20.4s.4 13.7 1.2 20.4c1.1 9.4 8.6 16.6 17.8 18.5l29.1 6.1c5 13.3 12.1 25.5 20.9 36.2l-9.3 28.2c-3 9-.5 19 7.1 24.7c4.7 3.5 9.5 6.8 14.6 9.8l5.4 3.1c5 2.8 10.2 5.3 15.5 7.6c8.7 3.7 18.6 .9 25-6.2l19.8-22.2c6.8 1.1 13.8 1.7 20.9 1.7s14.1-.6 20.9-1.7l19.8 22.2zM464 304a48 48 0 1 1 0 96 48 48 0 1 1 0-96z">
+                                    </path>
+                                </svg><!-- <i class="fas fa-cogs fa-fw"></i> Font Awesome fontawesome.com -->
                             </span><!--//card-icon-holder-->
                             <span class="card-title-text">Reference</span>
                         </h5>
                         <div class="card-text">
-                            All command line switches and options available in <code class="language-plaintext highlighter-rouge">settings.json</code>.						    
+                            All command line switches and options available in <code
+                                class="language-plaintext highlighter-rouge">settings.json</code>.
                         </div>
                         <a class="card-link-mask" href="docs-page.html#section-4"></a>
                     </div><!--//card-body-->
@@ -112,12 +125,18 @@ layout: default
                     <div class="card-body">
                         <h5 class="card-title mb-3">
                             <span class="theme-icon-holder card-icon-holder me-2">
-                                <svg class="svg-inline--fa fa-lightbulb" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="lightbulb" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2l0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4l0 0c19.8 27.1 39.7 54.4 49.2 86.2H272zM192 512c44.2 0 80-35.8 80-80V416H112v16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"></path></svg>
+                                <svg class="svg-inline--fa fa-lightbulb" aria-hidden="true" focusable="false"
+                                    data-prefix="fas" data-icon="lightbulb" role="img"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg="">
+                                    <path fill="currentColor"
+                                        d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2l0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4l0 0c19.8 27.1 39.7 54.4 49.2 86.2H272zM192 512c44.2 0 80-35.8 80-80V416H112v16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z">
+                                    </path>
+                                </svg>
                             </span><!--//card-icon-holder-->
                             <span class="card-title-text">Support</span>
                         </h5>
                         <div class="card-text">
-                            Where to go when something's not working the way it's supposed to.						    
+                            Where to go when something's not working the way it's supposed to.
                         </div>
                         <a class="card-link-mask" href="docs-page.html#section-5"></a>
                     </div><!--//card-body-->
@@ -128,12 +147,18 @@ layout: default
                     <div class="card-body">
                         <h5 class="card-title mb-3">
                             <span class="theme-icon-holder card-icon-holder me-2">
-                                <svg class="svg-inline--fa fa-box fa-fw" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="box" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M50.7 58.5L0 160H208V32H93.7C75.5 32 58.9 42.3 50.7 58.5zM240 160H448L397.3 58.5C389.1 42.3 372.5 32 354.3 32H240V160zm208 32H0V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V192z"></path></svg>
+                                <svg class="svg-inline--fa fa-box fa-fw" aria-hidden="true" focusable="false"
+                                    data-prefix="fas" data-icon="box" role="img" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 448 512" data-fa-i2svg="">
+                                    <path fill="currentColor"
+                                        d="M50.7 58.5L0 160H208V32H93.7C75.5 32 58.9 42.3 50.7 58.5zM240 160H448L397.3 58.5C389.1 42.3 372.5 32 354.3 32H240V160zm208 32H0V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V192z">
+                                    </path>
+                                </svg>
                             </span><!--//card-icon-holder-->
                             <span class="card-title-text">Plugins</span>
                         </h5>
                         <div class="card-text">
-                            Which kinds of plugins exists, how to get them and how to build them.						    
+                            Which kinds of plugins exists, how to get them and how to build them.
                         </div>
                         <a class="card-link-mask" href="docs-page.html#section-6"></a>
                     </div><!--//card-body-->
@@ -143,13 +168,65 @@ layout: default
     </div><!--//container-->
 </div>
 
+<div class="page-content">
+    <div class="container">
+        <div class="docs-overview pt-3">
+            <div class="row justify-content-center single-col-max">
+
+                <h1 id="compatibility">Compatibility</h1>
+                <ul>
+                    <li>Free initiatives like <a href="https://letsencrypt.org/">Let’s Encrypt</a> and <a
+                            href="https://zerossl.com/">ZeroSSL</a>.</li>
+                    <li>Commercial providers like <a href="https://www.digicert.com/">DigiCert</a>, <a
+                            href="https://sectigo.com/">Sectigo</a> and <a href="https://www.buypass.com/">Buypass</a>.
+                    </li>
+                    <li>Private servers like <a href="https://smallstep.com/product/">Smallstep</a> and <a
+                            href="https://www.keyfactor.com/">Keyfactor</a>.</li>
+                    <li>Implements ACMEv2 (<a href="https://datatracker.ietf.org/doc/html/rfc8555">RFC8555</a>).</li>
+                    <li>Implements <a href="https://datatracker.ietf.org/doc/draft-ietf-acme-ari/">ARI draft-4</a> for
+                        early renewal on server compromise.</li>
+                    <li>Implements dynamic DNS updates (<a href="https://www.rfc-editor.org/rfc/rfc2136">RFC2136</a>).
+                    </li>
+                    <li>Supports DANE (<a href="https://datatracker.ietf.org/doc/html/rfc6698">RFC6698</a>) through <a
+                            href="/reference/plugins/csr/rsa">re-use</a> of keys.</li>
+                    <li>Implements TLS-ALPN-01 validation (<a
+                            href="https://datatracker.ietf.org/doc/html/rfc8737">RFC8737</a>).</li>
+                    <li>Supports <a href="/reference/plugins/csr/rsa">OCSP Must Staple</a> extension (<a
+                            href="https://datatracker.ietf.org/doc/html/rfc7633">RFC7633</a>).</li>
+                    <li>Support alternate chain selection.</li>
+                    <li>Runs on Windows 2012+ and Linux (beta).</li>
+                    <li>Runs on x86, x64 and ARM.</li>
+                </ul>
+
+                <h1 id="automation">Automation</h1>
+                <ul>
+                    <li>Completely unattended operation from the <a href="/reference/cli">command line</a>.</li>
+                    <li><code class="language-plaintext highlighter-rouge">xcopy</code> installation and upgrade
+                        process.</li>
+                    <li>Available on NuGet.org as a dotnet tool.</li>
+                    <li>Secret management allowing central rotation of API keys (protected by Windows DPAPI).</li>
+                    <li>Manipulate <code class="language-plaintext highlighter-rouge">.renewal.json</code> files to
+                        manage renewals outside of the tool.</li>
+                    <li>Write your own Powershell <code class="language-plaintext highlighter-rouge">.ps1</code> scripts
+                        to handle installation and validation.</li>
+                    <li>Build your own plugins with C#.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
 <section class="cta-section text-center py-5 theme-bg-dark position-relative">
     <div class="theme-bg-shapes-right"></div>
     <div class="theme-bg-shapes-left"></div>
     <div class="container">
         <h3 class="mb-2 text-white mb-3">Sponsors</h3>
-        <div class="section-intro text-white mb-3 single-col-max mx-auto">Without the following kind individuals and organisations donating, simple-acme would not be possible. Interested in sponsoring the project? Check out <a class="text-white fw-bold" href="https://github.com/sponsors/WouterTinus">GitHub Sponsors</a> or <a class="text-white fw-bold" href="https://www.patreon.com/woutertinus">Patreon</a>.</div>
-        <div class="section-intro text-white mb-3 single-col-max mx-auto">Leaving a ★ on the <a class="text-white" href="https://github.com/simple-acme/simple-acme">repository</a> is also appreciated!</div>
+        <div class="section-intro text-white mb-3 single-col-max mx-auto">Without the following kind individuals and
+            organisations donating, simple-acme would not be possible. Interested in sponsoring the project? Check out
+            <a class="text-white fw-bold" href="https://github.com/sponsors/WouterTinus">GitHub Sponsors</a> or <a
+                class="text-white fw-bold" href="https://www.patreon.com/woutertinus">Patreon</a>.</div>
+        <div class="section-intro text-white mb-3 single-col-max mx-auto">Leaving a ★ on the <a class="text-white"
+                href="https://github.com/simple-acme/simple-acme">repository</a> is also appreciated!</div>
     </div>
 </section>
 
@@ -158,14 +235,53 @@ layout: default
         <div class="row  justify-content-center">
             <div class="table-responsive">
                 <table class="table table-striped">
-                    <tr><td><img src="https://user-images.githubusercontent.com/11052380/74772623-a7128b00-5290-11ea-958d-10420c770b30.png" alt="eGov Strategies" width="150px"/></td><td><a href="https://www.egovstrategies.com/">eGov Strategies</a></td></tr>
-                    <tr><td><img src="https://user-images.githubusercontent.com/11052380/72933908-fb465000-3d62-11ea-9b97-57b8a29fd783.png" alt="Insurance Technology Services" width="150px" /></td><td><a href="https://insurancetechnologyservices.com/">Insurance Technology Services</a></td></tr>
-                    <tr><td><img src="https://user-images.githubusercontent.com/11052380/134726179-9aa771a6-37df-44c4-85e7-ddcb2f6669b6.png" alt="Enzure" width="150px" /></td><td><a href="https://enzure.se/">Enzure</a></td></tr>    
-                    <tr><td></td><td><a href="https://www.e-shop.co.il/">e-shop LTD</a></td></tr>    
-                    <tr><td><td>The Proof Group @proofgroup</td></tr>    
-                    <tr><td><td><a href="https://www.imagenia.fr/">imagenia.fr</a></td></tr>    
+                    <tr>
+                        <td><img src="https://user-images.githubusercontent.com/11052380/74772623-a7128b00-5290-11ea-958d-10420c770b30.png"
+                                alt="eGov Strategies" width="150px" /></td>
+                        <td><a href="https://www.egovstrategies.com/">eGov Strategies</a></td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://user-images.githubusercontent.com/11052380/72933908-fb465000-3d62-11ea-9b97-57b8a29fd783.png"
+                                alt="Insurance Technology Services" width="150px" /></td>
+                        <td><a href="https://insurancetechnologyservices.com/">Insurance Technology Services</a></td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://user-images.githubusercontent.com/11052380/134726179-9aa771a6-37df-44c4-85e7-ddcb2f6669b6.png"
+                                alt="Enzure" width="150px" /></td>
+                        <td><a href="https://enzure.se/">Enzure</a></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><a href="https://www.e-shop.co.il/">e-shop LTD</a></td>
+                    </tr>
+                    <tr>
+                        <td>
+                        <td>The Proof Group @proofgroup</td>
+                    </tr>
+                    <tr>
+                        <td>
+                        <td><a href="https://www.imagenia.fr/">imagenia.fr</a></td>
+                    </tr>
                 </table>
             </div>
         </div>
-    </div>  
+    </div>
+</div>
+
+<div class="container">
+    <div class="docs-overview">
+        <div class="row justify-content-center">
+            <div class="callout-block callout-block-info pb-3">
+                <div class="content">
+                    <h4 class="callout-title">
+                        <span class="callout-icon-holder me-1">
+                            <svg class="svg-inline--fa fa-circle-info" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-info" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"></path></svg><!-- <i class="fas fa-info-circle"></i> Font Awesome fontawesome.com -->
+                        </span>
+                        Looking for win-acme?
+                    </h4>
+                    <p>simple-acme is a backwards compatible, drop-in replacement built by the same team. Find out why here.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

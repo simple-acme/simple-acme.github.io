@@ -6,7 +6,8 @@ defaults:
     scope:
       path: ""
     values:
-      layout: default
+      layout: docs
+      sidebar: main
   -
     scope:
       path: manual

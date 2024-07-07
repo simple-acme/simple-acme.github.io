@@ -1,6 +1,8 @@
 ﻿main:
 - title: Home
   url: /
+- title: Download
+  url: /download  
 - title: Manual
   url: /manual/getting-started
 - title: Reference
