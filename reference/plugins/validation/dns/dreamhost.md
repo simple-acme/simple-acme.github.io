@@ -1,7 +1,7 @@
 ---
 ---
-# Dreamhost
-Update record at [Dreamhost](https://www.dreamhost.com/)
+# DreamHost
+Update record at [DreamHost](https://www.dreamhost.com/)
 
 {% include plugin-seperate.md %}
 

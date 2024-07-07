@@ -1,7 +1,7 @@
 ---
 ---
-# Simply 
-Create the record at [Simply](https://www.simply.com/). This requires an account name and API key.
+# Simply.com
+Create the record at [Simply.com](https://www.simply.com/). This requires an account name and API key.
 
 {% include plugin-seperate.md %}
 

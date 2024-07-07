@@ -38,8 +38,9 @@
                             Download
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="https://github.com/simple-acme/simple-acme/releases/download/v{{ site.releasetag }}/simple-acme.v{{ site.releasebuild }}.x64.pluggable.zip">Version {{ site.releasename }} (win-x64)</a></li>
-                            <li><a class="dropdown-item" href="/download">Other downloads</a></li>
+                            <li><a class="dropdown-item" href="https://github.com/simple-acme/simple-acme/releases/download/v{{ site.releasetag }}/simple-acme.v{{ site.releasebuild }}.win-x64.pluggable.zip"><strong>Version {{ site.releasename }}</strong> (Windows, x64)</a></li>
+                            <li><a class="dropdown-item" href="/download">Other platforms</a></li>
+                            <li><a class="dropdown-item" href="/download#plugins">Plugins</a></li>
                             <li><a class="dropdown-item" href="https://github.com/simple-acme/simple-acme/releases/">Release notes</a></li>
                             <li><a class="dropdown-item" href="https://github.com/simple-acme/simple-acme/releases/">Older versions</a></li>
                         </div>
@@ -51,6 +52,8 @@
 
     {{ content }}
 
+    <script src="https://themes.3rdwavemedia.com/demo/bs5/coderdocs/assets/plugins/smoothscroll.min.js"></script>
+    <script src="{{ 'assets/gumshoe.js' | relative_url }}"></script>
     <script src="{{ 'assets/docs.js' | relative_url }}"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-3HN24B5RT0"></script>
     <script>

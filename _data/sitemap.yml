@@ -115,12 +115,10 @@ reference:
           subs:
             - title: acme-dns
               url: /reference/plugins/validation/dns/acme-dns
-            - title: Alibaba (Aliyun)
+            - title: Alibaba Cloud / Aliyun
               url: /reference/plugins/validation/dns/alibaba
-            - title: Azure (Microsoft)
+            - title: Azure DNS (Microsoft)
               url: /reference/plugins/validation/dns/azure
-            - title: Cloud DNS (Google)
-              url: /reference/plugins/validation/dns/clouddns
             - title: Cloudflare
               url: /reference/plugins/validation/dns/cloudflare
             - title: DigitalOcean
@@ -131,10 +129,12 @@ reference:
               url: /reference/plugins/validation/dns/dnsmadeeasy
             - title: Domainname.shop
               url: /reference/plugins/validation/dns/domene
-            - title: Dreamhost
+            - title: DreamHost
               url: /reference/plugins/validation/dns/dreamhost
             - title: GoDaddy
               url: /reference/plugins/validation/dns/godaddy
+            - title: Google Cloud DNS
+              url: /reference/plugins/validation/dns/clouddns
             - title: Hetzner
               url: /reference/plugins/validation/dns/hetzner
             - title: InfoManiak
@@ -149,13 +149,13 @@ reference:
               url: /reference/plugins/validation/dns/ns1
             - title: RFC2136
               url: /reference/plugins/validation/dns/rfc2136
-            - title: Route53 (Amazon)
+            - title: Route53 (Amazon AWS)
               url: /reference/plugins/validation/dns/route53
             - title: Script
               url: /reference/plugins/validation/dns/script
-            - title: Simply
+            - title: Simply.com
               url: /reference/plugins/validation/dns/simply
-            - title: Tencent
+            - title: Tencent Cloud
               url: /reference/plugins/validation/dns/tencent
             - title: TransIP
               url: /reference/plugins/validation/dns/transip
