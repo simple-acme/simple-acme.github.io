@@ -1,6 +1,6 @@
 ---
 layout: home
-sidebar:
+sidebar: home
 ---
 # Features
 - A simple text menu to get **free certificates from Let's Encrypt into IIS**.

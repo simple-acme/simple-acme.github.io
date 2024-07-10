@@ -172,45 +172,45 @@ layout: default
     <div class="container">
         <div class="docs-overview pt-3">
             <div class="row justify-content-center single-col-max">
-
-                <h1 id="compatibility">Compatibility</h1>
-                <ul>
-                    <li>Free initiatives like <a href="https://letsencrypt.org/">Let’s Encrypt</a> and <a
-                            href="https://zerossl.com/">ZeroSSL</a>.</li>
-                    <li>Commercial providers like <a href="https://www.digicert.com/">DigiCert</a>, <a
-                            href="https://sectigo.com/">Sectigo</a> and <a href="https://www.buypass.com/">Buypass</a>.
-                    </li>
-                    <li>Private servers like <a href="https://smallstep.com/product/">Smallstep</a> and <a
-                            href="https://www.keyfactor.com/">Keyfactor</a>.</li>
-                    <li>Implements ACMEv2 (<a href="https://datatracker.ietf.org/doc/html/rfc8555">RFC8555</a>).</li>
-                    <li>Implements <a href="https://datatracker.ietf.org/doc/draft-ietf-acme-ari/">ARI draft-4</a> for
-                        early renewal on server compromise.</li>
-                    <li>Implements dynamic DNS updates (<a href="https://www.rfc-editor.org/rfc/rfc2136">RFC2136</a>).
-                    </li>
-                    <li>Supports DANE (<a href="https://datatracker.ietf.org/doc/html/rfc6698">RFC6698</a>) through <a
-                            href="/reference/plugins/csr/rsa">re-use</a> of keys.</li>
-                    <li>Implements TLS-ALPN-01 validation (<a
-                            href="https://datatracker.ietf.org/doc/html/rfc8737">RFC8737</a>).</li>
-                    <li>Supports <a href="/reference/plugins/csr/rsa">OCSP Must Staple</a> extension (<a
-                            href="https://datatracker.ietf.org/doc/html/rfc7633">RFC7633</a>).</li>
-                    <li>Support alternate chain selection.</li>
-                    <li>Runs on Windows 2012+ and Linux (beta).</li>
-                    <li>Runs on x86, x64 and ARM.</li>
-                </ul>
-
-                <h1 id="automation">Automation</h1>
-                <ul>
-                    <li>Completely unattended operation from the <a href="/reference/cli">command line</a>.</li>
-                    <li><code class="language-plaintext highlighter-rouge">xcopy</code> installation and upgrade
-                        process.</li>
-                    <li>Available on NuGet.org as a dotnet tool.</li>
-                    <li>Secret management allowing central rotation of API keys (protected by Windows DPAPI).</li>
-                    <li>Manipulate <code class="language-plaintext highlighter-rouge">.renewal.json</code> files to
-                        manage renewals outside of the tool.</li>
-                    <li>Write your own Powershell <code class="language-plaintext highlighter-rouge">.ps1</code> scripts
-                        to handle installation and validation.</li>
-                    <li>Build your own plugins with C#.</li>
-                </ul>
+                <div class="col-12">
+                    <h1 id="compatibility">Compatibility</h1>
+                    <ul>
+                        <li>Free initiatives like <a href="https://letsencrypt.org/">Let’s Encrypt</a> and <a
+                                href="https://zerossl.com/">ZeroSSL</a>.</li>
+                        <li>Commercial providers like <a href="https://www.digicert.com/">DigiCert</a>, <a
+                                href="https://sectigo.com/">Sectigo</a> and <a href="https://www.buypass.com/">Buypass</a>.
+                        </li>
+                        <li>Private servers like <a href="https://smallstep.com/product/">Smallstep</a> and <a
+                                href="https://www.keyfactor.com/">Keyfactor</a>.</li>
+                        <li>Implements ACMEv2 (<a href="https://datatracker.ietf.org/doc/html/rfc8555">RFC8555</a>).</li>
+                        <li>Implements <a href="https://datatracker.ietf.org/doc/draft-ietf-acme-ari/">ARI draft-4</a> for
+                            early renewal on server compromise.</li>
+                        <li>Implements dynamic DNS updates (<a href="https://www.rfc-editor.org/rfc/rfc2136">RFC2136</a>).
+                        </li>
+                        <li>Supports DANE (<a href="https://datatracker.ietf.org/doc/html/rfc6698">RFC6698</a>) through <a
+                                href="/reference/plugins/csr/rsa">re-use</a> of keys.</li>
+                        <li>Implements TLS-ALPN-01 validation (<a
+                                href="https://datatracker.ietf.org/doc/html/rfc8737">RFC8737</a>).</li>
+                        <li>Supports <a href="/reference/plugins/csr/rsa">OCSP Must Staple</a> extension (<a
+                                href="https://datatracker.ietf.org/doc/html/rfc7633">RFC7633</a>).</li>
+                        <li>Support alternate chain selection.</li>
+                        <li>Runs on Windows 2012+ and Linux (beta).</li>
+                        <li>Runs on x86, x64 and ARM.</li>
+                    </ul>
+                    <h1 id="automation">Automation</h1>
+                    <ul>
+                        <li>Completely unattended operation from the <a href="/reference/cli">command line</a>.</li>
+                        <li><code class="language-plaintext highlighter-rouge">xcopy</code> installation and upgrade
+                            process.</li>
+                        <li>Available on NuGet.org as a dotnet tool.</li>
+                        <li>Secret management allowing central rotation of API keys (protected by Windows DPAPI).</li>
+                        <li>Manipulate <code class="language-plaintext highlighter-rouge">.renewal.json</code> files to
+                            manage renewals outside of the tool.</li>
+                        <li>Write your own Powershell <code class="language-plaintext highlighter-rouge">.ps1</code> scripts
+                            to handle installation and validation.</li>
+                        <li>Build your own plugins with C#.</li>
+                    </ul>               
+                </div>
             </div>
         </div>
     </div>
