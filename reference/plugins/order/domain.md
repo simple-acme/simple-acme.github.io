@@ -1,6 +1,11 @@
 ---
+title: Domain
+layout: plugin
+plugin_type: order
+plugin_name: domain
+compatibility: Windows, Linux
+id: b7c331d4-d875-453e-b83a-2b537ca12535
 ---
-# Domain
 Generates an order/certificate for each registerable domain found in the source. 
 For example when there are five hosts in the source:
 
@@ -10,9 +15,6 @@ For example when there are five hosts in the source:
 - *.contoso.net
 - *.contoso.co.uk
 
-Three certificates will be generated: one for `example.com`, one for `contoso.net` and one for `contoso.co.uk`.
+Three certificates will be generated: one for all `example.com` bindings, one for `contoso.net` bindings and one for `contoso.co.uk` bindings.
 
-Not compatible with custom CSR source.
-
-## Unattended
-`--order domain`
+Not compatible with the [custom CSR](/reference/plugins/source/csr) source.

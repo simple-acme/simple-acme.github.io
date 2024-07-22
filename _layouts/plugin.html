@@ -1,0 +1,104 @@
+---
+layout: docs
+---
+
+<h1>{{page.title}}</h1>
+<div class="table-responsive my-4 me-5 pe-5">
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th scope="row">Plugin type</th>
+                <td><a href="/reference/plugins/{{page.plugin_type}}">{{page.plugin_type}}</a></td>
+                <td></td>
+            </tr>
+
+            {% if page.download %}
+            <tr>
+                <th scope="row">Download</th>
+                <td></td>
+                <td></td>
+            </tr>
+            {% else %}
+            <tr>
+                <th scope="row">Download</th>
+                <td>Built in</td>
+                <td></td>
+            </tr>
+            {% endif %}
+
+            <tr>
+                <th scope="row">Compatibility</th>
+                <td>{{page.compatibility}}</td>
+                <td></td>
+            </tr>
+
+            {% if page.default %}
+            <tr>
+                <th scope="row">Default</th>
+                <td>{{page.default}}</td>
+                <td></td>
+            </tr>
+            {% else %}
+            <tr>
+                <th scope="row">Default</th>
+                <td>No (configurable in settings.json)</td>
+                <td></td>
+            </tr>
+            {% endif %}
+
+        </tbody>
+    </table>
+</div>
+
+<h2>Description</h2>
+{{content}}
+
+<h2>Command line</h2>
+<div class="table-responsive my-4 me-5 pe-5">
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th scope="row">Trigger</th>
+                <td><code>--{{page.plugin_type}} {{page.plugin_name}}</code></td>
+                <td></td>
+            </tr>
+            {% for item in page.arguments %}
+            <tr>
+                <th scope="row"><code>{{ item.name }}</code></th>
+                <td>{{ item.desc }}</td>
+                <td></td>
+            </tr>
+            {% endfor %}            
+        </tbody>
+    </table>
+</div>
+
+{% if page.examples %}
+<h2>Examples</h2>
+<div class="table-responsive my-4 me-5 pe-5">
+    <table class="table table-striped">
+        <tbody>      
+            {% for item in page.examples %}
+            <tr>
+                <th scope="row">{{ item.name }}</th>
+                <td><code>--{{page.plugin_type}} {{page.plugin_name}} {{ item.cmd }}</code></td>
+                <td></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+
+<h2>JSON</h2>
+<div class="table-responsive my-4 me-5 pe-5">
+    <table class="table table-striped">
+        <tbody>      
+            <tr>
+                <th scope="row">ID</th>
+                <td><code>{{page.id}}</code></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

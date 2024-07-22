@@ -8,13 +8,14 @@ there are two of these plugins.
 ## Multiple
 More than one plugin can run by choosing them in order of execution. In interactive 
 mode you will be asked, for unattended mode you can provide a comma separated list, 
-e.g. `--installation certificatestore,pemfiles`
+e.g. `--installation script,iis`
 
-## Default (default settings)
-In default settings mode the default installation plugin is [IIS Web](/reference/plugins/installation/iisweb). 
+## Default
+In interactive mode the default installation plugin is [IIS](/reference/plugins/installation/iis). 
 This can be changed in [settings.json](/reference/settings).  
 
-## Default (full options / unattended)
-In full options and unattended modes there are **no** default installation steps,
-which is equivalent to `--installation none`. This can be changed in [settings.json](/reference/settings).  
-You can to explicitly choose them from the interface or using the `--installation` switch. 
+In unattended mode, using `--source iis` will also imply `--installation iis`, which
+can be counter-acted by explicitly providing `--installation none`. When using another
+source (e.g. `--source manual`), there is **no** default installation step, 
+so `--installation iis` has to be explicitly provided in such cases. The default 
+installation steps can be changed in [settings.json](/reference/settings).

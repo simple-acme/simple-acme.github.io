@@ -16,7 +16,7 @@ different locations or different protocols (IPv4/IPv6).
 effectively means that the DNS records have to be public, at least for the duration of 
 the validation.
 
-## Substition
+## Substition / aliasing
 If your goal is to get a certificate for `example.com` using DNS validation, 
 but the DNS provider for that domain does not support automation and/or your 
 security policy doesn't allow third party tools like simple-acme to access the 

@@ -46,7 +46,7 @@ Plugins only work with the full build of the program. It is recommended to upgra
 
 ### Validation
 #### DNS
-- [acme-dns](https://github.com/simple-acme/simple-acme/releases/download/v{{ site.releasetag }}/plugin.validation.dns.acme.v{{ site.releasebuild }}.zip) ([documentation](/reference/plugins/validation/dns/acme-dns))
+- [acme-dns](https://github.com/simple-acme/simple-acme/releases/download/v{{ site.releasetag }}/plugin.validation.dns.acme.v{{ site.releasebuild }}.zip) (built-in, [documentation](/reference/plugins/validation/dns/acme-dns))
 - [Alibaba Cloud / Aliyun](https://github.com/simple-acme/simple-acme/releases/download/v{{ site.releasetag }}/plugin.validation.dns.aliyun.v{{ site.releasebuild }}.zip) ([documentation](/reference/plugins/validation/dns/alibaba))
 - [Azure DNS (Microsoft)](https://github.com/simple-acme/simple-acme/releases/download/v{{ site.releasetag }}/plugin.validation.dns.azure.v{{ site.releasebuild }}.zip) ([documentation](/reference/plugins/validation/dns/azure))
 - [Cloudflare](https://github.com/simple-acme/simple-acme/releases/download/v{{ site.releasetag }}/plugin.validation.dns.cloudflare.v{{ site.releasebuild }}.zip) ([documentation](/reference/plugins/validation/dns/cloudflare))
@@ -69,8 +69,8 @@ Plugins only work with the full build of the program. It is recommended to upgra
 - [TransIP](https://github.com/simple-acme/simple-acme/releases/download/v{{ site.releasetag }}/plugin.validation.dns.transip.v{{ site.releasebuild }}.zip) ([documentation](/reference/plugins/validation/dns/transip))
 
 #### HTTP
-- [FTP(S)](https://github.com/simple-acme/simple-acme/releases/download/v{{ site.releasetag }}/plugin.validation.http.ftp.v{{ site.releasebuild }}.zip) ([documentation](/reference/plugins/validation/http/ftps))
+- [FTP(S)](https://github.com/simple-acme/simple-acme/releases/download/v{{ site.releasetag }}/plugin.validation.http.ftp.v{{ site.releasebuild }}.zip) (built-in, [documentation](/reference/plugins/validation/http/ftps))
 - [REST](https://github.com/simple-acme/simple-acme/releases/download/v{{ site.releasetag }}/plugin.validation.http.rest.v{{ site.releasebuild }}.zip) ([documentation](/reference/plugins/validation/http/rest))
-- [SFTP](https://github.com/simple-acme/simple-acme/releases/download/v{{ site.releasetag }}/plugin.validation.http.sftp.v{{ site.releasebuild }}.zip) ([documentation](/reference/plugins/validation/http/sftp))
-- [WebDav](https://github.com/simple-acme/simple-acme/releases/download/v{{ site.releasetag }}/plugin.validation.http.webdav.v{{ site.releasebuild }}.zip) ([documentation](/reference/plugins/validation/http/webdav))
+- [SFTP](https://github.com/simple-acme/simple-acme/releases/download/v{{ site.releasetag }}/plugin.validation.http.sftp.v{{ site.releasebuild }}.zip) (built-in, [documentation](/reference/plugins/validation/http/sftp))
+- [WebDav](https://github.com/simple-acme/simple-acme/releases/download/v{{ site.releasetag }}/plugin.validation.http.webdav.v{{ site.releasebuild }}.zip) (built-in, [documentation](/reference/plugins/validation/http/webdav))
 

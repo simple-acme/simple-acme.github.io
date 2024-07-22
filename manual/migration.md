@@ -8,7 +8,7 @@ after the DNS has been switched over.
 In the renewal manager you can use the `L` option to generate the command line 
 options that may be helpful to recreate the certificates on the new machine. Note
 that depending on your use of simple-acme this may not be foolproof. Some things which
-are possible to do through the GUI and/or by manipulating `.json` files behind the
+are possible to do through the GUI and/or by manipulating `.renewal.json` files behind the
 scenes are impossible to translate to command line arguments. Also you may be missing 
 certain dependancies on the new machine, such as vault secrets, acme-dns 
 registrations, etc.

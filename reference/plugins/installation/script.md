@@ -1,10 +1,27 @@
 ---
+title: Script
+layout: plugin
+plugin_type: installation
+plugin_name: script
+compatibility: Windows, Linux
+id: 3bb22c70-358d-4251-86bd-11858363d913
+arguments:
+    - 
+        name: --script
+        desc: Path to script file to run after retrieving the certificate. This may be an executable file or a Powershell (.ps1) script.
+    -
+        name: --scriptparameters
+        desc: Parameters for the script to run after retrieving the certificate.    
+examples:
+    - 
+        name: Full
+        cmd: '--script C:\script.bat [--scriptparameters x]'
+ 
 ---
-# Script
-Runs an external script or executable after a succesful renewal. This may be a `.bat`, `.ps1` or even `.exe`.
-You provide the program with the path to the script and it will run automatically.
 
-## Parameters
+Runs an external script or executable after a succesful renewal. This may be a `.bat` or `.exe` on Windows, `.sh` on Linux or `.ps1` on all platforms. You provide the program with the path to the script and it will run automatically.
+
+### Parameter replacement
 The following variables can be provided from the program to the script as command line arguments.
 
 | Value          |  Replaced with |
@@ -23,10 +40,10 @@ The following variables can be provided from the program to the script as comman
 | `{OldCertThumbprint}`        |  Thumbprint of the previously issued certificate |
 | `{vault://json/mysecret}`        |  Secret from the [vault](https://www.simple-acme.com/manual/advanced-use/secret-management) |
 
-*) Will be empty if cache is disabled 
 
-Note that 
-## Example
+*) Will be empty if cache is disabled
+
+### Example
 If you need your scripts parameters to look something like this:
 
 `action=import file=C:\mydomain.pfx password=*****`
@@ -34,9 +51,6 @@ If you need your scripts parameters to look something like this:
 Then your argument string should look like this:
 
 `action=import file={CacheFile} password={CachePassword}`
-
-## Unattended 
-`--installation script --script C:\script.bat [--scriptparameters x]`
 
 ### Parameter escaping
 If you need to put double quotes around your parameters from the command line, you have to escape them with a slash, for example:

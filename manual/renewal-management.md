@@ -1,7 +1,7 @@
 ---
 ---
 # Renewal management
-This program is primarily used to create certificates, but the nature of ACME encourages certificates to be 
+ This program is primarily used to create certificates, but the nature of ACME encourages certificates to be 
 replaced regularly. We call a sequence of certificates, created with specific settings, a **renewal**. It's the 
 basic unit of work that you manage with the program.
 
@@ -34,19 +34,19 @@ mode the script or program calling simple-acme is assumed to know the consequenc
 actually intend to create two very similar certificates, add the `--id` parameter to make them unique 
 and prevent overwrites based on the friendly name.
 
-You can also edit the `.json` file, but that's not recommended unless you are already familiar with this
-file format and have a backup ready.
+You can also edit the `.renewal.json` file, but that's not recommended unless you are already familiar 
+with this file format and have a backup ready.
 
 ## Deleting/cancelling
 To cancel a renewal means that the certificate will not be renewed anymore. The certificate, bindings 
 and other configuration that is already in place will **not** be touched, so it's completely safe to do
 this without disturbing your production applications. Only you will have to set up a new renewal or 
 alternative certificate solution before the certificate reaches its natural expiration date. 
-- You can cancel a renewal from the main menu. The program will then delete the `.json` file from 
+- You can cancel a renewal from the main menu. The program will then delete the `.renewal.json` file from 
 disk and forget about it.
 - You can cancel from the command line using the arguments `--cancel [--friendlyname xxx|-id xxx]`. 
 The effects are the same as above.
-- You can delete the `.json` file yourself. The effects are the same as above.
+- You can delete the `.renewal.json` file yourself. The effects are the same as above.
 
 ## Revocation
 Revoking a certificate should only be done when the private key is believed to have been compromised, 

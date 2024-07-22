@@ -3,6 +3,8 @@
 # Alibaba Cloud / Aliyun 
 Create the record at [Alibaba Cloud](https://www.alibabacloud.com/). This requires an API key.
 
+[Download the plugin](https://github.com/simple-acme/simple-acme/releases/download/v{{ site.releasetag }}/plugin.validation.dns.aliyun.v{{ site.releasebuild }}.zip)
+
 {% include plugin-seperate.md %}
 
 ## Unattended 

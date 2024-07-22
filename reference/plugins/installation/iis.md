@@ -1,6 +1,28 @@
 ---
+title: IIS
+layout: plugin
+plugin_type: installation
+plugin_name: iis
+compatibility: Windows
+default: Yes, unattended only with --source iis
+id: ea6a5be3-f8de-4d27-a6bd-750b619b2ee2
+arguments:
+    - 
+        name: --installationsiteid
+        desc: Specify site to install new bindings to. Defaults to the source if that is an IIS site.
+    -
+        name: --sslipaddress
+        desc: IP address to use for newly created HTTPS bindings. Defaults to *.
+    -
+        name: --sslport
+        desc: Port number to use for newly created HTTPS bindings. Defaults to 443.      
+examples:
+    - 
+        name: Full
+        cmd: '[--installationsiteid 14] [--sslport 8443] [--sslipaddress 192.168.0.1]'
+ 
 ---
-# IIS
+
 Create or update bindings in IIS, according to the following logic:
 
 ### Web sites
@@ -31,14 +53,11 @@ Create or update bindings in IIS, according to the following logic:
 
 ### Ftp sites
 - Any existing FTP sites linked to the previous certificate are updated to use the new certificate.
-- If the Default FTP settings refer to the previous certificate, the defaults is upated to the new certificate.
+- If the Default FTP settings refer to the previous certificate, the defaults are updated to the new certificate.
 - The target FTP site will be updated to use the new certificate. If no target is specified, the source site is considered to be the target.
 
 ### Installing to multiple sites
 Due to the logic described above, it's never required to configure the IIS 
 installation step more than once to ensure succesful renewal of all bindings, regardless
 of how many different sites you have. However, if you have a complicated scenario,
-you may need to manually tune the bindings to your wishes after initial setup. 
-
-## Unattended 
-`--installation iis [--installationsiteid x] [--sslport x] [--sslipaddress x]`
+you may need to manually tune the bindings to your wishes after the initial run. 

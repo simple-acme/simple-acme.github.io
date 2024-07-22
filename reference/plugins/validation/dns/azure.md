@@ -8,7 +8,8 @@ Create the record in Microsoft [Azure DNS](https://azure.microsoft.com/en-us/ser
 ## Setup
 This assumes you already have your DNS managed in Azure; if not, you'll need to set that up first. If you are 
 using the Azure DNS option for validation, you'll need to get certain info from your Azure Tenant, and create 
-a service principal for simple-acme to use (you'll only need to create on of these - it's basically an account that has authority to create DNS records). 
+a service principal for simple-acme to use (you'll only need to create on of these - it's basically an account 
+that has authority to create DNS records). 
 There are two ways to authenticate with Azure:
 
 #### Create Azure AD Service Principal Account
@@ -31,7 +32,7 @@ During setup of the validation the program will ask several questions.
 Here is to answer them with information from the Azure Portal.
 
 * `DNS Subscription ID`: DNS Zones > `sub.example.com` > `Subscription ID`
-* `DNS Resource Group Name`: DNS zones > `sub.example.com` > `Resource Group`)
+* `DNS Resource Group Name`: DNS zones > `sub.example.com` > `Resource Group`
 
 Only when authenticating Service Principal Account:
 
