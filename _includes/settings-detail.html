@@ -1,0 +1,15 @@
+<tr>
+    <th class="col-md-3" scope="row"><code>{{ include.name }}</code></th>
+    <td>
+        {{ include.setting.description }}
+        {% if include.setting.default %}
+            Default: 
+            {% if include.setting.type == "string" %}
+                "{{ include.setting.default }}"
+            {% else %}
+                {{ include.setting.default }}
+            {% endif %}
+        {% endif %}
+    </td>
+    <td></td>
+</tr>

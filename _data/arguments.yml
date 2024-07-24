@@ -1,0 +1,304 @@
+Main:
+    Main:
+        -
+            name: baseuri
+            description: "Address of the ACMEv2 server to use. The default endpoint can be modified in settings.json."
+        -
+            name: import
+            description: "Import scheduled renewals from version 1.9.x in unattended mode."
+        -
+            name: importbaseuri
+            description: "[--import] When importing scheduled renewals from version 1.9.x, this argument can change the address of the ACMEv1 server to import from. The default endpoint to import from can be modified in settings.json."
+        -
+            name: test
+            description: "Enables testing behaviours in the program which may help with troubleshooting. By default this also switches the --baseuri to the ACME test endpoint. The default endpoint for test mode can be modified in settings.json."
+        -
+            name: verbose
+            description: "Print additional log messages to console for troubleshooting and bug reports."
+        -
+            name: help
+            description: "Show information about all available command line options."
+        -
+            name: version
+            description: "Show version information."
+        -
+            name: renew
+            description: "Renew any certificates that are due. This argument is used by the scheduled task. Note that it's not possible to change certificate properties and renew at the same time."
+        -
+            name: force
+            description: "[--renew] Always execute the renewal, disregarding the validity of the current certificates and the prefered schedule."
+        -
+            name: nocache
+            description: "Bypass the cache on certificate requests. Applies to both new requests and renewals."
+        -
+            name: register
+            description: "Create an ACME service account."
+        -
+            name: cancel
+            description: "Cancel renewal specified by the --friendlyname or --id arguments."
+        -
+            name: revoke
+            description: "Revoke the most recently issued certificate for the renewal specified by the --friendlyname or --id arguments."
+        -
+            name: list
+            description: "List all created renewals in unattended mode."
+        -
+            name: encrypt
+            description: "Rewrites all renewal information using current EncryptConfig setting"
+        -
+            name: id
+            description: "[--source|--cancel|--renew|--revoke] Id of a new or existing renewal, can be used to override the default when creating a new renewal or to specify a specific renewal for other commands."
+        -
+            name: friendlyname
+            description: "[--source|--cancel|--renew|--revoke] Friendly name of a new or existing renewal, can be used to override the default when creating a new renewal or to specify a specific renewal for other commands. In the latter case a pattern might be used. You may use a <code>*</code> for a range of any characters and a <code>?</code> for any single character. For example: the pattern <code>example.*</code> will match <code>example.net</code> and <code>example.com</code> (but not <code>my.example.com</code>) and the pattern <code>?.example.com</code> will match <code>a.example.com</code> and <code>b.example.com</code> (but not <code>www.example.com</code>). Note that multiple patterns can be combined by comma seperating them."
+        -
+            name: source
+            description: "Specify which source plugin to run, bypassing the main menu and triggering unattended mode."
+        -
+            name: validation
+            description: "Specify which validation plugin to run. If none is specified, SelfHosting validation will be chosen as the default."
+        -
+            name: validationmode
+            description: "Specify which validation mode to use. HTTP-01 is the default."
+        -
+            name: order
+            description: "Specify which order plugin to use. Single is the default."
+        -
+            name: csr
+            description: "Specify which CSR plugin to use. RSA is the default."
+        -
+            name: store
+            description: "Specify which store plugin to use. CertificateStore is the default. This may be a comma-separated list."
+        -
+            name: installation
+            description: "Specify which installation plugins to use (if any). This may be a comma-separated list."
+        -
+            name: closeonfinish
+            description: "[--test] Close the application when complete, which usually does not happen when test mode is active. Useful to test unattended operation."
+        -
+            name: hidehttps
+            description: "Hide sites that have existing https bindings from interactive mode."
+        -
+            name: notaskscheduler
+            description: "Do not create (or offer to update) the scheduled task."
+        -
+            name: setuptaskscheduler
+            description: "Create or update the scheduled task according to the current settings."
+
+    Account:
+        -
+            name: accepttos
+            description: "Accept the ACME terms of service."
+        -
+            name: emailaddress
+            description: "Email address to link to your ACME account."
+        -
+            name: eab-key-identifier
+            description: "Key identifier to use for external account binding."
+        -
+            name: eab-key
+            description: "Key to use for external account binding. Must be base64url encoded."
+        -
+            name: eab-algorithm
+            description: "Algorithm to use for external account binding. Valid values are HS256 (default), HS384, and HS512."
+        -
+            name: account
+            description: "Optionally provide a name for the account. Using different names for different renewals enables you to managed multiple accounts for a single ACME endpoint. Unless you have a specific need to do this, we recommend to not use this."
+
+CSR:
+    Common:
+        -
+            name: ocsp-must-staple
+            description: "Enable OCSP Must Staple extension on certificate."
+        -
+            name: reuse-privatekey
+            description: "Reuse the same private key for each renewal."
+
+Installation:
+    Script plugin:
+        -
+            name: script
+            description: "Path to script file to run after retrieving the certificate. This may be any executable file or a Powershell (.ps1) script."
+        -
+            name: scriptparameters
+            description: "Parameters for the script to run after retrieving the certificate. Refer to https://simple-acme.com/reference/plugins/installation/script for further instructions."
+
+    IIS plugin:
+        -
+            name: installationsiteid
+            description: "Specify site to install new bindings to. Defaults to the source if that is an IIS site."
+        -
+            name: sslport
+            description: "Port number to use for newly created HTTPS bindings. Defaults to 443."
+        -
+            name: sslipaddress
+            description: "IP address to use for newly created HTTPS bindings. Defaults to *."
+
+Source:
+    CSR plugin:
+        -
+            name: csrfile
+            description: "Specify the location of a CSR file to make a certificate for"
+        -
+            name: pkfile
+            description: "Specify the location of the private key corresponding to the CSR"
+
+    Manual plugin:
+        -
+            name: commonname
+            description: "Specify the common name of the certificate. If not provided the first host name will be used."
+        -
+            name: host
+            description: "A host name to get a certificate for. This may be a comma-separated list."
+
+    IIS plugin:
+        -
+            name: siteid
+            description: "Identifiers of one or more sites to include. This may be a comma-separated list."
+        -
+            name: host
+            description: "Host name to filter. This parameter may be used to target specific bindings. This may be a comma-separated list."
+        -
+            name: host-pattern
+            description: "Pattern filter for host names. Can be used to dynamically include bindings based on their match with the pattern.You may use a <code>*</code> for a range of any characters and a <code>?</code> for any single character. For example: the pattern <code>example.*</code> will match <code>example.net</code> and <code>example.com</code> (but not <code>my.example.com</code>) and the pattern <code>?.example.com</code> will match <code>a.example.com</code> and <code>b.example.com</code> (but not <code>www.example.com</code>). Note that multiple patterns can be combined by comma seperating them."
+        -
+            name: host-regex
+            description: "Regex pattern filter for host names. Some people, when confronted with a problem, think \"I know, I'll use regular expressions.\" Now they have two problems."
+        -
+            name: commonname
+            description: "Specify the common name of the certificate that should be requested for the source. By default this will be the first binding that is enumerated."
+        -
+            name: excludebindings
+            description: "Exclude host names from the certificate. This may be a comma-separated list."
+        -
+            name: host-type
+            description: "Specify which types of bindings to consider. May be set to http, ftp or both (comma separated)"
+
+Store:
+    Certificate Store plugin:
+        -
+            name: certificatestore
+            description: "This setting can be used to save the certificate in a specific store. By default it will go to 'WebHosting' store on modern versions of Windows."
+        -
+            name: keepexisting
+            description: "While renewing, do not remove the previous certificate."
+        -
+            name: acl-fullcontrol
+            description: "List of additional principals (besides the owners of the store) that should get full control permissions on the private key of the certificate."
+        -
+            name: acl-read
+            description: "List of additional principals (besides the owners of the store) that should get read permissions on the private key of the certificate."
+
+    PEM files plugin:
+        -
+            name: pemfilespath
+            description: ".pem files are exported to this folder."
+        -
+            name: pemfilesname
+            description: "Prefix to use for the .pem files, defaults to the common name."
+        -
+            name: pempassword
+            description: "Password to set for the private key .pem file."
+
+    PFX file plugin:
+        -
+            name: pfxfilepath
+            description: "Path to write the .pfx file to."
+        -
+            name: pfxfilename
+            description: "Prefix to use for the .pfx file, defaults to the common name."
+        -
+            name: pfxpassword
+            description: "Password to set for .pfx file exported to the folder."
+
+    Central Certificate Store plugin:
+        -
+            name: centralsslstore
+            description: "Location of the IIS Central Certificate Store."
+        -
+            name: pfxpassword
+            description: "Password to set for .pfx files exported to the IIS Central Certificate Store."
+
+Validation:
+    Credentials:
+        -
+            name: username
+            description: "Username for remote server"
+        -
+            name: password
+            description: "Password for remote server"
+
+    Common HTTP validation options:
+        -
+            name: webroot
+            description: "Root path of the site that will serve the HTTP validation requests."
+        -
+            name: manualtargetisiis
+            description: "Copy default web.config to the .well-known directory."
+
+    Script:
+        -
+            name: dnsscript
+            description: "Path to script that creates and deletes validation records, depending on its parameters. If this parameter is provided then --dnscreatescript and --dnsdeletescript are ignored."
+        -
+            name: dnscreatescript
+            description: "Path to script that creates the validation TXT record."
+        -
+            name: dnscreatescriptarguments
+            description: "Default parameters passed to the script are \"create {Identifier} {RecordName} {Token}\", but that can be customized using this argument."
+        -
+            name: dnsdeletescript
+            description: "Path to script to remove TXT record."
+        -
+            name: dnsdeletescriptarguments
+            description: "Default parameters passed to the script are \"delete {Identifier} {RecordName} {Token}\", but that can be customized using this argument."
+        -
+            name: dnsscriptparallelism
+            description: "Configure parallelism mode. 0 is fully serial (default), 1 allows multiple records to be created simultaneously, 2 allows multiple records to be validated simultaneously and 3 is a combination of both forms of parallelism."
+
+    FileSystem plugin:
+        -
+            name: validationsiteid
+            description: "Specify IIS site to use for handling validation requests. This will be used to choose the web root path."
+
+    SelfHosting plugin:
+        -
+            name: validationport
+            description: "Port to use for listening to validation requests. Note that the ACME server will always send requests to port 80. This option is only useful in combination with a port forwarding."
+        -
+            name: validationprotocol
+            description: "Protocol to use to handle validation requests. Defaults to http but may be set to https if you have automatic redirects setup in your infrastructure before requests hit the web server."
+
+    SelfHosting plugin:
+        -
+            name: validationport
+            description: "Port to use for listening to validation requests. Note that the ACME server will always send requests to port 443. This option is only useful in combination with a port forwarding."
+
+    AcmeDns:
+        -
+            name: acmednsserver
+            description: "Root URI of the acme-dns service"
+
+    Azure:
+        -
+            name: azuresubscriptionid
+            description: "Subscription ID to login into Microsoft Azure DNS (blank to use default)."
+        -
+            name: azurehostedzone
+            description: "Hosted zone (blank to find best match)"
+        -
+            name: azureenvironment
+            description: "This can be used to specify a specific Azure endpoint. Valid inputs are AzureCloud (default), AzureChinaCloud, AzureGermanCloud, AzureUSGovernment or a specific URI for an Azure Stack implementation."
+        -
+            name: azureusemsi
+            description: "Use Managed Service Identity for authentication."
+        -
+            name: azuretenantid
+            description: "Directory/tenant identifier. Found in Azure AD > Properties."
+        -
+            name: azureclientid
+            description: "Application/client identifier. Found/created in Azure AD > App registrations."
+        -
+            name: azuresecret
+            description: "Client secret. Found/created under Azure AD > App registrations."
+

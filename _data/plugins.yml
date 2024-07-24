@@ -1,0 +1,349 @@
+csr:
+  ec:
+    id: 9aadcf71-5241-4c4f-aee1-bfe3f6be3489
+    title: Elliptic Curve
+    subtitle: Generate certificate with an EC public/private key pair 
+    arguments:
+      - ocsp-must-staple
+      - reuse-privatekey
+    settings:
+      - Csr.Ec.CurveName
+      - Csr.Ec.SignatureAlgorithm
+
+  rsa:
+    id: b9060d4b-c2d3-49ac-b37f-962e7c3cbe9d
+    title: RSA
+    subtitle: Generate certificate with an RSA public/private key pair
+    default: 'Yes'
+    arguments:
+      - ocsp-must-staple
+      - reuse-privatekey
+    settings:
+      - Csr.Rsa.KeyBits
+      - Csr.Rsa.SignatureAlgorithm
+
+installation:
+  iis:
+    id:
+    title:
+    subtitle:
+    arguments:
+    settings:
+
+  script:
+    id:
+    title:
+    subtitle:
+    arguments:
+    settings:
+
+order:
+  domain:
+    id:
+    title:
+    subtitle:
+    arguments:
+    settings:
+
+  host:
+    id:
+    title:
+    subtitle:
+    arguments:
+    settings:
+
+  single:
+    id:
+    title:
+    subtitle:
+    arguments:
+    settings:
+
+  site:
+    id:
+    title:
+    subtitle:
+    arguments:
+    settings:
+
+
+source:
+  csr:
+    id:
+    title:
+    subtitle:
+    arguments:
+    settings:
+
+  iis:
+    id:
+    title:
+    subtitle:
+    arguments:
+    settings:
+
+  manual:
+    id:
+    title:
+    subtitle:
+    arguments:
+    settings:
+
+store:
+  centralssl:
+    id:
+    title:
+    subtitle:
+    arguments:
+    settings:
+
+  certificatestore:
+    id:
+    title:
+    subtitle:
+    arguments:
+    settings:
+
+  keyvault:
+    id:
+    title:
+    subtitle:
+    arguments:
+    settings:
+
+  pemfiles:
+    id:
+    title:
+    subtitle:
+    arguments:
+    settings:
+
+  pfxfile:
+    id:
+    title:
+    subtitle:
+    arguments:
+    settings:
+
+  userstore:
+    id:
+    title:
+    subtitle:
+    arguments:
+    settings:
+
+
+validation:
+  dns:
+    acme-dns:
+      id:
+      title:
+      subtitle:
+      arguments:
+      settings:
+
+    alibaba:
+      id:
+      title:
+      subtitle:
+      arguments:
+      settings:
+
+    azure:
+      id:
+      title:
+      subtitle:
+      arguments:
+      settings:
+
+    clouddns:
+      id:
+      title:
+      subtitle:
+      arguments:
+      settings:
+
+    cloudflare:
+      id:
+      title:
+      subtitle:
+      arguments:
+      settings:
+
+    digitalocean:
+      id:
+      title:
+      subtitle:
+      arguments:
+      settings:
+
+    dnsexit:
+      id:
+      title:
+      subtitle:
+      arguments:
+      settings:
+
+    dnsmadeeasy:
+      id:
+      title:
+      subtitle:
+      arguments:
+      settings:
+
+    domene:
+      id:
+      title:
+      subtitle:
+      arguments:
+      settings:
+
+    dreamhost:
+      id:
+      title:
+      subtitle:
+      arguments:
+      settings:
+
+    godaddy:
+      id:
+      title:
+      subtitle:
+      arguments:
+      settings:
+
+    hetzner:
+      id:
+      title:
+      subtitle:
+      arguments:
+      settings:
+
+    infomaniak:
+      id:
+      title:
+      subtitle:
+      arguments:
+      settings:
+
+    linode:
+      id:
+      title:
+      subtitle:
+      arguments:
+      settings:
+
+    lua:
+      id:
+      title:
+      subtitle:
+      arguments:
+      settings:
+
+    manual:
+      id:
+      title:
+      subtitle:
+      arguments:
+      settings:
+
+    ns1:
+      id:
+      title:
+      subtitle:
+      arguments:
+      settings:
+
+    rfc2136:
+      id:
+      title:
+      subtitle:
+      arguments:
+      settings:
+
+    route53:
+      id:
+      title:
+      subtitle:
+      arguments:
+      settings:
+
+    script:
+      id:
+      title:
+      subtitle:
+      arguments:
+      settings:
+
+    simply:
+      id:
+      title:
+      subtitle:
+      arguments:
+      settings:
+
+    tencent:
+      id:
+      title:
+      subtitle:
+      arguments:
+      settings:
+
+    transip:
+      id:
+      title:
+      subtitle:
+      arguments:
+      settings:
+
+  http:
+    filesystem:
+      id:
+      title:
+      subtitle:
+      arguments:
+      settings:
+
+    ftps:
+      id:
+      title:
+      subtitle:
+      arguments:
+      settings:
+
+    rest:
+      id:
+      title:
+      subtitle:
+      arguments:
+      settings:
+
+    selfhosting:
+      id:
+      title:
+      subtitle:
+      arguments:
+      settings:
+
+    sftp:
+      id:
+      title:
+      subtitle:
+      arguments:
+      settings:
+
+    webdav:
+      id:
+      title:
+      subtitle:
+      arguments:
+      settings:
+
+  tls-alpn:
+    selfhosting:
+      id:
+      title:
+      subtitle:
+      arguments:
+      settings:
+

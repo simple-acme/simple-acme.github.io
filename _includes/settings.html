@@ -1,0 +1,25 @@
+<h2>Settings</h2>
+<div class="table-responsive my-4 me-5 pe-5">
+    <table class="table table-striped">
+        <tbody>
+            {% for plugin in include.settings %}
+                {% assign split = plugin | split: '.' %}
+                {% if split.size == 2 %}
+                    {% assign name0 = split[0] | strip %}
+                    {% assign name1 = split[1] | strip %}
+                    {% assign setting = site.data.settings[name0][name1] %}
+                    {% assign name = name0 | append: "." | append: name1 %}
+                    {% include settings-detail.html setting=setting name=name %}
+                {% endif %}
+                {% if split.size == 3 %}
+                    {% assign name0 = split[0] | strip %}
+                    {% assign name1 = split[1] | strip %}
+                    {% assign name2 = split[2] | strip %}
+                    {% assign setting = site.data.settings[name0][name1][name2] %}
+                    {% assign name = name0 | append: "." | append: name1 | append: "." | append: name2 %}
+                    {% include settings-detail.html setting=setting name=name %}
+                {% endif %}
+            {% endfor %}   
+        </tbody>  
+    </table>
+</div>

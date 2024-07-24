@@ -2,12 +2,14 @@
 layout: docs
 ---
 
-<h1>{{page.title}}</h1>
+{%assign plugin=site.data.plugins[page.plugin_type][page.plugin] %}
+<h1>{{plugin.title}}</h1>
+<p>{{plugin.subtitle}}</p>
 <div class="table-responsive my-4 me-5 pe-5">
     <table class="table table-striped">
         <tbody>
             <tr>
-                <th scope="row">Plugin type</th>
+                <th class="col-md-3" scope="row">Plugin type</th>
                 <td><a href="/reference/plugins/{{page.plugin_type}}">{{page.plugin_type}}</a></td>
                 <td></td>
             </tr>
@@ -21,7 +23,7 @@ layout: docs
             {% else %}
             <tr>
                 <th scope="row">Download</th>
-                <td>Built in</td>
+                <td>Built-in</td>
                 <td></td>
             </tr>
             {% endif %}
@@ -32,10 +34,10 @@ layout: docs
                 <td></td>
             </tr>
 
-            {% if page.default %}
+            {% if plugin.default %}
             <tr>
                 <th scope="row">Default</th>
-                <td>{{page.default}}</td>
+                <td>{{plugin.default}}</td>
                 <td></td>
             </tr>
             {% else %}
@@ -58,16 +60,25 @@ layout: docs
     <table class="table table-striped">
         <tbody>
             <tr>
-                <th scope="row">Trigger</th>
-                <td><code>--{{page.plugin_type}} {{page.plugin_name}}</code></td>
+                <th class="col-md-3" scope="row"><code>--{{page.plugin_type}} {{page.plugin}}</code></th>
+                <td>Activates the plugin</td>
                 <td></td>
             </tr>
-            {% for item in page.arguments %}
-            <tr>
-                <th scope="row"><code>{{ item.name }}</code></th>
-                <td>{{ item.desc }}</td>
-                <td></td>
-            </tr>
+            {% for item in plugin.arguments %}
+                {% for argument_group in site.data.arguments %}
+                    {% assign groupname = argument_group[0] | strip %}
+                    {% for argument_subgroup in site.data.arguments[groupname] %}
+                        {% for argument in argument_subgroup[1] %}
+                            {% if argument.name == item %}
+                                <tr>
+                                    <th class="col-md-3" scope="row"><code>--{{ argument.name }}</code></th>
+                                    <td>{{ argument.description }}</td>
+                                    <td></td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                {% endfor %}
             {% endfor %}            
         </tbody>
     </table>
@@ -80,8 +91,8 @@ layout: docs
         <tbody>      
             {% for item in page.examples %}
             <tr>
-                <th scope="row">{{ item.name }}</th>
-                <td><code>--{{page.plugin_type}} {{page.plugin_name}} {{ item.cmd }}</code></td>
+                <th class="col-md-3" scope="row">{{ item.name }}</th>
+                <td><code>--{{page.plugin_type}} {{page.plugin}} {{ item.cmd }}</code></td>
                 <td></td>
             </tr>
             {% endfor %}
@@ -90,13 +101,17 @@ layout: docs
 </div>
 {% endif %}
 
+{% if plugin.settings %}
+{% include settings.html settings=plugin.settings %}
+{% endif %}
+
 <h2>JSON</h2>
 <div class="table-responsive my-4 me-5 pe-5">
     <table class="table table-striped">
         <tbody>      
             <tr>
-                <th scope="row">ID</th>
-                <td><code>{{page.id}}</code></td>
+                <th class="col-md-3" scope="row">ID</th>
+                <td><code>{{plugin.id}}</code></td>
                 <td></td>
             </tr>
         </tbody>
