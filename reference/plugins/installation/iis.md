@@ -1,32 +1,17 @@
 ---
-title: IIS
 layout: plugin
+plugin: iis
 plugin_type: installation
-plugin_name: iis
-compatibility: Windows
-default: Yes, unattended only with --source iis
-id: ea6a5be3-f8de-4d27-a6bd-750b619b2ee2
-arguments:
-    - 
-        name: --installationsiteid
-        desc: Specify site to install new bindings to. Defaults to the source if that is an IIS site.
-    -
-        name: --sslipaddress
-        desc: IP address to use for newly created HTTPS bindings. Defaults to *.
-    -
-        name: --sslport
-        desc: Port number to use for newly created HTTPS bindings. Defaults to 443.      
+compatibility: Windows only
+default: Windows (unattended only with --source iis)
 examples:
     - 
         name: Full
         cmd: '[--installationsiteid 14] [--sslport 8443] [--sslipaddress 192.168.0.1]'
- 
 ---
 
-Create or update bindings in IIS, according to the following logic:
-
-### Web sites
-- Existing https bindings in *any* site linked to the previous certificate are updated to use the new certificate.
+### Http binding update algorithm
+- Existing https bindings in *any* web site linked to the previous certificate are updated to use the new certificate.
 - Hosts names which are determined to not yet have been covered by any existing binding, will be processed further.
   - All existing https bindings in *source* site whose hostnames match with the new certificate are updated 
     to use the new certificate. This happens even if they are using certificates issued by other authorities. 
@@ -51,7 +36,7 @@ Create or update bindings in IIS, according to the following logic:
     lack of support for SNI and/or wildcard bindings. In that case the user will have to create them manually. 
 	Note that renewals will be automatic after this initial manual setup.
 
-### Ftp sites
+### Ftp binding update algorithm
 - Any existing FTP sites linked to the previous certificate are updated to use the new certificate.
 - If the Default FTP settings refer to the previous certificate, the defaults are updated to the new certificate.
 - The target FTP site will be updated to use the new certificate. If no target is specified, the source site is considered to be the target.

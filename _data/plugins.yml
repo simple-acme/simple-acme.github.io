@@ -2,7 +2,7 @@ csr:
   ec:
     id: 9aadcf71-5241-4c4f-aee1-bfe3f6be3489
     title: Elliptic Curve
-    subtitle: Generate certificate with an EC public/private key pair 
+    subtitle: Generate an EC public/private key pair 
     arguments:
       - ocsp-must-staple
       - reuse-privatekey
@@ -13,7 +13,7 @@ csr:
   rsa:
     id: b9060d4b-c2d3-49ac-b37f-962e7c3cbe9d
     title: RSA
-    subtitle: Generate certificate with an RSA public/private key pair
+    subtitle: Generate an RSA public/private key pair
     default: 'Yes'
     arguments:
       - ocsp-must-staple
@@ -24,48 +24,52 @@ csr:
 
 installation:
   iis:
-    id:
-    title:
-    subtitle:
-    arguments:
-    settings:
+    id: ea6a5be3-f8de-4d27-a6bd-750b619b2ee2
+    title: IIS
+    subtitle: Create or update bindings in IIS
+    default: 'Yes'
+    arguments: 
+      - sslport
+      - sslipaddress
+      - installationsiteid
 
   script:
-    id:
-    title:
-    subtitle:
+    id: 3bb22c70-358d-4251-86bd-11858363d913
+    title: Script
+    subtitle: Start external script or program
     arguments:
+      - script
+      - scriptparameters
     settings:
+      - Script.PowershellExecutablePath
+      - Script.Timeout
+
+  none:
+    id: aecc502c-5f75-43d2-b578-f95d50c79ea1
+    title: None
+    subtitle: No (additional) installation steps
 
 order:
   domain:
-    id:
-    title:
-    subtitle:
-    arguments:
-    settings:
+    id: b7c331d4-d875-453e-b83a-2b537ca12535
+    title: Domain
+    subtitle: Separate certificate for each domain (e.g. *.example.com)
 
   host:
-    id:
-    title:
-    subtitle:
-    arguments:
-    settings:
+    id: 874a86e4-29c7-4294-9ab6-6908866847a0 
+    title: Host
+    subtitle: Separate certificate for each host (e.g. sub.example.com)
 
   single:
-    id:
-    title:
-    subtitle:
-    arguments:
-    settings:
+    id: b705fa7c-1152-4436-8913-e433d7f84c82
+    title: Single
+    subtitle: Single certificate
+    default: 'Yes'
 
   site:
-    id:
-    title:
-    subtitle:
-    arguments:
-    settings:
-
+    id: 74a42b2d-8eaa-4f40-ab6a-f55304254143
+    title: Site
+    subtitle: Separate certificate for each IIS site
 
 source:
   csr:

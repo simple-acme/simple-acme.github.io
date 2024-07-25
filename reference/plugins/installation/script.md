@@ -1,17 +1,8 @@
 ---
-title: Script
 layout: plugin
 plugin_type: installation
-plugin_name: script
-compatibility: Windows, Linux
-id: 3bb22c70-358d-4251-86bd-11858363d913
-arguments:
-    - 
-        name: --script
-        desc: Path to script file to run after retrieving the certificate. This may be an executable file or a Powershell (.ps1) script.
-    -
-        name: --scriptparameters
-        desc: Parameters for the script to run after retrieving the certificate.    
+plugin: script
+compatibility: All platforms
 examples:
     - 
         name: Full
@@ -32,7 +23,7 @@ The following variables can be provided from the program to the script as comman
 | `{6}` or `{CacheFolder}`       | Directory containing the cached `.pfx` file (*)                                 |
 | `{4}` or `{CertFriendlyName}`       |  Friendly name of the newly issued certificate                               |
 | `{5}` or `{CertThumbprint}`      | Thumbprint of the newly issued certificate                             |
-| `{7}` or `{RenewalId}`       | Id of the renewal                                    |
+| `{7}` or `{RenewalId}`       | Id of the renewal (xxx.renewal.json)                                  |
 | `{3}` or `{StorePath}`      | Path or store name used by the (first) store plugin   |
 | `{StoreType}`        |  Name of the (first) store plugin (e.g. CentralSsl or PemFiles)                                    |
 | `{OldCertCommonName}`        |  Common name (primary domain name) of the previously issued certificate |
@@ -40,8 +31,8 @@ The following variables can be provided from the program to the script as comman
 | `{OldCertThumbprint}`        |  Thumbprint of the previously issued certificate |
 | `{vault://json/mysecret}`        |  Secret from the [vault](https://www.simple-acme.com/manual/advanced-use/secret-management) |
 
-
-*) Will be empty if cache is disabled
+---
+(*) Will be empty if cache is disabled
 
 ### Example
 If you need your scripts parameters to look something like this:

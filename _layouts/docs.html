@@ -13,7 +13,10 @@ layout: default
     <div class="docs-content">
         <div class="container">
             <article class="docs-article active">
-                {{ content }}  
+                {{ content }} 
+                {% if page.settings %}
+                    {% include settings.html settings=page.settings %} 
+                {% endif %}
                 <div class="callout-block callout-block-info pb-3 mt-5">
                     <div class="content">
                         <h4 class="callout-title">

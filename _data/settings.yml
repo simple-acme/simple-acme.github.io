@@ -239,147 +239,257 @@ ScheduledTask:
   StartBoundary:
     type: string
     subtype: time
-    default: "09:00:00"
+    default: "09:00:00" (9:00 am)
+    description: Configures start time for the scheduled task.
     
   ExecutionTimeLimit:
     type: string
     subtype: time
-    default: "02:00:00"
+    default: "02:00:00" (2 hours)
+    description: Configures time after which the scheduled task will be terminated if it hangs for whatever reason.
 
   RandomDelay:
     type: string
     subtype: time
-    default: "04:00:00"
+    default: "04:00:00" (4 hours)
+    description: Configures random time to wait for starting the scheduled task. This spreads the load on the servers and thus prevents users from getting <code>TooManyRequests</code> errors.
 
 Notifications:
   SmtpServer:
     type: string
     subtype: host
+uired to receive renewal failure notifications.    description: SMTP server to use for sending email notifications. Req
     
   SmtpPort:
     type: number
     default: 25
+    description: SMTP server port number.
 
   SmtpUser:
     type: string
+    description: User name for the SMTP server, in case of authenticated SMTP.
 
   SmtpPassword:
     type: string
     subtype: secret
+    description: Password for the SMTP server, in case of authenticated SMTP. This may be a reference to the <a href="http://localhost:4000/manual/advanced-use/secret-management">secret vault</a>.
 
   SmtpSecure:
     type: boolean
     default: false
+    description: Change to <code>true</code> to enable secure SMTP.
 
   SmtpSecureMode:
     type: number
     default: 1
+    description: 
+      <table>
+        <tr><th>Value</th><th>Meaning</th></tr>
+        <tr><td>1</td><td>Automatic (based on port number)</td></tr>
+        <tr><td>2</td><td>Implicit TLS</td></tr>
+        <tr><td>3</td><td>Explicit TLS (required)</td></tr>
+        <tr><td>4</td><td>Explicit TLS (when available)</td></tr>
+      </table>
 
   SmtpSenderName:
     type: string
+    description: Display name to use as the sender of notification emails. Defaults to the <code>ClientName</code> setting when empty.
     
   SenderAddress:
     type: string
     subtype: email
+    description:
 
   ReceiverAddresses:
     type: string[]
     subtype: email
+    description: 
+      Email address to use as the sender of notification emails. 
+      Required to receive renewal failure notifications. The correct 
+      format for the receiver is <code>["example@example.com"]</code> for a 
+      single address and <code>["example1@example.com", "example2@example.com"]</code> 
+      for multiple addresses.
 
   EmailOnSuccess:
     type: boolean
     default: false
+    description: 
+      Send an email notification when a certificate has been successfully 
+      created or renewed, as opposed to the default behavior that only send 
+      failure notifications. Only works if at least <code>SmtpServer</code>, 
+      <code>SmtpSenderAddress</code> and <code>SmtpReceiverAddress</code> have 
+      been configured.
 
   ComputerName:
     type: string
+    description: This value replaces the Windows machine name reported in emails.
 
 Security:
   EncryptConfig:
       type: boolean
       default: true
+      description: 
+        Uses Microsoft Data Protection API to encrypt sensitive 
+        parts of the configuration, e.g. passwords. This may be disabled 
+        to share the configuration across a cluster of machines. Not 
+        supported on Linux.
 
   FriendlyNameDateTimeStamp:
       type: boolean
       default: true
+      description:
+        Add the issue date and time to the friendly name of requested 
+        certificates. If you require full control over the final 
+        certificate friendly name this feature should be disabled.
 
 Script:
   Timeout:
     type: number
     default: 600
+    description: Time in seconds to allow installation and DNS scripts to run before terminating them forcefully.
 
   PowershellExecutablePath:
     type: string
     subtype: path
     default: "powershell.exe"
+    description: 
+      Customize this value to use a different version of Powershell to 
+      execute <code>.ps1</code> scripts. E.g. 
+      <code>C:\\Program Files\\PowerShell\\6.0.0\\pwsh.exe</code> for 
+      Powershell Core 6.
 
 Source:
   DefaultSource:
     type: string
+    description: Default source plugin. This only affects the menu in 
+      the UI. Leaving this empty is equivalent to <code>"iis"</code> with 
+      <code>"manual"</code> as backup for non-administrators or systems 
+      without IIS.
 
 Validation:
   DefaultValidation:
     type: string
+    description: Default validation plugin. Leaving this empty is currently 
+      equivalent to <code>"selfhosting"</code> with <code>"filesystem"</code> 
+      as backup for non-administrators.
 
   DefaultValidationMode:
     type: string
+    description: Default validation method. Leaving this empty is currently 
+      equivalent to <code>"http-01"</code>.
 
   DisableMultiThreading:
     type: boolean
     default: true
+    description: Disable multithreading features for validation. Inceases runtime but may help to fix bugs caused by race conditions.
 
   ParallelBatchSize:
     type: number
     default: 100
+    description: Maximum number of validations to run simultaneously. We 
+      recommend limiting this to about 20 to prevent issues like overrunning 
+      the maximum size of a DNS response. The default is set to <code>100</code> 
+      for backwards compatibility reasons.
 
   CleanupFolders:
     type: boolean
     default: true
+    description: If set to <code>true</code>, the program will automatically
+      delete file it created after HTTP validation is complete. It will also
+      cleanup the <code>./well-known/acme-challenge</code> folder, if 
+      (and only if) there are no other files present.
 
   PreValidateDns:
     type: boolean
     default: true
+    description: If set to <code>true</code>, it will wait until it can verify 
+      that the validation record has been created and is available before 
+      beginning DNS validation.
 
   PreValidateDnsRetryCount:
     type: number
     default: 5
+    description: Maximum numbers of times to retry DNS pre-validation, 
+      while waiting for the name servers to start providing the expected answer.
 
   PreValidateDnsRetryInterval:
     type: number
     default: 30
+    description: Amount of time in seconds to wait between each retry.
 
   AllowDnsSubstitution:
     type: boolean
     default: true
+    description: If your goal is to get a certificate for <code>example.com</code> 
+      using DNS validation, but the DNS service for that domain does not support 
+      automation, there is no plugin available for it and/or your security 
+      policy doesn't allow third party tools like simple-acme to access the 
+      DNS configuration, then you can set up a <code>CNAME</code> from 
+      <code>_acme-challenge.example.com</code> to another (sub)domain under 
+      your control that doesn't have these limitations. 
+
+      <a href="/reference/plugins/validation/dns/acme-dns">acme-dns</a> is 
+      based on this principle, but the same trick can be applied to any of the 
+      <a href="/reference/plugins/validation/dns/">DNS plugins</a>. Set this 
+      value to <code>false</code> to disable the feature.
+
+      Note that for the program to understand your DNS setup, the 
+      <code>CNAME</code> record will have to visibile to it. If you have a 
+      complicated DNS setup with an internal-facing "split brain" that is 
+      lacking the relevant records, you can let simple-acme use a public DNS 
+      server like 1.1.1.1 instead of your system server using the next setting.
 
   DnsServers:
     type: string[]
     subtype: host
     default: "[ \"[System]\" ]"
+    description: A list of servers to query during DNS prevalidation checks 
+      to verify whether or not the validation record has been properly 
+      created and is visible for the world. These servers will be used to 
+      locate the actual authoritative name servers for the domain. You can 
+      use the string [System] to have the program query your default name 
+      servers.
 
   Ftp:
     UseGnuTls:
       type: boolean
       default: false
+      description: If you experience connection issues with Unix FTPS servers, 
+        using the GnuTLS library instead of Microsofts native TLS implementation
+        might solve the problem. <a href="https://github.com/robinrodricks/FluentFTP/wiki/FTPS-Connection-using-GnuTLS">This page</a> 
+        by the FluentFTP project explains the reasons behind and limitations 
+        of this method. Note that it's not enough to merely change this 
+        setting, check the documentation of the FTP plugin for more details.
 
 Order:
   DefaultOrder:
     type: string
+    description: Default order plugin. Leaving this empty is currently equivalent to <code>"single"</code>.
 
   DefaultValidDays:
     type: number
+    description: Number of days requested certificates should remain valid. 
+      Note that not all servers support this property. Specifically Let's 
+      Encrypt throws an error when using this at the time of writing.
 
 Csr:
   DefaultCsr:
     type: string
+    description: Default CSR plugin. Leaving this empty is currently equivalent to <code>"rsa"</code>.
     
   Rsa:
     KeyBits:
       type: number
       default: 3072
+      description: The number of bits to use for RSA private keys, ultimately 
+        determining the strength of the encryption. Minimum is 2048.
 
     SignatureAlgorithm:
       type: string
       default: SHA512withECDSA
+      description: Algorithm to use to sign CSR with RSA public key. Full 
+        list of possible options available <a href="https://github.com/bcgit/bc-csharp/blob/master/crypto/src/cms/CMSSignedGenerator.cs">here</a>. 
+        Note that not all servers will support all types of signatures.
 
   Ec:
     CurveName: 
@@ -390,56 +500,128 @@ Csr:
     SignatureAlgorithm:
       type: string
       default: SHA512withECDSA
+      description: Algorithm to use to sign CSR with EC public key. Full list
+        of possible options available <a href="https://github.com/bcgit/bc-csharp/blob/master/crypto/src/cms/CMSSignedGenerator.cs">here</a>. 
+        Note that not all servers will support all types of signatures.
 
 Store:
   DefaultStore:
     type: string
+    description: Default store plugin(s). Leaving this empty is currently 
+      equivalent to <code>"certificatestore"</code>. This may be a comma 
+      separated value for multiple default store plugins.
 
   CertificateStore:
     DefaultStore:
       type: string
+      description: The certificate store to save the certificates in. 
+        If left empty, certificates will be installed either in the 
+        <code>WebHosting</code> store, or if that is not available, 
+        the <code>My</code> store (better known in the Microsoft 
+        Management Console as as <code>Personal</code>).
 
     PrivateKeyExportable:
       type: boolean
       default: false
+      description: If set to true, certificates stored in the 
+        Windows Certificate Store will be marked as exportable, 
+        allowing you to transfer them to other computers. Note that 
+        this setting doesn't apply retroactively but only to certificates 
+        issued from the moment that setting has changed. For tips about 
+        migration please refer to <a href="/manual/migration">this page</a>.
 
     UseNextGenerationCryptoApi:
       type: boolean
       default: false
+      description: "If set to true, the program will use the <a href=\"https://learn.microsoft.com/en-us/windows/win32/seccng/about-cng\">Cryptography 
+        API</a>: Next Generation (CNG) to handle private keys, instead of 
+        the legacy CryptoAPI. Note that enabling this option may make 
+        the certificates unusable or behave differently in subtle ways 
+        for software that only supports or assumes the key to exist in 
+        CryptoAPI. For example it will not work for older versions of 
+        Microsoft Exchange and it won't be exportable from IIS, even if 
+        the <code>PrivateKeyExportable</code> setting is <code>true</code> 
+        (though it will be exportable from MMC)."
 
   CentralSsl:
     DefaultPath:
       type: string
       subtype: path
+      description: When using the <a href="/reference/plugins/store/centralssl">CentralSsl</a> 
+        plugin this path is used by default, saving you the effort of providing 
+        it manually. Filling this out makes the <code>--centralsslstore</code> 
+        parameter unnecessary in most cases. Renewals created with the 
+        default path will automatically change to any future default value, 
+        meaning this is also a good practice for maintainability.
 
     DefaultPassword:
       type: string
       subtype: secret
+      description: When using the <a href="/reference/plugins/store/centralssl">CentralSsl</a> 
+        plugin this password is used by default for the <code>.pfx</code> 
+        files, saving you the effort from providing it manually. Filling 
+        this out makes the <code>--pfxpassword</code> parameter unnecessary 
+        in most cases. Renewals created with the default password will 
+        automatically change to any future default value, meaning this 
+        is also a good practice for maintainability.
 
   PemFiles:
     DefaultPath:
       type: string
       subtype: path
+      description: When using the <a href="/reference/plugins/store/pemfiles">PemFiles</a> 
+        plugin this path is used by default, saving you the effort of providing 
+        it manually. Filling this out makes the <code>--pemfilespath</code> 
+        parameter unnecessary in most cases. Renewals created with the 
+        default path will automatically change to any future default value, 
+        meaning this is also a good practice for maintainability.
 
     DefaultPassword:
       type: string
       subtype: secret  
+      description: When using the <a href="/reference/plugins/store/pemfiles">PemFiles</a>
+        plugin this password is used by default for the <code>.pem</code> files, 
+        saving you the effort from providing it manually. Filling this out 
+        makes the <code>--pempassword</code> parameter unnecessary in most 
+        cases. Renewals created with the default password will automatically 
+        change to any future default value, meaning this is also a good 
+        practice for maintainability.
 
   PfxFile:
     DefaultPath:
       type: string
       subtype: path
+      description: When using the <a href="/reference/plugins/store/pfxfile">PFxFile</a> 
+        plugin this path is used by default, saving you the effort of providing 
+        it manually. Filling this out makes the <code>--pfxfilepath</code> 
+        parameter unnecessary in most cases. Renewals created with the 
+        default path will automatically change to any future default value, 
+        meaning this is also a good practice for maintainability.
 
     DefaultPassword: 
       type: string
-      subtype: secret  
+      subtype: secret 
+      description: When using the <a href="/reference/plugins/store/pfxfile">PFxFile</a>
+        plugin this password is used by default for the <code>.pfx</code> files, 
+        saving you the effort from providing it manually. Filling this out 
+        makes the <code>--pfxpassword</code> parameter unnecessary in most 
+        cases. Renewals created with the default password will automatically 
+        change to any future default value, meaning this is also a good 
+        practice for maintainability.
 
 Installation:
   DefaultInstallation:
       type: string
+      description: Default installation plugin(s). Leaving this empty is 
+        currently equivalent to <code>"none"</code> for most unattended 
+        usage (unless <code>--source iis</code> is provided) and 
+        <code>"iis"</code> for interactive mode. This may be a comma 
+        separated value for multiple default installation plugins.
 
 Secrets:
   Json:
     FilePath:
       type: string
       subtype: path  
+      description: Location of the file store secrets. If undefined, 
+        defaults to <code>{ConfigurationPath}\secrets.json</code>
