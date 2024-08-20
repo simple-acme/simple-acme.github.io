@@ -3,7 +3,8 @@
     <td>
         {{ include.setting.description }}
         {% if include.setting.default %}
-            Default: 
+            <br><br>
+            <strong>Default:</strong> 
             {% if include.setting.type == "string" %}
                 "{{ include.setting.default }}"
             {% else %}

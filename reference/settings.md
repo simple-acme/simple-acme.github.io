@@ -1,13 +1,17 @@
 ---
+client:
+  - Client.ClientName
+  - Client.ConfigurationPath
+  - Client.LogPath
 ---
 # Settings.json
 Some of the applications' settings can be modified in a file called `settings.json`. 
 If this file is not present when the program starts it will be automatically 
 created on first run, copied from `settings_default.json`. This allows you to
-xcopy new releases without worrying about overwriting your previously customized 
-settings.
+<code>xcopy</code> new releases without worrying about overwriting your previously 
+customized settings.
 
-## Client
+{% include settings.html settings=page.client title='Client' %}
 
 ### `ClientName`
 Default: `"simple-acme"`

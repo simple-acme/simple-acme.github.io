@@ -239,26 +239,28 @@ ScheduledTask:
   StartBoundary:
     type: string
     subtype: time
-    default: "09:00:00" (9:00 am)
+    default: '"09:00:00" (9:00 am)'
     description: Configures start time for the scheduled task.
     
   ExecutionTimeLimit:
     type: string
     subtype: time
-    default: "02:00:00" (2 hours)
+    default: '"02:00:00" (2 hours)'
     description: Configures time after which the scheduled task will be terminated if it hangs for whatever reason.
 
   RandomDelay:
     type: string
     subtype: time
-    default: "04:00:00" (4 hours)
-    description: Configures random time to wait for starting the scheduled task. This spreads the load on the servers and thus prevents users from getting <code>TooManyRequests</code> errors.
+    default: '"04:00:00" (4 hours)'
+    description: Configures random time to wait for starting the scheduled task. This 
+      spreads the load on the servers and thus prevents users from getting 
+      <code>TooManyRequests</code> errors.
 
 Notifications:
   SmtpServer:
     type: string
     subtype: host
-uired to receive renewal failure notifications.    description: SMTP server to use for sending email notifications. Req
+    description: SMTP server to use for sending email notifications. Required to receive renewal failure notifications.    
     
   SmtpPort:
     type: number
@@ -272,7 +274,8 @@ uired to receive renewal failure notifications.    description: SMTP server to u
   SmtpPassword:
     type: string
     subtype: secret
-    description: Password for the SMTP server, in case of authenticated SMTP. This may be a reference to the <a href="http://localhost:4000/manual/advanced-use/secret-management">secret vault</a>.
+    description: Password for the SMTP server, in case of authenticated SMTP. 
+      This may be a reference to the <a href="http://localhost:4000/manual/advanced-use/secret-management">secret vault</a>.
 
   SmtpSecure:
     type: boolean

@@ -1,4 +1,9 @@
-<h2>Settings</h2>
+{% if include.title == '' or include.title == null %}
+    {% assign title = 'Settings' %}
+{% else %}
+    {% assign title = include.title %} 
+{% endif %}
+<h2>{{ title }}</h2>
 <div class="table-responsive my-4 me-5 pe-5">
     <table class="table table-striped">
         <tbody>

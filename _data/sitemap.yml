@@ -83,7 +83,7 @@ manual:
     - title: to v2.2.0
       url: /manual/upgrading/to-v2.2.0
 reference:
-- title: Command line arguments
+- title: Command line
   url: /reference/cli
 
 - title: Settings.json

@@ -8,4 +8,4 @@ examples:
     name: Full
     cmd: '[--ocsp-must-staple] [--reuse-privatekey]'
 ---
-Generates 3072 bits RSA key pairs. The number of key bits can be configured in [settings.json](/reference/settings) but may not be less than 2048.
+Generates RSA key pairs. The number of key bits can be configured in [settings.json](/reference/settings) but may not be less than 2048.
