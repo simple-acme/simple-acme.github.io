@@ -86,21 +86,21 @@ source:
     subtitle: Read bindings from IIS
     arguments:
       - siteid
-      - host
+      - iis.host
       - host-pattern
       - host-regex
-      - commonname
+      - iis.commonname
       - excludebindings
       - host-type
-    settings:
-      - Client.HideHttps
+      - hidehttps
 
   manual:
-    id:
-    title:
-    subtitle:
+    id: e239db3b-b42f-48aa-b64f-46d4f3e9941b
+    title: Manual
+    subtitle: Manual input
     arguments:
-    settings:
+      - manual.host
+      - manual.commonname
 
 store:
   centralssl:

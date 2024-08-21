@@ -2,7 +2,7 @@
 layout: plugin
 plugin_type: source
 plugin: iis
-compatibility: Windows
+compatibility: Windows (admin only)
 examples:
     - 
         name: Single binding
@@ -37,7 +37,8 @@ combined with eachother.
 
 ## Site filters
 You can choose to limit the certificate to specific websites by specifying a site identifier, or a comma separated list 
-of them. The magic value `s` will dynamically include all current and future websites created on the server.
+of them. The magic value `s` will dynamically include all current and future websites created on the server. To also include FTP 
+sites, set `‑‑host-type` to `http,ftp`
 
 ## Binding filters
 You can filter bindings by host name by specifically typing them out. It's also be possible to filter hosts by a pattern

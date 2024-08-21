@@ -14,6 +14,9 @@ layout: default
         <div class="container">
             <article class="docs-article active">
                 {{ content }} 
+                {% if page.arguments %}
+                    {% include arguments.html arguments=page.arguments %} 
+                {% endif %}
                 {% if page.settings %}
                     {% include settings.html settings=page.settings %} 
                 {% endif %}

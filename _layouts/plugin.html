@@ -33,21 +33,6 @@ layout: docs
                 <td>{{page.compatibility}}</td>
                 <td></td>
             </tr>
-
-            {% if plugin.default %}
-            <tr>
-                <th scope="row">Default</th>
-                <td>{{plugin.default}}</td>
-                <td></td>
-            </tr>
-            {% else %}
-            <tr>
-                <th scope="row">Default</th>
-                <td>No (configurable in settings.json)</td>
-                <td></td>
-            </tr>
-            {% endif %}
-
         </tbody>
     </table>
 </div>
@@ -64,18 +49,7 @@ layout: docs
                 <td>Activates the plugin</td>
                 <td></td>
             </tr>
-            {% for item in plugin.arguments %}
-                {% for argument_group in site.data.arguments %}
-                    {% assign groupname = argument_group[0] | strip %}
-                    {% for argument_subgroup in site.data.arguments[groupname] %}
-                        {% for argument in argument_subgroup[1].arguments %}
-                            {% if argument.name == item %}
-                                {% include arguments-detail.html argument=argument %}
-                            {% endif %}
-                        {% endfor %}
-                    {% endfor %}
-                {% endfor %}
-            {% endfor %}            
+            {% include arguments-rows.html arguments=plugin.arguments %}
         </tbody>
     </table>
 </div>

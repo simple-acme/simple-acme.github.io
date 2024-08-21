@@ -1,0 +1,28 @@
+{% for item in include.arguments %}
+    {% assign split = item | split: '.' %}
+    {% if split.size == 1 %}
+        {% for argument_group in site.data.arguments %}
+            {% assign groupname = argument_group[0] | strip %}
+            {% for argument_subgroup in site.data.arguments[groupname] %}
+                {% for argument in argument_subgroup[1].arguments %}
+                    {% if argument.name == item %}
+                        {% include arguments-detail.html argument=argument %}
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        {% endfor %}
+    {% else %}
+        {% assign name0 = split[0] | strip %}
+        {% assign name1 = split[1] | strip %}
+        {% for argument_group in site.data.arguments %}
+            {% assign groupname = argument_group[0] | strip %}
+            {% for argument_subgroup in site.data.arguments[groupname] %}
+                {% for argument in argument_subgroup[1].arguments %}
+                    {% if argument.name == name1 and argument_subgroup[1].condition contains name0 %}
+                        {% include arguments-detail.html argument=argument %}
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
+{% endfor %}   

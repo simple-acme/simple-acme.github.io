@@ -5,7 +5,7 @@ plugin: script
 compatibility: All platforms
 examples:
     - 
-        name: Full
+        name: Typical
         cmd: '‑‑script C:\script.bat [‑‑scriptparameters x]'
 ---
 

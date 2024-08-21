@@ -1,6 +1,8 @@
 ---
 settings:
     - Csr.DefaultCsr
+arguments:
+    - csr
 ---
 # CSR plugins
 

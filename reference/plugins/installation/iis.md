@@ -2,10 +2,10 @@
 layout: plugin
 plugin: iis
 plugin_type: installation
-compatibility: Windows only
+compatibility: Windows (admin only)
 examples:
     - 
-        name: Full
+        name: Typical
         cmd: '[‑‑installationsiteid 14] [‑‑sslport 8443] [‑‑sslipaddress 192.168.0.1]'
 ---
 
