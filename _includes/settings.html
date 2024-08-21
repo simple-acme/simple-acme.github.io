@@ -20,9 +20,12 @@
                     {% assign name2 = split[2] | strip %}
                     {% assign setting = site.data.settings[name0][name1][name2] %}
                 {% endif %}
-
-                {% assign titlepart = include.remove | append: "." %}
-                {% assign labelsplit = plugin | replace_first: titlepart, '' | split: '.' %}
+                {% if include.remove %}
+                    {% assign titlepart = include.remove | append: "." %}
+                    {% assign labelsplit = plugin | replace_first: titlepart, '' | split: '.' %}
+                {% else %}
+                    {% assign labelsplit = split %}
+                {% endif %}
                 {% if labelsplit.size == 1 %}
                     {% assign name = labelsplit %}
                 {% endif %}

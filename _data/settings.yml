@@ -159,16 +159,16 @@ Proxy:
   Password:
     type: string
     subtype: secret
-    description: Password used to access the proxy server. 
-      This may be a reference to the <a href="/manual/advanced-use/secret-management">secret vault</a>.
+    description: Password used to access the proxy server.
 
 Cache:
   Path: 
     type: string
     subtype: path
     description: The path where certificates, request files and private keys 
-      are cached. If not specified or invalid, this defaults to {ConfigurationPath}\Certificates. 
-      If you are using <a href="/reference/plugins/store/centralssl">CentralSsl</a>, this can not be set to the same path.
+      are cached. If you are using <a href="/reference/plugins/store/centralssl">CentralSsl</a>, 
+      this can not be set to the same path.
+    nullBehaviour: defaults to <code>{Client.ConfigurationPath}\Certificates</code>. 
 
   ReuseDays:
     type: number
@@ -189,7 +189,7 @@ Cache:
     type: boolean
     default: 'false'
     description: Automatically delete files older than <code>DeleteStaleFileDays</code> 
-      many days from the {CertificatePath} folder. Running with default settings, 
+      many days from the folder <code>{Cache.Path}</code>. Running with default settings, 
       these should only be long-expired certificates, generated for abandoned renewals.
   
   DeleteStaleFileDays:
@@ -278,8 +278,7 @@ Notifications:
   SmtpPassword:
     type: string
     subtype: secret
-    description: Password for the SMTP server, in case of authenticated SMTP. 
-      This may be a reference to the <a href="http://localhost:4000/manual/advanced-use/secret-management">secret vault</a>.
+    description: Password for the SMTP server, in case of authenticated SMTP.
 
   SmtpSecure:
     type: boolean
@@ -300,12 +299,13 @@ Notifications:
 
   SmtpSenderName:
     type: string
-    description: Display name to use as the sender of notification emails. Defaults to the <code>ClientName</code> setting when empty.
+    description: Display name to use as the sender of notification emails.
+    nullBehaviour: equivalent to <code>{Client.ClientName}</code>.
     
   SenderAddress:
     type: string
     subtype: email
-    description: Email address to use as the sender of notification emails. Required to receive renewal failure notifications.
+    description: Email address to use as the sender of notification emails. Required to receive renewal notifications.
 
   ReceiverAddresses:
     type: string[]
@@ -368,22 +368,22 @@ Script:
 Source:
   DefaultSource:
     type: string
-    description: Default source plugin. This only affects the menu in 
-      the UI. Leaving this empty is equivalent to <code>"iis"</code> with 
-      <code>"manual"</code> as backup for non-administrators or systems 
+    description: Default source plugin. This only affects the menu in the UI.
+    nullBehaviour: equivalent to <code>"iis"</code>, with 
+      <code>"manual"</code> as backup for unprivileged users or systems 
       without IIS.
 
 Validation:
   DefaultValidation:
     type: string
-    description: Default validation plugin. Leaving this empty is currently 
-      equivalent to <code>"selfhosting"</code> with <code>"filesystem"</code> 
-      as backup for non-administrators.
+    description: Default validation plugin.
+    nullBehaviour: equivalent to <code>"selfhosting"</code>, with <code>"filesystem"</code> 
+      as backup for unprivileged users.
 
   DefaultValidationMode:
     type: string
-    description: Default validation method. Leaving this empty is currently 
-      equivalent to <code>"http-01"</code>.
+    description: Default validation method.
+    nullBehaviour: equivalent to <code>"http-01"</code>
 
   DisableMultiThreading:
     type: boolean
@@ -394,9 +394,9 @@ Validation:
     type: number
     default: 100
     description: Maximum number of validations to run simultaneously. We 
-      recommend limiting this to about 20 to prevent issues like overrunning 
-      the maximum size of a DNS response. The default is set to <code>100</code> 
-      for backwards compatibility reasons.
+      recommend limiting this to about <code>20</code> to prevent issues like 
+      overrunning the maximum size of a DNS response. The default is set to 
+      <code>100</code> for backwards compatibility reasons.
 
   CleanupFolders:
     type: boolean
@@ -444,7 +444,8 @@ Validation:
       <code>CNAME</code> record will have to visibile to it. If you have a 
       complicated DNS setup with an internal-facing "split brain" that is 
       lacking the relevant records, you can let simple-acme use a public DNS 
-      server like 1.1.1.1 instead of your system server using the next setting.
+      server like <code>1.1.1.1</code> instead of your system server using the next 
+      setting.
 
   DnsServers:
     type: string[]
@@ -454,8 +455,8 @@ Validation:
       to verify whether or not the validation record has been properly 
       created and is visible for the world. These servers will be used to 
       locate the actual authoritative name servers for the domain. You can 
-      use the string [System] to have the program query your default name 
-      servers.
+      use the string <code>"[System]"</code> to have the program query your 
+      default name servers.
 
   Ftp:
     UseGnuTls:
@@ -471,7 +472,8 @@ Validation:
 Order:
   DefaultOrder:
     type: string
-    description: Default order plugin. Leaving this empty is currently equivalent to <code>"single"</code>.
+    description: Default order plugin.
+    nullBehaviour: equivalent to <code>"single"</code>
 
   DefaultValidDays:
     type: number
@@ -482,8 +484,9 @@ Order:
 Csr:
   DefaultCsr:
     type: string
-    description: Default CSR plugin. Leaving this empty is currently equivalent to <code>"rsa"</code>.
-    
+    description: Default CSR plugin.
+    nullBehaviour: equivalent to <code>"rsa"</code>
+
   Rsa:
     KeyBits:
       type: number
@@ -514,23 +517,22 @@ Csr:
 Store:
   DefaultStore:
     type: string
-    description: Default store plugin(s). Leaving this empty is currently 
-      equivalent to <code>"certificatestore"</code>. This may be a comma 
-      separated value for multiple default store plugins.
+    description: Default store plugin(s). This may be a comma separated value for multiple default store plugins.
+    nullBehaviour: equivalent to <code>"certificatestore"</code>
 
   CertificateStore:
     DefaultStore:
       type: string
-      description: The certificate store to save the certificates in. 
-        If left empty, certificates will be installed either in the 
-        <code>WebHosting</code> store, or if that is not available, 
-        the <code>My</code> store (better known in the Microsoft 
-        Management Console as as <code>Personal</code>).
+      description: The name of the certificate store to save the certificates in.
+      nullBehaviour: certificates will be installed either in the 
+        <code>"WebHosting"</code> store, or if that is not available, 
+        the <code>"My"</code> store (better known in the Microsoft 
+        Management Console as as <code>"Personal"</code>)
 
     PrivateKeyExportable:
       type: boolean
       default: 'false'
-      description: If set to true, certificates stored in the 
+      description: If set to true, private keys stored in the 
         Windows Certificate Store will be marked as exportable, 
         allowing you to transfer them to other computers. Note that 
         this setting doesn't apply retroactively but only to certificates 
@@ -619,16 +621,16 @@ Store:
 Installation:
   DefaultInstallation:
       type: string
-      description: Default installation plugin(s). Leaving this empty is 
-        currently equivalent to <code>"none"</code> for most unattended 
-        usage (unless <code>--source iis</code> is provided) and 
-        <code>"iis"</code> for interactive mode. This may be a comma 
+      description: Default installation plugin(s). This may be a comma 
         separated value for multiple default installation plugins.
+      nullBehaviour: equivalent to <code>"none"</code> for most unattended 
+        usage (unless <code>--source iis</code> is provided) and 
+        <code>"iis"</code> for interactive mode
 
 Secrets:
   Json:
     FilePath:
       type: string
       subtype: path  
-      description: Location of the file store secrets. If undefined, 
-        defaults to <code>{ConfigurationPath}\secrets.json</code>
+      description: Location of the file store secrets.
+      nullBehaviour: defaults to <code>{Client.ConfigurationPath}\secrets.json</code>

@@ -3,9 +3,15 @@
     <td>
         {{ include.setting.description }}
         {% if include.setting.subtype == "path" %}
-            <div class="callout-block callout-block-warning pb-1 mt-1">
+            <div class="callout-block callout-block-warning pb-1 mt-3">
                 <div class="content">
                     <p>Paths should be JSON-encoded, e.g. <code>"C:\\"</code> (note the double backslash).</p>
+                </div>
+            </div>
+        {% elsif include.setting.subtype == "secret" %}
+            <div class="callout-block callout-block-warning pb-1 mt-3">
+                <div class="content">
+                    <p>You don't have store a literal password here, but may also place a reference to the <a href="/manual/advanced-use/secret-management">secret vault</a>.</p>
                 </div>
             </div>
         {% else %}

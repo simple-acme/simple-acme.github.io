@@ -1,4 +1,7 @@
 ---
+settings:
+    - Validation.DefaultValidation
+    - Validation.DefaultValidationMode
 ---
 # Validation plugins
 
@@ -15,8 +18,3 @@ For wildcard identifiers, only DNS-01 validation is accepted by Let's Encrypt.
 Several other challenge types are not supported for various reasons:
 - `TLS-SNI-01/-02` - deprecated and removed
 - `PROOFOFPOSSESSION-01` - unknown
-
-## Default
-
-By default, the [self-hosting plugin](/reference/plugins/validation/http/selfhosting) is used.
-This can be changed in [settings.json](/reference/settings).
