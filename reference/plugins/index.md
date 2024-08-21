@@ -1,4 +1,18 @@
 ---
+arguments:
+    - source
+    - order
+    - csr
+    - validation
+    - store
+    - installation
+settings:
+    - Source.DefaultSource
+    - Order.DefaultOrder
+    - Csr.DefaultCsr
+    - Validation.DefaultValidation
+    - Store.DefaultStore
+    - Installation.DefaultInstallation
 ---
 # Plugins
 
