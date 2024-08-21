@@ -9,4 +9,4 @@ Update record at [DreamHost](https://www.dreamhost.com/)
 Requires an API key
 
 ## Unattended 
-`--validation dreamhost --apikey ***`
+`‑‑validation dreamhost --apikey ***`

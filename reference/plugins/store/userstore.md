@@ -18,4 +18,4 @@ default) this plugin will refuse to run, because it will most likely be a mistak
 {% include plugin-seperate.md %}
 
 ## Unattended
-`--store userstore`
+`‑‑store userstore`

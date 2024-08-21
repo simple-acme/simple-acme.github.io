@@ -29,16 +29,16 @@ problem. [regex101.com](https://regex101.com/) is a nice tool to help test your 
 
 ## Unattended 
 - ##### Single binding
-`--source iis --host example.com [--siteid 1]`
+`‑‑source iis --host example.com [--siteid 1]`
 - ##### Multiple bindings
-`--source iis --host example.com,www.example.com [--siteid 1,2,3] [--commonname common.example.com]`
+`‑‑source iis --host example.com,www.example.com [--siteid 1,2,3] [--commonname common.example.com]`
 - ##### All bindings of a site
-`--source iis --siteid 1 [--commonname common.example.com] [--excludebindings exclude.example.com]`
+`‑‑source iis --siteid 1 [--commonname common.example.com] [--excludebindings exclude.example.com]`
 - ##### All bindings of multiple sites
-`--source iis --siteid 1,2,3 [--commonname common.example.com] [--excludebindings exclude.example.com]`
+`‑‑source iis --siteid 1,2,3 [--commonname common.example.com] [--excludebindings exclude.example.com]`
 - ##### All bindings of all sites
-`--source iis --siteid s [--commonname common.example.com] [--excludebindings exclude.example.com]`
+`‑‑source iis --siteid s [--commonname common.example.com] [--excludebindings exclude.example.com]`
 - ##### Binding pattern
-`--source iis --host-pattern *.example.??? [--siteid 1,2,3] [--commonname common.example.com] [--excludebindings exclude.example.com]`
+`‑‑source iis --host-pattern *.example.??? [--siteid 1,2,3] [--commonname common.example.com] [--excludebindings exclude.example.com]`
 - ##### Binging regex
-`--source iis --host-regex [a-z]{3}\.example(\.com|\.net) [--siteid 1,2,3] [--commonname common.example.com] [--excludebindings exclude.example.com]`
+`‑‑source iis --host-regex [a-z]{3}\.example(\.com|\.net) [--siteid 1,2,3] [--commonname common.example.com] [--excludebindings exclude.example.com]`

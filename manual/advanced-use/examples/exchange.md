@@ -18,12 +18,12 @@ Assumptions made in this example:
 
 ## Interactive
 It's not recommended to configure a certificate for Exchange in interactive mode, 
-because the settings `--acl-fullcontrol` (essential for installation of some updates) 
+because the settings `‑‑acl-fullcontrol` (essential for installation of some updates) 
 is not accessible from the menu. 
 
 ## Unattended
 Important note for Hybrid Exchange configurations (synced to Office 365): you should use 0 instead of 1 in the 
-`--scriptparameters`, which translates to the `LeaveOldExchangeCerts` input of the sample script. 
+`‑‑scriptparameters`, which translates to the `LeaveOldExchangeCerts` input of the sample script. 
 See [this issue](https://github.com/win-acme/win-acme/issues/1754) for more details.
 
 - Windows Certificate Store (default)

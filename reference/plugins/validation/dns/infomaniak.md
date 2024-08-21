@@ -9,4 +9,4 @@ Update record at [Infomaniak](https://www.infomaniak.com/)
 Requires an API token
 
 ## Unattended 
-`--validation infomaniak --apitoken ***`
+`‑‑validation infomaniak --apitoken ***`

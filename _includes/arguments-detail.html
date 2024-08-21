@@ -1,0 +1,14 @@
+<tr>
+    <th class="col-md-3" scope="row"><code>‑‑{{ include.argument.name }}</code></th>
+    <td>
+        {{ include.argument.description }}
+        {% if include.argument.secret %}
+        <div class="callout-block callout-block-warning pb-1 mt-3">
+            <div class="content">
+                <p>You may pass the secret in plain text, but can also use a reference to the <a href="/manual/advanced-use/secret-management">secret vault</a>.</p>
+            </div>
+        </div>
+        {% endif %}
+    </td>
+    <td></td>
+</tr>

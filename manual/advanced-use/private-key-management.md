@@ -18,7 +18,7 @@ plugin you can set `PrivateKeyExportable` to `true` in
 
 ## Migration/disaster recovery
 The `PrivateKeyExportable` setting only works for future certificates, 
-so if you're in a hurry you can force the renewals using `--renew --force` 
+so if you're in a hurry you can force the renewals using `‑‑renew --force` 
 or from the interactive menu to get new certificates with exportable keys.
 
 When renewal is not an option and you need to get the current certificate,
@@ -30,7 +30,7 @@ subsequently find the passwords in the corresponding `.renewal.json` files.
 
 ## Reuse private keys
 If you don't want your private key to change, you can use the option 
-`--reuse-privatekey` when setting up the renewal.
+`‑‑reuse-privatekey` when setting up the renewal.
 
 ## Private key cache
 By default simple-acme retains a copy of the private key in its certificate cache.

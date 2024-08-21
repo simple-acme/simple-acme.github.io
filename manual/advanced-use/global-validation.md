@@ -3,7 +3,7 @@
 # Global validation settings
 Starting from version 2.2.0, you can configure validation settings to apply for all 
 host names across all managed renewals (within the scope of a single ACME service, so 
-your `--test` endpoint will still have different settings than the regular one). 
+your `‑‑test` endpoint will still have different settings than the regular one). 
 
 ## Motivation
 If you want to have a certificate with hosts from domains, with the DNS for each of 

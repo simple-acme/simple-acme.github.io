@@ -15,6 +15,6 @@ expects to recieve an IAM role *name*, so not the ARN.
 
 ## Unattended 
 - User:
-`--validation route53 --route53accesskeyid x --route53secretaccesskey ***`
+`‑‑validation route53 --route53accesskeyid x --route53secretaccesskey ***`
 - IAM  role:
-`--validation route53 --route53iamrole x`
+`‑‑validation route53 --route53iamrole x`

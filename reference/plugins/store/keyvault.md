@@ -6,4 +6,4 @@ Store the certificate in [Azure KeyVault](https://azure.microsoft.com/en-us/serv
 {% include plugin-seperate.md %}
 
 ## Unattended
-`--store keyvault --vaultname MyVault --certificatename MyCertificate`
+`‑‑store keyvault --vaultname MyVault --certificatename MyCertificate`

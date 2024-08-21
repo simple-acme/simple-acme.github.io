@@ -38,7 +38,7 @@ lower all bound to the same IP address your choices are:
 - If they are subdomains of the same root, a wildcard certificate can be an option.
 
 #### Configuring the IP address
-When simple-acme creates the binding for a new certificate, it will bind the wildcard (*) IP address by default. In other words, incoming connections on all network interfaces will handeled using the certificate. You can customize this with the `--sslipaddress` switch from the command line, or manually after simple-acme created the binding. On renewal, the program will preserve whatever setting is configured in IIS.
+When simple-acme creates the binding for a new certificate, it will bind the wildcard (*) IP address by default. In other words, incoming connections on all network interfaces will handeled using the certificate. You can customize this with the `‑‑sslipaddress` switch from the command line, or manually after simple-acme created the binding. On renewal, the program will preserve whatever setting is configured in IIS.
 
 ### Wildcard bindings
 Wildcard bindings are only supported on IIS 10 (Windows Server 2016+). Wildcard 

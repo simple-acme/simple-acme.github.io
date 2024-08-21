@@ -20,11 +20,11 @@ following replacements are made by simple-acme:
 The order and format of arguments may be customized by providing a diffent argument string. 
 For example if your script needs arguments like:
 
-`--host _acme-challenge.example.com --token DGyRejmCefe7v4NfDGDKfA`
+`‑‑host _acme-challenge.example.com --token DGyRejmCefe7v4NfDGDKfA`
 
 ...your argument string should like like this: 
 
-`--host {RecordName} --token {Token}`
+`‑‑host {RecordName} --token {Token}`
 
 ## Delete
 Optionally, another script may be provided to delete the record after validation. The arguments passed to the 
@@ -33,7 +33,7 @@ customized by providing a diffent argument string, just like for the create scri
 the same script for create and delete, with each their own argument string.
 
 ## Parallelism
-You can use `--dnsscriptparallelism` to specify if your script supports parallelism. This only has any 
+You can use `‑‑dnsscriptparallelism` to specify if your script supports parallelism. This only has any 
 effect when `DisableParallelism` is set to `false` in `settings.config`. You may use the following values:
 
 | Value          |  Meaning |

@@ -8,7 +8,4 @@ examples:
     name: Full
     cmd: '[--ocsp-must-staple] [--reuse-privatekey]'
 ---
-Generates ECDSA keys based on the `secp384r1` curve. The curve to use can be 
-configured in [settings.json](/reference/settings) but currently only 
-SEC named curves are supported. The ACME server provider may have 
-additional limitations.
+Generates ECDSA keys. Only SEC named curves are supported by this client. The ACME server may have additional limitations.

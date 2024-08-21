@@ -13,6 +13,6 @@ This requires you to activate the API in the "my account" section of the control
 
 ## Unattended 
 - Key inline
-`--validation transip --transip-login xx --transip-privatekey `"---- PRIVATE KEY --- ...`"`
+`‑‑validation transip --transip-login xx --transip-privatekey `"---- PRIVATE KEY --- ...`"`
 - Key in file:
-`--validation transip --transip-login xx --transip-privatekey C:\transip.key`
+`‑‑validation transip --transip-login xx --transip-privatekey C:\transip.key`

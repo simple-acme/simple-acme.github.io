@@ -7,4 +7,4 @@ for this validation method to work. The reference implementation can be found [h
 {% include plugin-seperate.md %}
 
 ## Unattended 
-`--validation rest --rest-securitytoken ***** [--rest-usehttps]`
+`‑‑validation rest --rest-securitytoken ***** [--rest-usehttps]`

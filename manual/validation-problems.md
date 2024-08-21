@@ -6,10 +6,10 @@ that it can fail. This page is meant for people who run into problems to help fi
 the issue might be.
 
 ## Testing 
-Run `wacs.exe` with the `--test` and `--verbose` parameters to watch your validation unfold in 
+Run `wacs.exe` with the `‑‑test` and `‑‑verbose` parameters to watch your validation unfold in 
 'slow motion'. This will run against the Let's Encrypt staging server so you don't risk 
 running into any rate limits. If you want to test against the production endpoint, include the
-parameter `--baseuri https://acme-v02.api.letsencrypt.org/` as well.
+parameter `‑‑baseuri https://acme-v02.api.letsencrypt.org/` as well.
 
 ## General validation issues
 

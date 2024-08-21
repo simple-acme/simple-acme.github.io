@@ -68,13 +68,9 @@ layout: docs
                 {% for argument_group in site.data.arguments %}
                     {% assign groupname = argument_group[0] | strip %}
                     {% for argument_subgroup in site.data.arguments[groupname] %}
-                        {% for argument in argument_subgroup[1] %}
+                        {% for argument in argument_subgroup[1].arguments %}
                             {% if argument.name == item %}
-                                <tr>
-                                    <th class="col-md-3" scope="row"><code>--{{ argument.name }}</code></th>
-                                    <td>{{ argument.description }}</td>
-                                    <td></td>
-                                </tr>
+                                {% include arguments-detail.html argument=argument %}
                             {% endif %}
                         {% endfor %}
                     {% endfor %}

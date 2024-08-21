@@ -61,11 +61,11 @@ advanced scenarios are not possible through the command line (e.g. multiple inst
 need to automate those there's no alternative but to manipulate the `.json` files themselves.
 
 ### Examples
-The `--source` switch, used to select a [source plugin](/reference/plugins/source/), 
+The `‑‑source` switch, used to select a [source plugin](/reference/plugins/source/), 
 triggers the unattended creation of new certificate.
 
-- `--source manual` - selects the [manual plugin](/reference/plugins/source/manual).
-- `--source iis` - selects the [iis plugin](/reference/plugins/source/iis).
+- `‑‑source manual` - selects the [manual plugin](/reference/plugins/source/manual).
+- `‑‑source iis` - selects the [iis plugin](/reference/plugins/source/iis).
 
 Each plugin has their own inputs which it needs to generate the certificate, for example:
 
@@ -73,7 +73,7 @@ Each plugin has their own inputs which it needs to generate the certificate, for
 ```wacs.exe --source iis --siteid 1 --excludebindings exclude.me```
 
 There are some other parameters needed for first-time unattended use (e.g. on a clean server) 
-to create the Let's Encrypt registration automatically (```--emailaddress myaddress@example.com --accepttos```). 
+to create the Let's Encrypt registration automatically (```‑‑emailaddress myaddress@example.com --accepttos```). 
 So a full command line to create a certificate for IIS site 1 on a clean server (except for 
 the 'exclude.me' binding) would look like this:
 

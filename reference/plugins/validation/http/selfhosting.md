@@ -11,7 +11,7 @@ port, or look for another validation method.
 ## Non-default port
 Even though Let's Encrypt will always send validation requests to port 80, 
 you may internally proxy, NAT or redirect that to another port. Using the 
-`--validationport` switch you can tell the plugin to listen to a specific port.
+`‑‑validationport` switch you can tell the plugin to listen to a specific port.
 
 ## Firewall exemption
 Obviously, whichever port is used will have to be accessible from outside, meaning

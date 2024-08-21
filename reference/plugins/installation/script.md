@@ -46,8 +46,8 @@ Then your argument string should look like this:
 ### Parameter escaping
 If you need to put double quotes around your parameters from the command line, you have to escape them with a slash, for example:
 
-`--scriptparameters "action=import file=\"{CacheFile}\" password=\"{CachePassword}\""`
+`‑‑scriptparameters "action=import file=\"{CacheFile}\" password=\"{CachePassword}\""`
 
 For **Powershell** scripts, string parameters can also be delimited with single quotes, for example:
 
-`--scriptparameters "action=import file='{CacheFile}' password='{CachePassword}'"`
+`‑‑scriptparameters "action=import file='{CacheFile}' password='{CachePassword}'"`

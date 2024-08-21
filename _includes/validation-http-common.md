@@ -5,7 +5,7 @@ the validation file itself and note the result of that request in the log. A sid
 effect of this is that it forces the application to start in case it's application pool
 or equivalent went to sleep, warming up the caches etc. This reduces the chance of 
 time-outs during validation. This used to be optional behaviour controlled by the 
-`--warmup` switch, but that is no longer in use.
+`‑‑warmup` switch, but that is no longer in use.
 
 ## web.config
 
@@ -14,7 +14,7 @@ help IIS properly serve the response. There are [many reasons](/manual/validatio
 why IIS can fail to properly server the file. Some of them can be fixed this way. 
 
 In interactive mode the program will ask you if you want to do this. In unattended mode you 
-can request it with the parameter `--manualtargetisiis`
+can request it with the parameter `‑‑manualtargetisiis`
 
 ### Changing the template
 

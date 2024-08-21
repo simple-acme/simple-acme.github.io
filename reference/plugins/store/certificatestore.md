@@ -21,11 +21,11 @@ by setting `PrivateKeyExportable` to `true` in [settings.json](/reference/settin
 The updated setting only takes effect after the next (uncached) renewal.
 
 ## Keep existing
-The `--keepexisting` switch can be used to prevent the program from deleting older 
+The `‑‑keepexisting` switch can be used to prevent the program from deleting older 
 versions of the certificate from the store.
 
 ## Private key ACL
-The `--acl-fullcontrol` and `--acl-read` parameters can be used to grant principals other than the 
+The `‑‑acl-fullcontrol` and `‑‑acl-read` parameters can be used to grant principals other than the 
 defaults for a specific store access to the private key. You can use principal names or well-known SIDs here.
 
 ## Unattended

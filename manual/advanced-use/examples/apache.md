@@ -3,7 +3,7 @@
 # Apache
 To get the certificate in the correct format for Apache (i.e. `.pem` files), you have to active 
 the [PemFiles plugin](/reference/plugins/store/pemfiles) for each of your renewals. 
-For **new** renewals this can be done either from the command line with `--store pemfiles` or 
+For **new** renewals this can be done either from the command line with `‑‑store pemfiles` or 
 from the main menu with the `M` option, where it will be posed as a question ("How would you 
 like to store this certificate?"). 
 

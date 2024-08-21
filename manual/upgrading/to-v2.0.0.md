@@ -18,7 +18,7 @@ Importing from 1.9.x is pretty easy. In the main menu select the option `More op
 from the previous version. It will also disable the scheduled task for the old version and create 
 a new one for the new version.
 
-The same thing can be accomplished unattended with the `--import` switch.
+The same thing can be accomplished unattended with the `‑‑import` switch.
 
 Note that the import process in versions before 2.1.4 will *not* create an account at the ACMEv2 server 
 for you, so you will have to set one up (by manually renewing once) before you will be able to renew with

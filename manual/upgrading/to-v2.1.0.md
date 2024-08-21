@@ -7,7 +7,7 @@ with some notable exceptions.
 Releases `2.1.4` and above will also ensure that there is an account for the 
 ACMEv2 server, so that an initial manual renewal is no longer required. 
 For fully unattended upgrades, you will therefor have to specify 
-`--import --emailaddress you@example.com --accepttos` on the command line so 
+`‑‑import --emailaddress you@example.com --accepttos` on the command line so 
 that the account can be created without additional user input.
 
 # Migration from v2.0.x to v2.1.0

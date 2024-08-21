@@ -14,7 +14,7 @@ the right mouse button and then checking the `Unblock` box on the General tab.
 
 ### Verify the installation
 To verify that the plugin is properly installed you can start the main executable 
-with `--verbose` and it will print information about found and loaded plugins at 
+with `‑‑verbose` and it will print information about found and loaded plugins at 
 start up. When the plugin is loaded, it manifests itself as extra menu choices and
 command line parameters being made availalbe.
 

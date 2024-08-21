@@ -16,7 +16,7 @@ about [plugins](/reference/plugins/) to read all about it.
 scripting, to create a lighty coupled integration between your own management tools and simple-acme.
 
 ## Modification
-Many users mistakenly try to modify their renewal by issuing commands like `--renew --webroot C:\NewRoot` 
+Many users mistakenly try to modify their renewal by issuing commands like `‑‑renew --webroot C:\NewRoot` 
 hoping that the configured webroot for their renewal will be changed. The reason this doesn't work is 
 because a renew cycle checks **all** renewals, each of which can use any of the hundreds of possible 
 combinations of [plugins](/reference/plugins/), so it's complex to figure out what the 
@@ -31,7 +31,7 @@ From the command line you can modify a renewal by re-creating it. If it turns ou
 certificate has the same friendly name as a previously created one, then the older settings will be 
 overwritten. When this happens in interactive mode the user is asked to confirm this, but in unattended 
 mode the script or program calling simple-acme is assumed to know the consequences of its actions. If you
-actually intend to create two very similar certificates, add the `--id` parameter to make them unique 
+actually intend to create two very similar certificates, add the `‑‑id` parameter to make them unique 
 and prevent overwrites based on the friendly name.
 
 You can also edit the `.renewal.json` file, but that's not recommended unless you are already familiar 
@@ -44,7 +44,7 @@ this without disturbing your production applications. Only you will have to set 
 alternative certificate solution before the certificate reaches its natural expiration date. 
 - You can cancel a renewal from the main menu. The program will then delete the `.renewal.json` file from 
 disk and forget about it.
-- You can cancel from the command line using the arguments `--cancel [--friendlyname xxx|-id xxx]`. 
+- You can cancel from the command line using the arguments `‑‑cancel [--friendlyname xxx|-id xxx]`. 
 The effects are the same as above.
 - You can delete the `.renewal.json` file yourself. The effects are the same as above.
 
@@ -52,7 +52,7 @@ The effects are the same as above.
 Revoking a certificate should only be done when the private key is believed to have been compromised, 
 not when simply replacing or cancelling it. Revocation can be done from the main menu with
 (`Manage renewals` > `Revoke certificate`)
-- You can revoke from the command line using the arguments `--revoke [--friendlyname xxx|-id xxx]`. 
+- You can revoke from the command line using the arguments `‑‑revoke [--friendlyname xxx|-id xxx]`. 
 The effects are the same as above.
 
 ## Internals
@@ -63,7 +63,7 @@ though that can be changed in [settings.json](/reference/settings). Each file th
 ### File names
 The files are randomly named by the program, but you are free to rename them if that suits you. The only requirement 
 is that they must be unique, which is enforced by checking that the `"Id"` field in the JSON must match with the 
-name of file. You can specify your own identifier at creation time with the `--id` switch.
+name of file. You can specify your own identifier at creation time with the `‑‑id` switch.
 
 ### File content
 The renewal files consist of three parts:

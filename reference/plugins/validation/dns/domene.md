@@ -7,4 +7,4 @@ Create the record at [Domainname.shop](https://domainname.shop/). This requires 
 
 ## Unattended 
 - Key inline
-`--validation domene --clientid xx --clientsecret xx`
+`‑‑validation domene --clientid xx --clientsecret xx`
