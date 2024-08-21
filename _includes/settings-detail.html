@@ -2,13 +2,30 @@
     <th class="col-md-3" scope="row"><code>{{ include.name }}</code></th>
     <td>
         {{ include.setting.description }}
-        {% if include.setting.default %}
+        {% if include.setting.subtype == "path" %}
+            <div class="callout-block callout-block-warning pb-1 mt-1">
+                <div class="content">
+                    <p>Paths should be JSON-encoded, e.g. <code>"C:\\"</code> (note the double backslash).</p>
+                </div>
+            </div>
+        {% else %}
             <br><br>
-            <strong>Default:</strong> 
+        {% endif %}
+        <strong>Type:</strong> {{ include.setting.type }}<br>
+        <strong>Default:</strong> 
+        {% if include.setting.default %}
             {% if include.setting.type == "string" %}
-                "{{ include.setting.default }}"
+                <code>"{{ include.setting.default }}"</code>
             {% else %}
-                {{ include.setting.default }}
+                <code>{{ include.setting.default }}</code>
+            {% endif %}
+            {% if include.setting.defaultExtra %}
+                ({{ include.setting.defaultExtra }})
+            {% endif %}
+        {% else %}
+            undefined
+            {% if include.setting.nullBehaviour %}
+                ({{ include.setting.nullBehaviour }})
             {% endif %}
         {% endif %}
     </td>

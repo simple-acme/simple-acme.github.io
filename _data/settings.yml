@@ -3,30 +3,27 @@ Client:
     type: string
     default: "simple-acme"
     description: The name of the client, which comes back in several 
-      places like the scheduled task name, Windows event viewer and 
-      the <code>ConfigurationPath</code>.
+      places like the scheduled task name, Windows event viewer, notification
+      messages, user agent and the <code>ConfigurationPath</code>.
 
   ConfigurationPath:
     type: string
     subtype: path
     default: null
+    nullBehaviour: resolves to <code>%programdata%\{Client.ClientName}\{ACME.DefaultBaseUri}</code>
     description: Change the location where the program stores 
-      its (temporary) files. If not specified this resolves 
-      to <code>%programdata%\{ClientName}\{BaseUri}</code>. Values should be 
-      JSON-encoded, e.g. <code>"C:\\"</code> (note the double backslash).
+      its (temporary) files.
 
   LogPath:
     type: string
     subtype: path
     default: null
-    description: The path where log files for the past 31 days are stored. 
-      If not specified or invalid, this defaults to {ConfigurationPath}\Log. 
-      Values should be JSON-encoded, e.g. <code>"C:\\"</code> (note the double 
-      backslash).
+    nullBehaviour: resolves to <code>{Client.ConfigurationPath}\Log</code>
+    description: The path where log files for the past 31 days are stored.
 
   VersionCheck:
     type: bool
-    default: false
+    default: "false"
     description: Automatically check for new versions at startup. 
 
 UI:
@@ -64,13 +61,16 @@ ACME:
     type: string
     subtype: uri
     default: https://acme-v02.api.letsencrypt.org/
-    description: Default ACMEv2 endpoint to use when none is specified with the command line.
+    description: Default ACME endpoint to use when none is specified with the command line. 
+      The client will attempt to get the service directory from both the literal uri provided
+      and the <code>/directory</code> path under it (which is the convention used by 
+      Let's Encrypt, and therefor done for backwards compatibility reasons).
   
   DefaultBaseUriTest:
     type: string
     subtype: uri
     default: https://acme-staging-v02.api.letsencrypt.org/
-    description: Default ACMEv2 endpoint to use when none is specified with the command line and the <code>--test</code> switch is activated.
+    description: Default ACME endpoint to use when none is specified with the command line and the <code>--test</code> switch is activated.
   
   DefaultBaseUriImport:
     type: string
@@ -112,7 +112,7 @@ ACME:
       Apache and other software that uses <code>.pem</code> files to store 
       certificates. Windows has its own opinions about how chains should be 
       built that are difficult to influence. For maximum compatibility with 
-      legacy clients we recommend using an alternative provider like ZeroSSL.
+      legacy clients we recommend using an alternative provider like <a href="https://zerossl.com">ZeroSSL</a>.
 
 Execution:
   DefaultPreExecutionScript:
@@ -140,15 +140,17 @@ Proxy:
   Url: 
     type: string
     subtype: uri
-    default: "[System]"
+    default: "[system]"
     description: Configures a proxy server to use for communication with the 
-      ACME server and other HTTP requests done by the program. The default 
-      setting (which is equivalent to <code>"[wininet]"</code>) uses the proxy 
-      as defined by the legacy Windows Internet API. You can also use 
-      <code>"[winhttp]"</code> to use the more modern Windows HTTP API. 
-      Honestly <code>"[winhttp]"</code> should be the default, but isn't because 
-      of backwards compatiblity. Leaving the value empty/null tries to bypass 
-      any proxy. You can also configure a specific proxy URL.
+      ACME server and other HTTP requests done by the program.<br><br>
+      <table>
+        <tr><th class="col-md-3">Value</th><th>Meaning</th></tr>
+        <tr><td><code>"[system]"</code></td><td>Equivalent to <code>"[wininet]"</code></td></tr>
+        <tr><td><code>"[wininet]"</code></td><td>Auto-discover proxy settings using the legacy Windows Internet API.</td></tr>
+        <tr><td><code>"[winhttp]"</code></td><td>Auto-discover proxy settings using the modern Windows HTTP API. Honestly this should be the default, but isn't because of backwards compatiblity.</td></tr>
+        <tr><td>Url</td><td>Explictly define a proxy url</td></tr>
+        <tr><td>Emtpy</td><td>Try to bypass the system proxy</td></tr>        
+      </table>
 
   Username:
     type: string
@@ -166,8 +168,7 @@ Cache:
     subtype: path
     description: The path where certificates, request files and private keys 
       are cached. If not specified or invalid, this defaults to {ConfigurationPath}\Certificates. 
-      If you are using <a href="/reference/plugins/store/centralssl">CentralSsl</a>, this can not be set to the same path. Values 
-      should be JSON-encoded, e.g. <code>"C:\\"</code> (note the double backslash).
+      If you are using <a href="/reference/plugins/store/centralssl">CentralSsl</a>, this can not be set to the same path.
 
   ReuseDays:
     type: number
@@ -178,7 +179,7 @@ Cache:
       while experimenting. Set this to a high value if you regularly re-request 
       the same certificates, e.g. for a Continuous Deployment scenario. 
     
-      Setting this to 0 will not entirely disable the cache (the program also 
+      Setting this to <code>0</code> will not entirely disable the cache (the program also 
       needs the files for different reasons), but it will prevent the files from 
       being used for renewals and will also ensure that no private key material 
       is stored in the cache, unless specifically requested by 
@@ -186,7 +187,7 @@ Cache:
 
   DeleteStaleFiles:
     type: boolean
-    default: false
+    default: 'false'
     description: Automatically delete files older than <code>DeleteStaleFileDays</code> 
       many days from the {CertificatePath} folder. Running with default settings, 
       these should only be long-expired certificates, generated for abandoned renewals.
@@ -215,15 +216,15 @@ ScheduledTask:
       them out of the course of multiple days/weeks. The number of days 
       specified here will be substracted from <code>RenewalDays</code> to 
       create a range within which the renewal will e processed. E.g. if 
-      <code>RenewalDays</code> is 55 and <code>RenewalDaysRange</code> is 10, 
-      the renewal will be processed between 45 and 55 days after issuing.
+      <code>RenewalDays</code> is <code>55</code> and <code>RenewalDaysRange</code> is <code>10</code>, 
+      the renewal will be processed between <code>45</code> and <code>55</code> days after issuing.
 
       If you use an order plugin to split your renewal into multiple orders, 
       orders may run on different days.
 
   RenewalDisableServerSchedule:
     type: boolean
-    default: false
+    default: 'false'
     description: By default, servers implementing ARI may suggest that 
       renewals should happen earlier than the regularly scheduled moment. 
       When set to <code>true</code>, ARI suggestions will be ignored 
@@ -239,19 +240,22 @@ ScheduledTask:
   StartBoundary:
     type: string
     subtype: time
-    default: '"09:00:00" (9:00 am)'
+    default: '09:00:00'
+    defaultExtra: 9:00 am
     description: Configures start time for the scheduled task.
     
   ExecutionTimeLimit:
     type: string
     subtype: time
-    default: '"02:00:00" (2 hours)'
+    default: '02:00:00'
+    defaultExtra: 2 hours
     description: Configures time after which the scheduled task will be terminated if it hangs for whatever reason.
 
   RandomDelay:
     type: string
     subtype: time
-    default: '"04:00:00" (4 hours)'
+    default: '04:00:00'
+    defaultExtra: 4 hours
     description: Configures random time to wait for starting the scheduled task. This 
       spreads the load on the servers and thus prevents users from getting 
       <code>TooManyRequests</code> errors.
@@ -279,7 +283,7 @@ Notifications:
 
   SmtpSecure:
     type: boolean
-    default: false
+    default: 'false'
     description: Change to <code>true</code> to enable secure SMTP.
 
   SmtpSecureMode:
@@ -287,7 +291,7 @@ Notifications:
     default: 1
     description: 
       <table>
-        <tr><th>Value</th><th>Meaning</th></tr>
+        <tr><th class="col-md-3">Value</th><th>Meaning</th></tr>
         <tr><td>1</td><td>Automatic (based on port number)</td></tr>
         <tr><td>2</td><td>Implicit TLS</td></tr>
         <tr><td>3</td><td>Explicit TLS (required)</td></tr>
@@ -301,7 +305,7 @@ Notifications:
   SenderAddress:
     type: string
     subtype: email
-    description:
+    description: Email address to use as the sender of notification emails. Required to receive renewal failure notifications.
 
   ReceiverAddresses:
     type: string[]
@@ -315,7 +319,7 @@ Notifications:
 
   EmailOnSuccess:
     type: boolean
-    default: false
+    default: 'false'
     description: 
       Send an email notification when a certificate has been successfully 
       created or renewed, as opposed to the default behavior that only send 
@@ -456,7 +460,7 @@ Validation:
   Ftp:
     UseGnuTls:
       type: boolean
-      default: false
+      default: 'false'
       description: If you experience connection issues with Unix FTPS servers, 
         using the GnuTLS library instead of Microsofts native TLS implementation
         might solve the problem. <a href="https://github.com/robinrodricks/FluentFTP/wiki/FTPS-Connection-using-GnuTLS">This page</a> 
@@ -525,7 +529,7 @@ Store:
 
     PrivateKeyExportable:
       type: boolean
-      default: false
+      default: 'false'
       description: If set to true, certificates stored in the 
         Windows Certificate Store will be marked as exportable, 
         allowing you to transfer them to other computers. Note that 
@@ -535,7 +539,7 @@ Store:
 
     UseNextGenerationCryptoApi:
       type: boolean
-      default: false
+      default: 'false'
       description: "If set to true, the program will use the <a href=\"https://learn.microsoft.com/en-us/windows/win32/seccng/about-cng\">Cryptography 
         API</a>: Next Generation (CNG) to handle private keys, instead of 
         the legacy CryptoAPI. Note that enabling this option may make 

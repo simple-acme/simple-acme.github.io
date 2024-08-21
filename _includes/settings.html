@@ -13,17 +13,32 @@
                     {% assign name0 = split[0] | strip %}
                     {% assign name1 = split[1] | strip %}
                     {% assign setting = site.data.settings[name0][name1] %}
-                    {% assign name = name0 | append: "." | append: name1 %}
-                    {% include settings-detail.html setting=setting name=name %}
                 {% endif %}
                 {% if split.size == 3 %}
                     {% assign name0 = split[0] | strip %}
                     {% assign name1 = split[1] | strip %}
                     {% assign name2 = split[2] | strip %}
                     {% assign setting = site.data.settings[name0][name1][name2] %}
-                    {% assign name = name0 | append: "." | append: name1 | append: "." | append: name2 %}
-                    {% include settings-detail.html setting=setting name=name %}
                 {% endif %}
+
+                {% assign titlepart = include.remove | append: "." %}
+                {% assign labelsplit = plugin | replace_first: titlepart, '' | split: '.' %}
+                {% if labelsplit.size == 1 %}
+                    {% assign name = labelsplit %}
+                {% endif %}
+                {% if labelsplit.size == 2 %}
+                    {% assign name0 = labelsplit[0] | strip %}
+                    {% assign name1 = labelsplit[1] | strip %}
+                    {% assign name = name0 | append: "." | append: name1 %}
+                {% endif %}
+                {% if labelsplit.size == 3 %}
+                    {% assign name0 = labelsplit[0] | strip %}
+                    {% assign name1 = labelsplit[1] | strip %}
+                    {% assign name2 = labelsplit[2] | strip %}
+                    {% assign name = name0 | append: "." | append: name1 | append: "." | append: name2 %}
+                {% endif %}
+
+                {% include settings-detail.html setting=setting name=name %}
             {% endfor %}   
         </tbody>  
     </table>

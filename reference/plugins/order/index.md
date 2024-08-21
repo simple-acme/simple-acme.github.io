@@ -1,4 +1,6 @@
 ---
+settings:
+    - Order.DefaultOrder
 ---
 # Order plugins
 
