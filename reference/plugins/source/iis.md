@@ -1,6 +1,32 @@
 ---
+layout: plugin
+plugin_type: source
+plugin: iis
+compatibility: Windows
+examples:
+    - 
+        name: Single binding
+        cmd: '‑‑host example.com [‑‑siteid 1]'
+    - 
+        name: Multiple bindings
+        cmd: '‑‑host example.com,www.example.com [‑‑siteid 1,2,3] [‑‑commonname common.example.com]'
+    - 
+        name: All bindings of a site
+        cmd: '‑‑siteid 1 [‑‑commonname common.example.com] [‑‑excludebindings exclude.example.com]'
+    - 
+        name: All bindings of multiple sites
+        cmd: '‑‑siteid 1,2,3 [‑‑commonname common.example.com] [‑‑excludebindings exclude.example.com]'
+    - 
+        name: All bindings of all sites
+        cmd: '‑‑siteid s [‑‑commonname common.example.com] [‑‑excludebindings exclude.example.com]'
+    - 
+        name: Binding pattern
+        cmd: '‑‑host-pattern *.example.??? [‑‑siteid 1,2,3] [‑‑commonname common.example.com] [‑‑excludebindings exclude.example.com]'
+    - 
+        name: Binging regex
+        cmd: '‑‑host-regex [a-z]{3}\.example(\.com|\.net) [‑‑siteid 1,2,3] [‑‑commonname common.example.com] [‑‑excludebindings exclude.example.com]'                                                    
 ---
-# IIS
+
 Create source based on bindings configured in IIS. 
 - Automatically updates webroot path (useful for [FileSystem validation](/reference/plugins/validation/http/filesystem))
 
@@ -26,19 +52,3 @@ comma seperating them.
 ### Regex
 If a pattern is not powerful enough for you, there is the ultimate solution of applying a regular expression to the 
 problem. [regex101.com](https://regex101.com/) is a nice tool to help test your regular expression.
-
-## Unattended 
-- ##### Single binding
-`‑‑source iis --host example.com [--siteid 1]`
-- ##### Multiple bindings
-`‑‑source iis --host example.com,www.example.com [--siteid 1,2,3] [--commonname common.example.com]`
-- ##### All bindings of a site
-`‑‑source iis --siteid 1 [--commonname common.example.com] [--excludebindings exclude.example.com]`
-- ##### All bindings of multiple sites
-`‑‑source iis --siteid 1,2,3 [--commonname common.example.com] [--excludebindings exclude.example.com]`
-- ##### All bindings of all sites
-`‑‑source iis --siteid s [--commonname common.example.com] [--excludebindings exclude.example.com]`
-- ##### Binding pattern
-`‑‑source iis --host-pattern *.example.??? [--siteid 1,2,3] [--commonname common.example.com] [--excludebindings exclude.example.com]`
-- ##### Binging regex
-`‑‑source iis --host-regex [a-z]{3}\.example(\.com|\.net) [--siteid 1,2,3] [--commonname common.example.com] [--excludebindings exclude.example.com]`

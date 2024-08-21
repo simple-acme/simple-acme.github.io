@@ -16,4 +16,4 @@ Using this requires:
    - Download and extract the additonal artifact `gnutls.v{build}.x64.zip`
 
 ## Unattended 
-`‑‑validation ftp --webroot ftps://x/ --username admin --password ******`
+`‑‑validation ftp ‑‑webroot ftps://x/ ‑‑username admin ‑‑password ******`

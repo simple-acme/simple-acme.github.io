@@ -9,7 +9,7 @@ script will be `create {Identifier} {RecordName} {Token}` by default, where the
 following replacements are made by simple-acme:
 
 | Value          |  Replaced with |
-|----------------|----------------|
+|‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑|‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑|
 | `{Identifier}` | host name that's being validated, e.g. `sub.example.com`										|
 | `{RecordName}` | full name of the TXT record that is being expected, e.g. `_acme-challenge.sub.example.com`	|
 | `{ZoneName}`   | registerable domain, e.g. `example.com`														|
@@ -20,11 +20,11 @@ following replacements are made by simple-acme:
 The order and format of arguments may be customized by providing a diffent argument string. 
 For example if your script needs arguments like:
 
-`‑‑host _acme-challenge.example.com --token DGyRejmCefe7v4NfDGDKfA`
+`‑‑host _acme-challenge.example.com ‑‑token DGyRejmCefe7v4NfDGDKfA`
 
 ...your argument string should like like this: 
 
-`‑‑host {RecordName} --token {Token}`
+`‑‑host {RecordName} ‑‑token {Token}`
 
 ## Delete
 Optionally, another script may be provided to delete the record after validation. The arguments passed to the 
@@ -37,7 +37,7 @@ You can use `‑‑dnsscriptparallelism` to specify if your script supports para
 effect when `DisableParallelism` is set to `false` in `settings.config`. You may use the following values:
 
 | Value          |  Meaning |
-|----------------|----------------|
+|‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑|‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑|
 | 0 | Serial, default serial behaviour	|
 | 1 | Allow multiple new records to created as the same time. Only do this when you are sure that a "create" request will not interfere with others running at the same time |
 | 2 | Allow multiple validations to run at the same time. This is possible in theory with any DNS provider, but you must be sure that your script is non-destructive, e.g. it should not overwrite pre-existing TXT records, nor delete more than the one specifically asked for |
@@ -52,8 +52,8 @@ to make changes (e.g. in terms of accepted parameter and such) in order to use t
 
 ## Unattended
 - ##### Create script only
-`-validationmode dns-01 --validation script --dnscreatescript c:\create.ps1 [--dnscreatescriptarguments {args}]`
+`-validationmode dns-01 ‑‑validation script ‑‑dnscreatescript c:\create.ps1 [‑‑dnscreatescriptarguments {args}]`
 - ##### Create and delete scripts separate
-`-validationmode dns-01 --validation script --dnscreatescript c:\create.ps1 --dnsdeletescript c:\delete.ps1 [--dnscreatescriptarguments {args}] [--dnsdeletescriptarguments {args}]`
+`-validationmode dns-01 ‑‑validation script ‑‑dnscreatescript c:\create.ps1 ‑‑dnsdeletescript c:\delete.ps1 [‑‑dnscreatescriptarguments {args}] [‑‑dnsdeletescriptarguments {args}]`
 - ##### Create-delete script (integrated)
-`-validationmode dns-01 --validation script --dnsscript c:\create-and-delete.ps1 [--dnscreatescriptarguments {args}] [--dnsdeletescriptarguments {args}]`
+`-validationmode dns-01 ‑‑validation script ‑‑dnsscript c:\create-and-delete.ps1 [‑‑dnscreatescriptarguments {args}] [‑‑dnsdeletescriptarguments {args}]`

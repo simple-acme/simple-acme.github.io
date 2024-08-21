@@ -29,4 +29,4 @@ The `‑‑acl-fullcontrol` and `‑‑acl-read` parameters can be used to grant
 defaults for a specific store access to the private key. You can use principal names or well-known SIDs here.
 
 ## Unattended
-`[--store certificatestore] [--certificatestore My] [--keepexisting] [--acl-fullcontrol "network service,administrators"] [--acl-read "myapp"]`
+`[‑‑store certificatestore] [‑‑certificatestore My] [‑‑keepexisting] [‑‑acl-fullcontrol "network service,administrators"] [‑‑acl-read "myapp"]`

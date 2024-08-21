@@ -19,4 +19,4 @@ You can also optionally have the `-key.pem` file password protected, though you 
 make sure that the software you intend to consume the key with supports this as well.
 
 ## Unattended
-`‑‑store pemfiles [--pemfilespath C:\Certificates\] [--pempassword ******] [--pemfilesname mycert]`
+`‑‑store pemfiles [‑‑pemfilespath C:\Certificates\] [‑‑pempassword ******] [‑‑pemfilesname mycert]`

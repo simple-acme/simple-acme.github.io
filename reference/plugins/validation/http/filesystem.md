@@ -6,4 +6,4 @@ This plugin saves the validation challenge to a local path, which may of course 
 {% include validation-http-common.md %}
 
 ## Unattended 
-`‑‑validation filesystem [--validationsiteid x] [--webroot c:\httpdocs\]`
+`‑‑validation filesystem [‑‑validationsiteid x] [‑‑webroot c:\httpdocs\]`

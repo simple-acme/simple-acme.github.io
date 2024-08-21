@@ -10,6 +10,6 @@
 ## dotnet
 This is an alternative method to install and update the program. While more convenient than a manual installation, it has two downsides. First it requires [.NET 8.0](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) to be installed on the system, and second it makes installing [plugins](/reference/plugins/) more cumbersome.
 - Open a command prompt as an administrator. 
-- Run `dotnet tool install simple-acme --global`
+- Run `dotnet tool install simple-acme ‑‑global`
 - Run `wacs`
-- To update from a previous version, run `dotnet tool update simple-acme --global`
+- To update from a previous version, run `dotnet tool update simple-acme ‑‑global`

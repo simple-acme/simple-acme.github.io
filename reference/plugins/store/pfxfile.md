@@ -9,4 +9,4 @@ By default the file name will be the common name of the certificate (i.e.
 the primary host name), but this may be overruled with the `‑‑pfxfilename` parameter.
 
 ## Unattended
-`‑‑store pfxfile [--pfxpassword *****] [--pfxfilepath C:\Certificates\] [--pfxfilename mycert]`
+`‑‑store pfxfile [‑‑pfxpassword *****] [‑‑pfxfilepath C:\Certificates\] [‑‑pfxfilename mycert]`

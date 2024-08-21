@@ -13,4 +13,4 @@ Save the desired encryption setting in [settings.json](/reference/settings).
 
 Or 
 
-- Run `wacs.exe --encrypt`
+- Run `wacs.exe ‑‑encrypt`

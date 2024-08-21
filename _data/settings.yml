@@ -70,7 +70,7 @@ ACME:
     type: string
     subtype: uri
     default: https://acme-staging-v02.api.letsencrypt.org/
-    description: Default ACME endpoint to use when none is specified with the command line and the <code>--test</code> switch is activated.
+    description: Default ACME endpoint to use when none is specified with the command line and the <code>‑‑test</code> switch is activated.
   
   DefaultBaseUriImport:
     type: string
@@ -183,7 +183,7 @@ Cache:
       needs the files for different reasons), but it will prevent the files from 
       being used for renewals and will also ensure that no private key material 
       is stored in the cache, unless specifically requested by 
-      <code>--reuse-privatekey</code>.
+      <code>‑‑reuse-privatekey</code>.
 
   DeleteStaleFiles:
     type: boolean
@@ -558,7 +558,7 @@ Store:
       subtype: path
       description: When using the <a href="/reference/plugins/store/centralssl">CentralSsl</a> 
         plugin this path is used by default, saving you the effort of providing 
-        it manually. Filling this out makes the <code>--centralsslstore</code> 
+        it manually. Filling this out makes the <code>‑‑centralsslstore</code> 
         parameter unnecessary in most cases. Renewals created with the 
         default path will automatically change to any future default value, 
         meaning this is also a good practice for maintainability.
@@ -569,7 +569,7 @@ Store:
       description: When using the <a href="/reference/plugins/store/centralssl">CentralSsl</a> 
         plugin this password is used by default for the <code>.pfx</code> 
         files, saving you the effort from providing it manually. Filling 
-        this out makes the <code>--pfxpassword</code> parameter unnecessary 
+        this out makes the <code>‑‑pfxpassword</code> parameter unnecessary 
         in most cases. Renewals created with the default password will 
         automatically change to any future default value, meaning this 
         is also a good practice for maintainability.
@@ -580,7 +580,7 @@ Store:
       subtype: path
       description: When using the <a href="/reference/plugins/store/pemfiles">PemFiles</a> 
         plugin this path is used by default, saving you the effort of providing 
-        it manually. Filling this out makes the <code>--pemfilespath</code> 
+        it manually. Filling this out makes the <code>‑‑pemfilespath</code> 
         parameter unnecessary in most cases. Renewals created with the 
         default path will automatically change to any future default value, 
         meaning this is also a good practice for maintainability.
@@ -591,7 +591,7 @@ Store:
       description: When using the <a href="/reference/plugins/store/pemfiles">PemFiles</a>
         plugin this password is used by default for the <code>.pem</code> files, 
         saving you the effort from providing it manually. Filling this out 
-        makes the <code>--pempassword</code> parameter unnecessary in most 
+        makes the <code>‑‑pempassword</code> parameter unnecessary in most 
         cases. Renewals created with the default password will automatically 
         change to any future default value, meaning this is also a good 
         practice for maintainability.
@@ -602,7 +602,7 @@ Store:
       subtype: path
       description: When using the <a href="/reference/plugins/store/pfxfile">PFxFile</a> 
         plugin this path is used by default, saving you the effort of providing 
-        it manually. Filling this out makes the <code>--pfxfilepath</code> 
+        it manually. Filling this out makes the <code>‑‑pfxfilepath</code> 
         parameter unnecessary in most cases. Renewals created with the 
         default path will automatically change to any future default value, 
         meaning this is also a good practice for maintainability.
@@ -613,7 +613,7 @@ Store:
       description: When using the <a href="/reference/plugins/store/pfxfile">PFxFile</a>
         plugin this password is used by default for the <code>.pfx</code> files, 
         saving you the effort from providing it manually. Filling this out 
-        makes the <code>--pfxpassword</code> parameter unnecessary in most 
+        makes the <code>‑‑pfxpassword</code> parameter unnecessary in most 
         cases. Renewals created with the default password will automatically 
         change to any future default value, meaning this is also a good 
         practice for maintainability.
@@ -624,7 +624,7 @@ Installation:
       description: Default installation plugin(s). This may be a comma 
         separated value for multiple default installation plugins.
       nullBehaviour: equivalent to <code>"none"</code> for most unattended 
-        usage (unless <code>--source iis</code> is provided) and 
+        usage (unless <code>‑‑source iis</code> is provided) and 
         <code>"iis"</code> for interactive mode
 
 Secrets:

@@ -7,4 +7,4 @@ Create the record at [Simply.com](https://www.simply.com/). This requires an acc
 
 ## Unattended 
 - Key inline
-`‑‑validation simply --account xx --apikey xx`
+`‑‑validation simply ‑‑account xx ‑‑apikey xx`

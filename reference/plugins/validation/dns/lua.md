@@ -10,4 +10,4 @@ This assumes you already have your DNS managed in LuaDNS; if not, you'll need to
 using the LuaDNS option for validation, you'll need to obtain a user name and API key.
 
 ## Unattended 
-`‑‑validation luadns --luadnsusername xxx --luadnsapikey ***`
+`‑‑validation luadns ‑‑luadnsusername xxx ‑‑luadnsapikey ***`

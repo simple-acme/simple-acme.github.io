@@ -16,7 +16,7 @@ about [plugins](/reference/plugins/) to read all about it.
 scripting, to create a lighty coupled integration between your own management tools and simple-acme.
 
 ## Modification
-Many users mistakenly try to modify their renewal by issuing commands like `‑‑renew --webroot C:\NewRoot` 
+Many users mistakenly try to modify their renewal by issuing commands like `‑‑renew ‑‑webroot C:\NewRoot` 
 hoping that the configured webroot for their renewal will be changed. The reason this doesn't work is 
 because a renew cycle checks **all** renewals, each of which can use any of the hundreds of possible 
 combinations of [plugins](/reference/plugins/), so it's complex to figure out what the 
@@ -44,7 +44,7 @@ this without disturbing your production applications. Only you will have to set 
 alternative certificate solution before the certificate reaches its natural expiration date. 
 - You can cancel a renewal from the main menu. The program will then delete the `.renewal.json` file from 
 disk and forget about it.
-- You can cancel from the command line using the arguments `‑‑cancel [--friendlyname xxx|-id xxx]`. 
+- You can cancel from the command line using the arguments `‑‑cancel [‑‑friendlyname xxx|-id xxx]`. 
 The effects are the same as above.
 - You can delete the `.renewal.json` file yourself. The effects are the same as above.
 
@@ -52,7 +52,7 @@ The effects are the same as above.
 Revoking a certificate should only be done when the private key is believed to have been compromised, 
 not when simply replacing or cancelling it. Revocation can be done from the main menu with
 (`Manage renewals` > `Revoke certificate`)
-- You can revoke from the command line using the arguments `‑‑revoke [--friendlyname xxx|-id xxx]`. 
+- You can revoke from the command line using the arguments `‑‑revoke [‑‑friendlyname xxx|-id xxx]`. 
 The effects are the same as above.
 
 ## Internals

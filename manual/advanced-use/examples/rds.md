@@ -19,7 +19,7 @@ don't specify a value, the script uses the local computer's fully qualified doma
 
 ## Unattended
 - When specific domain names are configured in the IIS bindings, we can use them automatically
-`wacs.exe --source iis --siteid 1 --certificatestore My --installation iis,script --script "Scripts\ImportRDSFull.ps1" --scriptparameters "{CertThumbprint}"`
+`wacs.exe ‑‑source iis ‑‑siteid 1 ‑‑certificatestore My ‑‑installation iis,script ‑‑script "Scripts\ImportRDSFull.ps1" ‑‑scriptparameters "{CertThumbprint}"`
 
 - When only blank/catch-all binding are configured in IIS, we have to be explicit about the domain name(s) that we want
-`wacs.exe --source manual --host rds.example.com --certificatestore My --installation iis,script --installationsiteid 1 --script "Scripts\ImportRDSFull.ps1" --scriptparameters "{CertThumbprint}"`
+`wacs.exe ‑‑source manual ‑‑host rds.example.com ‑‑certificatestore My ‑‑installation iis,script ‑‑installationsiteid 1 ‑‑script "Scripts\ImportRDSFull.ps1" ‑‑scriptparameters "{CertThumbprint}"`

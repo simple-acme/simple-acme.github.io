@@ -9,4 +9,4 @@ Update record at [GoDaddy](https://www.godaddy.com/)
 Requires an API key and secret.
 
 ## Unattended 
-`‑‑validation godaddy --apikey xxx --apisecret ***`
+`‑‑validation godaddy ‑‑apikey xxx ‑‑apisecret ***`

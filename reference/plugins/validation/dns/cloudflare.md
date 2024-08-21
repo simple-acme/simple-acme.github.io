@@ -20,4 +20,4 @@ to read and write the DNS records of the zone your domain belongs to.
 6. Finish creating the token, store it in a safe place or, better, paste it directly into simple-acme.
 
 ## Unattended 
-`‑‑validation cloudflare --cloudflareapitoken ***`
+`‑‑validation cloudflare ‑‑cloudflareapitoken ***`

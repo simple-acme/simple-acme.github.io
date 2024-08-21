@@ -23,6 +23,6 @@ written to `%programdata%\simple-acme\$baseuri$\Log`. You can also set up notifi
 by configuring a mail server in [settings.json](/reference/settings). You can test these notifications from the menu (`More options...` > `Test email notification`).
 
 ## Testing and troubleshooting
-To test or troubleshoot the renewal process, renewals can be triggered manually from the menu or the command line with `‑‑renew --force` switches. We recommend doing so while running with the `‑‑verbose` parameter to get maximum log visibility. When listing the details for a renewal, the program will show any errors that have been recorded during previous runs.
+To test or troubleshoot the renewal process, renewals can be triggered manually from the menu or the command line with `‑‑renew ‑‑force` switches. We recommend doing so while running with the `‑‑verbose` parameter to get maximum log visibility. When listing the details for a renewal, the program will show any errors that have been recorded during previous runs.
 
 The programs built in certificate cache protects users from running into rate limits while debugging the renewal process. To bypass the cache, the parameter `‑‑nocache` can be used, or the setting `ReuseDays` can be set to `0` (default: `1`).

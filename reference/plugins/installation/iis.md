@@ -3,11 +3,10 @@ layout: plugin
 plugin: iis
 plugin_type: installation
 compatibility: Windows only
-default: Windows (unattended only with --source iis)
 examples:
     - 
         name: Full
-        cmd: '[--installationsiteid 14] [--sslport 8443] [--sslipaddress 192.168.0.1]'
+        cmd: '[‑‑installationsiteid 14] [‑‑sslport 8443] [‑‑sslipaddress 192.168.0.1]'
 ---
 
 ### Http binding update algorithm

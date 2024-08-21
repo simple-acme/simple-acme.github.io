@@ -7,4 +7,4 @@ Create the record at [NS1](https://ns1.com/). This requires an API key .
 
 ## Unattended 
 - Key inline
-`‑‑validation ns1 --apikey xx`
+`‑‑validation ns1 ‑‑apikey xx`

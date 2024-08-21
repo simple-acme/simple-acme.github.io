@@ -6,8 +6,7 @@ compatibility: All platforms
 examples:
     - 
         name: Full
-        cmd: '--script C:\script.bat [--scriptparameters x]'
- 
+        cmd: '‑‑script C:\script.bat [‑‑scriptparameters x]'
 ---
 
 Runs an external script or executable after a succesful renewal. This may be a `.bat` or `.exe` on Windows, `.sh` on Linux or `.ps1` on all platforms. You provide the program with the path to the script and it will run automatically.
@@ -16,7 +15,7 @@ Runs an external script or executable after a succesful renewal. This may be a `
 The following variables can be provided from the program to the script as command line arguments.
 
 | Value          |  Replaced with |
-|----------------|----------------|
+|‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑|‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑‑|
 | `{0}` or `{CertCommonName}` | Common name (primary domain name) of the newly issued certificate          |
 | `{1}` or `{CachePassword}` | The `.pfx` password (generated randomly for each renewal)  |
 | `{2}` or `{CacheFile}`       | Full path of the cached `.pfx` file (*)                                 |
@@ -29,10 +28,10 @@ The following variables can be provided from the program to the script as comman
 | `{OldCertCommonName}`        |  Common name (primary domain name) of the previously issued certificate |
 | `{OldCertFriendlyName}`        |  Friendly name of the previously issued certificate |
 | `{OldCertThumbprint}`        |  Thumbprint of the previously issued certificate |
-| `{vault://json/mysecret}`        |  Secret from the [vault](https://www.simple-acme.com/manual/advanced-use/secret-management) |
+| `{vault://json/mysecret}`        |  Secret from the [secret vault](https://www.simple-acme.com/manual/advanced-use/secret-management) |
 
 ---
-(*) Will be empty if cache is disabled
+(*) This paramater will be empty if cache is disabled
 
 ### Example
 If you need your scripts parameters to look something like this:

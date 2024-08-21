@@ -73,18 +73,27 @@ order:
 
 source:
   csr:
-    id:
-    title:
-    subtitle:
+    id: 5C3DB0FB-840B-469F-B5A7-0635D8E9A93D
+    title: CSR
+    subtitle: CSR created by another program
     arguments:
-    settings:
+      - csrfile
+      - pkfile
 
   iis:
-    id:
-    title:
-    subtitle:
+    id: 54deb3ee-b5df-4381-8485-fe386054055b
+    title: IIS
+    subtitle: Read bindings from IIS
     arguments:
+      - siteid
+      - host
+      - host-pattern
+      - host-regex
+      - commonname
+      - excludebindings
+      - host-type
     settings:
+      - Client.HideHttps
 
   manual:
     id:

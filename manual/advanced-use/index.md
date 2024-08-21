@@ -69,15 +69,15 @@ triggers the unattended creation of new certificate.
 
 Each plugin has their own inputs which it needs to generate the certificate, for example:
 
-```wacs.exe --source manual --host www.domain.com --webroot C:\sites\wwwroot```
-```wacs.exe --source iis --siteid 1 --excludebindings exclude.me```
+```wacs.exe ‑‑source manual ‑‑host www.domain.com ‑‑webroot C:\sites\wwwroot```
+```wacs.exe ‑‑source iis ‑‑siteid 1 ‑‑excludebindings exclude.me```
 
 There are some other parameters needed for first-time unattended use (e.g. on a clean server) 
-to create the Let's Encrypt registration automatically (```‑‑emailaddress myaddress@example.com --accepttos```). 
+to create the Let's Encrypt registration automatically (```‑‑emailaddress myaddress@example.com ‑‑accepttos```). 
 So a full command line to create a certificate for IIS site 1 on a clean server (except for 
 the 'exclude.me' binding) would look like this:
 
-```wacs.exe --source iis --siteid 1 --excludebindings exclude.me --emailaddress myaddress@example.com --accepttos```
+```wacs.exe ‑‑source iis ‑‑siteid 1 ‑‑excludebindings exclude.me ‑‑emailaddress myaddress@example.com ‑‑accepttos```
 
 #### More examples
 Some application-specific examples are available [here](/manual/advanced-use/examples).

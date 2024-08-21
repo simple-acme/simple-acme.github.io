@@ -10,10 +10,10 @@ Main:
                  description: "Import scheduled renewals from version 1.9.x in unattended mode."
              -
                  name: importbaseuri
-                 description: "[--import] When importing scheduled renewals from version 1.9.x, this argument can change the address of the ACMEv1 server to import from. The default endpoint to import from can be modified in settings.json."
+                 description: "[‑‑import] When importing scheduled renewals from version 1.9.x, this argument can change the address of the ACMEv1 server to import from. The default endpoint to import from can be modified in settings.json."
              -
                  name: test
-                 description: "Enables testing behaviours in the program which may help with troubleshooting. By default this also switches the --baseuri to the ACME test endpoint. The default endpoint for test mode can be modified in settings.json."
+                 description: "Enables testing behaviours in the program which may help with troubleshooting. By default this also switches the ‑‑baseuri to the ACME test endpoint. The default endpoint for test mode can be modified in settings.json."
              -
                  name: verbose
                  description: "Print additional log messages to console for troubleshooting and bug reports."
@@ -28,7 +28,7 @@ Main:
                  description: "Renew any certificates that are due. This argument is used by the scheduled task. Note that it's not possible to change certificate properties and renew at the same time."
              -
                  name: force
-                 description: "[--renew] Always execute the renewal, disregarding the validity of the current certificates and the prefered schedule."
+                 description: "[‑‑renew] Always execute the renewal, disregarding the validity of the current certificates and the prefered schedule."
              -
                  name: nocache
                  description: "Bypass the cache on certificate requests. Applies to both new requests and renewals."
@@ -37,10 +37,10 @@ Main:
                  description: "Create an ACME service account."
              -
                  name: cancel
-                 description: "Cancel renewal specified by the --friendlyname or --id arguments."
+                 description: "Cancel renewal specified by the ‑‑friendlyname or ‑‑id arguments."
              -
                  name: revoke
-                 description: "Revoke the most recently issued certificate for the renewal specified by the --friendlyname or --id arguments."
+                 description: "Revoke the most recently issued certificate for the renewal specified by the ‑‑friendlyname or ‑‑id arguments."
              -
                  name: list
                  description: "List all created renewals in unattended mode."
@@ -49,10 +49,10 @@ Main:
                  description: "Rewrites all renewal information using current EncryptConfig setting"
              -
                  name: id
-                 description: "[--source|--cancel|--renew|--revoke] Id of a new or existing renewal, can be used to override the default when creating a new renewal or to specify a specific renewal for other commands."
+                 description: "[‑‑source|‑‑cancel|‑‑renew|‑‑revoke] Id of a new or existing renewal, can be used to override the default when creating a new renewal or to specify a specific renewal for other commands."
              -
                  name: friendlyname
-                 description: "[--source|--cancel|--renew|--revoke] Friendly name of a new or existing renewal, can be used to override the default when creating a new renewal or to specify a specific renewal for other commands. In the latter case a pattern might be used. You may use a <code>*</code> for a range of any characters and a <code>?</code> for any single character. For example: the pattern <code>example.*</code> will match <code>example.net</code> and <code>example.com</code> (but not <code>my.example.com</code>) and the pattern <code>?.example.com</code> will match <code>a.example.com</code> and <code>b.example.com</code> (but not <code>www.example.com</code>). Note that multiple patterns can be combined by comma seperating them."
+                 description: "[‑‑source|‑‑cancel|‑‑renew|‑‑revoke] Friendly name of a new or existing renewal, can be used to override the default when creating a new renewal or to specify a specific renewal for other commands. In the latter case a pattern might be used. You may use a <code>*</code> for a range of any characters and a <code>?</code> for any single character. For example: the pattern <code>example.*</code> will match <code>example.net</code> and <code>example.com</code> (but not <code>my.example.com</code>) and the pattern <code>?.example.com</code> will match <code>a.example.com</code> and <code>b.example.com</code> (but not <code>www.example.com</code>). Note that multiple patterns can be combined by comma seperating them."
              -
                  name: source
                  description: "Specify which source plugin to run, bypassing the main menu and triggering unattended mode."
@@ -76,7 +76,7 @@ Main:
                  description: "Specify which installation plugins to use (if any). This may be a comma-separated list."
              -
                  name: closeonfinish
-                 description: "[--test] Close the application when complete, which usually does not happen when test mode is active. Useful to test unattended operation."
+                 description: "[‑‑test] Close the application when complete, which usually does not happen when test mode is active. Useful to test unattended operation."
              -
                  name: hidehttps
                  description: "Hide sites that have existing https bindings from interactive mode."
@@ -123,7 +123,7 @@ CSR:
 
 Installation:
     Script plugin:
-         condition: "--installation script"
+         condition: "‑‑installation script"
          arguments:
              -
                  name: script
@@ -133,7 +133,7 @@ Installation:
                  description: "Parameters for the script to run after retrieving the certificate. Refer to https://simple-acme.com/reference/plugins/installation/script for further instructions."
 
     IIS plugin:
-         condition: "--installation iis"
+         condition: "‑‑installation iis"
          arguments:
              -
                  name: installationsiteid
@@ -147,7 +147,7 @@ Installation:
 
 Source:
     CSR plugin:
-         condition: "--source csr"
+         condition: "‑‑source csr"
          arguments:
              -
                  name: csrfile
@@ -157,7 +157,7 @@ Source:
                  description: "Specify the location of the private key corresponding to the CSR"
 
     Manual plugin:
-         condition: "--source manual"
+         condition: "‑‑source manual"
          arguments:
              -
                  name: commonname
@@ -167,7 +167,7 @@ Source:
                  description: "A host name to get a certificate for. This may be a comma-separated list."
 
     IIS plugin:
-         condition: "--source iis"
+         condition: "‑‑source iis"
          arguments:
              -
                  name: siteid
@@ -194,7 +194,7 @@ Source:
 
 Store:
     Certificate Store plugin:
-         condition: "--store certificatestore"
+         condition: "‑‑store certificatestore"
          arguments:
              -
                  name: certificatestore
@@ -210,7 +210,7 @@ Store:
                  description: "List of additional principals (besides the owners of the store) that should get read permissions on the private key of the certificate."
 
     PEM files plugin:
-         condition: "--store pemfiles"
+         condition: "‑‑store pemfiles"
          arguments:
              -
                  name: pemfilespath
@@ -224,7 +224,7 @@ Store:
                  secret: true
 
     PFX file plugin:
-         condition: "--store pfxfile"
+         condition: "‑‑store pfxfile"
          arguments:
              -
                  name: pfxfilepath
@@ -238,7 +238,7 @@ Store:
                  secret: true
 
     Central Certificate Store plugin:
-         condition: "--store centralssl"
+         condition: "‑‑store centralssl"
          arguments:
              -
                  name: centralsslstore
@@ -250,7 +250,7 @@ Store:
 
 Validation:
     Credentials:
-         condition: "--validation ftp|sftp|webdav"
+         condition: "‑‑validation ftp|sftp|webdav"
          arguments:
              -
                  name: username
@@ -261,7 +261,7 @@ Validation:
                  secret: true
 
     Common HTTP validation options:
-         condition: "--validation filesystem|ftp|sftp|webdav"
+         condition: "‑‑validation filesystem|ftp|sftp|webdav"
          arguments:
              -
                  name: webroot
@@ -271,11 +271,11 @@ Validation:
                  description: "Copy default web.config to the .well-known directory."
 
     Script:
-         condition: "--validation script"
+         condition: "‑‑validation script"
          arguments:
              -
                  name: dnsscript
-                 description: "Path to script that creates and deletes validation records, depending on its parameters. If this parameter is provided then --dnscreatescript and --dnsdeletescript are ignored."
+                 description: "Path to script that creates and deletes validation records, depending on its parameters. If this parameter is provided then ‑‑dnscreatescript and ‑‑dnsdeletescript are ignored."
              -
                  name: dnscreatescript
                  description: "Path to script that creates the validation TXT record."
@@ -293,14 +293,14 @@ Validation:
                  description: "Configure parallelism mode. 0 is fully serial (default), 1 allows multiple records to be created simultaneously, 2 allows multiple records to be validated simultaneously and 3 is a combination of both forms of parallelism."
 
     FileSystem plugin:
-         condition: "--validation filesystem"
+         condition: "‑‑validation filesystem"
          arguments:
              -
                  name: validationsiteid
                  description: "Specify IIS site to use for handling validation requests. This will be used to choose the web root path."
 
     SelfHosting plugin:
-         condition: "--validation selfhosting"
+         condition: "‑‑validation selfhosting"
          arguments:
              -
                  name: validationport
@@ -310,14 +310,14 @@ Validation:
                  description: "Protocol to use to handle validation requests. Defaults to http but may be set to https if you have automatic redirects setup in your infrastructure before requests hit the web server."
 
     SelfHosting plugin:
-         condition: "--validationmode tls-alpn-01 --validation selfhosting"
+         condition: "‑‑validationmode tls-alpn-01 ‑‑validation selfhosting"
          arguments:
              -
                  name: validationport
                  description: "Port to use for listening to validation requests. Note that the ACME server will always send requests to port 443. This option is only useful in combination with a port forwarding."
 
     AcmeDns:
-         condition: "--validation acme-dns"
+         condition: "‑‑validation acme-dns"
          arguments:
              -
                  name: acmednsserver

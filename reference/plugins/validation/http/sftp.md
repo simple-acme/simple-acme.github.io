@@ -6,4 +6,4 @@ This plugin uploads the validation challenge to a SSH FTP, also known as SFTP, s
 {% include validation-http-common.md %}
 
 ## Unattended 
-`‑‑validation sftp --webroot ftps://x/ --username admin --password ******`
+`‑‑validation sftp ‑‑webroot ftps://x/ ‑‑username admin ‑‑password ******`

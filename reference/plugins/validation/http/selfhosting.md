@@ -29,4 +29,4 @@ It's also possible that some software has blocked access, which can be diagnosed
 the command `netsh http show urlacl`.
 
 ## Unattended 
-`[--validation selfhosting] [--validationport 8080]`
+`[‑‑validation selfhosting] [‑‑validationport 8080]`

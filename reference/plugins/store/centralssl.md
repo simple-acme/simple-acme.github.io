@@ -8,4 +8,4 @@ in [settings.json](/reference/settings). Using this store also triggers any crea
 updated IIS bindings to get the `CentralSSL` flag. 
 
 ## Unattended
-`‑‑store centralssl [--centralsslstore C:\CentralSSL\] [--pfxpassword *****]`
+`‑‑store centralssl [‑‑centralsslstore C:\CentralSSL\] [‑‑pfxpassword *****]`
