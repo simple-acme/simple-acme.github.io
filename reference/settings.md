@@ -10,34 +10,35 @@ ui:
   - UI.TextEncoding
   - UI.Color.Background
 acme:
-  - ACME.DefaultBaseUri
-  - ACME.DefaultBaseUriTest
-  - ACME.DefaultBaseUriImport
-  - ACME.PostAsGet
-  - ACME.ValidateServerCertificate
-  - ACME.RetryCount
-  - ACME.RetryInterval
-  - ACME.PreferredIssuer
+  - Acme.DefaultBaseUri
+  - Acme.DefaultBaseUriTest
+  - Acme.DefaultBaseUriImport
+  - Acme.PostAsGet
+  - Acme.ValidateServerCertificate
+  - Acme.RetryCount
+  - Acme.RetryInterval
+  - Acme.PreferredIssuer
 execution:
   - Execution.DefaultPreExecutionScript
   - Execution.DefaultPostExecutionScript
 proxy:
   - Proxy.Url
-  - Proxy.Username 
+  - Proxy.UserName 
   - Proxy.Password
 cache:
   - Cache.Path
   - Cache.ReuseDays 
   - Cache.DeleteStaleFiles 
-  - Cache.DeleteStaleFileDays    
+  - Cache.DeleteStaleFileDays 
+  - Cache.ProtectionMode
 scheduledtask:
   - ScheduledTask.RenewalDays
   - ScheduledTask.RenewalDaysRange 
-  - ScheduledTask.RenewalDisableServerSchedule 
   - ScheduledTask.RenewalMinimumValidDays    
-  - ScheduledTask.StartBoundary    
-  - ScheduledTask.ExecutionTimeLimit    
+  - ScheduledTask.RenewalDisableServerSchedule 
   - ScheduledTask.RandomDelay
+  - ScheduledTask.StartBoundary    
+  - ScheduledTask.ExecutionTimeLimit
 notifications:
   - Notifications.SmtpServer
   - Notifications.SmtpPort 
@@ -67,9 +68,10 @@ validation:
   - Validation.PreValidateDns  
   - Validation.PreValidateDnsRetryCount  
   - Validation.PreValidateDnsRetryInterval 
+  - Validation.PreValidateDnsLocal
   - Validation.AllowDnsSubstitution 
-  - Validation.Ftp.UseGnuTls 
   - Validation.DnsServers
+  - Validation.Ftp.UseGnuTls 
 order:
   - Order.DefaultOrder
   - Order.DefaultValidDays
@@ -88,12 +90,14 @@ certificatestore:
 centralssl:
   - Store.CentralSsl.DefaultPath
   - Store.CentralSsl.DefaultPassword
+  - Store.CentralSsl.DefaultProtectionMode
 pemfiles:
   - Store.PemFiles.DefaultPath
   - Store.PemFiles.DefaultPassword
 pfxfile:
   - Store.PfxFile.DefaultPath
   - Store.PfxFile.DefaultPassword
+  - Store.PfxFile.DefaultProtectionMode
 installation:
   - Installation.DefaultInstallation
 secrets:
@@ -108,7 +112,7 @@ customized settings.
 
 {% include settings.html settings=page.client title='Client' remove='Client' %}
 {% include settings.html settings=page.ui title='UI' remove='UI' %}
-{% include settings.html settings=page.acme title='ACME' remove='ACME' %}
+{% include settings.html settings=page.acme title='ACME' remove='Acme' %}
 {% include settings.html settings=page.execution title='Execution' remove='Execution' %}
 {% include settings.html settings=page.proxy title='Proxy' remove='Proxy' %}
 {% include settings.html settings=page.cache title='Cache' remove='Cache' %}

@@ -24,7 +24,7 @@ I kept toiling away at the program after the ownership change, out of a sense of
 
 For all intents and purposes, win-acme is very much my personal project, regardless of who started it or who currently owns the repository. I've been carrying the responsibility of fixing bugs and helping users for over 6 years. Statistics show that at the time of writing, some 92% of code (75K lines) and 99% of documentation (5K lines) have been authored by me, most of them polished many times over. 
 
-Not having full control over something this personal bothered me more and more over time. What if ZeroSSL cashed out to some investors who figured that it would be nice to bundle win-acme with some shovelware? Or what if they would one day delete it by mistake? Just these kinds of theoretical kept me up at night sometimes. I had to act on this while also honoring the original agreement, so I decided to create a fork of my own project.
+Not having full control over something this personal bothered me more and more over time. What if ZeroSSL cashed out to some investors who figured that it would be nice to bundle win-acme with some shovelware? Or what if they would one day delete it by mistake? Just these kinds of theoretical scenarios kept me up at night sometimes. I had to act on this while also honoring the original agreement, so I decided to create a fork of my own project.
 
 ## simple-acme
 simple-acme is a clone of win-acme version 2.2.9.1, with additional features, enhancements and bug fixes. It's first release (version 2.3.0) picks up right up where win-acme left off and it's fully backwards compatible. 

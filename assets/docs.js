@@ -75,3 +75,5 @@ sidebarLinks.forEach((sidebarLink) => {
     });
 	
 });
+
+document.querySelector(".nav-link.active").scrollIntoView({ behavior: 'instant' });

@@ -3,9 +3,9 @@
     <td>
         {{ include.argument.description }}
         {% if include.argument.secret %}
-        <div class="callout-block callout-block-warning pb-1 mt-3">
+        <div class="callout-block callout-block-success pb-1 mt-3">
             <div class="content">
-                <p>You may pass the secret in plain text, but can also use a reference to the <a href="/manual/advanced-use/secret-management">secret vault</a>.</p>
+                <p>You may pass the secret in plain text, but can also use a reference to the <a href="/manual/advanced-use/secret-management">secret vault</a> like <code>"vault://json/mysecret"</code>.</p>
             </div>
         </div>
         {% endif %}

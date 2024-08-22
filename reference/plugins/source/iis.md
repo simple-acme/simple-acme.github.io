@@ -8,22 +8,22 @@ examples:
         name: Single binding
         cmd: '‑‑host example.com [‑‑siteid 1]'
     - 
-        name: Multiple bindings
+        name: More bindings
         cmd: '‑‑host example.com,www.example.com [‑‑siteid 1,2,3] [‑‑commonname common.example.com]'
     - 
-        name: All bindings of a site
+        name: All site bindings
         cmd: '‑‑siteid 1 [‑‑commonname common.example.com] [‑‑excludebindings exclude.example.com]'
     - 
-        name: All bindings of multiple sites
+        name: Multiple sites
         cmd: '‑‑siteid 1,2,3 [‑‑commonname common.example.com] [‑‑excludebindings exclude.example.com]'
     - 
-        name: All bindings of all sites
+        name: All sites
         cmd: '‑‑siteid s [‑‑commonname common.example.com] [‑‑excludebindings exclude.example.com]'
     - 
-        name: Binding pattern
+        name: Pattern
         cmd: '‑‑host-pattern *.example.??? [‑‑siteid 1,2,3] [‑‑commonname common.example.com] [‑‑excludebindings exclude.example.com]'
     - 
-        name: Binging regex
+        name: Regex
         cmd: '‑‑host-regex [a-z]{3}\.example(\.com|\.net) [‑‑siteid 1,2,3] [‑‑commonname common.example.com] [‑‑excludebindings exclude.example.com]'                                                    
 ---
 

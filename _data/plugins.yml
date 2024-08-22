@@ -104,11 +104,16 @@ source:
 
 store:
   centralssl:
-    id:
-    title:
-    subtitle:
+    id: af1f77b6-4e7b-4f96-bba5-c2eeb4d0dd42
+    title: CentralSsl
+    subtitle: IIS Central Certificate Store (.pfx per host)
     arguments:
+      - centralsslstore
+      - centralssl.pfxpassword
     settings:
+      - Store.CentralSsl.DefaultPath
+      - Store.CentralSsl.DefaultPassword
+      - Store.CentralSsl.DefaultProtectionMode
 
   certificatestore:
     id:
