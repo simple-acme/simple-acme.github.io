@@ -1,32 +1,17 @@
 ---
+layout: plugin
+plugin_type: store
+plugin: certificatestore
+compatibility: Windows
+examples:
+    - 
+        name: Typical
+        cmd: '[‑‑certificatestore My] [‑‑keepexisting] [‑‑acl-fullcontrol "network service,administrators"] [‑‑acl-read "myapp"]'                                     
 ---
-# Windows Certificate Store
-Default plugin, saves certificates to the Windows Certificate store. Which store is used is based on the following priorities:
-
-- Store configured for the specific renewal
-- Global default is configured in [settings.json](/reference/settings)
-- `WebHosting` store (if it exists, i.e. Windows 2012+ with IIS)
-- The machine-level `My` store (better known as Personal)
+Saves certificates to the Windows Certificate store. This will always import to the `Computer` store. Refer to the [User Store](/reference/plugins/store/userstore) plugin if you want to have a certificate in the `User` store.
 
 ## Compatibility
-For improved compatiblitity, certificates with RSA keys are automatically converted to 
-the `Microsoft RSA SChannel Cryptographic Provider` when stored to the Windows Certificate Store. 
-This prevents problems with older versions of Exchange and allows exportable certificates (see next section) 
-to be exported from the IIS Management Console (vs. only from the Computer Certificates snap-in). 
-To disable this conversion step, set `UseNextGenerationCrypto` to `true` in [settings.json](/reference/settings).
+For best compatiblitity with legacy applications, the program attempts to store certificates with RSA keys using the `Microsoft RSA SChannel Cryptographic Provider`. If you require a more modern approach to key storage, refer to the setting listed below.
 
 ## Private key export
-By default the private keys are set to be *not* exportable. You can change this behaviour 
-by setting `PrivateKeyExportable` to `true` in [settings.json](/reference/settings). 
-The updated setting only takes effect after the next (uncached) renewal.
-
-## Keep existing
-The `‑‑keepexisting` switch can be used to prevent the program from deleting older 
-versions of the certificate from the store.
-
-## Private key ACL
-The `‑‑acl-fullcontrol` and `‑‑acl-read` parameters can be used to grant principals other than the 
-defaults for a specific store access to the private key. You can use principal names or well-known SIDs here.
-
-## Unattended
-`[‑‑store certificatestore] [‑‑certificatestore My] [‑‑keepexisting] [‑‑acl-fullcontrol "network service,administrators"] [‑‑acl-read "myapp"]`
+By default the private keys *not* exportable. This can be changed globally via the settings, but generally we recommend not doing this, because 99% of use cases should be manageable by using another (additional) store step. If you're looking to move the certificate to another server, read more about [migration to another server](/manual/migration).

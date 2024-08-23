@@ -323,3 +323,246 @@ Validation:
                  name: acmednsserver
                  description: "Root URI of the acme-dns service"
 
+    ALiYun:
+         condition: "‑‑validation aliyun"
+         arguments:
+             -
+                 name: aliyunserver
+                 description: "DNS Server Domain Name
+Refer: https://api.aliyun.com/product/Alidns"
+             -
+                 name: aliyunapiid
+                 description: "API ID for ALiYun."
+                 secret: true
+             -
+                 name: aliyunapisecret
+                 description: "API Secret for ALiYun."
+                 secret: true
+
+    Azure:
+         condition: "‑‑validation azure"
+         arguments:
+             -
+                 name: azuresubscriptionid
+                 description: "Subscription ID to login into Microsoft Azure DNS (blank to use default)."
+             -
+                 name: azurehostedzone
+                 description: "Hosted zone (blank to find best match)"
+             -
+                 name: azureenvironment
+                 description: "This can be used to specify a specific Azure endpoint. Valid inputs are AzureCloud (default), AzureChinaCloud, AzureGermanCloud, AzureUSGovernment or a specific URI for an Azure Stack implementation."
+             -
+                 name: azureusemsi
+                 description: "Use Managed Service Identity for authentication."
+             -
+                 name: azuretenantid
+                 description: "Directory/tenant identifier. Found in Entra ID > Properties."
+             -
+                 name: azureclientid
+                 description: "Application/client identifier. Found/created in Entra ID > App registrations."
+             -
+                 name: azuresecret
+                 description: "Client secret. Found/created under Entra ID > App registrations."
+                 secret: true
+
+    Cloudflare:
+         condition: "‑‑validation cloudflare"
+         arguments:
+             -
+                 name: cloudflareapitoken
+                 description: "API Token for Cloudflare."
+                 secret: true
+
+    DigitalOcean:
+         condition: "‑‑validation digitalocean"
+         arguments:
+             -
+                 name: digitaloceanapitoken
+                 description: "The API token to authenticate against the DigitalOcean API."
+                 secret: true
+
+    DnsExit:
+         condition: "‑‑validation dnsexit"
+         arguments:
+             -
+                 name: apikey
+                 description: "DnsExit API key."
+                 secret: true
+
+    DnsMadeEasy:
+         condition: "‑‑validation dnsmadeeasy"
+         arguments:
+             -
+                 name: apikey
+                 description: "DnsMadeEasy API key."
+             -
+                 name: apisecret
+                 description: "DnsMadeEasy API secret."
+                 secret: true
+
+    Domeneshop:
+         condition: "‑‑validation domeneshop"
+         arguments:
+             -
+                 name: clientid
+                 description: "Domeneshop ClientID (token)"
+             -
+                 name: clientsecret
+                 description: "Domeneshop Client Secret"
+
+    Dreamhost:
+         condition: "‑‑validation dreamhost"
+         arguments:
+             -
+                 name: apikey
+                 description: "Dreamhost API key."
+                 secret: true
+
+    GoDaddy:
+         condition: "‑‑validation godaddy"
+         arguments:
+             -
+                 name: apikey
+                 description: "GoDaddy API key."
+             -
+                 name: apisecret
+                 description: "GoDaddy API secret."
+                 secret: true
+
+    Google Cloud DNS:
+         condition: "‑‑validation gcpdns"
+         arguments:
+             -
+                 name: serviceaccountkey
+                 description: "Path to Service Account Key to authenticate with GCP"
+             -
+                 name: projectid
+                 description: "Project ID that is hosting Cloud DNS."
+
+    Hetzner:
+         condition: "‑‑validation hetzner"
+         arguments:
+             -
+                 name: hetznerapitoken
+                 description: "API Token for Hetzner."
+                 secret: true
+             -
+                 name: hetznerzoneid
+                 description: "OPTIONAL: ID of zone the record is associated with."
+
+    Infomaniak:
+         condition: "‑‑validation infomaniak"
+         arguments:
+             -
+                 name: apitoken
+                 description: "Infomaniak API token"
+                 secret: true
+
+    Linode:
+         condition: "‑‑validation linode"
+         arguments:
+             -
+                 name: apitoken
+                 description: "Linode Personal Access Token"
+                 secret: true
+
+    LuaDns:
+         condition: "‑‑validation luadns"
+         arguments:
+             -
+                 name: luadnsusername
+                 description: "LuaDNS account username (email address)."
+             -
+                 name: luadnsapikey
+                 description: "LuaDNS API key."
+                 secret: true
+
+    NS1:
+         condition: "‑‑validation ns1"
+         arguments:
+             -
+                 name: apikey
+                 description: "NS1 API key."
+
+    Rest plugin:
+         condition: "‑‑validation rest"
+         arguments:
+             -
+                 name: rest-securitytoken
+                 description: "The bearer token needed to authenticate with the REST API on the server for PUT / DELETE requests."
+                 secret: true
+             -
+                 name: rest-usehttps
+                 description: "If HTTPS should be used instead of HTTP. Must be true if the server has HTTP to HTTPS redirection configured, as the redirected request always uses the GET method."
+
+    Rfc2136:
+         condition: "‑‑validation rfc2136"
+         arguments:
+             -
+                 name: serverhost
+                 description: "DNS server host/ip"
+             -
+                 name: serverport
+                 description: "DNS server port"
+             -
+                 name: tsigkeyname
+                 description: "TSIG key name"
+             -
+                 name: tsigkeysecret
+                 description: "TSIG key secret (Base64 encoded)"
+                 secret: true
+             -
+                 name: tsigkeyalgorithm
+                 description: "TSIG key algorithm"
+
+    Route53:
+         condition: "‑‑validation route53"
+         arguments:
+             -
+                 name: route53iamrole
+                 description: "AWS IAM role for the current EC2 instance to login into Amazon Route 53. Note that you should provide the IAM name instead of the ARN."
+             -
+                 name: route53accesskeyid
+                 description: "Access key ID to login into Amazon Route 53."
+             -
+                 name: route53secretaccesskey
+                 description: "Secret access key to login into Amazon Route 53."
+                 secret: true
+
+    Simply:
+         condition: "‑‑validation simply"
+         arguments:
+             -
+                 name: account
+                 description: "Simply Account."
+             -
+                 name: apikey
+                 description: "Simply API key."
+                 secret: true
+
+    Tencent:
+         condition: "‑‑validation Tencent"
+         arguments:
+             -
+                 name: tencentapiid
+                 description: "API ID for Tencent."
+                 secret: true
+             -
+                 name: tencentapikey
+                 description: "API Key for Tencent."
+                 secret: true
+
+    TransIp:
+         condition: "‑‑validation transip"
+         arguments:
+             -
+                 name: transip-login
+                 description: "Login name at TransIp."
+             -
+                 name: transip-privatekey
+                 description: "Private key generated in the control panel (replace enters by spaces and use quotes)."
+                 secret: true
+             -
+                 name: transip-privatekeyfile
+                 description: "Private key generated in the control panel (saved to a file on disk)."
+

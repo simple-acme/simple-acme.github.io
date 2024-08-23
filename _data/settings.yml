@@ -544,7 +544,8 @@ Store:
     type: string
     description: Default store plugin(s).
     tip: This may be a comma separated value for multiple default store plugins.
-    nullBehaviour: equivalent to <code>"certificatestore"</code>
+    nullBehaviour: equivalent to <code>"certificatestore"</code> 
+      on Windows and <code>"pemfiles"</code> on other platforms
 
   CertificateStore:
     DefaultStore:
@@ -568,15 +569,18 @@ Store:
     UseNextGenerationCryptoApi:
       type: boolean
       default: 'false'
-      description: "If set to true, the program will use the <a href=\"https://learn.microsoft.com/en-us/windows/win32/seccng/about-cng\">Cryptography 
-        API</a>: Next Generation (CNG) to handle private keys, instead of 
-        the legacy CryptoAPI. Note that enabling this option may make 
+      description: "If set to <code>true</code>, the program will use the <a href=\"https://learn.microsoft.com/en-us/windows/win32/seccng/about-cng\">Cryptography 
+        API: Next Generation (CNG)</a> to handle private keys, instead of 
+        the legacy CryptoAPI."
+      warning: "Note that enabling this option may make 
         the certificates unusable or behave differently in subtle ways 
         for software that only supports or assumes the key to exist in 
-        CryptoAPI. For example it will not work for older versions of 
-        Microsoft Exchange and it won't be exportable from IIS, even if 
-        the <code>PrivateKeyExportable</code> setting is <code>true</code> 
-        (though it will be exportable from MMC)."
+        CryptoAPI. For example:
+          <ul><li>It will not (fully) work for older versions of Microsoft Exchange (this might only become apparent when installing a service pack)
+          <li>It won't be exportable from the IIS Manager, even if <code>PrivateKeyExportable</code> is <code>true</code> (though it will be exportable from MMC).
+          <li><code>--acl-read</code> and <code>--acl-fullcontrol</code> might not work
+          </ul>
+        "
 
   CentralSsl:
     DefaultPath:

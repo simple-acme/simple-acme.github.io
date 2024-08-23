@@ -105,7 +105,7 @@ source:
 store:
   centralssl:
     id: af1f77b6-4e7b-4f96-bba5-c2eeb4d0dd42
-    title: CentralSsl
+    title: Central Certificate Store
     subtitle: IIS Central Certificate Store (.pfx per host)
     arguments:
       - centralsslstore
@@ -116,18 +116,32 @@ store:
       - Store.CentralSsl.DefaultProtectionMode
 
   certificatestore:
-    id:
-    title:
-    subtitle:
+    id: e30adc8e-d756-4e16-a6f2-450f784b1a97
+    title: Certificate Store
+    subtitle: Windows Certificate Store (Local Computer)
     arguments:
+      - certificatestore
+      - keepexisting
+      - acl-fullcontrol
+      - acl-read
     settings:
+      - Store.CertificateStore.DefaultStore
+      - Store.CertificateStore.PrivateKeyExportable
+      - Store.CertificateStore.UseNextGenerationCryptoApi
 
   keyvault:
-    id:
-    title:
-    subtitle:
+    external: true
+    id: dbfa91e2-28c0-4b37-857c-df6575dbb388
+    title: Azure Key Vault
+    subtitle: Store certificate in Azure Key Vault
     arguments:
-    settings:
+      - azureenvironment
+      - azureusemsi
+      - azuretenantid
+      - azureclientid
+      - azuresecret
+      - vaultname
+      - certificatename
 
   pemfiles:
     id:

@@ -14,10 +14,19 @@ layout: docs
                 <td></td>
             </tr>
 
-            {% if page.download %}
+            {% if plugin.external %}
+            {% assign downloadFake = "plugin." | 
+                    append: page.plugin_type | 
+                    append: "." | 
+                    append: page.plugin | 
+                    append: ".v" | 
+                    append: "2.x.x" | 
+                    append: ".zip"
+            %}
+            {% assign download = downloadFake | replace_first: "2.x.x", site.releasebuild %}
             <tr>
                 <th scope="row">Download</th>
-                <td></td>
+                <td><a href="https://github.com/simple-acme/simple-acme/releases/download/v{{ site.releasetag }}/{{ download }}">for version {{ site.releasename }}</a>. Look for older releases on <a href="https://github.com/simple-acme/simple-acme/releases/">GitHub</a> for files named like <strong>{{downloadFake}}</strong></td>
                 <td></td>
             </tr>
             {% else %}
