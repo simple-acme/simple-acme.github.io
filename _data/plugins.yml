@@ -9,6 +9,11 @@ csr:
     settings:
       - Csr.Ec.CurveName
       - Csr.Ec.SignatureAlgorithm
+    compatibility: All platforms
+    examples:
+      - 
+        name: Typical
+        cmd: '[‑‑ocsp-must-staple] [‑‑reuse-privatekey]'
 
   rsa:
     id: b9060d4b-c2d3-49ac-b37f-962e7c3cbe9d
@@ -21,6 +26,11 @@ csr:
     settings:
       - Csr.Rsa.KeyBits
       - Csr.Rsa.SignatureAlgorithm
+    compatibility: All platforms
+    examples:
+      - 
+        name: Typical
+        cmd: '[‑‑ocsp-must-staple] [‑‑reuse-privatekey]'
 
 installation:
   iis:
@@ -32,6 +42,11 @@ installation:
       - sslport
       - sslipaddress
       - installationsiteid
+    compatibility: Windows (admin only)
+    examples:
+        - 
+            name: Typical
+            cmd: '[‑‑installationsiteid 14] [‑‑sslport 8443] [‑‑sslipaddress 192.168.0.1]'
 
   script:
     id: 3bb22c70-358d-4251-86bd-11858363d913
@@ -43,33 +58,43 @@ installation:
     settings:
       - Script.PowershellExecutablePath
       - Script.Timeout
+    compatibility: All platforms
+    examples:
+        - 
+            name: Typical
+            cmd: '‑‑script C:\script.bat [‑‑scriptparameters x]'
 
   none:
     id: aecc502c-5f75-43d2-b578-f95d50c79ea1
     title: None
     subtitle: No (additional) installation steps
+    compatibility: All platforms
 
 order:
   domain:
     id: b7c331d4-d875-453e-b83a-2b537ca12535
     title: Domain
     subtitle: Separate certificate for each domain (e.g. *.example.com)
+    compatibility: All platforms
 
   host:
     id: 874a86e4-29c7-4294-9ab6-6908866847a0 
     title: Host
     subtitle: Separate certificate for each host (e.g. sub.example.com)
+    compatibility: All platforms
 
   single:
     id: b705fa7c-1152-4436-8913-e433d7f84c82
     title: Single
     subtitle: Single certificate
     default: 'Yes'
+    compatibility: All platforms
 
   site:
     id: 74a42b2d-8eaa-4f40-ab6a-f55304254143
     title: Site
     subtitle: Separate certificate for each IIS site
+    compatibility: Windows (*)
 
 source:
   csr:
@@ -79,6 +104,11 @@ source:
     arguments:
       - csrfile
       - pkfile
+    compatibility: All platforms
+    examples:
+        - 
+            name: Typical
+            cmd: '‑‑csrfile C:\csr.txt [‑‑pkfile C:\key.txt]'
 
   iis:
     id: 54deb3ee-b5df-4381-8485-fe386054055b
@@ -93,7 +123,30 @@ source:
       - excludebindings
       - host-type
       - hidehttps
-
+    compatibility: Windows (admin only)
+    examples:
+        - 
+            name: Single binding
+            cmd: '‑‑host example.com [‑‑siteid 1]'
+        - 
+            name: More bindings
+            cmd: '‑‑host example.com,www.example.com [‑‑siteid 1,2,3] [‑‑commonname common.example.com]'
+        - 
+            name: All site bindings
+            cmd: '‑‑siteid 1 [‑‑commonname common.example.com] [‑‑excludebindings exclude.example.com]'
+        - 
+            name: Multiple sites
+            cmd: '‑‑siteid 1,2,3 [‑‑commonname common.example.com] [‑‑excludebindings exclude.example.com]'
+        - 
+            name: All sites
+            cmd: '‑‑siteid s [‑‑commonname common.example.com] [‑‑excludebindings exclude.example.com]'
+        - 
+            name: Pattern
+            cmd: '‑‑host-pattern *.example.??? [‑‑siteid 1,2,3] [‑‑commonname common.example.com] [‑‑excludebindings exclude.example.com]'
+        - 
+            name: Regex
+            cmd: '‑‑host-regex [a-z]{3}\.example(\.com|\.net) [‑‑siteid 1,2,3] [‑‑commonname common.example.com] [‑‑excludebindings exclude.example.com]'    
+  
   manual:
     id: e239db3b-b42f-48aa-b64f-46d4f3e9941b
     title: Manual
@@ -101,6 +154,11 @@ source:
     arguments:
       - manual.host
       - manual.commonname
+    compatibility: All platforms
+    examples:
+        - 
+            name: Typical
+            cmd: '‑‑host a.example.com,*.example.com'   
 
 store:
   centralssl:
@@ -114,6 +172,11 @@ store:
       - Store.CentralSsl.DefaultPath
       - Store.CentralSsl.DefaultPassword
       - Store.CentralSsl.DefaultProtectionMode
+    compatibility: All platforms
+    examples:
+        - 
+            name: Typical
+            cmd: '[‑‑centralsslstore C:\CentralSSL\] [‑‑pfxpassword *****]'   
 
   certificatestore:
     id: e30adc8e-d756-4e16-a6f2-450f784b1a97
@@ -128,7 +191,12 @@ store:
       - Store.CertificateStore.DefaultStore
       - Store.CertificateStore.PrivateKeyExportable
       - Store.CertificateStore.UseNextGenerationCryptoApi
-
+    compatibility: Windows
+    examples:
+        - 
+            name: Typical
+            cmd: '[‑‑certificatestore My] [‑‑keepexisting] [‑‑acl-fullcontrol "network service,administrators"] [‑‑acl-read "myapp"]'  
+ 
   keyvault:
     external: true
     id: dbfa91e2-28c0-4b37-857c-df6575dbb388
@@ -142,6 +210,14 @@ store:
       - azuresecret
       - vaultname
       - certificatename
+    compatibility: All platforms
+    examples:
+      - 
+        name: Service Principal
+        cmd: '‑‑azuretenantid xxx ‑‑azureclientid xxx ‑‑azuresecret ***** ‑‑vaultname MyVault ‑‑certificatename MyCertificate'
+      -
+        name: Managaged Identity
+        cmd: '‑‑azureusemsi ‑‑vaultname MyVault ‑‑certificatename MyCertificate'
 
   pemfiles:
     id: e57c70e4-cd60-4ba6-80f6-a41703e21031
@@ -154,6 +230,11 @@ store:
     settings:
       - Store.PemFiles.DefaultPath
       - Store.PemFiles.DefaultPassword
+    compatibility: All platforms
+    examples:
+        - 
+            name: Typical
+            cmd: '[‑‑pemfilespath C:\Certificates\] [‑‑pempassword ******] [‑‑pemfilesname mycert]' 
 
   pfxfile:
     id: 2a2c576f-7637-4ade-b8db-e8613b0bb33e
@@ -167,14 +248,24 @@ store:
       - Store.PfxFile.DefaultPath
       - Store.PfxFile.DefaultPassword
       - Store.PfxFile.DefaultProtectionMode
+    compatibility: All platforms
+    examples:
+        - 
+            name: Typical
+            cmd: '[‑‑pfxpassword *****] [‑‑pfxfilepath C:\Certificates\] [‑‑pfxfilename mycert]' 
 
   userstore:
-    id:
-    title:
-    subtitle:
+    external: true
+    id: 95ee94e7-c8e2-40e6-a26f-c9fc3afa9fa5
+    title: Certificate Store
+    subtitle: Add to Windows Certificate Store (Current User)
     arguments:
-    settings:
-
+      - keepexisting
+    compatibility: All platforms
+    examples:
+        - 
+            name: Typical
+            cmd: '[‑‑keepexisting]' 
 
 validation:
   dns:
@@ -186,6 +277,7 @@ validation:
       settings:
 
     alibaba:
+      external: true
       id:
       title:
       subtitle:
@@ -193,6 +285,7 @@ validation:
       settings:
 
     azure:
+      external: true
       id:
       title:
       subtitle:
@@ -200,6 +293,7 @@ validation:
       settings:
 
     clouddns:
+      external: true
       id:
       title:
       subtitle:
@@ -207,6 +301,7 @@ validation:
       settings:
 
     cloudflare:
+      external: true
       id:
       title:
       subtitle:
@@ -214,6 +309,7 @@ validation:
       settings:
 
     digitalocean:
+      external: true
       id:
       title:
       subtitle:
@@ -221,6 +317,7 @@ validation:
       settings:
 
     dnsexit:
+      external: true
       id:
       title:
       subtitle:
@@ -228,6 +325,7 @@ validation:
       settings:
 
     dnsmadeeasy:
+      external: true
       id:
       title:
       subtitle:
@@ -235,6 +333,7 @@ validation:
       settings:
 
     domene:
+      external: true
       id:
       title:
       subtitle:
@@ -242,6 +341,7 @@ validation:
       settings:
 
     dreamhost:
+      external: true
       id:
       title:
       subtitle:
@@ -249,6 +349,7 @@ validation:
       settings:
 
     godaddy:
+      external: true
       id:
       title:
       subtitle:
@@ -256,6 +357,7 @@ validation:
       settings:
 
     hetzner:
+      external: true
       id:
       title:
       subtitle:
@@ -263,6 +365,7 @@ validation:
       settings:
 
     infomaniak:
+      external: true
       id:
       title:
       subtitle:
@@ -270,6 +373,7 @@ validation:
       settings:
 
     linode:
+      external: true
       id:
       title:
       subtitle:
@@ -277,6 +381,7 @@ validation:
       settings:
 
     lua:
+      external: true
       id:
       title:
       subtitle:
@@ -291,6 +396,7 @@ validation:
       settings:
 
     ns1:
+      external: true
       id:
       title:
       subtitle:
@@ -298,6 +404,7 @@ validation:
       settings:
 
     rfc2136:
+      external: true
       id:
       title:
       subtitle:
@@ -305,6 +412,7 @@ validation:
       settings:
 
     route53:
+      external: true
       id:
       title:
       subtitle:
@@ -319,6 +427,7 @@ validation:
       settings:
 
     simply:
+      external: true
       id:
       title:
       subtitle:
@@ -326,6 +435,7 @@ validation:
       settings:
 
     tencent:
+      external: true
       id:
       title:
       subtitle:
@@ -333,6 +443,7 @@ validation:
       settings:
 
     transip:
+      external: true
       id:
       title:
       subtitle:
@@ -389,4 +500,3 @@ validation:
       subtitle:
       arguments:
       settings:
-

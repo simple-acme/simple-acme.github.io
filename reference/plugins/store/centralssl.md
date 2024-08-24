@@ -1,12 +1,7 @@
 ---
 layout: plugin
 plugin_type: store
-plugin: centralssl
-compatibility: All platforms
-examples:
-    - 
-        name: Typical
-        cmd: '[‑‑centralsslstore C:\CentralSSL\] [‑‑pfxpassword *****]'                                     
+plugin: centralssl                                  
 ---
 
 Designed for the [Central Certificate Store](https://blogs.msdn.microsoft.com/kaushal/2012/10/11/central-certificate-store-ccs-with-iis-8-windows-server-2012/) 

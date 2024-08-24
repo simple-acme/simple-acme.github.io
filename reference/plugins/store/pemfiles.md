@@ -2,11 +2,6 @@
 layout: plugin
 plugin_type: store
 plugin: pemfiles
-compatibility: All platforms
-examples:
-    - 
-        name: Typical
-        cmd: '[‑‑pemfilespath C:\Certificates\] [‑‑pempassword ******] [‑‑pemfilesname mycert]' 
 ---
 Designed for [Apache](/manual/advanced-use/examples/apache), nginx and other web servers. 
 Exports a `.pem` file for the certificate and private key and places them a folder of your choice.

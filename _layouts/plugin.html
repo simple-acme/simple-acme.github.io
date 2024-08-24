@@ -39,7 +39,7 @@ layout: docs
 
             <tr>
                 <th scope="row">Compatibility</th>
-                <td>{{page.compatibility}}</td>
+                <td>{{plugin.compatibility}}</td>
                 <td></td>
             </tr>
         </tbody>
@@ -48,6 +48,10 @@ layout: docs
 
 <h2>Description</h2>
 {{content}}
+
+{% if plugin.external %}
+{% include plugin-seperate.md %}
+{% endif %}
 
 <h2 class="pt-2">Command line</h2>
 <div class="table-responsive my-4 me-5 pe-5">
@@ -63,12 +67,12 @@ layout: docs
     </table>
 </div>
 
-{% if page.examples %}
+{% if plugin.examples %}
 <h2>Examples</h2>
 <div class="table-responsive my-4 me-5 pe-5">
     <table class="table table-striped">
         <tbody>      
-            {% for item in page.examples %}
+            {% for item in plugin.examples %}
             <tr>
                 <th class="col-md-3" scope="row">{{ item.name }}</th>
                 <td><code>‑‑{{page.plugin_type}} {{page.plugin}} {{ item.cmd }}</code></td>

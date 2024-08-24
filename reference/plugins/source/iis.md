@@ -1,34 +1,9 @@
 ---
 layout: plugin
 plugin_type: source
-plugin: iis
-compatibility: Windows (admin only)
-examples:
-    - 
-        name: Single binding
-        cmd: '‑‑host example.com [‑‑siteid 1]'
-    - 
-        name: More bindings
-        cmd: '‑‑host example.com,www.example.com [‑‑siteid 1,2,3] [‑‑commonname common.example.com]'
-    - 
-        name: All site bindings
-        cmd: '‑‑siteid 1 [‑‑commonname common.example.com] [‑‑excludebindings exclude.example.com]'
-    - 
-        name: Multiple sites
-        cmd: '‑‑siteid 1,2,3 [‑‑commonname common.example.com] [‑‑excludebindings exclude.example.com]'
-    - 
-        name: All sites
-        cmd: '‑‑siteid s [‑‑commonname common.example.com] [‑‑excludebindings exclude.example.com]'
-    - 
-        name: Pattern
-        cmd: '‑‑host-pattern *.example.??? [‑‑siteid 1,2,3] [‑‑commonname common.example.com] [‑‑excludebindings exclude.example.com]'
-    - 
-        name: Regex
-        cmd: '‑‑host-regex [a-z]{3}\.example(\.com|\.net) [‑‑siteid 1,2,3] [‑‑commonname common.example.com] [‑‑excludebindings exclude.example.com]'                                                    
+plugin: iis                                                
 ---
-
-Create source based on bindings configured in IIS. 
-- Automatically updates webroot path (useful for [FileSystem validation](/reference/plugins/validation/http/filesystem))
+Create source based on bindings configured in IIS. Automatically updates webroot path (useful for [FileSystem validation](/reference/plugins/validation/http/filesystem))
 
 # Filtering bindings
 While it's possible to create a certificate for all bindings in all sites, typically you will want to select some 

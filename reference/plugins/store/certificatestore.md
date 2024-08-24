@@ -1,12 +1,7 @@
 ---
 layout: plugin
 plugin_type: store
-plugin: certificatestore
-compatibility: Windows
-examples:
-    - 
-        name: Typical
-        cmd: '[‑‑certificatestore My] [‑‑keepexisting] [‑‑acl-fullcontrol "network service,administrators"] [‑‑acl-read "myapp"]'                                     
+plugin: certificatestore                                   
 ---
 Saves certificates to the Windows Certificate store. This will always import to the `Computer` store. Refer to the [User Store](/reference/plugins/store/userstore) plugin if you want to have a certificate in the `User` store.
 

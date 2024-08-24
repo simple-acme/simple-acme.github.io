@@ -2,7 +2,6 @@
 layout: plugin
 plugin_type: order
 plugin: domain
-compatibility: All platforms
 ---
 Generates an order/certificate for each registerable domain found in the source. For example when there are five hosts in the source:
 
