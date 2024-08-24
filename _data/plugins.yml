@@ -106,7 +106,7 @@ store:
   centralssl:
     id: af1f77b6-4e7b-4f96-bba5-c2eeb4d0dd42
     title: Central Certificate Store
-    subtitle: IIS Central Certificate Store (.pfx per host)
+    subtitle: Add to IIS Central Certificate Store
     arguments:
       - centralsslstore
       - centralssl.pfxpassword
@@ -118,7 +118,7 @@ store:
   certificatestore:
     id: e30adc8e-d756-4e16-a6f2-450f784b1a97
     title: Certificate Store
-    subtitle: Windows Certificate Store (Local Computer)
+    subtitle: Add to Windows Certificate Store (Local Computer)
     arguments:
       - certificatestore
       - keepexisting
@@ -133,7 +133,7 @@ store:
     external: true
     id: dbfa91e2-28c0-4b37-857c-df6575dbb388
     title: Azure Key Vault
-    subtitle: Store certificate in Azure Key Vault
+    subtitle: Store in Azure Key Vault
     arguments:
       - azureenvironment
       - azureusemsi
@@ -144,18 +144,29 @@ store:
       - certificatename
 
   pemfiles:
-    id:
-    title:
-    subtitle:
+    id: e57c70e4-cd60-4ba6-80f6-a41703e21031
+    title: PEM files
+    subtitle: Create PEM encoded files (for Apache, nginx, etc.)
     arguments:
+      - pemfilespath
+      - pempassword
+      - pemfilesname
     settings:
+      - Store.PemFiles.DefaultPath
+      - Store.PemFiles.DefaultPassword
 
   pfxfile:
-    id:
-    title:
-    subtitle:
+    id: 2a2c576f-7637-4ade-b8db-e8613b0bb33e
+    title: PFX file
+    subtitle: Create PFX/PKCS12 archive file
     arguments:
+      - pfxfilepath
+      - pfxfilepassword
+      - pfxfilename
     settings:
+      - Store.PfxFile.DefaultPath
+      - Store.PfxFile.DefaultPassword
+      - Store.PfxFile.DefaultProtectionMode
 
   userstore:
     id:
