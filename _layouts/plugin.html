@@ -2,7 +2,12 @@
 layout: docs
 ---
 
+{% if page.plugin_subtype %}
+{%assign plugin=site.data.plugins[page.plugin_type][page.plugin_subtype][page.plugin] %}
+{% else %}
 {%assign plugin=site.data.plugins[page.plugin_type][page.plugin] %}
+{% endif %}
+
 <h1>{{plugin.title}}</h1>
 <p>{{plugin.subtitle}}</p>
 <div class="table-responsive my-4 me-5 pe-5">
@@ -15,14 +20,27 @@ layout: docs
             </tr>
 
             {% if plugin.external %}
-            {% assign downloadFake = "plugin." | 
-                    append: page.plugin_type | 
-                    append: "." | 
-                    append: page.plugin | 
-                    append: ".v" | 
-                    append: "2.x.x" | 
-                    append: ".zip"
-            %}
+                {% if page.plugin_subtype %}
+                    {% assign downloadFake = "plugin." | 
+                        append: page.plugin_type | 
+                        append: "." | 
+                        append: page.plugin_subtype | 
+                        append: "." | 
+                        append: page.plugin | 
+                        append: ".v" | 
+                        append: "2.x.x" | 
+                        append: ".zip"
+                    %} 
+                {% else %}
+                    {% assign downloadFake = "plugin." | 
+                        append: page.plugin_type | 
+                        append: "." | 
+                        append: page.plugin | 
+                        append: ".v" | 
+                        append: "2.x.x" | 
+                        append: ".zip"
+                    %}
+                {% endif %}
             {% assign download = downloadFake | replace_first: "2.x.x", site.releasebuild %}
             <tr>
                 <th scope="row">Download</th>
