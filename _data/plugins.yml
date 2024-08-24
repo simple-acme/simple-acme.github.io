@@ -284,7 +284,7 @@ validation:
     aliyun:
       external: true
       id: 1d4db2ea-ce7c-46ce-b86f-40b356fcf999
-      title: ALiYun
+      title: Alibaba / ALiYun
       subtitle: Create verification records in ALiYun DNS
       arguments:
         - aliyunserver
@@ -301,19 +301,41 @@ validation:
 
     azure:
       external: true
-      id:
-      title:
-      subtitle:
+      id: aa57b028-45fb-4aca-9cac-a63d94c76b4a
+      title: Microsoft Azure
+      subtitle: Create verification records in Azure DNS
       arguments:
+        - azureenvironment
+        - azureusemsi
+        - azuretenantid
+        - azureclientid
+        - azuresecret
+        - azuresubscriptionid
+        - azureresourcegroupname
+        - azurehostedzone
       compatibility: All platforms
+      examples:
+        - 
+          name: Service Principal
+          cmd: '‑‑azuretenantid xxx ‑‑azureclientid xxx ‑‑azuresecret ***** ‑‑azuresubscriptionid xxx ‑‑azureresourcegroupname xxx [‑‑azurehostedzone xxx]'
+        -
+          name: Managaged Identity
+          cmd: '‑‑azureusemsi ‑‑azuresubscriptionid xxx ‑‑azureresourcegroupname xxx [‑‑azurehostedzone xxx]'
 
-    clouddns:
+    googledns:
       external: true
-      id:
-      title:
-      subtitle:
+      trigger: gpcdns
+      id: B61505E9-1709-43FD-996F-C74C3686286C
+      title: Google Cloud DNS
+      subtitle: Create verification records in Google Cloud DNS
       arguments:
+        - serviceaccountkey
+        - projectid
       compatibility: All platforms
+      examples:
+        - 
+          name: Typical
+          cmd: ‑‑serviceaccountkey C:\gcp\key.txt ‑‑projectid example
 
     cloudflare:
       external: true

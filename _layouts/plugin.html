@@ -71,12 +71,18 @@ layout: docs
 {% include plugin-seperate.md %}
 {% endif %}
 
+{% if plugin.trigger %}
+    {% assign trigger = plugin.trigger %}
+{% else %}
+    {% assign trigger = page.plugin_type %}
+{% endif %}
+
 <h2 class="pt-2">Command line</h2>
 <div class="table-responsive my-4 me-5 pe-5">
     <table class="table table-striped">
         <tbody>
             <tr>
-                <th class="col-md-3" scope="row"><code>‑‑{{page.plugin_type}} {{page.plugin}}</code></th>
+                <th class="col-md-3" scope="row"><code>‑‑{{page.plugin_type}} {{trigger}}</code></th>
                 <td>Activates the plugin</td>
                 <td></td>
             </tr>
@@ -93,7 +99,7 @@ layout: docs
             {% for item in plugin.examples %}
             <tr>
                 <th class="col-md-3" scope="row">{{ item.name }}</th>
-                <td><code>‑‑{{page.plugin_type}} {{page.plugin}} {{ item.cmd }}</code></td>
+                <td><code>‑‑{{page.plugin_type}} {{trigger}} {{ item.cmd }}</code></td>
                 <td></td>
             </tr>
             {% endfor %}
