@@ -352,10 +352,11 @@ validation:
 
     digitalocean:
       external: true
-      id:
-      title:
-      subtitle:
+      id: 1a87d670-3fa3-4a2a-bb10-491d48feb5db
+      title: DigitalOcean
+      subtitle: Create verification records on DigitalOcean
       arguments:
+        - digitaloceanapitoken
       compatibility: All platforms
       example:
         -
@@ -364,10 +365,11 @@ validation:
 
     dnsexit:
       external: true
-      id:
-      title:
-      subtitle:
+      id: C9017182-1000-4257-A8DA-0553CD1490EC
+      title: Dnsexit
+      subtitle: Create verification records in Dnsexit DNS
       arguments:
+        - dnsexit.apikey
       compatibility: All platforms
       example:
         -
@@ -376,10 +378,12 @@ validation:
 
     dnsmadeeasy:
       external: true
-      id:
-      title:
-      subtitle:
+      id: 13993334-2d74-4ff6-801b-833b99bf231d
+      title: DnsMadeEasy
+      subtitle: Create verification records in DnsMadeEasy DNS
       arguments:
+        - dnsmadeeasy.apikey
+        - dnsmadeeasy.apisecret
       compatibility: All platforms
       example:
         -
@@ -388,10 +392,12 @@ validation:
 
     domene:
       external: true
-      id:
-      title:
-      subtitle:
+      id: 0BD9B320-08E0-4BFE-A535-B979886187E4
+      title: Domeneshop
+      subtitle: Create verification records in Domeneshop DNS
       arguments:
+        - domene.clientid
+        - domene.clientsecret
       compatibility: All platforms
       example:
         -
@@ -400,10 +406,11 @@ validation:
 
     dreamhost:
       external: true
-      id:
-      title:
-      subtitle:
+      id: 2bfb3ef8-64b8-47f1-8185-ea427b793c1a
+      title: Dreamhost
+      subtitle: Create verification records in Dreamhost DNS
       arguments:
+        - dreamhost.apikey
       compatibility: All platforms
       example:
         -
@@ -412,10 +419,12 @@ validation:
 
     godaddy:
       external: true
-      id:
-      title:
-      subtitle:
+      id: 966c4c3d-1572-44c7-9134-5e2bc8fa021d
+      title: GoDaddy
+      subtitle: Create verification records in Godaddy DNS
       arguments:
+        - godaddy.apikey
+        - godaddy.apisecret
       compatibility: All platforms
       example:
         -
@@ -424,10 +433,12 @@ validation:
 
     hetzner:
       external: true
-      id:
-      title:
-      subtitle:
+      id: 7176cc8f-ba08-4b07-aa39-2f5d012c1d5a
+      title: Hetzner
+      subtitle: Create verification records in Hetzner DNS
       arguments:
+        - hetznerapitoken
+        - hetznerzoneid
       compatibility: All platforms
       example:
         -
@@ -436,10 +447,11 @@ validation:
 
     infomaniak:
       external: true
-      id:
-      title:
-      subtitle:
+      id: d1401d1e-b925-407d-a38b-924d67b2d1b5
+      title: Infomaniak
+      subtitle: Create verification records in Infomaniak DNS
       arguments:
+        - infomaniak.apitoken
       compatibility: All platforms
       example:
         -
@@ -448,10 +460,11 @@ validation:
 
     linode:
       external: true
-      id:
-      title:
-      subtitle:
+      id: 12fdc54c-be30-4458-8066-2c1c565fe2d9
+      title: Linode
+      subtitle: Create verification records in Linode DNS
       arguments:
+        - linode.apitoken
       compatibility: All platforms
       example:
         -
@@ -460,10 +473,12 @@ validation:
 
     lua:
       external: true
-      id:
-      title:
-      subtitle:
+      id: 3b0c3cca-db98-40b7-b678-b34791070d42
+      title: LuaDns
+      subtitle: Create verification records in LuaDns
       arguments:
+        - luadnsusername
+        - luadnsapikey
       compatibility: All platforms
       example:
         -
@@ -471,10 +486,9 @@ validation:
           cmd: 
 
     manual:
-      id:
-      title:
-      subtitle:
-      arguments:
+      id: e239db3b-b42f-48aa-b64f-46d4f3e9941b
+      title: Manual
+      subtitle: Manually create DNS records
       compatibility: All platforms
       example:
         -
@@ -483,10 +497,11 @@ validation:
 
     ns1:
       external: true
-      id:
-      title:
-      subtitle:
+      id: C66CC8BE-3046-46C2-A0BA-EC4EC3E7FE96
+      title: NS1
+      subtitle: Create verification records in NS1 DNS
       arguments:
+        - ns1.apikey
       compatibility: All platforms
       example:
         -
@@ -495,10 +510,15 @@ validation:
 
     rfc2136:
       external: true
-      id:
-      title:
-      subtitle:
+      id: ed5dc9d1-739c-4f6a-854f-238bf65b63ee
+      title: RFC 2136
+      subtitle: Create verification records using dynamic updates
       arguments:
+        - serverhost
+        - serverport
+        - tsigkeyname
+        - tsigkeysecret
+        - tsigkeyalgorithm
       compatibility: All platforms
       example:
         -
@@ -507,10 +527,13 @@ validation:
 
     route53:
       external: true
-      id:
-      title:
-      subtitle:
+      id: 4e5dc595-45c7-4461-929a-8f96a0c96b3d
+      title: Amazon Route 53
+      subtitle: Create verification records in AWS Route 53
       arguments:
+        - route53iamrole
+        - route53accesskeyid
+        - route53secretaccesskey
       compatibility: All platforms
       example:
         -
@@ -518,10 +541,19 @@ validation:
           cmd: 
 
     script:
-      id:
-      title:
-      subtitle:
+      id: 8f1da72e-f727-49f0-8546-ef69e5ecec32
+      title: Script
+      subtitle: Create verification records with your own script
       arguments:
+        - dnsscript
+        - dnscreatescript
+        - dnscreatescriptarguments
+        - dnsdeletescript
+        - dnsdeletescriptarguments
+        - dnsscriptparallelism
+      settings:
+        - Script.PowershellExecutablePath
+        - Script.Timeout
       compatibility: All platforms
       example:
         -
@@ -530,10 +562,12 @@ validation:
 
     simply:
       external: true
-      id:
-      title:
-      subtitle:
+      id: 3693c40c-7c2f-4b70-aead-27869d8cbdf3
+      title: Simply
+      subtitle: Create verification records in Simply DNS
       arguments:
+        - simply.account
+        - simply.apikey
       compatibility: All platforms
       example:
         -
@@ -542,10 +576,12 @@ validation:
 
     tencent:
       external: true
-      id:
-      title:
-      subtitle:
+      id: 6ea628c3-0f74-68bb-cf17-4fdd3d53f3af
+      title: Tencent
+      subtitle: Create verification records in Tencent DNS
       arguments:
+        - tencentapiid
+        - tencentapikey
       compatibility: All platforms
       example:
         -
@@ -554,10 +590,13 @@ validation:
 
     transip:
       external: true
-      id:
-      title:
-      subtitle:
+      id: c49a7a9a-f8c9-494a-a6a4-c6b9daae7d9d
+      title: TransIp
+      subtitle: Create verification records at TransIp
       arguments:
+        - transip-login
+        - transip-privatekey
+        - transip-privatekeyfile
       compatibility: All platforms
       example:
         -
@@ -578,11 +617,17 @@ validation:
           cmd: 
 
     ftps:
-      id:
-      title:
-      subtitle:
+      id: bc27d719-dcf2-41ff-bf08-54db7ea49c48
+      title: FTP(S)
+      subtitle: Upload verification files via FTP(S)
       arguments:
+        - webroot
+        - warmup
+        - manualtargetiis
+        - username
+        - password
       settings:
+        - Validation.Ftp.UseGnuTls 
       compatibility: All platforms
       example:
         -
@@ -591,10 +636,12 @@ validation:
 
     rest:
       external: true
-      id:
-      title:
-      subtitle:
+      id: 11ba2994-ea59-4f2f-b9eb-0eaa2fa3cbfa
+      title: REST request
+      subtitle: Send verification files to the server by issuing HTTP REST-style request
       arguments:
+        - rest-securitytoken
+        - rest-usehttps
       settings:
       compatibility: All platforms
       example:
@@ -603,10 +650,12 @@ validation:
           cmd: 
 
     selfhosting:
-      id:
-      title:
-      subtitle:
+      id: c7d5e050-9363-4ba1-b3a8-931b31c618b7
+      title: SelfHosting
+      subtitle: Let simple-acme answer HTTP validation request
       arguments:
+        - validationport
+        - validationprotocol
       settings:
       compatibility: All platforms
       example:
@@ -615,11 +664,15 @@ validation:
           cmd: 
 
     sftp:
-      id:
-      title:
-      subtitle:
+      id: 048aa2e7-2bce-4d3e-b731-6e0ed8b8170d
+      title: SFTP
+      subtitle: Upload verification files via SSH-FTP
       arguments:
-      settings:
+        - webroot
+        - warmup
+        - manualtargetiis
+        - username
+        - password
       compatibility: All platforms
       example:
         -
@@ -627,11 +680,15 @@ validation:
           cmd: 
 
     webdav:
-      id:
-      title:
-      subtitle:
+      id: 7e191d0e-30d1-47b3-ae2e-442499d33e16
+      title: WebDav
+      subtitle: Upload verification files via WebDav
       arguments:
-      settings:
+        - webroot
+        - warmup
+        - manualtargetiis
+        - username
+        - password
       compatibility: All platforms
       example:
         -
@@ -640,11 +697,11 @@ validation:
 
   tls-alpn:
     selfhosting:
-      id:
-      title:
-      subtitle:
+      id: a1565064-b208-4467-8ca1-1bd3c08aa500
+      title: SelfHosting
+      subtitle: Let simple-acme answer TLS validation request
       arguments:
-      settings:
+        - validationport
       compatibility: All platforms
       example:
         -
