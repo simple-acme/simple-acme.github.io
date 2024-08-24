@@ -339,11 +339,16 @@ validation:
 
     cloudflare:
       external: true
-      id:
-      title:
-      subtitle:
+      id: 73af2c2e-4cf1-4198-a4c8-1129003cfb75
+      title: Cloudflare
+      subtitle: Create verification records in Cloudflare DNS
       arguments:
+        - cloudflareapitoken
       compatibility: All platforms
+      example:
+        -
+          name: Typical
+          cmd: ‑‑cloudflareapitoken ***
 
     digitalocean:
       external: true
@@ -352,6 +357,10 @@ validation:
       subtitle:
       arguments:
       compatibility: All platforms
+      example:
+        -
+          name: Typical
+          cmd: 
 
     dnsexit:
       external: true
@@ -360,6 +369,10 @@ validation:
       subtitle:
       arguments:
       compatibility: All platforms
+      example:
+        -
+          name: Typical
+          cmd: 
 
     dnsmadeeasy:
       external: true
@@ -368,6 +381,10 @@ validation:
       subtitle:
       arguments:
       compatibility: All platforms
+      example:
+        -
+          name: Typical
+          cmd: 
 
     domene:
       external: true
@@ -376,6 +393,10 @@ validation:
       subtitle:
       arguments:
       compatibility: All platforms
+      example:
+        -
+          name: Typical
+          cmd: 
 
     dreamhost:
       external: true
@@ -384,6 +405,10 @@ validation:
       subtitle:
       arguments:
       compatibility: All platforms
+      example:
+        -
+          name: Typical
+          cmd: 
 
     godaddy:
       external: true
@@ -392,6 +417,10 @@ validation:
       subtitle:
       arguments:
       compatibility: All platforms
+      example:
+        -
+          name: Typical
+          cmd: 
 
     hetzner:
       external: true
@@ -400,6 +429,10 @@ validation:
       subtitle:
       arguments:
       compatibility: All platforms
+      example:
+        -
+          name: Typical
+          cmd: 
 
     infomaniak:
       external: true
@@ -408,6 +441,10 @@ validation:
       subtitle:
       arguments:
       compatibility: All platforms
+      example:
+        -
+          name: Typical
+          cmd: 
 
     linode:
       external: true
@@ -416,6 +453,10 @@ validation:
       subtitle:
       arguments:
       compatibility: All platforms
+      example:
+        -
+          name: Typical
+          cmd: 
 
     lua:
       external: true
@@ -424,6 +465,10 @@ validation:
       subtitle:
       arguments:
       compatibility: All platforms
+      example:
+        -
+          name: Typical
+          cmd: 
 
     manual:
       id:
@@ -431,6 +476,10 @@ validation:
       subtitle:
       arguments:
       compatibility: All platforms
+      example:
+        -
+          name: Typical
+          cmd: 
 
     ns1:
       external: true
@@ -439,6 +488,10 @@ validation:
       subtitle:
       arguments:
       compatibility: All platforms
+      example:
+        -
+          name: Typical
+          cmd: 
 
     rfc2136:
       external: true
@@ -447,6 +500,10 @@ validation:
       subtitle:
       arguments:
       compatibility: All platforms
+      example:
+        -
+          name: Typical
+          cmd: 
 
     route53:
       external: true
@@ -455,6 +512,10 @@ validation:
       subtitle:
       arguments:
       compatibility: All platforms
+      example:
+        -
+          name: Typical
+          cmd: 
 
     script:
       id:
@@ -462,6 +523,10 @@ validation:
       subtitle:
       arguments:
       compatibility: All platforms
+      example:
+        -
+          name: Typical
+          cmd: 
 
     simply:
       external: true
@@ -470,6 +535,10 @@ validation:
       subtitle:
       arguments:
       compatibility: All platforms
+      example:
+        -
+          name: Typical
+          cmd: 
 
     tencent:
       external: true
@@ -478,6 +547,10 @@ validation:
       subtitle:
       arguments:
       compatibility: All platforms
+      example:
+        -
+          name: Typical
+          cmd: 
 
     transip:
       external: true
@@ -486,6 +559,10 @@ validation:
       subtitle:
       arguments:
       compatibility: All platforms
+      example:
+        -
+          name: Typical
+          cmd: 
 
   http:
     filesystem:
@@ -495,6 +572,10 @@ validation:
       arguments:
       settings:
       compatibility: All platforms
+      example:
+        -
+          name: Typical
+          cmd: 
 
     ftps:
       id:
@@ -503,6 +584,10 @@ validation:
       arguments:
       settings:
       compatibility: All platforms
+      example:
+        -
+          name: Typical
+          cmd: 
 
     rest:
       external: true
@@ -512,6 +597,10 @@ validation:
       arguments:
       settings:
       compatibility: All platforms
+      example:
+        -
+          name: Typical
+          cmd: 
 
     selfhosting:
       id:
@@ -520,6 +609,10 @@ validation:
       arguments:
       settings:
       compatibility: All platforms
+      example:
+        -
+          name: Typical
+          cmd: 
 
     sftp:
       id:
@@ -528,6 +621,10 @@ validation:
       arguments:
       settings:
       compatibility: All platforms
+      example:
+        -
+          name: Typical
+          cmd: 
 
     webdav:
       id:
@@ -536,6 +633,10 @@ validation:
       arguments:
       settings:
       compatibility: All platforms
+      example:
+        -
+          name: Typical
+          cmd: 
 
   tls-alpn:
     selfhosting:
@@ -545,3 +646,7 @@ validation:
       arguments:
       settings:
       compatibility: All platforms
+      example:
+        -
+          name: Typical
+          cmd: 
