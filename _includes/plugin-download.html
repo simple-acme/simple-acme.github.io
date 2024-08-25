@@ -1,0 +1,44 @@
+{% if include.subtype %}
+    {% assign list = site.data.plugins[include.type][include.subtype] %}
+{% else %}
+    {% assign list = site.data.plugins[include.type] %}
+{% endif %}
+
+{% for key in list %}
+    {% assign plugin = key[1] %}
+    {% if plugin.external %}
+        {% if plugin.page %}
+            {% assign slug = plugin.page %}
+        {% else %}
+            {% assign slug = key[0] | trim %}  
+        {% endif %}
+        {% if include.subtype %}
+            {% assign link = '/reference/plugins/' | append: include.type | append: '/' | append: include.subtype | append: '/' | append: slug %}
+
+        {% else %}
+            {% assign link = '/reference/plugins/' | append: include.type | append: '/' | append: slug %}
+        {% endif %}
+        {% if include.subtype %}
+            {% assign download = "plugin." | 
+                append: include.type | 
+                append: "." | 
+                append: include.subtype | 
+                append: "." | 
+                append: key[0] | 
+                append: ".v" | 
+                append: site.releasebuild | 
+                append: ".zip"
+            %} 
+        {% else %}
+            {% assign download = "plugin." | 
+                append: include.type | 
+                append: "." | 
+                append: key[0] | 
+                append: ".v" | 
+                append: site.releasebuild | 
+                append: ".zip"
+            %}
+        {% endif %}
+<li>{{plugin.title}} (<a href="https://github.com/simple-acme/simple-acme/releases/download/v{{ site.releasetag }}/{{download}}">download</a>, <a href="{{ link }}">documentation</a>)</li>
+    {% endif %}
+{% endfor %}

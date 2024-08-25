@@ -1,0 +1,32 @@
+{% assign indent = include.level | plus: 1 %}
+{% if include.subtype %}
+    {% assign list = site.data.plugins[include.type][include.subtype] %}
+{% else %}
+    {% assign list = site.data.plugins[include.type] %}
+{% endif %}
+
+{% for key in list %}
+    {% assign plugin = key[1] %}
+    {% if plugin.page %}
+        {% assign slug = plugin.page %}
+    {% else %}
+        {% assign slug = key[0] | trim %}  
+    {% endif %}
+    {% if include.subtype %}
+        {% assign link = '/reference/plugins/' | append: include.type | append: '/' | append: include.subtype | append: '/' | append: slug %}
+    {% else %}
+        {% assign link = '/reference/plugins/' | append: include.type | append: '/' | append: slug %}
+    {% endif %}
+
+    {% assign active=false %}
+    {% assign indent = include.level | plus: 1 %}
+    {% assign url = link | append: '.html' %}
+    {% assign url2 = link | append: '/' %}
+    {% if page.url==link or page.url==url or page.url==url2 %}
+        {%assign active=true %}
+    {% endif %}
+
+    <li class="nav-item ms-{{ indent }}">
+        <a class="nav-link{% if active %} active{% endif %}" href="{{ link }}">{{ plugin.title }}</a>
+    </li>
+{% endfor %}

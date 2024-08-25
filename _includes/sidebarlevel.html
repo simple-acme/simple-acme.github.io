@@ -16,4 +16,8 @@
             {% include sidebarlevel.html item=sub level=next_level %}
         {% endfor %}
     {% endif %}
+    {% if include.item.plugins %}
+        {% assign next_level = include.level | plus: 1 %}
+        {% include plugin-menu.html type=include.item.plugins.type subtype=include.item.plugins.subtype level=next_level %}
+    {% endif %}
 </li>

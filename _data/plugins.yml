@@ -1,20 +1,4 @@
 csr:
-  ec:
-    id: 9aadcf71-5241-4c4f-aee1-bfe3f6be3489
-    title: Elliptic Curve
-    subtitle: Generate an EC public/private key pair 
-    arguments:
-      - ocsp-must-staple
-      - reuse-privatekey
-    settings:
-      - Csr.Ec.CurveName
-      - Csr.Ec.SignatureAlgorithm
-    compatibility: All platforms
-    examples:
-      - 
-        name: Typical
-        cmd: '[‑‑ocsp-must-staple] [‑‑reuse-privatekey]'
-
   rsa:
     id: b9060d4b-c2d3-49ac-b37f-962e7c3cbe9d
     title: RSA
@@ -26,6 +10,22 @@ csr:
     settings:
       - Csr.Rsa.KeyBits
       - Csr.Rsa.SignatureAlgorithm
+    compatibility: All platforms
+    examples:
+      - 
+        name: Typical
+        cmd: '[‑‑ocsp-must-staple] [‑‑reuse-privatekey]'
+
+  ec:
+    id: 9aadcf71-5241-4c4f-aee1-bfe3f6be3489
+    title: Elliptic Curve
+    subtitle: Generate an EC public/private key pair 
+    arguments:
+      - ocsp-must-staple
+      - reuse-privatekey
+    settings:
+      - Csr.Ec.CurveName
+      - Csr.Ec.SignatureAlgorithm
     compatibility: All platforms
     examples:
       - 
@@ -71,10 +71,11 @@ installation:
     compatibility: All platforms
 
 order:
-  domain:
-    id: b7c331d4-d875-453e-b83a-2b537ca12535
-    title: Domain
-    subtitle: Separate certificate for each domain (e.g. *.example.com)
+  single:
+    id: b705fa7c-1152-4436-8913-e433d7f84c82
+    title: Single
+    subtitle: Single certificate
+    default: 'Yes'
     compatibility: All platforms
 
   host:
@@ -83,11 +84,10 @@ order:
     subtitle: Separate certificate for each host (e.g. sub.example.com)
     compatibility: All platforms
 
-  single:
-    id: b705fa7c-1152-4436-8913-e433d7f84c82
-    title: Single
-    subtitle: Single certificate
-    default: 'Yes'
+  domain:
+    id: b7c331d4-d875-453e-b83a-2b537ca12535
+    title: Domain
+    subtitle: Separate certificate for each domain (e.g. *.example.com)
     compatibility: All platforms
 
   site:
@@ -97,19 +97,6 @@ order:
     compatibility: Windows (*)
 
 source:
-  csr:
-    id: 5C3DB0FB-840B-469F-B5A7-0635D8E9A93D
-    title: CSR
-    subtitle: CSR created by another program
-    arguments:
-      - csrfile
-      - pkfile
-    compatibility: All platforms
-    examples:
-        - 
-            name: Typical
-            cmd: '‑‑csrfile C:\csr.txt [‑‑pkfile C:\key.txt]'
-
   iis:
     id: 54deb3ee-b5df-4381-8485-fe386054055b
     title: IIS
@@ -146,7 +133,7 @@ source:
         - 
             name: Regex
             cmd: '‑‑host-regex [a-z]{3}\.example(\.com|\.net) [‑‑siteid 1,2,3] [‑‑commonname common.example.com] [‑‑excludebindings exclude.example.com]'    
-  
+
   manual:
     id: e239db3b-b42f-48aa-b64f-46d4f3e9941b
     title: Manual
@@ -160,24 +147,20 @@ source:
             name: Typical
             cmd: '‑‑host a.example.com,*.example.com'   
 
-store:
-  centralssl:
-    id: af1f77b6-4e7b-4f96-bba5-c2eeb4d0dd42
-    title: Central Certificate Store
-    subtitle: Add to IIS Central Certificate Store
+  csr:
+    id: 5C3DB0FB-840B-469F-B5A7-0635D8E9A93D
+    title: CSR
+    subtitle: CSR created by another program
     arguments:
-      - centralsslstore
-      - centralssl.pfxpassword
-    settings:
-      - Store.CentralSsl.DefaultPath
-      - Store.CentralSsl.DefaultPassword
-      - Store.CentralSsl.DefaultProtectionMode
+      - csrfile
+      - pkfile
     compatibility: All platforms
     examples:
         - 
             name: Typical
-            cmd: '[‑‑centralsslstore C:\CentralSSL\] [‑‑pfxpassword *****]'   
+            cmd: '‑‑csrfile C:\csr.txt [‑‑pkfile C:\key.txt]'
 
+store:
   certificatestore:
     id: e30adc8e-d756-4e16-a6f2-450f784b1a97
     title: Certificate Store
@@ -196,28 +179,6 @@ store:
         - 
             name: Typical
             cmd: '[‑‑certificatestore My] [‑‑keepexisting] [‑‑acl-fullcontrol "network service,administrators"] [‑‑acl-read "myapp"]'  
- 
-  keyvault:
-    external: true
-    id: dbfa91e2-28c0-4b37-857c-df6575dbb388
-    title: Azure Key Vault
-    subtitle: Store in Azure Key Vault
-    arguments:
-      - azureenvironment
-      - azureusemsi
-      - azuretenantid
-      - azureclientid
-      - azuresecret
-      - vaultname
-      - certificatename
-    compatibility: All platforms
-    examples:
-      - 
-        name: Service Principal
-        cmd: '‑‑azuretenantid xxx ‑‑azureclientid xxx ‑‑azuresecret ***** ‑‑vaultname MyVault ‑‑certificatename MyCertificate'
-      -
-        name: Managaged Identity
-        cmd: '‑‑azureusemsi ‑‑vaultname MyVault ‑‑certificatename MyCertificate'
 
   pemfiles:
     id: e57c70e4-cd60-4ba6-80f6-a41703e21031
@@ -253,6 +214,45 @@ store:
         - 
             name: Typical
             cmd: '[‑‑pfxpassword *****] [‑‑pfxfilepath C:\Certificates\] [‑‑pfxfilename mycert]' 
+
+  centralssl:
+    id: af1f77b6-4e7b-4f96-bba5-c2eeb4d0dd42
+    title: Central Certificate Store
+    subtitle: Add to IIS Central Certificate Store
+    arguments:
+      - centralsslstore
+      - centralssl.pfxpassword
+    settings:
+      - Store.CentralSsl.DefaultPath
+      - Store.CentralSsl.DefaultPassword
+      - Store.CentralSsl.DefaultProtectionMode
+    compatibility: All platforms
+    examples:
+        - 
+            name: Typical
+            cmd: '[‑‑centralsslstore C:\CentralSSL\] [‑‑pfxpassword *****]'   
+
+  keyvault:
+    external: true
+    id: dbfa91e2-28c0-4b37-857c-df6575dbb388
+    title: Azure Key Vault
+    subtitle: Store in Azure Key Vault
+    arguments:
+      - azureenvironment
+      - azureusemsi
+      - azuretenantid
+      - azureclientid
+      - azuresecret
+      - vaultname
+      - certificatename
+    compatibility: All platforms
+    examples:
+      - 
+        name: Service Principal
+        cmd: '‑‑azuretenantid xxx ‑‑azureclientid xxx ‑‑azuresecret ***** ‑‑vaultname MyVault ‑‑certificatename MyCertificate'
+      -
+        name: Managaged Identity
+        cmd: '‑‑azureusemsi ‑‑vaultname MyVault ‑‑certificatename MyCertificate'
 
   userstore:
     external: true
@@ -612,6 +612,20 @@ validation:
           cmd: 
 
   http:
+    selfhosting:
+      id: c7d5e050-9363-4ba1-b3a8-931b31c618b7
+      title: SelfHosting
+      subtitle: Let simple-acme answer HTTP validation request
+      arguments:
+        - validationport
+        - validationprotocol
+      settings:
+      compatibility: All platforms
+      example:
+        -
+          name: Typical
+          cmd: 
+
     filesystem:
       id: 1c77b3a4-5310-4c46-92c6-00d866e84d6b
       title: FileSystem
@@ -641,35 +655,6 @@ validation:
       settings:
         - Validation.CleanupFolders
         - Validation.Ftp.UseGnuTls 
-      compatibility: All platforms
-      example:
-        -
-          name: Typical
-          cmd: 
-
-    rest:
-      external: true
-      id: 11ba2994-ea59-4f2f-b9eb-0eaa2fa3cbfa
-      title: REST request
-      subtitle: Send verification files to the server by issuing HTTP REST-style request
-      arguments:
-        - rest-securitytoken
-        - rest-usehttps
-      settings:
-      compatibility: All platforms
-      example:
-        -
-          name: Typical
-          cmd: 
-
-    selfhosting:
-      id: c7d5e050-9363-4ba1-b3a8-931b31c618b7
-      title: SelfHosting
-      subtitle: Let simple-acme answer HTTP validation request
-      arguments:
-        - validationport
-        - validationprotocol
-      settings:
       compatibility: All platforms
       example:
         -
@@ -706,6 +691,21 @@ validation:
         - password
       settings:
         - Validation.CleanupFolders
+      compatibility: All platforms
+      example:
+        -
+          name: Typical
+          cmd: 
+
+    rest:
+      external: true
+      id: 11ba2994-ea59-4f2f-b9eb-0eaa2fa3cbfa
+      title: REST request
+      subtitle: Send verification files to the server by issuing HTTP REST-style request
+      arguments:
+        - rest-securitytoken
+        - rest-usehttps
+      settings:
       compatibility: All platforms
       example:
         -

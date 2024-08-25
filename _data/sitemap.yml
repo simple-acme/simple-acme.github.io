@@ -94,127 +94,44 @@ reference:
   subs: 
     - title: Source
       url: /reference/plugins/source/
-      subs:
-        - title: IIS
-          url: /reference/plugins/source/iis
-        - title: Manual
-          url: /reference/plugins/source/manual
-        - title: CSR
-          url: /reference/plugins/source/csr
+      plugins:
+        type: source
 
     - title: Validation
       url: /reference/plugins/validation/
       subs:
         - title: HTTP validation
           url: /reference/plugins/validation/http/
-          subs:
-            - title: Self-hosting
-              url: /reference/plugins/validation/http/selfhosting
-            - title: Filesystem
-              url: /reference/plugins/validation/http/filesystem
-            - title: FTP(S)
-              url: /reference/plugins/validation/http/ftps
-            - title: SFTP
-              url: /reference/plugins/validation/http/sftp
-            - title: WebDav
-              url: /reference/plugins/validation/http/webdav
-            - title: REST
-              url: /reference/plugins/validation/http/rest
+          plugins:
+            type: validation
+            subtype: http
         - title: DNS validation
           url: /reference/plugins/validation/dns/
-          subs:
-            - title: acme-dns
-              url: /reference/plugins/validation/dns/acme-dns
-            - title: Alibaba Cloud / Aliyun
-              url: /reference/plugins/validation/dns/alibaba
-            - title: Azure DNS (Microsoft)
-              url: /reference/plugins/validation/dns/azure
-            - title: Cloudflare
-              url: /reference/plugins/validation/dns/cloudflare
-            - title: DigitalOcean
-              url: /reference/plugins/validation/dns/digitalocean
-            - title: DNSEXIT
-              url: /reference/plugins/validation/dns/dnsexit
-            - title: DNS Made Easy
-              url: /reference/plugins/validation/dns/dnsmadeeasy
-            - title: Domainname.shop
-              url: /reference/plugins/validation/dns/domene
-            - title: DreamHost
-              url: /reference/plugins/validation/dns/dreamhost
-            - title: GoDaddy
-              url: /reference/plugins/validation/dns/godaddy
-            - title: Google Cloud DNS
-              url: /reference/plugins/validation/dns/clouddns
-            - title: Hetzner
-              url: /reference/plugins/validation/dns/hetzner
-            - title: InfoManiak
-              url: /reference/plugins/validation/dns/infomaniak
-            - title: Linode (Akamai)
-              url: /reference/plugins/validation/dns/linode
-            - title: LuaDNS
-              url: /reference/plugins/validation/dns/lua
-            - title: Manual
-              url: /reference/plugins/validation/dns/manual
-            - title: NS1
-              url: /reference/plugins/validation/dns/ns1
-            - title: RFC2136
-              url: /reference/plugins/validation/dns/rfc2136
-            - title: Route53 (Amazon AWS)
-              url: /reference/plugins/validation/dns/route53
-            - title: Script
-              url: /reference/plugins/validation/dns/script
-            - title: Simply.com
-              url: /reference/plugins/validation/dns/simply
-            - title: Tencent Cloud
-              url: /reference/plugins/validation/dns/tencent
-            - title: TransIP
-              url: /reference/plugins/validation/dns/transip
+          plugins:
+            type: validation
+            subtype: dns
         - title: TLS validation
           url: /reference/plugins/validation/tls-alpn/
-          subs:
-            - title: Self-hosting
-              url: /reference/plugins/validation/tls-alpn/selfhosting
-
+          plugins:
+            type: validation
+            subtype: tls-alpn
+            
     - title: Order
       url: /reference/plugins/order/
-      subs:
-        - title: Single
-          url: /reference/plugins/order/single
-        - title: Host
-          url: /reference/plugins/order/host
-        - title: Site
-          url: /reference/plugins/order/site
-        - title: Domain
-          url: /reference/plugins/order/domain
+      plugins:
+        type: order
 
     - title: CSR
       url: /reference/plugins/csr/
-      subs:
-        - title: RSA
-          url: /reference/plugins/csr/rsa
-        - title: EC
-          url: /reference/plugins/csr/ec
+      plugins:
+        type: csr
 
     - title: Store
       url: /reference/plugins/store/
-      subs:
-        - title: Azure KeyVault
-          url: /reference/plugins/store/keyvault
-        - title: Certificate Store
-          url: /reference/plugins/store/certificatestore
-        - title: Central Certificate Store
-          url: /reference/plugins/store/centralssl
-        - title: .pem files (Apache etc.)
-          url: /reference/plugins/store/pemfiles
-        - title: .pfx file
-          url: /reference/plugins/store/pfxfile
-        - title: User Store
-          url: /reference/plugins/store/userstore
+      plugins:
+        type: store
 
     - title: Installation
       url: /reference/plugins/installation/
-      subs:
-        - title: IIS bindings
-          url: /reference/plugins/installation/iis
-        - title: Script
-          url: /reference/plugins/installation/script
+      plugins:
+        type: installation
