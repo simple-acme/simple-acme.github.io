@@ -291,7 +291,8 @@ validation:
       external: true
       page: alibaba
       id: 1d4db2ea-ce7c-46ce-b86f-40b356fcf999
-      title: Alibaba / ALiYun
+      title: Alibaba Cloud (Aliyun)
+      menu: Aliyun
       subtitle: Create verification records in ALiYun DNS
       arguments:
         - aliyunserver
@@ -309,8 +310,9 @@ validation:
     azure:
       external: true
       id: aa57b028-45fb-4aca-9cac-a63d94c76b4a
-      title: Microsoft Azure
-      subtitle: Create verification records in Azure DNS
+      title: Azure (Microsoft)
+      menu: Azure
+      subtitle: Create verification records in Microsoft Azure DNS
       arguments:
         - azureenvironment
         - azureusemsi
@@ -334,7 +336,8 @@ validation:
       trigger: gpcdns
       page: clouddns
       id: B61505E9-1709-43FD-996F-C74C3686286C
-      title: Google Cloud DNS
+      title: Cloud DNS (Google)
+      menu: Google
       subtitle: Create verification records in Google Cloud DNS
       arguments:
         - serviceaccountkey
@@ -374,7 +377,7 @@ validation:
     dnsexit:
       external: true
       id: C9017182-1000-4257-A8DA-0553CD1490EC
-      title: Dnsexit
+      title: DNSExit
       subtitle: Create verification records in Dnsexit DNS
       arguments:
         - dnsexit.apikey
@@ -387,7 +390,8 @@ validation:
     dnsmadeeasy:
       external: true
       id: 13993334-2d74-4ff6-801b-833b99bf231d
-      title: DnsMadeEasy
+      title: DNS Made Easy (Digicert)
+      menu: DNS Made Easy
       subtitle: Create verification records in DnsMadeEasy DNS
       arguments:
         - dnsmadeeasy.apikey
@@ -415,7 +419,7 @@ validation:
     dreamhost:
       external: true
       id: 2bfb3ef8-64b8-47f1-8185-ea427b793c1a
-      title: Dreamhost
+      title: DreamHost
       subtitle: Create verification records in Dreamhost DNS
       arguments:
         - dreamhost.apikey
@@ -469,7 +473,8 @@ validation:
     linode:
       external: true
       id: 12fdc54c-be30-4458-8066-2c1c565fe2d9
-      title: Linode
+      title: Linode (Akamai)
+      menu: Linode
       subtitle: Create verification records in Linode DNS
       arguments:
         - linode.apitoken
@@ -482,7 +487,7 @@ validation:
     lua:
       external: true
       id: 3b0c3cca-db98-40b7-b678-b34791070d42
-      title: LuaDns
+      title: LuaDNS
       subtitle: Create verification records in LuaDns
       arguments:
         - luadnsusername
@@ -506,7 +511,8 @@ validation:
     ns1:
       external: true
       id: C66CC8BE-3046-46C2-A0BA-EC4EC3E7FE96
-      title: NS1
+      title: NS1/NSONE (IBM)
+      menu: NS1
       subtitle: Create verification records in NS1 DNS
       arguments:
         - ns1.apikey
@@ -519,8 +525,8 @@ validation:
     rfc2136:
       external: true
       id: ed5dc9d1-739c-4f6a-854f-238bf65b63ee
-      title: RFC 2136
-      subtitle: Create verification records using dynamic updates
+      title: RFC2136
+      subtitle: Create verification records using dynamic updates (RFC2136)
       arguments:
         - serverhost
         - serverport
@@ -536,8 +542,9 @@ validation:
     route53:
       external: true
       id: 4e5dc595-45c7-4461-929a-8f96a0c96b3d
-      title: Amazon Route 53
-      subtitle: Create verification records in AWS Route 53
+      title: Route 53 (Amazon AWS)
+      menu: Route 53
+      subtitle: Create verification records in Amazon AWS Route 53
       arguments:
         - route53iamrole
         - route53accesskeyid
@@ -571,7 +578,7 @@ validation:
     simply:
       external: true
       id: 3693c40c-7c2f-4b70-aead-27869d8cbdf3
-      title: Simply
+      title: Simply.com
       subtitle: Create verification records in Simply DNS
       arguments:
         - simply.account
@@ -585,7 +592,8 @@ validation:
     tencent:
       external: true
       id: 6ea628c3-0f74-68bb-cf17-4fdd3d53f3af
-      title: Tencent
+      title: Tencent Cloud
+      menu: Tencent
       subtitle: Create verification records in Tencent DNS
       arguments:
         - tencentapiid
@@ -599,7 +607,7 @@ validation:
     transip:
       external: true
       id: c49a7a9a-f8c9-494a-a6a4-c6b9daae7d9d
-      title: TransIp
+      title: TransIP
       subtitle: Create verification records at TransIp
       arguments:
         - transip-login

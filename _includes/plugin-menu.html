@@ -12,6 +12,11 @@
     {% else %}
         {% assign slug = key[0] | trim %}  
     {% endif %}
+    {% if plugin.menu %}
+        {% assign label = plugin.menu %}
+    {% else %}
+        {% assign label = plugin.title %}  
+    {% endif %}    
     {% if include.subtype %}
         {% assign link = '/reference/plugins/' | append: include.type | append: '/' | append: include.subtype | append: '/' | append: slug %}
     {% else %}
@@ -27,6 +32,6 @@
     {% endif %}
 
     <li class="nav-item ms-{{ indent }}">
-        <a class="nav-link{% if active %} active{% endif %}" href="{{ link }}">{{ plugin.title }}</a>
+        <a class="nav-link{% if active %} active{% endif %}" href="{{ link }}">{{ label }}</a>
     </li>
 {% endfor %}
