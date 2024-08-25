@@ -15,3 +15,5 @@ things up.
 Of course this is also possible by setting up multiple renewals, but with proper use of 
 source and order plugins the burden of managing certificates for different sites and 
 domains can be greatly eased.
+
+{% include plugin-list.html type='order' %}

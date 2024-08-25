@@ -15,3 +15,5 @@ different locations or different protocols (IPv4/IPv6).
 - Let's Encrypt does **not** disclose the source locations of these requests, which 
 effectively means that the domain has to be accessible for the public, 
 at least for the duration of the validation.
+
+{% include plugin-list.html type='validation' subtype='http' %}

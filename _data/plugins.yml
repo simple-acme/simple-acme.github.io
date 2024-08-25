@@ -267,6 +267,12 @@ store:
             name: Typical
             cmd: '[‑‑keepexisting]' 
 
+  none:
+    id: cfdd7caa-ba34-4e9e-b9de-2a3d64c4f4ec
+    title: None
+    subtitle: No (additional) store steps
+    compatibility: All platforms
+
 validation:
   dns:
     acme-dns:
@@ -283,6 +289,7 @@ validation:
     
     aliyun:
       external: true
+      page: alibaba
       id: 1d4db2ea-ce7c-46ce-b86f-40b356fcf999
       title: Alibaba / ALiYun
       subtitle: Create verification records in ALiYun DNS
@@ -325,6 +332,7 @@ validation:
     googledns:
       external: true
       trigger: gpcdns
+      page: clouddns
       id: B61505E9-1709-43FD-996F-C74C3686286C
       title: Google Cloud DNS
       subtitle: Create verification records in Google Cloud DNS
@@ -605,11 +613,15 @@ validation:
 
   http:
     filesystem:
-      id:
-      title:
-      subtitle:
+      id: 1c77b3a4-5310-4c46-92c6-00d866e84d6b
+      title: FileSystem
+      subtitle: Save verification files on (network) path
       arguments:
+        - webroot
+        - warmup
+        - manualtargetiis
       settings:
+        - Validation.CleanupFolders
       compatibility: All platforms
       example:
         -
@@ -627,6 +639,7 @@ validation:
         - username
         - password
       settings:
+        - Validation.CleanupFolders
         - Validation.Ftp.UseGnuTls 
       compatibility: All platforms
       example:
@@ -673,6 +686,8 @@ validation:
         - manualtargetiis
         - username
         - password
+      settings:
+        - Validation.CleanupFolders
       compatibility: All platforms
       example:
         -
@@ -689,6 +704,8 @@ validation:
         - manualtargetiis
         - username
         - password
+      settings:
+        - Validation.CleanupFolders
       compatibility: All platforms
       example:
         -

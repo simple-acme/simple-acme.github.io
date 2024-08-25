@@ -1,0 +1,29 @@
+{% if include.subtype %}
+    {% assign list = site.data.plugins[include.type][include.subtype] %}
+{% else %}
+    {% assign list = site.data.plugins[include.type] %}
+{% endif %}
+
+<div class="table-responsive my-4 me-5 pe-5">
+    <table class="table table-striped">
+        <tbody>
+{% for key in list %}
+    {% assign plugin = key[1] %}
+    {% if plugin.page %}
+        {% assign page = plugin.page %}
+    {% else %}
+        {% assign page = key[0] | trim %}  
+    {% endif %}
+    {% if include.subtype %}
+        {% assign link = '/reference/plugins/' | append: include.type | append: '/' | append: include.subtype | append: '/' | append: page %}
+    {% else %}
+        {% assign link = '/reference/plugins/' | append: include.type | append: '/' | append: page %}
+    {% endif %}
+            <tr>
+                <td><a href="{{ link }}">{{ plugin.title }}</a></td>
+                <td>{{ plugin.subtitle }}</td>
+            </tr>
+{% endfor %}
+        </tbody>
+    </table>
+</div>

@@ -9,6 +9,8 @@ Installation plugins are responsible for making the necessary changes to your
 application(s) after successfully creating or renewing a certificate. Currently 
 there are two of these plugins.
 
+{% include plugin-list.html type='installation' %}
+
 ## Multiple
 More than one plugin can run by choosing them in order of execution. In interactive 
 mode you will be asked, for unattended mode you can provide a comma separated list, 

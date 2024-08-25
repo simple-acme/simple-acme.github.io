@@ -7,7 +7,7 @@ layout: docs
 {% else %}
 {%assign plugin=site.data.plugins[page.plugin_type][page.plugin] %}
 {% endif %}
-
+<script>document.title='{{plugin.title}} | simple-acme'</script>
 <h1>{{plugin.title}}</h1>
 <p>{{plugin.subtitle}}</p>
 <div class="table-responsive my-4 me-5 pe-5">
@@ -74,7 +74,7 @@ layout: docs
 {% if plugin.trigger %}
     {% assign trigger = plugin.trigger %}
 {% else %}
-    {% assign trigger = page.plugin_type %}
+    {% assign trigger = page.plugin %}
 {% endif %}
 
 <h2 class="pt-2">Command line</h2>

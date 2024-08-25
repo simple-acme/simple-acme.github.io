@@ -11,6 +11,4 @@ but these files are protected by file system rights and random passwords to prev
 local non-administrators from obtaining keys. Store plugins are responsible for 
 making the certificates accessible to the application(s) that need them.
 
-## None
-To instruct the program not to use any store, for example when your installation 
-script handles it, you may specify `‑‑store none`. 
+{% include plugin-list.html type='store' %}

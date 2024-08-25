@@ -1,4 +1,11 @@
 ---
+settings:
+    - Validation.PreValidateDns
+    - Validation.PreValidateDnsRetryCount
+    - Validation.PreValidateDnsRetryInterval
+    - Validation.PreValidateDnsLocal
+    - Validation.AllowDnsSubstitution
+    - Validation.DnsServers
 ---
 # DNS validation
 DNS validation works as follows:
@@ -15,6 +22,8 @@ different locations or different protocols (IPv4/IPv6).
 - Let's Encrypt does *not* disclose the source locations of these lookups, which 
 effectively means that the DNS records have to be public, at least for the duration of 
 the validation.
+
+{% include plugin-list.html type='validation' subtype='dns' %}
 
 ## Substition / aliasing
 If your goal is to get a certificate for `example.com` using DNS validation, 
