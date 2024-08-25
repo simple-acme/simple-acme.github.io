@@ -18,11 +18,11 @@
         {% assign label = plugin.title %}  
     {% endif %}    
     {% if include.subtype %}
-        {% assign link = '/reference/plugins/' | append: include.type | append: '/' | append: include.subtype | append: '/' | append: slug %}
+        {% assign linkbase = '/reference/plugins/' | append: include.type | append: '/' | append: include.subtype %}
     {% else %}
-        {% assign link = '/reference/plugins/' | append: include.type | append: '/' | append: slug %}
+        {% assign linkbase = '/reference/plugins/' | append: include.type %}
     {% endif %}
-
+    {% assign link = linkbase | append: '/' | append: slug %}
     {% assign active=false %}
     {% assign indent = include.level | plus: 1 %}
     {% assign url = link | append: '.html' %}
@@ -31,7 +31,15 @@
         {%assign active=true %}
     {% endif %}
 
+    {% if page.url contains linkbase %}
+    {% if active %}
     <li class="nav-item ms-{{ indent }}">
-        <a class="nav-link{% if active %} active{% endif %}" href="{{ link }}">{{ label }}</a>
+        <a class="nav-link active" href="{{ link }}">{{ label }}</a>
     </li>
+    {% else %}
+    <li class="nav-item ms-{{ indent }}">
+        <a class="nav-link" style="font-size:0.75rem; padding:0rem 0.5rem" href="{{ link }}">{{ label }}</a>
+    </li>
+    {% endif %}
+    {% endif %}
 {% endfor %}
