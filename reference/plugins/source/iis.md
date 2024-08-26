@@ -3,7 +3,7 @@ layout: plugin
 plugin_type: source
 plugin: iis                                                
 ---
-Create source based on bindings configured in IIS. Automatically updates webroot path (useful for [FileSystem validation](/reference/plugins/validation/http/filesystem))
+Create source based on bindings configured in IIS. Automatically updates webroot path (useful for [filesystem validation](/reference/plugins/validation/http/filesystem))
 
 # Filtering bindings
 While it's possible to create a certificate for all bindings in all sites, typically you will want to select some 

@@ -385,7 +385,7 @@ validation:
       arguments:
         - cloudflareapitoken
       compatibility: All platforms
-      example:
+      examples:
         -
           name: Typical
           cmd: ‑‑cloudflareapitoken ***
@@ -399,10 +399,10 @@ validation:
       arguments:
         - digitaloceanapitoken
       compatibility: All platforms
-      example:
+      examples:
         -
           name: Typical
-          cmd: 
+          cmd: ‑‑digitaloceanapitoken ***
     - 
       trigger: dnsexit
       external: true
@@ -413,10 +413,10 @@ validation:
       arguments:
         - dnsexit.apikey
       compatibility: All platforms
-      example:
+      examples:
         -
           name: Typical
-          cmd: 
+          cmd: ‑‑apikey xx
     - 
       trigger: dnsmadeeasy
       external: true
@@ -429,10 +429,10 @@ validation:
         - dnsmadeeasy.apikey
         - dnsmadeeasy.apisecret
       compatibility: All platforms
-      example:
+      examples:
         -
           name: Typical
-          cmd: 
+          cmd: ‑‑apikey abc ‑‑apisecret ***
     - 
       trigger: domene
       external: true
@@ -444,7 +444,7 @@ validation:
         - domene.clientid
         - domene.clientsecret
       compatibility: All platforms
-      example:
+      examples:
         -
           name: Typical
           cmd: 
@@ -458,7 +458,7 @@ validation:
       arguments:
         - dreamhost.apikey
       compatibility: All platforms
-      example:
+      examples:
         -
           name: Typical
           cmd: 
@@ -473,7 +473,7 @@ validation:
         - godaddy.apikey
         - godaddy.apisecret
       compatibility: All platforms
-      example:
+      examples:
         -
           name: Typical
           cmd: 
@@ -488,7 +488,7 @@ validation:
         - hetznerapitoken
         - hetznerzoneid
       compatibility: All platforms
-      example:
+      examples:
         -
           name: Typical
           cmd: 
@@ -502,7 +502,7 @@ validation:
       arguments:
         - infomaniak.apitoken
       compatibility: All platforms
-      example:
+      examples:
         -
           name: Typical
           cmd: 
@@ -517,7 +517,7 @@ validation:
       arguments:
         - linode.apitoken
       compatibility: All platforms
-      example:
+      examples:
         -
           name: Typical
           cmd: 
@@ -532,7 +532,7 @@ validation:
         - luadnsusername
         - luadnsapikey
       compatibility: All platforms
-      example:
+      examples:
         -
           name: Typical
           cmd: 
@@ -543,7 +543,7 @@ validation:
       menu: Manual
       subtitle: Manually create DNS records
       compatibility: All platforms
-      example:
+      examples:
         -
           name: Typical
           cmd: 
@@ -558,7 +558,7 @@ validation:
       arguments:
         - ns1.apikey
       compatibility: All platforms
-      example:
+      examples:
         -
           name: Typical
           cmd: 
@@ -576,7 +576,7 @@ validation:
         - tsigkeysecret
         - tsigkeyalgorithm
       compatibility: All platforms
-      example:
+      examples:
         -
           name: Typical
           cmd: 
@@ -593,7 +593,7 @@ validation:
         - route53accesskeyid
         - route53secretaccesskey
       compatibility: All platforms
-      example:
+      examples:
         -
           name: Typical
           cmd: 
@@ -614,7 +614,7 @@ validation:
         - Script.PowershellExecutablePath
         - Script.Timeout
       compatibility: All platforms
-      example:
+      examples:
         -
           name: Typical
           cmd: 
@@ -629,7 +629,7 @@ validation:
         - simply.account
         - simply.apikey
       compatibility: All platforms
-      example:
+      examples:
         -
           name: Typical
           cmd: 
@@ -644,7 +644,7 @@ validation:
         - tencentapiid
         - tencentapikey
       compatibility: All platforms
-      example:
+      examples:
         -
           name: Typical
           cmd: 
@@ -660,7 +660,7 @@ validation:
         - transip-privatekey
         - transip-privatekeyfile
       compatibility: All platforms
-      example:
+      examples:
         -
           name: Typical
           cmd: 
@@ -677,7 +677,7 @@ validation:
         - validationprotocol
       settings:
       compatibility: All platforms
-      example:
+      examples:
         -
           name: Typical
           cmd: 
@@ -694,7 +694,7 @@ validation:
       settings:
         - Validation.CleanupFolders
       compatibility: All platforms
-      example:
+      examples:
         -
           name: Typical
           cmd: 
@@ -714,7 +714,7 @@ validation:
         - Validation.CleanupFolders
         - Validation.Ftp.UseGnuTls 
       compatibility: All platforms
-      example:
+      examples:
         -
           name: Typical
           cmd: 
@@ -733,7 +733,7 @@ validation:
       settings:
         - Validation.CleanupFolders
       compatibility: All platforms
-      example:
+      examples:
         -
           name: Typical
           cmd: 
@@ -752,7 +752,7 @@ validation:
       settings:
         - Validation.CleanupFolders
       compatibility: All platforms
-      example:
+      examples:
         -
           name: Typical
           cmd: 
@@ -768,7 +768,7 @@ validation:
         - rest-usehttps
       settings:
       compatibility: All platforms
-      example:
+      examples:
         -
           name: Typical
           cmd: 
@@ -783,7 +783,7 @@ validation:
       arguments:
         - validationport
       compatibility: All platforms
-      example:
+      examples:
         -
           name: Typical
           cmd: 
