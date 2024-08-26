@@ -3,10 +3,12 @@ layout: docs
 ---
 
 {% if page.plugin_subtype %}
-{%assign plugin=site.data.plugins[page.plugin_type][page.plugin_subtype][page.plugin] %}
+    {% assign plugins = site.data.plugins[page.plugin_type][page.plugin_subtype] %}
 {% else %}
-{%assign plugin=site.data.plugins[page.plugin_type][page.plugin] %}
+    {% assign plugins = site.data.plugins[page.plugin_type] %}
 {% endif %}
+{% assign plugin = plugins | where: "trigger", page.plugin | first %}
+
 <script>document.title='{{plugin.title}} | simple-acme'</script>
 <h1>{{plugin.title}}</h1>
 <p>{{plugin.subtitle}}</p>

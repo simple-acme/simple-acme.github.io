@@ -43,11 +43,9 @@ Plugins only work with the full build of the program. It is recommended to upgra
 ### Store
 {% include plugin-download.html type='store' %}
 
-
 ### Validation
 #### DNS
 {% include plugin-download.html type='validation' subtype='dns' %}
-
 
 #### HTTP
 {% include plugin-download.html type='validation' subtype='http' %}

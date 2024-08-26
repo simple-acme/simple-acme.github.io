@@ -1,18 +1,18 @@
 {% if include.subtype %}
-    {% assign list = site.data.plugins[include.type][include.subtype] %}
+    {% assign plugins = site.data.plugins[include.type][include.subtype] %}
 {% else %}
-    {% assign list = site.data.plugins[include.type] %}
+    {% assign plugins = site.data.plugins[include.type] %}
 {% endif %}
+{% assign plugins = plugins | sort_natural: "title" %}
 
 <div class="table-responsive my-4 me-5 pe-5">
     <table class="table table-striped">
         <tbody>
-{% for key in list %}
-    {% assign plugin = key[1] %}
+{% for plugin in plugins %}
     {% if plugin.page %}
         {% assign page = plugin.page %}
     {% else %}
-        {% assign page = key[0] | trim %}  
+        {% assign page = plugin.trigger %}  
     {% endif %}
     {% if include.subtype %}
         {% assign link = '/reference/plugins/' | append: include.type | append: '/' | append: include.subtype | append: '/' | append: page %}

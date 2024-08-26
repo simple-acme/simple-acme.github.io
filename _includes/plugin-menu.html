@@ -1,16 +1,16 @@
 {% assign indent = include.level | plus: 1 %}
 {% if include.subtype %}
-    {% assign list = site.data.plugins[include.type][include.subtype] %}
+    {% assign plugins = site.data.plugins[include.type][include.subtype] %}
 {% else %}
-    {% assign list = site.data.plugins[include.type] %}
+    {% assign plugins = site.data.plugins[include.type] %}
 {% endif %}
+{% assign plugins = plugins | sort_natural: "menu" %}
 
-{% for key in list %}
-    {% assign plugin = key[1] %}
+{% for plugin in plugins %}
     {% if plugin.page %}
         {% assign slug = plugin.page %}
     {% else %}
-        {% assign slug = key[0] | trim %}  
+        {% assign slug = plugin.trigger %}  
     {% endif %}
     {% if plugin.menu %}
         {% assign label = plugin.menu %}
@@ -34,11 +34,11 @@
     {% if page.url contains linkbase %}
     {% if active %}
     <li class="nav-item ms-{{ indent }}">
-        <a class="nav-link active" href="{{ link }}">{{ label }}</a>
+        <a class="nav-link small active" href="{{ link }}">{{ label }}</a>
     </li>
     {% else %}
     <li class="nav-item ms-{{ indent }}">
-        <a class="nav-link" style="font-size:0.75rem; padding:0rem 0.5rem" href="{{ link }}">{{ label }}</a>
+        <a class="nav-link small" href="{{ link }}">{{ label }}</a>
     </li>
     {% endif %}
     {% endif %}
