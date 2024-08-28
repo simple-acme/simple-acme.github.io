@@ -1,9 +1,7 @@
 ---
+layout: plugin
+plugin_type: validation
+plugin_subtype: dns
+plugin: hetzner
 ---
-# Hetzner
-Create the record at [Hetzner](https://www.hetzner.com/). This requires an API token.
-
-{% include plugin-seperate.md %}
-
-## Unattended 
-`‑‑validation hetzner ‑‑hetznerapitoken xx [‑‑hetznerzoneId xx]`
+Create the record at [Hetzner](https://www.hetzner.com/). 

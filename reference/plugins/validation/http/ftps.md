@@ -1,4 +1,8 @@
 ---
+layout: plugin
+plugin_type: validation
+plugin_subtype: http
+plugin: ftp
 ---
 # FTP(S)
 This plugin uploads the validation challenge to a (secure) FTP server.

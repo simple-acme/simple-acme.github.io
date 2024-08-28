@@ -1,10 +1,7 @@
 ---
+layout: plugin
+plugin_type: validation
+plugin_subtype: dns
+plugin: simply
 ---
-# Simply.com
-Create the record at [Simply.com](https://www.simply.com/). This requires an account name and API key.
-
-{% include plugin-seperate.md %}
-
-## Unattended 
-- Key inline
-`‑‑validation simply ‑‑account xx ‑‑apikey xx`
+Create the record at [Simply.com](https://www.simply.com/).

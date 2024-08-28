@@ -271,7 +271,7 @@ store:
     examples:
       - 
         name: Service Principal
-        cmd: '‑‑azuretenantid xxx ‑‑azureclientid xxx ‑‑azuresecret ***** ‑‑vaultname MyVault ‑‑certificatename MyCertificate'
+        cmd: '‑‑azuretenantid 8a947dda-3ed2-40dc-8058-d7b212322ed2 ‑‑azureclientid e02a0517-412e-4e0a-996b-2693458a9232 ‑‑azuresecret ***** ‑‑vaultname MyVault ‑‑certificatename MyCertificate'
       -
         name: Managaged Identity
         cmd: '‑‑azureusemsi ‑‑vaultname MyVault ‑‑certificatename MyCertificate'
@@ -328,10 +328,7 @@ validation:
       examples:
         - 
           name: Typical
-          cmd: ‑‑aliyunapiid xx ‑‑aliyunapisecret xx
-        - 
-          name: Alternative server
-          cmd: ‑‑aliyunapiid xx ‑‑aliyunapisecret xx ‑‑aliyunserver dns.aliyuncs.com  
+          cmd: ‑‑aliyunapiid ***** ‑‑aliyunapisecret ***** [‑‑aliyunserver dns.aliyuncs.com]
     - 
       trigger: azure
       external: true
@@ -353,10 +350,10 @@ validation:
       examples:
         - 
           name: Service Principal
-          cmd: '‑‑azuretenantid xxx ‑‑azureclientid xxx ‑‑azuresecret ***** ‑‑azuresubscriptionid xxx ‑‑azureresourcegroupname xxx [‑‑azurehostedzone xxx]'
+          cmd: '‑‑azuretenantid 9741a4c9-0e0b-4f35-abbe-9af735194804 ‑‑azureclientid 2a32943f-e46b-469c-a42d-eb5c54bf798d ‑‑azuresecret ***** ‑‑azuresubscriptionid 6c1e8002-c547-4e93-a9b3-7163f51c380e ‑‑azureresourcegroupname myresourcegroup [‑‑azurehostedzone zone.example.com]'
         -
           name: Managaged Identity
-          cmd: '‑‑azureusemsi ‑‑azuresubscriptionid xxx ‑‑azureresourcegroupname xxx [‑‑azurehostedzone xxx]'
+          cmd: '‑‑azureusemsi ‑‑azuresubscriptionid 6c1e8002-c547-4e93-a9b3-7163f51c380e ‑‑azureresourcegroupname myresourcegroup [‑‑azurehostedzone zone.example.com]'
     - 
       external: true
       trigger: gpcdns
@@ -388,7 +385,7 @@ validation:
       examples:
         -
           name: Typical
-          cmd: ‑‑cloudflareapitoken ***
+          cmd: ‑‑cloudflareapitoken *****
     - 
       trigger: digitalocean
       external: true
@@ -402,7 +399,7 @@ validation:
       examples:
         -
           name: Typical
-          cmd: ‑‑digitaloceanapitoken ***
+          cmd: ‑‑digitaloceanapitoken *****
     - 
       trigger: dnsexit
       external: true
@@ -416,7 +413,7 @@ validation:
       examples:
         -
           name: Typical
-          cmd: ‑‑apikey xx
+          cmd: ‑‑apikey *****
     - 
       trigger: dnsmadeeasy
       external: true
@@ -432,7 +429,7 @@ validation:
       examples:
         -
           name: Typical
-          cmd: ‑‑apikey abc ‑‑apisecret ***
+          cmd: ‑‑apikey abc ‑‑apisecret *****
     - 
       trigger: domene
       external: true
@@ -447,7 +444,7 @@ validation:
       examples:
         -
           name: Typical
-          cmd: 
+          cmd: ‑‑clientid myclientid ‑‑clientsecret *****
     - 
       trigger: dreamhost
       external: true
@@ -461,7 +458,7 @@ validation:
       examples:
         -
           name: Typical
-          cmd: 
+          cmd: ‑‑apikey *****
     - 
       trigger: godaddy
       external: true
@@ -476,7 +473,7 @@ validation:
       examples:
         -
           name: Typical
-          cmd: 
+          cmd: ‑‑apikey mykey ‑‑apisecret *****
     - 
       trigger: hetzner
       external: true
@@ -491,7 +488,7 @@ validation:
       examples:
         -
           name: Typical
-          cmd: 
+          cmd: ‑‑hetznerapitoken ***** [‑‑hetznerzoneId 1234]
     - 
       trigger: infomaniak
       external: true
@@ -505,7 +502,7 @@ validation:
       examples:
         -
           name: Typical
-          cmd: 
+          cmd: ‑‑apitoken *****
     - 
       trigger: linode
       external: true
@@ -520,7 +517,7 @@ validation:
       examples:
         -
           name: Typical
-          cmd: 
+          cmd: ‑‑apitoken *****
     - 
       trigger: lua
       external: true
@@ -535,7 +532,7 @@ validation:
       examples:
         -
           name: Typical
-          cmd: 
+          cmd: ‑‑luadnsusername myusername ‑‑luadnsapikey *****
     - 
       trigger: manual
       id: e239db3b-b42f-48aa-b64f-46d4f3e9941b
@@ -561,7 +558,7 @@ validation:
       examples:
         -
           name: Typical
-          cmd: 
+          cmd: ‑‑apikey *****
     - 
       trigger: rfc2136
       external: true
@@ -579,7 +576,7 @@ validation:
       examples:
         -
           name: Typical
-          cmd: 
+          cmd: ‑‑serverhost 10.10.10.10 [‑‑serverport 53] ‑‑tsigkeyname mykey ‑‑tsigkeysecret ***** [‑‑tsigkeyalgorithm md5]
     - 
       trigger: route53
       external: true
@@ -595,8 +592,11 @@ validation:
       compatibility: All platforms
       examples:
         -
-          name: Typical
-          cmd: 
+          name: User
+          cmd: ‑‑route53accesskeyid mykeyid ‑‑route53secretaccesskey *****
+        - 
+          name: IAM role
+          cmd: ‑‑route53iamrole myrole
     - 
       trigger: script
       id: 8f1da72e-f727-49f0-8546-ef69e5ecec32
@@ -613,11 +613,18 @@ validation:
       settings:
         - Script.PowershellExecutablePath
         - Script.Timeout
+        - Validation.DisableMultiThreading
       compatibility: All platforms
       examples:
         -
-          name: Typical
-          cmd: 
+          name: Create script only
+          cmd: ‑‑dnscreatescript c:\create.ps1 [‑‑dnscreatescriptarguments {args}]
+        -
+          name: Separate create and delete scripts
+          cmd: ‑‑dnscreatescript c:\create.ps1 ‑‑dnsdeletescript c:\delete.ps1 [‑‑dnscreatescriptarguments {args}] [‑‑dnsdeletescriptarguments {args}]
+        - 
+          name: Combined script
+          cmd: ‑‑dnsscript c:\create-and-delete.ps1 [‑‑dnscreatescriptarguments {args}] [‑‑dnsdeletescriptarguments {args}]
     - 
       trigger: simply
       external: true
@@ -632,7 +639,7 @@ validation:
       examples:
         -
           name: Typical
-          cmd: 
+          cmd: ‑‑account myaccount ‑‑apikey *****
     - 
       trigger: tencent
       external: true
@@ -647,7 +654,7 @@ validation:
       examples:
         -
           name: Typical
-          cmd: 
+          cmd: ‑‑tencentapiid myapiid ‑‑tencentapikey *****
     - 
       trigger: transip
       external: true
@@ -662,8 +669,11 @@ validation:
       compatibility: All platforms
       examples:
         -
-          name: Typical
-          cmd: 
+          name: Inline key
+          cmd: ‑‑transip-login mylogin ‑‑transip-privatekey "---- BEGIN PRIVATE KEY ---- **** ---- END PRIVATE KEY ----"
+        -
+          name: Key on disk
+          cmd: ‑‑transip-login mylogin ‑‑transip-privatekeyfile C:\transip.key
 
   http:
     - 

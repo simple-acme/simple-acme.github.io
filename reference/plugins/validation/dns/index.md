@@ -18,14 +18,14 @@ there should be at least one record called `x` with content `"y"`.
 - There may be more than one validation lookup for the same token, e.g. from 
 different locations or different protocols (IPv4/IPv6).
 - Let's Encrypt validates the DNSSEC chain.
-- Let's Encrypt follows CNAME records and respects delegated autority.
+- Let's Encrypt follows `CNAME` records and respects delegated autority.
 - Let's Encrypt does *not* disclose the source locations of these lookups, which 
 effectively means that the DNS records have to be public, at least for the duration of 
 the validation.
 
 {% include plugin-list.html type='validation' subtype='dns' %}
 
-## Substition / aliasing
+## Substitution / aliasing
 If your goal is to get a certificate for `example.com` using DNS validation, 
 but the DNS provider for that domain does not support automation and/or your 
 security policy doesn't allow third party tools like simple-acme to access the 

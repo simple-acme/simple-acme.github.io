@@ -1,4 +1,8 @@
 ---
+layout: plugin
+plugin_type: validation
+plugin_subtype: http
+plugin: selfhosting
 ---
 # Self-hosting
 This plugin launches a temporary built-in web listener that stores the validation 

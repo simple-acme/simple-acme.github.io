@@ -1,4 +1,8 @@
 ---
+layout: plugin
+plugin_type: validation
+plugin_subtype: http
+plugin: rest
 ---
 # REST
 Publish the challenge answer using a REST API. You will need a third party or custom server component 

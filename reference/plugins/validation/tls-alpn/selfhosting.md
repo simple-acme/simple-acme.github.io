@@ -1,4 +1,8 @@
 ---
+layout: plugin
+plugin_type: validation
+plugin_subtype: tls-alpn
+plugin: selfhosting
 ---
 # Self-hosting
 This plugin launches a temporary built-in TCP listener that stores the 

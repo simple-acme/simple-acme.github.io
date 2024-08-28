@@ -1,12 +1,7 @@
 ---
+layout: plugin
+plugin_type: validation
+plugin_subtype: dns
+plugin: dreamhost
 ---
-# DreamHost
-Update record at [DreamHost](https://www.dreamhost.com/)
-
-{% include plugin-seperate.md %}
-
-## Setup
-Requires an API key
-
-## Unattended 
-`‑‑validation dreamhost ‑‑apikey ***`
+Update record at [DreamHost](https://www.dreamhost.com/).

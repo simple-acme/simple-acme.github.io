@@ -1,4 +1,8 @@
 ---
+layout: plugin
+plugin_type: validation
+plugin_subtype: http
+plugin: webdav
 ---
 # WebDAV
 This plugin pushes the validation challenge to a WebDav path.
