@@ -699,25 +699,25 @@ validation:
       subtitle: Save verification files on (network) path
       arguments:
         - webroot
-        - warmup
-        - manualtargetiis
+        - manualtargetisiis
+        - validationsiteid
       settings:
         - Validation.CleanupFolders
       compatibility: All platforms
       examples:
         -
           name: Typical
-          cmd: 
-    - 
-      trigger: ftps
+          cmd: '[‑‑validationsiteid x] [‑‑webroot c:\httpdocs\]'
+    -
+      trigger: ftp
+      page: ftps
       id: bc27d719-dcf2-41ff-bf08-54db7ea49c48
       title: FTP(S)
       menu: FTP(S)
       subtitle: Upload verification files via FTP(S)
       arguments:
         - webroot
-        - warmup
-        - manualtargetiis
+        - manualtargetisiis
         - username
         - password
       settings:
@@ -727,7 +727,7 @@ validation:
       examples:
         -
           name: Typical
-          cmd: 
+          cmd: ‑‑webroot ftps://ftp.example.com:990/path/ ‑‑username simpleacme ‑‑password *****
     - 
       trigger: sftp
       id: 048aa2e7-2bce-4d3e-b731-6e0ed8b8170d
@@ -736,8 +736,7 @@ validation:
       subtitle: Upload verification files via SSH-FTP
       arguments:
         - webroot
-        - warmup
-        - manualtargetiis
+        - manualtargetisiis
         - username
         - password
       settings:
@@ -755,8 +754,7 @@ validation:
       subtitle: Upload verification files via WebDav
       arguments:
         - webroot
-        - warmup
-        - manualtargetiis
+        - manualtargetisiis
         - username
         - password
       settings:
