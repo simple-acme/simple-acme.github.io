@@ -111,7 +111,7 @@ source:
   - 
     trigger: iis
     id: 54deb3ee-b5df-4381-8485-fe386054055b
-    title: IIS
+    title: IIS bindings
     menu: IIS
     subtitle: Read bindings from IIS
     arguments:
@@ -149,9 +149,9 @@ source:
   - 
     trigger: manual
     id: e239db3b-b42f-48aa-b64f-46d4f3e9941b
-    title: Manual
+    title: Manual input
     menu: Manual
-    subtitle: Manual input
+    subtitle: Manually enter host names
     arguments:
       - manual.host
       - manual.commonname
@@ -162,8 +162,8 @@ source:
             cmd: '‑‑host a.example.com,*.example.com'   
   - 
     trigger: csr
-    id: 5C3DB0FB-840B-469F-B5A7-0635D8E9A93D
-    title: CSR
+    id: 5c3db0fb-840b-469f-b5a7-0635d8e9a93d
+    title: Custom CSR
     menu: CSR
     subtitle: CSR created by another program
     arguments:
@@ -359,7 +359,7 @@ validation:
       trigger: gpcdns
       page: clouddns
       download: googledns
-      id: B61505E9-1709-43FD-996F-C74C3686286C
+      id: b61505e9-1709-43fd-996f-c74c3686286c
       title: Google Cloud DNS
       provider: Google
       menu: Google
@@ -403,7 +403,7 @@ validation:
     - 
       trigger: dnsexit
       external: true
-      id: C9017182-1000-4257-A8DA-0553CD1490EC
+      id: c9017182-1000-4257-a8da-0553cd1490ec
       title: DNSExit
       menu: DNSExit
       subtitle: Create verification records in Dnsexit DNS
@@ -433,7 +433,7 @@ validation:
     - 
       trigger: domene
       external: true
-      id: 0BD9B320-08E0-4BFE-A535-B979886187E4
+      id: 0bd9b320-08e0-4bfe-a535-b979886187e4
       title: Domeneshop
       menu: Domeneshop
       subtitle: Create verification records in Domeneshop DNS
@@ -547,7 +547,7 @@ validation:
     - 
       trigger: ns1
       external: true
-      id: C66CC8BE-3046-46C2-A0BA-EC4EC3E7FE96
+      id: c66cc8be-3046-46c2-a0ba-ec4ec3e7fe96
       title: NS1/NSONE
       provider: IBM
       menu: NS1
@@ -600,7 +600,7 @@ validation:
     - 
       trigger: script
       id: 8f1da72e-f727-49f0-8546-ef69e5ecec32
-      title: Script
+      title: Custom script
       menu: Script
       subtitle: Create verification records with your own script
       arguments:

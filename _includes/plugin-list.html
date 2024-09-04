@@ -9,18 +9,8 @@
     <table class="table table-striped">
         <tbody>
 {% for plugin in plugins %}
-    {% if plugin.page %}
-        {% assign page = plugin.page %}
-    {% else %}
-        {% assign page = plugin.trigger %}  
-    {% endif %}
-    {% if include.subtype %}
-        {% assign link = '/reference/plugins/' | append: include.type | append: '/' | append: include.subtype | append: '/' | append: page %}
-    {% else %}
-        {% assign link = '/reference/plugins/' | append: include.type | append: '/' | append: page %}
-    {% endif %}
             <tr>
-                <td><a href="{{ link }}">{{ plugin.title }}</a></td>
+                <td>{% include plugin-link.html plugin=plugin type=include.type subtype=include.subtype %}</td>
                 <td>{{ plugin.subtitle }}</td>
             </tr>
 {% endfor %}
