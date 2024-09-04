@@ -17,7 +17,16 @@ layout: docs
         <tbody>
             <tr>
                 <th class="col-md-3" scope="row">Plugin type</th>
-                <td><a href="/reference/plugins/{{page.plugin_type}}">{{page.plugin_type}}</a></td>
+                <td>
+                    {% assign types = "source,order,csr,validation,store,installation" | split: ',' %}
+                    {% for item in types %}
+                        {% if item == page.plugin_type %}
+                            <a class="fw-bold" href="/reference/plugins/{{item}}">{{item}}</a>
+                        {% else %}
+                            <a class="fw-lighter" href="/reference/plugins/{{item}}">{{item}}</a>
+                        {% endif %}
+                    {% endfor %}
+                </td>
                 <td></td>
             </tr>
 
