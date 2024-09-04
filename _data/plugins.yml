@@ -7,8 +7,8 @@ csr:
     subtitle: Generate an RSA public/private key pair
     default: 'Yes'
     arguments:
-      - ocsp-must-staple
-      - reuse-privatekey
+      - rsa.ocsp-must-staple
+      - rsa.reuse-privatekey
     settings:
       - Csr.Rsa.KeyBits
       - Csr.Rsa.SignatureAlgorithm
@@ -24,8 +24,8 @@ csr:
     menu: EC
     subtitle: Generate an EC public/private key pair 
     arguments:
-      - ocsp-must-staple
-      - reuse-privatekey
+      - ec.ocsp-must-staple
+      - ec.reuse-privatekey
     settings:
       - Csr.Ec.CurveName
       - Csr.Ec.SignatureAlgorithm
@@ -683,14 +683,16 @@ validation:
       menu: Self-hosting
       subtitle: Let simple-acme answer HTTP validation request
       arguments:
-        - validationport
+        - selfhosting.validationport
         - validationprotocol
       settings:
+        - Execution.DefaultPreExecutionScript
+        - Execution.DefaultPostExecutionScript
       compatibility: All platforms
       examples:
         -
           name: Typical
-          cmd: 
+          cmd: '[‑‑validationport 8080] [‑‑validationprotocol https]'
     - 
       trigger: filesystem
       id: 1c77b3a4-5310-4c46-92c6-00d866e84d6b
@@ -698,16 +700,19 @@ validation:
       menu: Filesystem
       subtitle: Save verification files on (network) path
       arguments:
-        - webroot
-        - manualtargetisiis
+        - filesystem.webroot
+        - filesystem.manualtargetisiis
         - validationsiteid
       settings:
         - Validation.CleanupFolders
       compatibility: All platforms
       examples:
         -
-          name: Typical
-          cmd: '[‑‑validationsiteid x] [‑‑webroot c:\httpdocs\]'
+          name: Path from IIS
+          cmd: '‑‑validationsiteid 1'
+        -
+          name: Manual path
+          cmd: '‑‑webroot c:\httpdocs\'
     -
       trigger: ftp
       page: ftps
@@ -716,10 +721,10 @@ validation:
       menu: FTP(S)
       subtitle: Upload verification files via FTP(S)
       arguments:
-        - webroot
-        - manualtargetisiis
-        - username
-        - password
+        - ftp.webroot
+        - ftp.manualtargetisiis
+        - ftp.username
+        - ftp.password
       settings:
         - Validation.CleanupFolders
         - Validation.Ftp.UseGnuTls 
@@ -735,17 +740,17 @@ validation:
       menu: SFTP
       subtitle: Upload verification files via SSH-FTP
       arguments:
-        - webroot
-        - manualtargetisiis
-        - username
-        - password
+        - sftp.webroot
+        - sftp.manualtargetisiis
+        - sftp.username
+        - sftp.password
       settings:
         - Validation.CleanupFolders
       compatibility: All platforms
       examples:
         -
           name: Typical
-          cmd: 
+          cmd: '‑‑webroot sftp://example.com/path/ ‑‑username simple-acme ‑‑password *****'
     - 
       trigger: webdav
       id: 7e191d0e-30d1-47b3-ae2e-442499d33e16
@@ -753,17 +758,17 @@ validation:
       menu: WebDav
       subtitle: Upload verification files via WebDav
       arguments:
-        - webroot
-        - manualtargetisiis
-        - username
-        - password
+        - webdav.webroot
+        - webdav.manualtargetisiis
+        - webdav.username
+        - webdav.password
       settings:
         - Validation.CleanupFolders
       compatibility: All platforms
       examples:
         -
           name: Typical
-          cmd: 
+          cmd: '‑‑webroot webdav://example.com/path/ ‑‑username simple-acme ‑‑password *****'
     - 
       trigger: rest
       external: true
@@ -779,7 +784,7 @@ validation:
       examples:
         -
           name: Typical
-          cmd: 
+          cmd: '‑‑rest-securitytoken ***** [‑‑rest-usehttps]'
 
   tls-alpn:
     - 
@@ -789,9 +794,9 @@ validation:
       menu: Self-hosting
       subtitle: Let simple-acme answer TLS validation request
       arguments:
-        - validationport
+        - tls-alpn.validationport
       compatibility: All platforms
       examples:
         -
           name: Typical
-          cmd: 
+          cmd: '[‑‑validationport 4330]'
