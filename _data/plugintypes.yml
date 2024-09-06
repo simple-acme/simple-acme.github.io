@@ -1,0 +1,24 @@
+-
+  type: source
+  title: Source
+-
+  type: order
+  title: Order
+-
+  type: validation.http
+  title: HTTP validation
+-
+  type: validation.dns
+  title: DNS validation
+-
+  type: validation.tls-alpn
+  title: TLS validation
+-
+  type: csr
+  title: CSR
+-
+  type: store
+  title: Store
+-
+  type: installation
+  title: Installation 

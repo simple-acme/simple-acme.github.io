@@ -20,7 +20,7 @@ effectively means that the domain has to be accessible for the public,
 at least for the duration of the validation. IF you need to temporarly open a firewall
 for this purpose, check out the settings below.
 
-{% include plugin-list.html type='validation' subtype='http' %}
+{% include plugin-list.html type='validation.http' %}
 
 ## Warmup
 Before allowing the ACME server to validate, the program will attempt to request

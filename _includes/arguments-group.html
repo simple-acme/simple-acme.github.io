@@ -1,0 +1,7 @@
+<div class="table-responsive my-4 me-5 pe-5">
+    <table class="table table-striped">
+        {% for argument in include.arguments %}
+            {% include arguments-detail.html argument=argument %}
+        {% endfor %}
+    </table>
+</div>

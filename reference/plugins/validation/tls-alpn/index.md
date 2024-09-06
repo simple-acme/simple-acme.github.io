@@ -15,4 +15,4 @@ for different IP addresses (in case of multiple A/AAAA records).
 effectively means that the domain has to be accessible for the public, 
 at least for the duration of the validation.
 
-{% include plugin-list.html type='validation' subtype='tls-alpn' %}
+{% include plugin-list.html type='validation.tls-alpn' %}

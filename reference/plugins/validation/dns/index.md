@@ -23,7 +23,7 @@ different locations or different protocols (IPv4/IPv6).
 effectively means that the DNS records have to be public, at least for the duration of 
 the validation.
 
-{% include plugin-list.html type='validation' subtype='dns' %}
+{% include plugin-list.html type='validation.dns' %}
 
 ## Substitution / aliasing
 If your goal is to get a certificate for `example.com` using DNS validation, 

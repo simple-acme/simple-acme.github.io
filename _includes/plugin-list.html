@@ -1,17 +1,11 @@
-{% if include.subtype %}
-    {% assign plugins = site.data.plugins[include.type][include.subtype] %}
-{% else %}
-    {% assign plugins = site.data.plugins[include.type] %}
-{% endif %}
-{% assign plugins = plugins | sort_natural: "title" %}
-
+{% assign plugins = site.data.plugins2 | where: "type", include.type | sort_natural: "name" %}
 <div class="table-responsive my-4 me-5 pe-5">
     <table class="table table-striped">
         <tbody>
 {% for plugin in plugins %}
             <tr>
-                <td>{% include plugin-link.html plugin=plugin type=include.type subtype=include.subtype %}</td>
-                <td>{{ plugin.subtitle }}</td>
+                <td>{% include plugin-link.html plugin=plugin %}</td>
+                <td>{{ plugin.description }}</td>
             </tr>
 {% endfor %}
         </tbody>

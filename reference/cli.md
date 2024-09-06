@@ -12,44 +12,40 @@ applicable when `‑‑bar` is set to `baz` or `qux`.
 For example if your literal value for `‑‑key` needs to be `-foo` then typing `‑‑key "-foo"` 
 will fail. Instead you need to type `‑‑key "\"-foo\""`.
 
-{% for argument_group in site.data.arguments %}
-    {% assign groupname = argument_group[0] | strip %}
-<h2>{{ groupname }} </h2>
-        {% for argument_subgroup in site.data.arguments[groupname] %}
-            {% assign subgroupname = argument_subgroup[0] | strip %}
-{% unless groupname == subgroupname %}<h3>{{ subgroupname }}</h3>{% endunless %}
-{% unless argument_subgroup[1].plugin == nil %}
-  {% assign type = argument_subgroup[1].plugin.type | strip %}
-  {% assign subtype = argument_subgroup[1].plugin.subtype | strip %}
-  {% if type == 'validation' %}
-    {% assign plugins = site.data.plugins[type][subtype] %}
-  {% else %}
-    {% assign plugins = site.data.plugins[type] %}
+# Main
+These are the main arguments used to control the programs unattended operation.
+{% assign main = site.data.arguments2 | where: "name", "Main" | first %}
+{% include arguments-group.html arguments = main.arguments %}
+
+# Account
+These arguments are used to create a new account for the ACME client during an initial automated run.
+{% assign account = site.data.arguments2 | where: "name", "Account" | first %}
+{% include arguments-group.html arguments = account.arguments %}
+
+
+{% for pt in site.data.plugintypes %}
+  {% assign arguments = site.data.arguments2 | where: "plugintype", pt.type | sort_natural: "name" %}
+  {% if arguments.size == 0 %}
+    {% continue %}
   {% endif %}
-  {% assign plugin = plugins | where: "id", argument_subgroup[1].plugin.id | first %}
-  {% if plugin.external %}
-  <div class="callout-block callout-block-warning pb-1 mt-3">
-      <div class="content">
-          <p>These arguments are for a plugin that requires an additional download.</p>
-      </div>
-  </div>
-  {% endif %}
-  <p></p>
-{% endunless %}
+  <h2>{{ pt.title }} </h2>
+  {% for argument in arguments %}
+  <h3>➡️ {{ argument.name }} </h3>
+    {% assign plugin = site.data.plugins2 | where: "id", argument.pluginid | first %}
+    {% assign plugin-meta = site.data.plugins-meta | where: "id", argument.pluginid | first %}
+    {% if plugin-meta.external %}
+ <div class="callout-block callout-block-warning pb-1 mt-3">
+    <div class="content">
+        <p>These arguments are for a plugin that requires an additional download.</p>
+    </div>
+ </div>
+    {% endif %}
 <p>
-{% unless argument_subgroup[1].condition == nil %}
-  <code>[{{ argument_subgroup[1].condition }}]</code>
-{% endunless %}
-{% unless plugin == nil %}
-  ({% include plugin-link.html plugin=plugin type=type subtype=subtype title='documentation' %})
-{% endunless %}
+    {% unless argument.condition == nil %}
+<code>[{{ argument.condition }}]</code>
+    {% endunless %}
+    ({% include plugin-link.html plugin=plugin title='documentation' %})
 </p>
-<div class="table-responsive my-4 me-5 pe-5">
-  <table class="table table-striped">
-    {% for argument in argument_subgroup[1].arguments %}
-      {% include arguments-detail.html argument=argument %}
-    {% endfor %}
-  </table>
-</div>
-        {% endfor %}
+ {% include arguments-group.html arguments = argument.arguments %}
+  {% endfor %}
 {% endfor %}
