@@ -1,37 +1,18 @@
 {% for item in include.arguments %}
-    {% assign split = item | split: '.' %}
-    {% if split.size == 1 %}
-        {% for argument_group in site.data.arguments %}
-            {% assign groupname = argument_group[0] | strip %}
-            {% for argument_subgroup in site.data.arguments[groupname] %}
-                {% for argument in argument_subgroup[1].arguments %}
-                    {% if argument.name == item %}
-                        {% include arguments-detail.html argument=argument %}
-                    {% endif %}
-                {% endfor %}
-            {% endfor %}
-        {% endfor %}
-    {% else %}
-        {% assign name0 = split[0] | strip | prepend: ' ' %}
-        {% assign name1 = split[1] | strip %}
-        {% assign found = false %}
-        {% for argument_group in site.data.arguments %}
-            {% assign groupname = argument_group[0] | strip %}
-            {% for argument_subgroup in site.data.arguments[groupname] %}
-                {% for argument in argument_subgroup[1].arguments %}
-                    {% if argument.name == name1 and argument_subgroup[1].condition contains name0 %}
-                        {% include arguments-detail.html argument=argument %}
-                        {% assign found = true }
-                        {% break %}
-                    {% endif %}
-                {% endfor %}
-                {% if found %}
-                    {% break %}
-                {% endif %}
-            {% endfor %}
-            {% if found %}
+    {% include arguments-detail.html argument=item %}
+{% endfor %}
+{% for item in include.argumentnames %}
+    {% assign found = false %}
+    {% for arguments in site.data.arguments %}
+        {% for argument in arguments.arguments %}
+            {% if argument.name == item %}
+                {% include arguments-detail.html argument=argument %}
+                {% assign found = true %}
                 {% break %}
             {% endif %}
         {% endfor %}
-    {% endif %}
-{% endfor %}   
+        {% if found %}
+            {% break %}
+        {% endif %}
+    {% endfor %}        
+{% endfor %}

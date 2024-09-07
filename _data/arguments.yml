@@ -1,801 +1,766 @@
-Main:
-    Main:
-         arguments:
-             -
-                 name: baseuri
-                 description: "Address of the ACMEv2 server to use. The default endpoint can be modified in settings.json."
-             -
-                 name: import
-                 description: "Import scheduled renewals from version 1.9.x in unattended mode."
-             -
-                 name: importbaseuri
-                 description: "[‑‑import] When importing scheduled renewals from version 1.9.x, this argument can change the address of the ACMEv1 server to import from. The default endpoint to import from can be modified in settings.json."
-             -
-                 name: test
-                 description: "Enables testing behaviours in the program which may help with troubleshooting. By default this also switches the ‑‑baseuri to the ACME test endpoint. The default endpoint for test mode can be modified in settings.json."
-             -
-                 name: verbose
-                 description: "Print additional log messages to console for troubleshooting and bug reports."
-             -
-                 name: help
-                 description: "Show information about all available command line options."
-             -
-                 name: version
-                 description: "Show version information."
-             -
-                 name: renew
-                 description: "Renew any certificates that are due. This argument is used by the scheduled task. Note that it's not possible to change certificate properties and renew at the same time."
-             -
-                 name: force
-                 description: "[‑‑renew] Always execute the renewal, disregarding the validity of the current certificates and the prefered schedule."
-             -
-                 name: nocache
-                 description: "Bypass the cache on certificate requests. Applies to both new requests and renewals."
-             -
-                 name: register
-                 description: "Create an ACME service account."
-             -
-                 name: cancel
-                 description: "Cancel renewal specified by the ‑‑friendlyname or ‑‑id arguments."
-             -
-                 name: revoke
-                 description: "Revoke the most recently issued certificate for the renewal specified by the ‑‑friendlyname or ‑‑id arguments."
-             -
-                 name: list
-                 description: "List all created renewals in unattended mode."
-             -
-                 name: encrypt
-                 description: "Rewrites all renewal information using current EncryptConfig setting"
-             -
-                 name: id
-                 description: "[‑‑source|‑‑cancel|‑‑renew|‑‑revoke] Id of a new or existing renewal, can be used to override the default when creating a new renewal or to specify a specific renewal for other commands."
-             -
-                 name: friendlyname
-                 description: "[‑‑source|‑‑cancel|‑‑renew|‑‑revoke] Friendly name of a new or existing renewal, can be used to override the default when creating a new renewal or to specify a specific renewal for other commands. In the latter case a pattern might be used. You may use a <code>*</code> for a range of any characters and a <code>?</code> for any single character. For example: the pattern <code>example.*</code> will match <code>example.net</code> and <code>example.com</code> (but not <code>my.example.com</code>) and the pattern <code>?.example.com</code> will match <code>a.example.com</code> and <code>b.example.com</code> (but not <code>www.example.com</code>). Note that multiple patterns can be combined by comma seperating them."
-             -
-                 name: source
-                 description: "Specify which source plugin to run, bypassing the main menu and triggering unattended mode."
-             -
-                 name: validation
-                 description: "Specify which validation plugin to run. If none is specified, SelfHosting validation will be chosen as the default."
-             -
-                 name: validationmode
-                 description: "Specify which validation mode to use. HTTP-01 is the default."
-             -
-                 name: order
-                 description: "Specify which order plugin to use. Single is the default."
-             -
-                 name: csr
-                 description: "Specify which CSR plugin to use. RSA is the default."
-             -
-                 name: store
-                 description: "Specify which store plugin to use. CertificateStore is the default. This may be a comma-separated list."
-             -
-                 name: installation
-                 description: "Specify which installation plugins to use (if any). This may be a comma-separated list."
-             -
-                 name: closeonfinish
-                 description: "[‑‑test] Close the application when complete, which usually does not happen when test mode is active. Useful to test unattended operation."
-             -
-                 name: hidehttps
-                 description: "Hide sites that have existing https bindings from interactive mode."
-             -
-                 name: notaskscheduler
-                 description: "Do not create (or offer to update) the scheduled task."
-             -
-                 name: setuptaskscheduler
-                 description: "Create or update the scheduled task according to the current settings."
+-
+ name: Main
+ arguments:
+  -
+   name: baseuri
+   description: "Address of the ACMEv2 server to use. The default endpoint can be modified in settings.json."
+  -
+   name: import
+   description: "Import scheduled renewals from version 1.9.x in unattended mode."
+  -
+   name: importbaseuri
+   description: "[‑‑import] When importing scheduled renewals from version 1.9.x, this argument can change the address of the ACMEv1 server to import from. The default endpoint to import from can be modified in settings.json."
+  -
+   name: test
+   description: "Enables testing behaviours in the program which may help with troubleshooting. By default this also switches the ‑‑baseuri to the ACME test endpoint. The default endpoint for test mode can be modified in settings.json."
+  -
+   name: verbose
+   description: "Print additional log messages to console for troubleshooting and bug reports."
+  -
+   name: help
+   description: "Show information about all available command line options."
+  -
+   name: version
+   description: "Show version information."
+  -
+   name: renew
+   description: "Renew any certificates that are due. This argument is used by the scheduled task. Note that it's not possible to change certificate properties and renew at the same time."
+  -
+   name: force
+   description: "[‑‑renew] Always execute the renewal, disregarding the validity of the current certificates and the prefered schedule."
+  -
+   name: nocache
+   description: "Bypass the cache on certificate requests. Applies to both new requests and renewals."
+  -
+   name: register
+   description: "Create an ACME service account."
+  -
+   name: cancel
+   description: "Cancel renewal specified by the ‑‑friendlyname or ‑‑id arguments."
+  -
+   name: revoke
+   description: "Revoke the most recently issued certificate for the renewal specified by the ‑‑friendlyname or ‑‑id arguments."
+  -
+   name: list
+   description: "List all created renewals in unattended mode."
+  -
+   name: encrypt
+   description: "Rewrites all renewal information using current EncryptConfig setting"
+  -
+   name: id
+   description: "[‑‑source|‑‑cancel|‑‑renew|‑‑revoke] Id of a new or existing renewal, can be used to override the default when creating a new renewal or to specify a specific renewal for other commands."
+  -
+   name: friendlyname
+   description: "[‑‑source|‑‑cancel|‑‑renew|‑‑revoke] Friendly name of a new or existing renewal, can be used to override the default when creating a new renewal or to specify a specific renewal for other commands. In the latter case a pattern might be used. You may use a <code>*</code> for a range of any characters and a <code>?</code> for any single character. For example: the pattern <code>example.*</code> will match <code>example.net</code> and <code>example.com</code> (but not <code>my.example.com</code>) and the pattern <code>?.example.com</code> will match <code>a.example.com</code> and <code>b.example.com</code> (but not <code>www.example.com</code>). Note that multiple patterns can be combined by comma seperating them."
+  -
+   name: source
+   description: "Specify which source plugin to run, bypassing the main menu and triggering unattended mode."
+  -
+   name: validation
+   description: "Specify which validation plugin to run. If none is specified, SelfHosting validation will be chosen as the default."
+  -
+   name: validationmode
+   description: "Specify which validation mode to use. HTTP-01 is the default."
+  -
+   name: order
+   description: "Specify which order plugin to use. Single is the default."
+  -
+   name: csr
+   description: "Specify which CSR plugin to use. RSA is the default."
+  -
+   name: store
+   description: "Specify which store plugin to use. CertificateStore is the default. This may be a comma-separated list."
+  -
+   name: installation
+   description: "Specify which installation plugins to use (if any). This may be a comma-separated list."
+  -
+   name: closeonfinish
+   description: "[‑‑test] Close the application when complete, which usually does not happen when test mode is active. Useful to test unattended operation."
+  -
+   name: hidehttps
+   description: "Hide sites that have existing https bindings from interactive mode."
+  -
+   name: notaskscheduler
+   description: "Do not create (or offer to update) the scheduled task."
+  -
+   name: setuptaskscheduler
+   description: "Create or update the scheduled task according to the current settings."
 
-    Account:
-         arguments:
-             -
-                 name: accepttos
-                 description: "Accept the ACME terms of service."
-             -
-                 name: emailaddress
-                 description: "Email address to link to your ACME account."
-             -
-                 name: eab-key-identifier
-                 description: "Key identifier to use for external account binding."
-             -
-                 name: eab-key
-                 description: "Key to use for external account binding. Must be base64url encoded."
-                 secret: true
-             -
-                 name: eab-algorithm
-                 description: "Algorithm to use for external account binding. Valid values are HS256 (default), HS384, and HS512."
-             -
-                 name: account
-                 description: "Optionally provide a name for the account. Using different names for different renewals enables you to managed multiple accounts for a single ACME endpoint. Unless you have a specific need to do this, we recommend to not use this."
+-
+ name: Account
+ arguments:
+  -
+   name: accepttos
+   description: "Accept the ACME terms of service."
+  -
+   name: emailaddress
+   description: "Email address to link to your ACME account."
+  -
+   name: eab-key-identifier
+   description: "Key identifier to use for external account binding."
+  -
+   name: eab-key
+   description: "Key to use for external account binding. Must be base64url encoded."
+   secret: true
+  -
+   name: eab-algorithm
+   description: "Algorithm to use for external account binding. Valid values are HS256 (default), HS384, and HS512."
+  -
+   name: account
+   description: "Optionally provide a name for the account. Using different names for different renewals enables you to managed multiple accounts for a single ACME endpoint. Unless you have a specific need to do this, we recommend to not use this."
 
-Source:
-    Custom CSR:
-         plugin:
-           id: "5c3db0fb-840b-469f-b5a7-0635d8e9a93d"
-           type: "source"
-         condition: "--source csr"
-         arguments:
-             -
-                 name: csrfile
-                 description: "Specify the location of a CSR file to make a certificate for"
-             -
-                 name: pkfile
-                 description: "Specify the location of the private key corresponding to the CSR"
+-
+ name: Custom CSR
+ pluginid: "5c3db0fb-840b-469f-b5a7-0635d8e9a93d"
+ plugintype: "source"
+ condition: "--source csr"
+ arguments:
+  -
+   name: csrfile
+   description: "Specify the location of a CSR file to make a certificate for"
+  -
+   name: pkfile
+   description: "Specify the location of the private key corresponding to the CSR"
 
-    Manual input:
-         plugin:
-           id: "e239db3b-b42f-48aa-b64f-46d4f3e9941b"
-           type: "source"
-         condition: "--source manual"
-         arguments:
-             -
-                 name: commonname
-                 description: "Specify the common name of the certificate. If not provided the first host name will be used."
-             -
-                 name: host
-                 description: "A host name to get a certificate for. This may be a comma-separated list."
+-
+ name: Manual input
+ pluginid: "e239db3b-b42f-48aa-b64f-46d4f3e9941b"
+ plugintype: "source"
+ condition: "--source manual"
+ arguments:
+  -
+   name: commonname
+   description: "Specify the common name of the certificate. If not provided the first host name will be used."
+  -
+   name: host
+   description: "A host name to get a certificate for. This may be a comma-separated list."
 
-    IIS bindings:
-         plugin:
-           id: "54deb3ee-b5df-4381-8485-fe386054055b"
-           type: "source"
-         condition: "--source iis"
-         arguments:
-             -
-                 name: siteid
-                 description: "Identifiers of one or more sites to include. This may be a comma-separated list."
-             -
-                 name: host
-                 description: "Host name to filter. This parameter may be used to target specific bindings. This may be a comma-separated list."
-             -
-                 name: host-pattern
-                 description: "Pattern filter for host names. Can be used to dynamically include bindings based on their match with the pattern.You may use a <code>*</code> for a range of any characters and a <code>?</code> for any single character. For example: the pattern <code>example.*</code> will match <code>example.net</code> and <code>example.com</code> (but not <code>my.example.com</code>) and the pattern <code>?.example.com</code> will match <code>a.example.com</code> and <code>b.example.com</code> (but not <code>www.example.com</code>). Note that multiple patterns can be combined by comma seperating them."
-             -
-                 name: host-regex
-                 description: "Regex pattern filter for host names. Some people, when confronted with a problem, think \"I know, I'll use regular expressions.\" Now they have two problems."
-             -
-                 name: commonname
-                 description: "Specify the common name of the certificate that should be requested for the source. By default this will be the first binding that is enumerated."
-             -
-                 name: excludebindings
-                 description: "Exclude host names from the certificate. This may be a comma-separated list."
-             -
-                 name: host-type
-                 description: "Specify which types of bindings to consider. May be set to http, ftp or both (comma separated)"
-                 default: "http"
+-
+ name: IIS bindings
+ pluginid: "54deb3ee-b5df-4381-8485-fe386054055b"
+ plugintype: "source"
+ condition: "--source iis"
+ arguments:
+  -
+   name: siteid
+   description: "Identifiers of one or more sites to include. This may be a comma-separated list."
+  -
+   name: host
+   description: "Host name to filter. This parameter may be used to target specific bindings. This may be a comma-separated list."
+  -
+   name: host-pattern
+   description: "Pattern filter for host names. Can be used to dynamically include bindings based on their match with the pattern.You may use a <code>*</code> for a range of any characters and a <code>?</code> for any single character. For example: the pattern <code>example.*</code> will match <code>example.net</code> and <code>example.com</code> (but not <code>my.example.com</code>) and the pattern <code>?.example.com</code> will match <code>a.example.com</code> and <code>b.example.com</code> (but not <code>www.example.com</code>). Note that multiple patterns can be combined by comma seperating them."
+  -
+   name: host-regex
+   description: "Regex pattern filter for host names. Some people, when confronted with a problem, think \"I know, I'll use regular expressions.\" Now they have two problems."
+  -
+   name: commonname
+   description: "Specify the common name of the certificate that should be requested for the source. By default this will be the first binding that is enumerated."
+  -
+   name: excludebindings
+   description: "Exclude host names from the certificate. This may be a comma-separated list."
+  -
+   name: host-type
+   description: "Specify which types of bindings to consider. May be set to http, ftp or both (comma separated)"
+   default: "http"
 
-Csr:
-    Elliptic Curve:
-         plugin:
-           id: "9aadcf71-5241-4c4f-aee1-bfe3f6be3489"
-           type: "csr"
-         condition: "--csr ec"
-         arguments:
-             -
-                 name: ocsp-must-staple
-                 description: "Enable OCSP Must Staple extension on certificate."
-             -
-                 name: reuse-privatekey
-                 description: "Reuse the same private key for each renewal."
+-
+ name: Elliptic Curve
+ pluginid: "9aadcf71-5241-4c4f-aee1-bfe3f6be3489"
+ plugintype: "csr"
+ condition: "--csr ec"
+ arguments:
+  -
+   name: ocsp-must-staple
+   description: "Enable OCSP Must Staple extension on certificate."
+  -
+   name: reuse-privatekey
+   description: "Reuse the same private key for each renewal."
 
-    RSA:
-         plugin:
-           id: "b9060d4b-c2d3-49ac-b37f-962e7c3cbe9d"
-           type: "csr"
-         condition: "--csr rsa"
-         arguments:
-             -
-                 name: ocsp-must-staple
-                 description: "Enable OCSP Must Staple extension on certificate."
-             -
-                 name: reuse-privatekey
-                 description: "Reuse the same private key for each renewal."
+-
+ name: RSA
+ pluginid: "b9060d4b-c2d3-49ac-b37f-962e7c3cbe9d"
+ plugintype: "csr"
+ condition: "--csr rsa"
+ arguments:
+  -
+   name: ocsp-must-staple
+   description: "Enable OCSP Must Staple extension on certificate."
+  -
+   name: reuse-privatekey
+   description: "Reuse the same private key for each renewal."
 
-HTTP validation:
-    Filesystem:
-         plugin:
-           id: "1c77b3a4-5310-4c46-92c6-00d866e84d6b"
-           type: "validation"
-           subtype: "http"
-         condition: "--validation filesystem"
-         arguments:
-             -
-                 name: validationsiteid
-                 description: "Specify IIS site to use for handling validation requests. This will be used to choose the web root path."
-             -
-                 name: webroot
-                 description: "Root path of the site that will serve the HTTP validation requests."
-             -
-                 name: manualtargetisiis
-                 description: "Copy default web.config to the .well-known directory."
+-
+ name: Filesystem
+ pluginid: "1c77b3a4-5310-4c46-92c6-00d866e84d6b"
+ plugintype: "validation.http"
+ condition: "--validation filesystem"
+ arguments:
+  -
+   name: validationsiteid
+   description: "Specify IIS site to use for handling validation requests. This will be used to choose the web root path."
+  -
+   name: webroot
+   description: "Root path of the site that will serve the HTTP validation requests."
+  -
+   name: manualtargetisiis
+   description: "Copy default web.config to the .well-known directory."
 
-    Self-hosting:
-         plugin:
-           id: "c7d5e050-9363-4ba1-b3a8-931b31c618b7"
-           type: "validation"
-           subtype: "http"
-         condition: "--validation selfhosting"
-         arguments:
-             -
-                 name: validationport
-                 description: "Port to use for listening to validation requests. Note that the ACME server will always send requests to port 80. This option is only useful in combination with a port forwarding."
-             -
-                 name: validationprotocol
-                 description: "Protocol to use to handle validation requests. Defaults to http but may be set to https if you have automatic redirects setup in your infrastructure before requests hit the web server."
+-
+ name: Self-hosting
+ pluginid: "c7d5e050-9363-4ba1-b3a8-931b31c618b7"
+ plugintype: "validation.http"
+ condition: "--validation selfhosting"
+ arguments:
+  -
+   name: validationport
+   description: "Port to use for listening to validation requests. Note that the ACME server will always send requests to port 80. This option is only useful in combination with a port forwarding."
+  -
+   name: validationprotocol
+   description: "Protocol to use to handle validation requests. Defaults to http but may be set to https if you have automatic redirects setup in your infrastructure before requests hit the web server."
 
-    FTP(S):
-         plugin:
-           id: "bc27d719-dcf2-41ff-bf08-54db7ea49c48"
-           type: "validation"
-           subtype: "http"
-         condition: "--validation ftp"
-         arguments:
-             -
-                 name: username
-                 description: "Username for remote server"
-             -
-                 name: password
-                 description: "Password for remote server"
-                 secret: true
-             -
-                 name: webroot
-                 description: "Root path of the site that will serve the HTTP validation requests."
-             -
-                 name: manualtargetisiis
-                 description: "Copy default web.config to the .well-known directory."
+-
+ name: FTP(S)
+ pluginid: "bc27d719-dcf2-41ff-bf08-54db7ea49c48"
+ plugintype: "validation.http"
+ condition: "--validation ftp"
+ arguments:
+  -
+   name: username
+   description: "Username for remote server"
+  -
+   name: password
+   description: "Password for remote server"
+   secret: true
+  -
+   name: webroot
+   description: "Root path of the site that will serve the HTTP validation requests."
+  -
+   name: manualtargetisiis
+   description: "Copy default web.config to the .well-known directory."
 
-    REST request:
-         plugin:
-           id: "11ba2994-ea59-4f2f-b9eb-0eaa2fa3cbfa"
-           type: "validation"
-           subtype: "http"
-         condition: "--validation rest"
-         arguments:
-             -
-                 name: rest-securitytoken
-                 description: "The bearer token needed to authenticate with the REST API on the server for PUT / DELETE requests."
-                 secret: true
-             -
-                 name: rest-usehttps
-                 description: "If HTTPS should be used instead of HTTP. Must be true if the server has HTTP to HTTPS redirection configured, as the redirected request always uses the GET method."
+-
+ name: REST request
+ pluginid: "11ba2994-ea59-4f2f-b9eb-0eaa2fa3cbfa"
+ plugintype: "validation.http"
+ condition: "--validation rest"
+ arguments:
+  -
+   name: rest-securitytoken
+   description: "The bearer token needed to authenticate with the REST API on the server for PUT / DELETE requests."
+   secret: true
+  -
+   name: rest-usehttps
+   description: "If HTTPS should be used instead of HTTP. Must be true if the server has HTTP to HTTPS redirection configured, as the redirected request always uses the GET method."
 
-    SFTP:
-         plugin:
-           id: "048aa2e7-2bce-4d3e-b731-6e0ed8b8170d"
-           type: "validation"
-           subtype: "http"
-         condition: "--validation sftp"
-         arguments:
-             -
-                 name: username
-                 description: "Username for remote server"
-             -
-                 name: password
-                 description: "Password for remote server"
-                 secret: true
-             -
-                 name: webroot
-                 description: "Root path of the site that will serve the HTTP validation requests."
-             -
-                 name: manualtargetisiis
-                 description: "Copy default web.config to the .well-known directory."
+-
+ name: SFTP
+ pluginid: "048aa2e7-2bce-4d3e-b731-6e0ed8b8170d"
+ plugintype: "validation.http"
+ condition: "--validation sftp"
+ arguments:
+  -
+   name: username
+   description: "Username for remote server"
+  -
+   name: password
+   description: "Password for remote server"
+   secret: true
+  -
+   name: webroot
+   description: "Root path of the site that will serve the HTTP validation requests."
+  -
+   name: manualtargetisiis
+   description: "Copy default web.config to the .well-known directory."
 
-    WebDav:
-         plugin:
-           id: "7e191d0e-30d1-47b3-ae2e-442499d33e16"
-           type: "validation"
-           subtype: "http"
-         condition: "--validation webdav"
-         arguments:
-             -
-                 name: username
-                 description: "Username for remote server"
-             -
-                 name: password
-                 description: "Password for remote server"
-                 secret: true
-             -
-                 name: webroot
-                 description: "Root path of the site that will serve the HTTP validation requests."
-             -
-                 name: manualtargetisiis
-                 description: "Copy default web.config to the .well-known directory."
+-
+ name: WebDav
+ pluginid: "7e191d0e-30d1-47b3-ae2e-442499d33e16"
+ plugintype: "validation.http"
+ condition: "--validation webdav"
+ arguments:
+  -
+   name: username
+   description: "Username for remote server"
+  -
+   name: password
+   description: "Password for remote server"
+   secret: true
+  -
+   name: webroot
+   description: "Root path of the site that will serve the HTTP validation requests."
+  -
+   name: manualtargetisiis
+   description: "Copy default web.config to the .well-known directory."
 
-DNS validation:
-    Custom script:
-         plugin:
-           id: "8f1da72e-f727-49f0-8546-ef69e5ecec32"
-           type: "validation"
-           subtype: "dns"
-         condition: "--validation script"
-         arguments:
-             -
-                 name: dnsscript
-                 description: "Path to script that creates and deletes validation records, depending on its parameters. If this parameter is provided then ‑‑dnscreatescript and ‑‑dnsdeletescript are ignored."
-             -
-                 name: dnscreatescript
-                 description: "Path to script that creates the validation TXT record."
-             -
-                 name: dnscreatescriptarguments
-                 description: "Default parameters passed to the script are \"create {Identifier} {RecordName} {Token}\", but that can be customized using this argument."
-             -
-                 name: dnsdeletescript
-                 description: "Path to script to remove TXT record."
-             -
-                 name: dnsdeletescriptarguments
-                 description: "Default parameters passed to the script are \"delete {Identifier} {RecordName} {Token}\", but that can be customized using this argument."
-             -
-                 name: dnsscriptparallelism
-                 description: "Configure parallelism mode. 0 is fully serial (default), 1 allows multiple records to be created simultaneously, 2 allows multiple records to be validated simultaneously and 3 is a combination of both forms of parallelism."
+-
+ name: Custom script
+ pluginid: "8f1da72e-f727-49f0-8546-ef69e5ecec32"
+ plugintype: "validation.dns"
+ condition: "--validation script"
+ arguments:
+  -
+   name: dnsscript
+   description: "Path to script that creates and deletes validation records, depending on its parameters. If this parameter is provided then ‑‑dnscreatescript and ‑‑dnsdeletescript are ignored."
+  -
+   name: dnscreatescript
+   description: "Path to script that creates the validation TXT record."
+  -
+   name: dnscreatescriptarguments
+   description: "Default parameters passed to the script are \"create {Identifier} {RecordName} {Token}\", but that can be customized using this argument."
+  -
+   name: dnsdeletescript
+   description: "Path to script to remove TXT record."
+  -
+   name: dnsdeletescriptarguments
+   description: "Default parameters passed to the script are \"delete {Identifier} {RecordName} {Token}\", but that can be customized using this argument."
+  -
+   name: dnsscriptparallelism
+   description: "Configure parallelism mode. 0 is fully serial (default), 1 allows multiple records to be created simultaneously, 2 allows multiple records to be validated simultaneously and 3 is a combination of both forms of parallelism."
 
-    acme-dns:
-         plugin:
-           id: "c13acc1b-7571-432b-9652-7a68a5f506c5"
-           type: "validation"
-           subtype: "dns"
-         condition: "--validation acme-dns"
-         arguments:
-             -
-                 name: acmednsserver
-                 description: "Root URI of the acme-dns service"
+-
+ name: acme-dns
+ pluginid: "c13acc1b-7571-432b-9652-7a68a5f506c5"
+ plugintype: "validation.dns"
+ condition: "--validation acme-dns"
+ arguments:
+  -
+   name: acmednsserver
+   description: "Root URI of the acme-dns service"
 
-    Aliyun:
-         plugin:
-           id: "1d4db2ea-ce7c-46ce-b86f-40b356fcf999"
-           type: "validation"
-           subtype: "dns"
-         condition: "--validation aliyun"
-         arguments:
-             -
-                 name: aliyunserver
-                 description: "DNS Server Domain Name. Refer: https://api.aliyun.com/product/Alidns"
-             -
-                 name: aliyunapiid
-                 description: "API ID for ALiYun."
-                 secret: true
-             -
-                 name: aliyunapisecret
-                 description: "API Secret for ALiYun."
-                 secret: true
+-
+ name: Aliyun
+ pluginid: "1d4db2ea-ce7c-46ce-b86f-40b356fcf999"
+ plugintype: "validation.dns"
+ condition: "--validation aliyun"
+ arguments:
+  -
+   name: aliyunserver
+   description: "DNS Server Domain Name. Refer: https://api.aliyun.com/product/Alidns"
+  -
+   name: aliyunapiid
+   description: "API ID for ALiYun."
+   secret: true
+  -
+   name: aliyunapisecret
+   description: "API Secret for ALiYun."
+   secret: true
 
-    Azure DNS:
-         plugin:
-           id: "aa57b028-45fb-4aca-9cac-a63d94c76b4a"
-           type: "validation"
-           subtype: "dns"
-         condition: "--validation azure"
-         arguments:
-             -
-                 name: azuresubscriptionid
-                 description: "Subscription ID to login into Microsoft Azure DNS (blank to use default)."
-             -
-                 name: azurehostedzone
-                 description: "Hosted zone (blank to find best match)"
-             -
-                 name: azureenvironment
-                 description: "This can be used to specify a specific Azure endpoint. Valid inputs are AzureCloud (default), AzureChinaCloud, AzureGermanCloud, AzureUSGovernment or a specific URI for an Azure Stack implementation."
-             -
-                 name: azureusemsi
-                 description: "Use Managed Service Identity for authentication."
-             -
-                 name: azuretenantid
-                 description: "Directory/tenant identifier. Found in Entra ID > Properties."
-             -
-                 name: azureclientid
-                 description: "Application/client identifier. Found/created in Entra ID > App registrations."
-             -
-                 name: azuresecret
-                 description: "Client secret. Found/created under Entra ID > App registrations."
-                 secret: true
+-
+ name: Azure DNS
+ pluginid: "aa57b028-45fb-4aca-9cac-a63d94c76b4a"
+ plugintype: "validation.dns"
+ condition: "--validation azure"
+ arguments:
+  -
+   name: azuresubscriptionid
+   description: "Subscription ID to login into Microsoft Azure DNS (blank to use default)."
+  -
+   name: azurehostedzone
+   description: "Hosted zone (blank to find best match)"
+  -
+   name: azureenvironment
+   description: "This can be used to specify a specific Azure endpoint. Valid inputs are AzureCloud (default), AzureChinaCloud, AzureGermanCloud, AzureUSGovernment or a specific URI for an Azure Stack implementation."
+  -
+   name: azureusemsi
+   description: "Use Managed Service Identity for authentication."
+  -
+   name: azuretenantid
+   description: "Directory/tenant identifier. Found in Entra ID > Properties."
+  -
+   name: azureclientid
+   description: "Application/client identifier. Found/created in Entra ID > App registrations."
+  -
+   name: azuresecret
+   description: "Client secret. Found/created under Entra ID > App registrations."
+   secret: true
 
-    Cloudflare:
-         plugin:
-           id: "73af2c2e-4cf1-4198-a4c8-1129003cfb75"
-           type: "validation"
-           subtype: "dns"
-         condition: "--validation cloudflare"
-         arguments:
-             -
-                 name: cloudflareapitoken
-                 description: "API Token for Cloudflare."
-                 secret: true
+-
+ name: Cloudflare
+ pluginid: "73af2c2e-4cf1-4198-a4c8-1129003cfb75"
+ plugintype: "validation.dns"
+ condition: "--validation cloudflare"
+ arguments:
+  -
+   name: cloudflareapitoken
+   description: "API Token for Cloudflare."
+   secret: true
 
-    DigitalOcean:
-         plugin:
-           id: "1a87d670-3fa3-4a2a-bb10-491d48feb5db"
-           type: "validation"
-           subtype: "dns"
-         condition: "--validation digitalocean"
-         arguments:
-             -
-                 name: digitaloceanapitoken
-                 description: "The API token to authenticate against the DigitalOcean API."
-                 secret: true
+-
+ name: DigitalOcean
+ pluginid: "1a87d670-3fa3-4a2a-bb10-491d48feb5db"
+ plugintype: "validation.dns"
+ condition: "--validation digitalocean"
+ arguments:
+  -
+   name: digitaloceanapitoken
+   description: "The API token to authenticate against the DigitalOcean API."
+   secret: true
 
-    DNSExit:
-         plugin:
-           id: "c9017182-1000-4257-a8da-0553cd1490ec"
-           type: "validation"
-           subtype: "dns"
-         condition: "--validation dnsexit"
-         arguments:
-             -
-                 name: apikey
-                 description: "DnsExit API key."
-                 secret: true
+-
+ name: DNSExit
+ pluginid: "c9017182-1000-4257-a8da-0553cd1490ec"
+ plugintype: "validation.dns"
+ condition: "--validation dnsexit"
+ arguments:
+  -
+   name: apikey
+   description: "DnsExit API key."
+   secret: true
 
-    DNS Made Easy:
-         plugin:
-           id: "13993334-2d74-4ff6-801b-833b99bf231d"
-           type: "validation"
-           subtype: "dns"
-         condition: "--validation dnsmadeeasy"
-         arguments:
-             -
-                 name: apikey
-                 description: "DnsMadeEasy API key."
-             -
-                 name: apisecret
-                 description: "DnsMadeEasy API secret."
-                 secret: true
+-
+ name: DNS Made Easy
+ pluginid: "13993334-2d74-4ff6-801b-833b99bf231d"
+ plugintype: "validation.dns"
+ condition: "--validation dnsmadeeasy"
+ arguments:
+  -
+   name: apikey
+   description: "DnsMadeEasy API key."
+  -
+   name: apisecret
+   description: "DnsMadeEasy API secret."
+   secret: true
 
-    Domeneshop:
-         plugin:
-           id: "0bd9b320-08e0-4bfe-a535-b979886187e4"
-           type: "validation"
-           subtype: "dns"
-         condition: "--validation domeneshop"
-         arguments:
-             -
-                 name: clientid
-                 description: "Domeneshop ClientID (token)."
-             -
-                 name: clientsecret
-                 description: "Domeneshop Client Secret."
+-
+ name: Domeneshop
+ pluginid: "0bd9b320-08e0-4bfe-a535-b979886187e4"
+ plugintype: "validation.dns"
+ condition: "--validation domeneshop"
+ arguments:
+  -
+   name: clientid
+   description: "Domeneshop ClientID (token)."
+  -
+   name: clientsecret
+   description: "Domeneshop Client Secret."
 
-    DreamHost:
-         plugin:
-           id: "2bfb3ef8-64b8-47f1-8185-ea427b793c1a"
-           type: "validation"
-           subtype: "dns"
-         condition: "--validation dreamhost"
-         arguments:
-             -
-                 name: apikey
-                 description: "Dreamhost API key."
-                 secret: true
+-
+ name: DreamHost
+ pluginid: "2bfb3ef8-64b8-47f1-8185-ea427b793c1a"
+ plugintype: "validation.dns"
+ condition: "--validation dreamhost"
+ arguments:
+  -
+   name: apikey
+   description: "Dreamhost API key."
+   secret: true
 
-    GoDaddy:
-         plugin:
-           id: "966c4c3d-1572-44c7-9134-5e2bc8fa021d"
-           type: "validation"
-           subtype: "dns"
-         condition: "--validation godaddy"
-         arguments:
-             -
-                 name: apikey
-                 description: "GoDaddy API key."
-             -
-                 name: apisecret
-                 description: "GoDaddy API secret."
-                 secret: true
+-
+ name: GoDaddy
+ pluginid: "966c4c3d-1572-44c7-9134-5e2bc8fa021d"
+ plugintype: "validation.dns"
+ condition: "--validation godaddy"
+ arguments:
+  -
+   name: apikey
+   description: "GoDaddy API key."
+  -
+   name: apisecret
+   description: "GoDaddy API secret."
+   secret: true
 
-    Google Cloud DNS:
-         plugin:
-           id: "b61505e9-1709-43fd-996f-c74c3686286c"
-           type: "validation"
-           subtype: "dns"
-         condition: "--validation gcpdns"
-         arguments:
-             -
-                 name: serviceaccountkey
-                 description: "Path to Service Account Key to authenticate with GCP."
-             -
-                 name: projectid
-                 description: "Project ID that is hosting Cloud DNS."
+-
+ name: Google Cloud DNS
+ pluginid: "b61505e9-1709-43fd-996f-c74c3686286c"
+ plugintype: "validation.dns"
+ condition: "--validation gcpdns"
+ arguments:
+  -
+   name: serviceaccountkey
+   description: "Path to Service Account Key to authenticate with GCP."
+  -
+   name: projectid
+   description: "Project ID that is hosting Cloud DNS."
 
-    Hetzner:
-         plugin:
-           id: "7176cc8f-ba08-4b07-aa39-2f5d012c1d5a"
-           type: "validation"
-           subtype: "dns"
-         condition: "--validation hetzner"
-         arguments:
-             -
-                 name: hetznerapitoken
-                 description: "API Token for Hetzner."
-                 secret: true
-             -
-                 name: hetznerzoneid
-                 description: "OPTIONAL: ID of zone the record is associated with."
+-
+ name: Hetzner
+ pluginid: "7176cc8f-ba08-4b07-aa39-2f5d012c1d5a"
+ plugintype: "validation.dns"
+ condition: "--validation hetzner"
+ arguments:
+  -
+   name: hetznerapitoken
+   description: "API Token for Hetzner."
+   secret: true
+  -
+   name: hetznerzoneid
+   description: "OPTIONAL: ID of zone the record is associated with."
 
-    Infomaniak:
-         plugin:
-           id: "d1401d1e-b925-407d-a38b-924d67b2d1b5"
-           type: "validation"
-           subtype: "dns"
-         condition: "--validation infomaniak"
-         arguments:
-             -
-                 name: apitoken
-                 description: "Infomaniak API token."
-                 secret: true
+-
+ name: Infomaniak
+ pluginid: "d1401d1e-b925-407d-a38b-924d67b2d1b5"
+ plugintype: "validation.dns"
+ condition: "--validation infomaniak"
+ arguments:
+  -
+   name: apitoken
+   description: "Infomaniak API token."
+   secret: true
 
-    Linode:
-         plugin:
-           id: "12fdc54c-be30-4458-8066-2c1c565fe2d9"
-           type: "validation"
-           subtype: "dns"
-         condition: "--validation linode"
-         arguments:
-             -
-                 name: apitoken
-                 description: "Linode Personal Access Token."
-                 secret: true
+-
+ name: Linode
+ pluginid: "12fdc54c-be30-4458-8066-2c1c565fe2d9"
+ plugintype: "validation.dns"
+ condition: "--validation linode"
+ arguments:
+  -
+   name: apitoken
+   description: "Linode Personal Access Token."
+   secret: true
 
-    LuaDNS:
-         plugin:
-           id: "3b0c3cca-db98-40b7-b678-b34791070d42"
-           type: "validation"
-           subtype: "dns"
-         condition: "--validation luadns"
-         arguments:
-             -
-                 name: luadnsusername
-                 description: "LuaDNS account username (email address)."
-             -
-                 name: luadnsapikey
-                 description: "LuaDNS API key."
-                 secret: true
+-
+ name: LuaDNS
+ pluginid: "3b0c3cca-db98-40b7-b678-b34791070d42"
+ plugintype: "validation.dns"
+ condition: "--validation luadns"
+ arguments:
+  -
+   name: luadnsusername
+   description: "LuaDNS account username (email address)."
+  -
+   name: luadnsapikey
+   description: "LuaDNS API key."
+   secret: true
 
-    NS1/NSONE:
-         plugin:
-           id: "c66cc8be-3046-46c2-a0ba-ec4ec3e7fe96"
-           type: "validation"
-           subtype: "dns"
-         condition: "--validation ns1"
-         arguments:
-             -
-                 name: apikey
-                 description: "NS1 API key."
+-
+ name: NS1/NSONE
+ pluginid: "c66cc8be-3046-46c2-a0ba-ec4ec3e7fe96"
+ plugintype: "validation.dns"
+ condition: "--validation ns1"
+ arguments:
+  -
+   name: apikey
+   description: "NS1 API key."
 
-    RFC2136:
-         plugin:
-           id: "ed5dc9d1-739c-4f6a-854f-238bf65b63ee"
-           type: "validation"
-           subtype: "dns"
-         condition: "--validation rfc2136"
-         arguments:
-             -
-                 name: serverhost
-                 description: "DNS server host/ip"
-             -
-                 name: serverport
-                 description: "DNS server port"
-             -
-                 name: tsigkeyname
-                 description: "TSIG key name"
-             -
-                 name: tsigkeysecret
-                 description: "TSIG key secret (Base64 encoded)"
-                 secret: true
-             -
-                 name: tsigkeyalgorithm
-                 description: "TSIG key algorithm"
+-
+ name: RFC2136
+ pluginid: "ed5dc9d1-739c-4f6a-854f-238bf65b63ee"
+ plugintype: "validation.dns"
+ condition: "--validation rfc2136"
+ arguments:
+  -
+   name: serverhost
+   description: "DNS server host/ip"
+  -
+   name: serverport
+   description: "DNS server port"
+  -
+   name: tsigkeyname
+   description: "TSIG key name"
+  -
+   name: tsigkeysecret
+   description: "TSIG key secret (Base64 encoded)"
+   secret: true
+  -
+   name: tsigkeyalgorithm
+   description: "TSIG key algorithm"
 
-    Route 53:
-         plugin:
-           id: "4e5dc595-45c7-4461-929a-8f96a0c96b3d"
-           type: "validation"
-           subtype: "dns"
-         condition: "--validation route53"
-         arguments:
-             -
-                 name: route53iamrole
-                 description: "AWS IAM role for the current EC2 instance to login into Amazon Route 53. Note that you should provide the IAM name instead of the ARN."
-             -
-                 name: route53accesskeyid
-                 description: "Access key ID to login into Amazon Route 53."
-             -
-                 name: route53secretaccesskey
-                 description: "Secret access key to login into Amazon Route 53."
-                 secret: true
+-
+ name: Route 53
+ pluginid: "4e5dc595-45c7-4461-929a-8f96a0c96b3d"
+ plugintype: "validation.dns"
+ condition: "--validation route53"
+ arguments:
+  -
+   name: route53iamrole
+   description: "AWS IAM role for the current EC2 instance to login into Amazon Route 53. Note that you should provide the IAM name instead of the ARN."
+  -
+   name: route53accesskeyid
+   description: "Access key ID to login into Amazon Route 53."
+  -
+   name: route53secretaccesskey
+   description: "Secret access key to login into Amazon Route 53."
+   secret: true
 
-    Simply.com:
-         plugin:
-           id: "3693c40c-7c2f-4b70-aead-27869d8cbdf3"
-           type: "validation"
-           subtype: "dns"
-         condition: "--validation simply"
-         arguments:
-             -
-                 name: account
-                 description: "Simply Account."
-             -
-                 name: apikey
-                 description: "Simply API key."
-                 secret: true
+-
+ name: Simply.com
+ pluginid: "3693c40c-7c2f-4b70-aead-27869d8cbdf3"
+ plugintype: "validation.dns"
+ condition: "--validation simply"
+ arguments:
+  -
+   name: account
+   description: "Simply Account."
+  -
+   name: apikey
+   description: "Simply API key."
+   secret: true
 
-    Tencent Cloud:
-         plugin:
-           id: "6ea628c3-0f74-68bb-cf17-4fdd3d53f3af"
-           type: "validation"
-           subtype: "dns"
-         condition: "--validation tencent"
-         arguments:
-             -
-                 name: tencentapiid
-                 description: "API ID for Tencent."
-                 secret: true
-             -
-                 name: tencentapikey
-                 description: "API Key for Tencent."
-                 secret: true
+-
+ name: Tencent Cloud
+ pluginid: "6ea628c3-0f74-68bb-cf17-4fdd3d53f3af"
+ plugintype: "validation.dns"
+ condition: "--validation tencent"
+ arguments:
+  -
+   name: tencentapiid
+   description: "API ID for Tencent."
+   secret: true
+  -
+   name: tencentapikey
+   description: "API Key for Tencent."
+   secret: true
 
-    TransIP:
-         plugin:
-           id: "c49a7a9a-f8c9-494a-a6a4-c6b9daae7d9d"
-           type: "validation"
-           subtype: "dns"
-         condition: "--validation transip"
-         arguments:
-             -
-                 name: transip-login
-                 description: "Login name at TransIp."
-             -
-                 name: transip-privatekey
-                 description: "Private key generated in the control panel (replace enters by spaces and use quotes)."
-                 secret: true
-             -
-                 name: transip-privatekeyfile
-                 description: "Private key generated in the control panel (saved to a file on disk)."
+-
+ name: TransIP
+ pluginid: "c49a7a9a-f8c9-494a-a6a4-c6b9daae7d9d"
+ plugintype: "validation.dns"
+ condition: "--validation transip"
+ arguments:
+  -
+   name: transip-login
+   description: "Login name at TransIp."
+  -
+   name: transip-privatekey
+   description: "Private key generated in the control panel (replace enters by spaces and use quotes)."
+   secret: true
+  -
+   name: transip-privatekeyfile
+   description: "Private key generated in the control panel (saved to a file on disk)."
 
-TLS validation:
-    Self-hosting:
-         plugin:
-           id: "a1565064-b208-4467-8ca1-1bd3c08aa500"
-           type: "validation"
-           subtype: "tls-alpn"
-         condition: "--validationmode tls-alpn-01 --validation selfhosting"
-         arguments:
-             -
-                 name: validationport
-                 description: "Port to use for listening to validation requests. Note that the ACME server will always send requests to port 443. This option is only useful in combination with a port forwarding."
+-
+ name: Self-hosting
+ pluginid: "a1565064-b208-4467-8ca1-1bd3c08aa500"
+ plugintype: "validation.tls-alpn"
+ condition: "--validationmode tls-alpn-01 --validation selfhosting"
+ arguments:
+  -
+   name: validationport
+   description: "Port to use for listening to validation requests. Note that the ACME server will always send requests to port 443. This option is only useful in combination with a port forwarding."
 
-Store:
-    Windows Certificate Store:
-         plugin:
-           id: "e30adc8e-d756-4e16-a6f2-450f784b1a97"
-           type: "store"
-         condition: "--store certificatestore"
-         arguments:
-             -
-                 name: certificatestore
-                 description: "This setting can be used to save the certificate in a specific store. By default it will go to 'WebHosting' store on modern versions of Windows."
-             -
-                 name: keepexisting
-                 description: "While renewing, do not remove the previous certificate."
-             -
-                 name: acl-fullcontrol
-                 description: "List of additional principals (besides the owners of the store) that should get full control permissions on the private key of the certificate."
-             -
-                 name: acl-read
-                 description: "List of additional principals (besides the owners of the store) that should get read permissions on the private key of the certificate."
+-
+ name: Windows Certificate Store
+ pluginid: "e30adc8e-d756-4e16-a6f2-450f784b1a97"
+ plugintype: "store"
+ condition: "--store certificatestore"
+ arguments:
+  -
+   name: certificatestore
+   description: "This setting can be used to save the certificate in a specific store. By default it will go to 'WebHosting' store on modern versions of Windows."
+  -
+   name: keepexisting
+   description: "While renewing, do not remove the previous certificate."
+  -
+   name: acl-fullcontrol
+   description: "List of additional principals (besides the owners of the store) that should get full control permissions on the private key of the certificate."
+  -
+   name: acl-read
+   description: "List of additional principals (besides the owners of the store) that should get read permissions on the private key of the certificate."
 
-    PEM files:
-         plugin:
-           id: "e57c70e4-cd60-4ba6-80f6-a41703e21031"
-           type: "store"
-         condition: "--store pemfiles"
-         arguments:
-             -
-                 name: pemfilespath
-                 description: ".pem files are exported to this folder."
-             -
-                 name: pemfilesname
-                 description: "Prefix to use for the .pem files, defaults to the common name."
-             -
-                 name: pempassword
-                 description: "Password to set for the private key .pem file."
-                 secret: true
+-
+ name: PEM files
+ pluginid: "e57c70e4-cd60-4ba6-80f6-a41703e21031"
+ plugintype: "store"
+ condition: "--store pemfiles"
+ arguments:
+  -
+   name: pemfilespath
+   description: ".pem files are exported to this folder."
+  -
+   name: pemfilesname
+   description: "Prefix to use for the .pem files, defaults to the common name."
+  -
+   name: pempassword
+   description: "Password to set for the private key .pem file."
+   secret: true
 
-    PFX file:
-         plugin:
-           id: "2a2c576f-7637-4ade-b8db-e8613b0bb33e"
-           type: "store"
-         condition: "--store pfxfile"
-         arguments:
-             -
-                 name: pfxfilepath
-                 description: "Path to write the .pfx file to."
-             -
-                 name: pfxfilename
-                 description: "Prefix to use for the .pfx file, defaults to the common name."
-             -
-                 name: pfxpassword
-                 description: "Password to set for .pfx file exported to the folder."
-                 secret: true
+-
+ name: PFX file
+ pluginid: "2a2c576f-7637-4ade-b8db-e8613b0bb33e"
+ plugintype: "store"
+ condition: "--store pfxfile"
+ arguments:
+  -
+   name: pfxfilepath
+   description: "Path to write the .pfx file to."
+  -
+   name: pfxfilename
+   description: "Prefix to use for the .pfx file, defaults to the common name."
+  -
+   name: pfxpassword
+   description: "Password to set for .pfx file exported to the folder."
+   secret: true
 
-    Central Certificate Store:
-         plugin:
-           id: "af1f77b6-4e7b-4f96-bba5-c2eeb4d0dd42"
-           type: "store"
-         condition: "--store centralssl"
-         arguments:
-             -
-                 name: centralsslstore
-                 description: "Location of the IIS Central Certificate Store."
-             -
-                 name: pfxpassword
-                 description: "Password to set for .pfx files exported to the IIS Central Certificate Store."
-                 secret: true
+-
+ name: Central Certificate Store
+ pluginid: "af1f77b6-4e7b-4f96-bba5-c2eeb4d0dd42"
+ plugintype: "store"
+ condition: "--store centralssl"
+ arguments:
+  -
+   name: centralsslstore
+   description: "Location of the IIS Central Certificate Store."
+  -
+   name: pfxpassword
+   description: "Password to set for .pfx files exported to the IIS Central Certificate Store."
+   secret: true
 
-    Azure Key Vault:
-         plugin:
-           id: "dbfa91e2-28c0-4b37-857c-df6575dbb388"
-           type: "store"
-         condition: "--store keyvault"
-         arguments:
-             -
-                 name: vaultname
-                 description: "The name of the vault"
-             -
-                 name: certificatename
-                 description: "The name of the certificate"
-             -
-                 name: azureenvironment
-                 description: "This can be used to specify a specific Azure endpoint. Valid inputs are AzureCloud (default), AzureChinaCloud, AzureGermanCloud, AzureUSGovernment or a specific URI for an Azure Stack implementation."
-             -
-                 name: azureusemsi
-                 description: "Use Managed Service Identity for authentication."
-             -
-                 name: azuretenantid
-                 description: "Directory/tenant identifier. Found in Entra ID > Properties."
-             -
-                 name: azureclientid
-                 description: "Application/client identifier. Found/created in Entra ID > App registrations."
-             -
-                 name: azuresecret
-                 description: "Client secret. Found/created under Entra ID > App registrations."
-                 secret: true
+-
+ name: Azure Key Vault
+ pluginid: "dbfa91e2-28c0-4b37-857c-df6575dbb388"
+ plugintype: "store"
+ condition: "--store keyvault"
+ arguments:
+  -
+   name: vaultname
+   description: "The name of the vault"
+  -
+   name: certificatename
+   description: "The name of the certificate"
+  -
+   name: azureenvironment
+   description: "This can be used to specify a specific Azure endpoint. Valid inputs are AzureCloud (default), AzureChinaCloud, AzureGermanCloud, AzureUSGovernment or a specific URI for an Azure Stack implementation."
+  -
+   name: azureusemsi
+   description: "Use Managed Service Identity for authentication."
+  -
+   name: azuretenantid
+   description: "Directory/tenant identifier. Found in Entra ID > Properties."
+  -
+   name: azureclientid
+   description: "Application/client identifier. Found/created in Entra ID > App registrations."
+  -
+   name: azuresecret
+   description: "Client secret. Found/created under Entra ID > App registrations."
+   secret: true
 
-    User Store:
-         plugin:
-           id: "95ee94e7-c8e2-40e6-a26f-c9fc3afa9fa5"
-           type: "store"
-         condition: "--store userstore"
-         arguments:
-             -
-                 name: keepexisting
-                 description: "While renewing, do not remove the previous certificate."
+-
+ name: User Store
+ pluginid: "95ee94e7-c8e2-40e6-a26f-c9fc3afa9fa5"
+ plugintype: "store"
+ condition: "--store userstore"
+ arguments:
+  -
+   name: keepexisting
+   description: "While renewing, do not remove the previous certificate."
 
-Installation:
-    Custom script:
-         plugin:
-           id: "3bb22c70-358d-4251-86bd-11858363d913"
-           type: "installation"
-         condition: "--installation script"
-         arguments:
-             -
-                 name: script
-                 description: "Path to script file to run after retrieving the certificate. This may be any executable file or a Powershell (.ps1) script."
-             -
-                 name: scriptparameters
-                 description: "Parameters for the script to run after retrieving the certificate. Refer to <a href='/reference/plugins/installation/script'>/reference/plugins/installation/script</a> for further instructions."
+-
+ name: Custom script
+ pluginid: "3bb22c70-358d-4251-86bd-11858363d913"
+ plugintype: "installation"
+ condition: "--installation script"
+ arguments:
+  -
+   name: script
+   description: "Path to script file to run after retrieving the certificate. This may be any executable file or a Powershell (.ps1) script."
+  -
+   name: scriptparameters
+   description: "Parameters for the script to run after retrieving the certificate. Refer to <a href='/reference/plugins/installation/script'>/reference/plugins/installation/script</a> for further instructions."
 
-    Manage IIS bindings:
-         plugin:
-           id: "ea6a5be3-f8de-4d27-a6bd-750b619b2ee2"
-           type: "installation"
-         condition: "--installation iis"
-         arguments:
-             -
-                 name: installationsiteid
-                 description: "Specify site to install new bindings to. Defaults to the source if that is an IIS site."
-             -
-                 name: sslport
-                 description: "Port number to use for newly created HTTPS bindings. Defaults to 443."
-             -
-                 name: sslipaddress
-                 description: "IP address to use for newly created HTTPS bindings. Defaults to *."
+-
+ name: Manage IIS bindings
+ pluginid: "ea6a5be3-f8de-4d27-a6bd-750b619b2ee2"
+ plugintype: "installation"
+ condition: "--installation iis"
+ arguments:
+  -
+   name: installationsiteid
+   description: "Specify site to install new bindings to. Defaults to the source if that is an IIS site."
+  -
+   name: sslport
+   description: "Port number to use for newly created HTTPS bindings. Defaults to 443."
+  -
+   name: sslipaddress
+   description: "IP address to use for newly created HTTPS bindings. Defaults to *."
 

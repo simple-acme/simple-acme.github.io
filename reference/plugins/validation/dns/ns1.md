@@ -1,7 +1,5 @@
 ---
 layout: plugin
-plugin_type: validation
-plugin_subtype: dns
-plugin: ns1
+plugin: c66cc8be-3046-46c2-a0ba-ec4ec3e7fe96
 ---
 Create the record at [NS1](https://ns1.com/).

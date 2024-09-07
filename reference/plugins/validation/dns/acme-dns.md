@@ -1,8 +1,6 @@
 ---
 layout: plugin
-plugin_type: validation
-plugin_subtype: dns
-plugin: acme-dns
+plugin: c13acc1b-7571-432b-9652-7a68a5f506c5
 ---
 Use an [acme-dns](https://github.com/joohoi/acme-dns) server to handle the validation records. The plugin will ask you to choose an endpoint to use. 
 

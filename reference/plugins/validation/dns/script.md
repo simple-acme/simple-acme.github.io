@@ -1,8 +1,6 @@
 ---
 layout: plugin
-plugin_type: validation
-plugin_subtype: dns
-plugin: script
+plugin: 8f1da72e-f727-49f0-8546-ef69e5ecec32
 ---
 Run an external script or program to create or update the validation records.
 

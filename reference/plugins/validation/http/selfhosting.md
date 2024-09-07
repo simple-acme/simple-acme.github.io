@@ -1,8 +1,6 @@
 ---
 layout: plugin
-plugin_type: validation
-plugin_subtype: http
-plugin: selfhosting
+plugin: c7d5e050-9363-4ba1-b3a8-931b31c618b7
 ---
 This plugin launches a temporary built-in web listener that stores the validation 
 response in memory. It can share port 80 with IIS and other (Microsoft) software 

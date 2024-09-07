@@ -207,6 +207,7 @@
   external: true
   id: 1d4db2ea-ce7c-46ce-b86f-40b356fcf999
   provider: Alibaba
+  page: alibaba
   compatibility: All platforms
   examples:
     - 
@@ -232,6 +233,8 @@
   id: b61505e9-1709-43fd-996f-c74c3686286c
   provider: Google
   menu: Google
+  page: clouddns
+  download: googledns
   compatibility: All platforms
   examples:
     - 
@@ -283,6 +286,7 @@
   external: true
   id: 0bd9b320-08e0-4bfe-a535-b979886187e4
   menu: Domeneshop
+  page: domene
   compatibility: All platforms
   examples:
     -
@@ -344,6 +348,7 @@
   external: true
   id: 3b0c3cca-db98-40b7-b678-b34791070d42
   menu: LuaDNS
+  page: lua
   compatibility: All platforms
   examples:
     -

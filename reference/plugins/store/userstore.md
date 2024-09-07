@@ -1,7 +1,6 @@
 ---
 layout: plugin
-plugin_type: store
-plugin: userstore
+plugin: 95ee94e7-c8e2-40e6-a26f-c9fc3afa9fa5
 ---
 Like the built-in [certificate store](/reference/plugins/store/certificatestore) plugin, 
 this one places the certificate in the Windows Certificate Store. However, instead of 

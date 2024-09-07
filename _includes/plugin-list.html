@@ -1,10 +1,11 @@
-{% assign plugins = site.data.plugins2 | where: "type", include.type | sort_natural: "name" %}
+{% assign plugins = site.data.plugins | where: "type", include.type | sort_natural: "name" %}
 <div class="table-responsive my-4 me-5 pe-5">
     <table class="table table-striped">
         <tbody>
 {% for plugin in plugins %}
+    {% assign meta = site.data.meta | where: "id", plugin.id | first %}
             <tr>
-                <td>{% include plugin-link.html plugin=plugin %}</td>
+                <td>{% include plugin-link.html plugin=plugin meta=meta %}</td>
                 <td>{{ plugin.description }}</td>
             </tr>
 {% endfor %}

@@ -2,73 +2,55 @@
 layout: docs
 ---
 
-{% if page.plugin_subtype %}
-    {% assign plugins = site.data.plugins[page.plugin_type][page.plugin_subtype] %}
-{% else %}
-    {% assign plugins = site.data.plugins[page.plugin_type] %}
-{% endif %}
-{% assign plugin = plugins | where: "trigger", page.plugin | first %}
+{% assign plugin = site.data.plugins | where: "id", page.plugin | first %}
+{% assign meta = site.data.meta | where: "id", page.plugin | first %}
+{% assign arguments = site.data.arguments | where: "pluginid", page.plugin | first %}
 
-<script>document.title='{{plugin.title}} | simple-acme'</script>
-<h1>{{plugin.title}}</h1>
-<p>{{plugin.subtitle}}</p>
+<script>document.title='{{plugin.name}} | simple-acme'</script>
+<h1>{{plugin.name}}</h1>
+<p>{{plugin.description}}</p>
 <div class="table-responsive my-4 me-5 pe-5">
     <table class="table table-striped">
         <tbody>
             <tr>
                 <th class="col-md-3" scope="row">Plugin type</th>
                 <td>
-                    {% assign types = "source,order,csr,validation,store,installation" | split: ',' %}
-                    {% for item in types %}
-                        {% if item == page.plugin_type %}
-                            <a class="fw-bold" href="/reference/plugins/{{item}}">{{item}}</a>
-                        {% else %}
-                            <a class="fw-lighter" href="/reference/plugins/{{item}}">{{item}}</a>
+                    {% for pt in site.data.types %}
+                        {% assign path = pt.type | replace: ".", "/" %}
+                        {% if pt.type == plugin.type %}
+                            <a href="/reference/plugins/{{path}}">{{pt.title}}</a>
                         {% endif %}
                     {% endfor %}
                 </td>
                 <td></td>
             </tr>
 
-            {% if plugin.external %}
-                {% if page.plugin_subtype %}
-                    {% assign downloadFake = "plugin." | 
-                        append: page.plugin_type | 
-                        append: "." | 
-                        append: page.plugin_subtype | 
-                        append: "." | 
-                        append: page.plugin | 
-                        append: ".v" | 
-                        append: "2.x.x" | 
-                        append: ".zip"
-                    %} 
-                {% else %}
-                    {% assign downloadFake = "plugin." | 
-                        append: page.plugin_type | 
-                        append: "." | 
-                        append: page.plugin | 
-                        append: ".v" | 
-                        append: "2.x.x" | 
-                        append: ".zip"
-                    %}
-                {% endif %}
-            {% assign download = downloadFake | replace_first: "2.x.x", site.releasebuild %}
-            <tr>
-                <th scope="row">Download</th>
-                <td><a href="https://github.com/simple-acme/simple-acme/releases/download/v{{ site.releasetag }}/{{ download }}">Version {{ site.releasename }}</a>. Look for older releases on <a href="https://github.com/simple-acme/simple-acme/releases/">GitHub</a> for files named like <strong>{{downloadFake}}</strong></td>
-                <td></td>
-            </tr>
+            {% if meta.external %}
+                {% assign file = meta.download | default: plugin.trigger %}
+                {% assign downloadFake = "plugin." | 
+                    append: plugin.type | 
+                    append: "." | 
+                    append: file | 
+                    append: ".v" | 
+                    append: "2.x.x" | 
+                    append: ".zip"
+                %}
+                {% assign download = downloadFake | replace_first: "2.x.x", site.releasebuild %}
+                <tr>
+                    <th scope="row">Download</th>
+                    <td><a href="https://github.com/simple-acme/simple-acme/releases/download/v{{ site.releasetag }}/{{ download }}">Version {{ site.releasename }}</a>. Look for older releases on <a href="https://github.com/simple-acme/simple-acme/releases/">GitHub</a> for files named like <strong>{{downloadFake}}</strong></td>
+                    <td></td>
+                </tr>
             {% else %}
-            <tr>
-                <th scope="row">Download</th>
-                <td>Built-in</td>
-                <td></td>
-            </tr>
+                <tr>
+                    <th scope="row">Download</th>
+                    <td>Built-in</td>
+                    <td></td>
+                </tr>
             {% endif %}
-
             <tr>
                 <th scope="row">Compatibility</th>
-                <td>{{plugin.compatibility}}</td>
+                <td>{{meta.compatibility}}</td>
                 <td></td>
             </tr>
         </tbody>
@@ -78,39 +60,39 @@ layout: docs
 <h2>Description</h2>
 {{content}}
 
-{% if plugin.external %}
+{% if meta.external %}
 {% include plugin-seperate.md %}
 {% endif %}
 
-{% if plugin.trigger %}
-    {% assign trigger = plugin.trigger %}
+{% if arguments == nil %}
+    {% assign activator = '‑‑' | append: plugin.type | append: " " | append: plugin.trigger %}
 {% else %}
-    {% assign trigger = page.plugin %}
+    {% assign activator = arguments.condition %}
 {% endif %}
-
 <h2 class="pt-2">Command line</h2>
 <div class="table-responsive my-4 me-5 pe-5">
     <table class="table table-striped">
         <tbody>
             <tr>
-                <th class="col-md-3" scope="row"><code>‑‑{{page.plugin_type}} {{trigger}}</code></th>
+                <th class="col-md-3" scope="row"><code>{{ activator }}</code></th>
                 <td>Activates the plugin</td>
                 <td></td>
             </tr>
-            {% include arguments-rows.html arguments=plugin.arguments %}
+            {% include arguments-rows.html arguments=arguments.arguments %}
+            {% include arguments-rows.html argumentnames=meta.arguments %}
         </tbody>
     </table>
 </div>
 
-{% if plugin.examples %}
+{% if meta.examples %}
 <h2>Examples</h2>
 <div class="table-responsive my-4 me-5 pe-5">
     <table class="table table-striped">
         <tbody>      
-            {% for item in plugin.examples %}
+            {% for item in meta.examples %}
             <tr>
                 <th class="col-md-3" scope="row">{{ item.name }}</th>
-                <td><code>‑‑{{page.plugin_type}} {{trigger}} {{ item.cmd }}</code></td>
+                <td><code>{{activator}} {{ item.cmd }}</code></td>
                 <td></td>
             </tr>
             {% endfor %}
@@ -119,8 +101,8 @@ layout: docs
 </div>
 {% endif %}
 
-{% if plugin.settings %}
-{% include settings.html settings=plugin.settings %}
+{% if meta.settings %}
+{% include settings.html settings=meta.settings %}
 {% endif %}
 
 <h2>JSON</h2>

@@ -1,7 +1,6 @@
 ---
 layout: plugin
-plugin_type: store
-plugin: certificatestore                                   
+plugin: af1f77b6-4e7b-4f96-bba5-c2eeb4d0dd42                          
 ---
 Saves certificates to the Windows Certificate store. This will always import to the `Computer` store. Refer to the [User Store](/reference/plugins/store/userstore) plugin if you want to have a certificate in the `User` store.
 

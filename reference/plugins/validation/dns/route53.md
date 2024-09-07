@@ -1,8 +1,6 @@
 ---
 layout: plugin
-plugin_type: validation
-plugin_subtype: dns
-plugin: route53
+plugin: 4e5dc595-45c7-4461-929a-8f96a0c96b3d
 ---
 Create the record in Amazon AWS [Route53](https://aws.amazon.com/route53/). This requires either a user or an IAM role with the following permissions on the zone: 
 `route53:GetChange`, `route53:ListHostedZones` and `route53:ChangeResourceRecordSets`.

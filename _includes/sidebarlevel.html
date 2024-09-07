@@ -1,9 +1,9 @@
-﻿{% assign active=false %}
+﻿{% assign active = false %}
 {% assign indent = include.level | plus: 1 %}
 {% assign url = include.item.url | append: '.html' %}
 {% assign url2 = include.item.url | append: '/' %}
 {% if page.url==include.item.url or page.url==url or page.url==url2 %}
-    {%assign active=true %}
+    {% assign active = true %}
 {% endif %}
 <li class="nav-item{% if include.level == 1 %} section-title mt-2{% else %} ms-{{ indent }}{% endif %} ">
     {% if include.level == 1 %}
@@ -17,7 +17,21 @@
         {% endfor %}
     {% endif %}
     {% if include.item.plugins %}
-        {% assign next_level = include.level | plus: 1 %}
-        {% include plugin-menu.html type=include.item.plugins.type subtype=include.item.plugins.subtype level=next_level %}
+        {% for pt in site.data.types %}
+            {% assign section = pt.type | replace: ".", "/" %}
+            {% assign purl = include.item.url | append: "/" | append: section %}
+            {% assign purl2 = purl | append: '.html' %}
+            {% assign purl3 = purl | append: '/' %}
+            {% assign active = false %}
+            {% if page.url==purl or page.url==purl2 or page.url==purl3 %}
+                {% assign active = true %}
+            {% endif %}
+            {% assign curlevel = include.level | plus: 2 %}
+            {% assign sublevel = include.level | plus: 3 %}
+            <li class="nav-item ms-{{ curlevel }}">
+                <a class="nav-link{% if active %} active{% endif %}" href="{{ purl }}">{{ pt.menu | default: pt.title }}</a>
+                {% include plugin-menu.html type=pt.type level=sublevel %}
+            </li>
+        {% endfor %}
     {% endif %}
 </li>

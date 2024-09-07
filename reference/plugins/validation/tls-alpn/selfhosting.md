@@ -1,8 +1,6 @@
 ---
 layout: plugin
-plugin_type: validation
-plugin_subtype: tls-alpn
-plugin: selfhosting
+plugin: a1565064-b208-4467-8ca1-1bd3c08aa500
 ---
 This plugin launches a temporary built-in TCP listener that stores the validation details in memory. This requires exclusive access to the port, so it cannot be used while another application is handling connections.
 

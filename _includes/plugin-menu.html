@@ -1,45 +1,24 @@
 {% assign indent = include.level | plus: 1 %}
-{% if include.subtype %}
-    {% assign plugins = site.data.plugins[include.type][include.subtype] %}
-{% else %}
-    {% assign plugins = site.data.plugins[include.type] %}
-{% endif %}
-{% assign plugins = plugins | sort_natural: "menu" %}
-
+{% assign plugins = site.data.plugins | where: "type", include.type | sort_natural: "name" %}
 {% for plugin in plugins %}
-    {% if plugin.page %}
-        {% assign slug = plugin.page %}
+    {% assign meta = site.data.meta | where: "id", plugin.id | first %}
+    {% if meta.page %}
+        {% assign slug = meta.page %}
     {% else %}
         {% assign slug = plugin.trigger %}  
     {% endif %}
-    {% if plugin.menu %}
-        {% assign label = plugin.menu %}
-    {% else %}
-        {% assign label = plugin.title %}  
-    {% endif %}    
-    {% if include.subtype %}
-        {% assign linkbase = '/reference/plugins/' | append: include.type | append: '/' | append: include.subtype %}
-    {% else %}
-        {% assign linkbase = '/reference/plugins/' | append: include.type %}
-    {% endif %}
+    {% assign section = plugin.type | replace: ".", "/" %}
+    {% assign linkbase = '/reference/plugins/' | append: section %}
     {% assign link = linkbase | append: '/' | append: slug %}
-    {% assign active=false %}
-    {% assign indent = include.level | plus: 1 %}
+    {% assign pluginactive = false %}
     {% assign url = link | append: '.html' %}
     {% assign url2 = link | append: '/' %}
     {% if page.url==link or page.url==url or page.url==url2 %}
-        {%assign active=true %}
+        {% assign pluginactive = true %}
     {% endif %}
-
     {% if page.url contains linkbase %}
-    {% if active %}
-    <li class="nav-item ms-{{ indent }}">
-        <a class="nav-link small active" href="{{ link }}">{{ label }}</a>
-    </li>
-    {% else %}
-    <li class="nav-item ms-{{ indent }}">
-        <a class="nav-link small" href="{{ link }}">{{ label }}</a>
-    </li>
-    {% endif %}
+        <li class="nav-item ms-{{ indent }}">
+            <a class="nav-link small {% if pluginactive %}active{% endif %}" href="{{ link }}">{{ plugin.name }}</a>
+        </li>
     {% endif %}
 {% endfor %}

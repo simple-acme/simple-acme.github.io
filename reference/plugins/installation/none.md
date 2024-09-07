@@ -1,6 +1,5 @@
 ---
 layout: plugin
-plugin: none
-plugin_type: installation
+plugin: aecc502c-5f75-43d2-b578-f95d50c79ea1
 ---
 Placeholder plugin used to prevent (additional) installation steps.

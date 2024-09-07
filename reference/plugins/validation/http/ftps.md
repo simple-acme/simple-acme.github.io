@@ -1,8 +1,6 @@
 ---
 layout: plugin
-plugin_type: validation
-plugin_subtype: http
-plugin: ftp
+plugin: bc27d719-dcf2-41ff-bf08-54db7ea49c48
 ---
 This plugin uploads the validation challenge to a (secure) FTP server.
 

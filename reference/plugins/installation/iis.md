@@ -1,7 +1,6 @@
 ---
 layout: plugin
-plugin: iis
-plugin_type: installation
+plugin: ea6a5be3-f8de-4d27-a6bd-750b619b2ee2
 ---
 
 ### Http binding update algorithm

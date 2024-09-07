@@ -1,802 +1,343 @@
-csr:
-  -
-    trigger: rsa
-    id: b9060d4b-c2d3-49ac-b37f-962e7c3cbe9d
-    title: RSA
-    menu: RSA
-    subtitle: Generate an RSA public/private key pair
-    default: 'Yes'
-    arguments:
-      - rsa.ocsp-must-staple
-      - rsa.reuse-privatekey
-    settings:
-      - Csr.Rsa.KeyBits
-      - Csr.Rsa.SignatureAlgorithm
-    compatibility: All platforms
-    examples:
-      - 
-        name: Typical
-        cmd: '[‑‑ocsp-must-staple] [‑‑reuse-privatekey]'
-  -
-    trigger: ec
-    id: 9aadcf71-5241-4c4f-aee1-bfe3f6be3489
-    title: Elliptic Curve
-    menu: EC
-    subtitle: Generate an EC public/private key pair 
-    arguments:
-      - ec.ocsp-must-staple
-      - ec.reuse-privatekey
-    settings:
-      - Csr.Ec.CurveName
-      - Csr.Ec.SignatureAlgorithm
-    compatibility: All platforms
-    examples:
-      - 
-        name: Typical
-        cmd: '[‑‑ocsp-must-staple] [‑‑reuse-privatekey]'
+-
+ name: "Custom CSR"
+ id: 5c3db0fb-840b-469f-b5a7-0635d8e9a93d
+ trigger: csr
+ description: "CSR created by another program"
+ type: source
 
-installation:
-  - 
-    trigger: iis
-    id: ea6a5be3-f8de-4d27-a6bd-750b619b2ee2
-    title: Manage IIS bindings
-    menu: IIS
-    subtitle: Create or update bindings in IIS
-    default: 'Yes'
-    arguments: 
-      - sslport
-      - sslipaddress
-      - installationsiteid
-    compatibility: Windows (admin only)
-    examples:
-        - 
-            name: Typical
-            cmd: '[‑‑installationsiteid 14] [‑‑sslport 8443] [‑‑sslipaddress 192.168.0.1]'
-  - 
-    trigger: script
-    id: 3bb22c70-358d-4251-86bd-11858363d913
-    title: Custom script
-    menu: script
-    subtitle: Start external script or program
-    arguments:
-      - script
-      - scriptparameters
-    settings:
-      - Script.PowershellExecutablePath
-      - Script.Timeout
-    compatibility: All platforms
-    examples:
-        - 
-            name: Typical
-            cmd: '‑‑script C:\script.bat [‑‑scriptparameters x]'
-  - 
-    trigger: none
-    id: aecc502c-5f75-43d2-b578-f95d50c79ea1
-    title: None
-    menu: None
-    subtitle: No (additional) installation steps
-    compatibility: All platforms
+-
+ name: "Manual input"
+ id: e239db3b-b42f-48aa-b64f-46d4f3e9941b
+ trigger: manual
+ description: "Manually enter host names"
+ type: source
 
-order:
-  - 
-    trigger: single
-    id: b705fa7c-1152-4436-8913-e433d7f84c82
-    title: Single
-    menu: Single
-    subtitle: Single certificate
-    default: 'Yes'
-    compatibility: All platforms
-  - 
-    trigger: host
-    id: 874a86e4-29c7-4294-9ab6-6908866847a0 
-    title: Host
-    menu: Host
-    subtitle: Separate certificate for each host (e.g. sub.example.com)
-    compatibility: All platforms
-  - 
-    trigger: domain
-    id: b7c331d4-d875-453e-b83a-2b537ca12535
-    title: Domain
-    menu: Domain
-    subtitle: Separate certificate for each registerable domain (e.g. *.example.com)
-    compatibility: All platforms
-  - 
-    trigger: site
-    id: 74a42b2d-8eaa-4f40-ab6a-f55304254143
-    title: Site
-    subtitle: Separate certificate for each IIS site
-    compatibility: Windows (*)
+-
+ name: "IIS bindings"
+ id: 54deb3ee-b5df-4381-8485-fe386054055b
+ trigger: iis
+ description: "Read bindings from IIS"
+ type: source
 
-source:
-  - 
-    trigger: iis
-    id: 54deb3ee-b5df-4381-8485-fe386054055b
-    title: IIS bindings
-    menu: IIS
-    subtitle: Read bindings from IIS
-    arguments:
-      - siteid
-      - iis.host
-      - host-pattern
-      - host-regex
-      - iis.commonname
-      - excludebindings
-      - host-type
-      - hidehttps
-    compatibility: Windows (admin only)
-    examples:
-        - 
-            name: Single binding
-            cmd: '‑‑host example.com [‑‑siteid 1]'
-        - 
-            name: More bindings
-            cmd: '‑‑host example.com,www.example.com [‑‑siteid 1,2,3] [‑‑commonname common.example.com]'
-        - 
-            name: All site bindings
-            cmd: '‑‑siteid 1 [‑‑commonname common.example.com] [‑‑excludebindings exclude.example.com]'
-        - 
-            name: Multiple sites
-            cmd: '‑‑siteid 1,2,3 [‑‑commonname common.example.com] [‑‑excludebindings exclude.example.com]'
-        - 
-            name: All sites
-            cmd: '‑‑siteid s [‑‑commonname common.example.com] [‑‑excludebindings exclude.example.com]'
-        - 
-            name: Pattern
-            cmd: '‑‑host-pattern *.example.??? [‑‑siteid 1,2,3] [‑‑commonname common.example.com] [‑‑excludebindings exclude.example.com]'
-        - 
-            name: Regex
-            cmd: '‑‑host-regex [a-z]{3}\.example(\.com|\.net) [‑‑siteid 1,2,3] [‑‑commonname common.example.com] [‑‑excludebindings exclude.example.com]'    
-  - 
-    trigger: manual
-    id: e239db3b-b42f-48aa-b64f-46d4f3e9941b
-    title: Manual input
-    menu: Manual
-    subtitle: Manually enter host names
-    arguments:
-      - manual.host
-      - manual.commonname
-    compatibility: All platforms
-    examples:
-        - 
-            name: Typical
-            cmd: '‑‑host a.example.com,*.example.com'   
-  - 
-    trigger: csr
-    id: 5c3db0fb-840b-469f-b5a7-0635d8e9a93d
-    title: Custom CSR
-    menu: CSR
-    subtitle: CSR created by another program
-    arguments:
-      - csrfile
-      - pkfile
-    compatibility: All platforms
-    examples:
-        - 
-            name: Typical
-            cmd: '‑‑csrfile C:\csr.txt [‑‑pkfile C:\key.txt]'
+-
+ name: "Manual"
+ id: e45d62b9-f9a8-441e-b95f-c5ee0dcd8040
+ trigger: manual
+ description: "Create verification records manually (auto-renew not possible)"
+ type: validation.dns
 
-store:
-  - 
-    trigger: certificatestore
-    id: e30adc8e-d756-4e16-a6f2-450f784b1a97
-    title: Windows Certificate Store
-    menu: Computer Store
-    subtitle: Add to Windows Certificate Store (Local Computer)
-    arguments:
-      - certificatestore
-      - keepexisting
-      - acl-fullcontrol
-      - acl-read
-    settings:
-      - Store.CertificateStore.DefaultStore
-      - Store.CertificateStore.PrivateKeyExportable
-      - Store.CertificateStore.UseNextGenerationCryptoApi
-    compatibility: Windows
-    examples:
-        - 
-            name: Typical
-            cmd: '[‑‑certificatestore My] [‑‑keepexisting] [‑‑acl-fullcontrol "network service,administrators"] [‑‑acl-read "myapp"]'  
-  - 
-    trigger: pemfiles
-    id: e57c70e4-cd60-4ba6-80f6-a41703e21031
-    menu: .pem
-    title: PEM files
-    subtitle: Create PEM encoded files (for Apache, nginx, etc.)
-    arguments:
-      - pemfilespath
-      - pempassword
-      - pemfilesname
-    settings:
-      - Store.PemFiles.DefaultPath
-      - Store.PemFiles.DefaultPassword
-    compatibility: All platforms
-    examples:
-        - 
-            name: Typical
-            cmd: '[‑‑pemfilespath C:\Certificates\] [‑‑pempassword ******] [‑‑pemfilesname mycert]' 
-  - 
-    trigger: pfxfile
-    id: 2a2c576f-7637-4ade-b8db-e8613b0bb33e
-    title: PFX file
-    menu: .pfx
-    subtitle: Create PFX/PKCS12 archive file
-    arguments:
-      - pfxfilepath
-      - pfxfilepassword
-      - pfxfilename
-    settings:
-      - Store.PfxFile.DefaultPath
-      - Store.PfxFile.DefaultPassword
-      - Store.PfxFile.DefaultProtectionMode
-    compatibility: All platforms
-    examples:
-        - 
-            name: Typical
-            cmd: '[‑‑pfxpassword *****] [‑‑pfxfilepath C:\Certificates\] [‑‑pfxfilename mycert]' 
-  - 
-    trigger: centralssl
-    id: af1f77b6-4e7b-4f96-bba5-c2eeb4d0dd42
-    menu: Central SSL
-    title: Central Certificate Store
-    subtitle: Add to IIS Central Certificate Store
-    arguments:
-      - centralsslstore
-      - centralssl.pfxpassword
-    settings:
-      - Store.CentralSsl.DefaultPath
-      - Store.CentralSsl.DefaultPassword
-      - Store.CentralSsl.DefaultProtectionMode
-    compatibility: All platforms
-    examples:
-        - 
-            name: Typical
-            cmd: '[‑‑centralsslstore C:\CentralSSL\] [‑‑pfxpassword *****]'   
-  - 
-    trigger: keyvault
-    external: true
-    id: dbfa91e2-28c0-4b37-857c-df6575dbb388
-    menu: Azure
-    title: Azure Key Vault
-    provider: Microsoft
-    subtitle: Store in Azure Key Vault
-    arguments:
-      - azureenvironment
-      - azureusemsi
-      - azuretenantid
-      - azureclientid
-      - azuresecret
-      - vaultname
-      - certificatename
-    compatibility: All platforms
-    examples:
-      - 
-        name: Service Principal
-        cmd: '‑‑azuretenantid 8a947dda-3ed2-40dc-8058-d7b212322ed2 ‑‑azureclientid e02a0517-412e-4e0a-996b-2693458a9232 ‑‑azuresecret ***** ‑‑vaultname MyVault ‑‑certificatename MyCertificate'
-      -
-        name: Managaged Identity
-        cmd: '‑‑azureusemsi ‑‑vaultname MyVault ‑‑certificatename MyCertificate'
-  - 
-    trigger: userstore
-    external: true
-    id: 95ee94e7-c8e2-40e6-a26f-c9fc3afa9fa5
-    menu: User Store
-    title: User Store
-    subtitle: Add to Windows Certificate Store (Current User)
-    arguments:
-      - keepexisting
-    compatibility: All platforms
-    examples:
-        - 
-            name: Typical
-            cmd: '[‑‑keepexisting]' 
-  - 
-    trigger: none
-    id: cfdd7caa-ba34-4e9e-b9de-2a3d64c4f4ec
-    title: None
-    subtitle: No (additional) store steps
-    compatibility: All platforms
+-
+ name: "Custom script"
+ id: 8f1da72e-f727-49f0-8546-ef69e5ecec32
+ trigger: script
+ description: "Create verification records with your own script"
+ type: validation.dns
 
-validation:
-  dns:
-    - 
-      trigger: acme-dns
-      id: c13acc1b-7571-432b-9652-7a68a5f506c5
-      title: acme-dns
-      menu: acme-dns
-      subtitle: Create verification records with acme-dns (https://github.com/joohoi/acme-dns)
-      arguments:
-        - acmednsserver
-      compatibility: All platforms
-      examples:
-        - 
-            name: Typical
-            cmd: '[‑‑acmednsserver https://acme-dns.example.com/]'   
-    - 
-      trigger: aliyun
-      external: true
-      page: alibaba
-      menu: Alibaba
-      id: 1d4db2ea-ce7c-46ce-b86f-40b356fcf999
-      title: Aliyun
-      provider: Alibaba
-      subtitle: Create verification records in ALiYun DNS
-      arguments:
-        - aliyunserver
-        - aliyunapiid
-        - aliyunapisecret
-      compatibility: All platforms
-      examples:
-        - 
-          name: Typical
-          cmd: ‑‑aliyunapiid ***** ‑‑aliyunapisecret ***** [‑‑aliyunserver dns.aliyuncs.com]
-    - 
-      trigger: azure
-      external: true
-      id: aa57b028-45fb-4aca-9cac-a63d94c76b4a
-      title: Azure DNS
-      provider: Microsoft
-      menu: Azure
-      subtitle: Create verification records in Microsoft Azure DNS
-      arguments:
-        - azureenvironment
-        - azureusemsi
-        - azuretenantid
-        - azureclientid
-        - azuresecret
-        - azuresubscriptionid
-        - azureresourcegroupname
-        - azurehostedzone
-      compatibility: All platforms
-      examples:
-        - 
-          name: Service Principal
-          cmd: '‑‑azuretenantid 9741a4c9-0e0b-4f35-abbe-9af735194804 ‑‑azureclientid 2a32943f-e46b-469c-a42d-eb5c54bf798d ‑‑azuresecret ***** ‑‑azuresubscriptionid 6c1e8002-c547-4e93-a9b3-7163f51c380e ‑‑azureresourcegroupname myresourcegroup [‑‑azurehostedzone zone.example.com]'
-        -
-          name: Managaged Identity
-          cmd: '‑‑azureusemsi ‑‑azuresubscriptionid 6c1e8002-c547-4e93-a9b3-7163f51c380e ‑‑azureresourcegroupname myresourcegroup [‑‑azurehostedzone zone.example.com]'
-    - 
-      external: true
-      trigger: gpcdns
-      page: clouddns
-      download: googledns
-      id: b61505e9-1709-43fd-996f-c74c3686286c
-      title: Google Cloud DNS
-      provider: Google
-      menu: Google
-      subtitle: Create verification records in Google Cloud DNS
-      arguments:
-        - serviceaccountkey
-        - projectid
-      compatibility: All platforms
-      examples:
-        - 
-          name: Typical
-          cmd: ‑‑serviceaccountkey C:\gcp\key.txt ‑‑projectid example
-    - 
-      trigger: cloudflare
-      external: true
-      id: 73af2c2e-4cf1-4198-a4c8-1129003cfb75
-      title: Cloudflare
-      menu: Cloudflare
-      subtitle: Create verification records in Cloudflare DNS
-      arguments:
-        - cloudflareapitoken
-      compatibility: All platforms
-      examples:
-        -
-          name: Typical
-          cmd: ‑‑cloudflareapitoken *****
-    - 
-      trigger: digitalocean
-      external: true
-      menu: DigitalOcean
-      id: 1a87d670-3fa3-4a2a-bb10-491d48feb5db
-      title: DigitalOcean
-      subtitle: Create verification records on DigitalOcean
-      arguments:
-        - digitaloceanapitoken
-      compatibility: All platforms
-      examples:
-        -
-          name: Typical
-          cmd: ‑‑digitaloceanapitoken *****
-    - 
-      trigger: dnsexit
-      external: true
-      id: c9017182-1000-4257-a8da-0553cd1490ec
-      title: DNSExit
-      menu: DNSExit
-      subtitle: Create verification records in Dnsexit DNS
-      arguments:
-        - dnsexit.apikey
-      compatibility: All platforms
-      examples:
-        -
-          name: Typical
-          cmd: ‑‑apikey *****
-    - 
-      trigger: dnsmadeeasy
-      external: true
-      id: 13993334-2d74-4ff6-801b-833b99bf231d
-      title: DNS Made Easy
-      provider: Digicert
-      menu: DNS Made Easy
-      subtitle: Create verification records in DnsMadeEasy DNS
-      arguments:
-        - dnsmadeeasy.apikey
-        - dnsmadeeasy.apisecret
-      compatibility: All platforms
-      examples:
-        -
-          name: Typical
-          cmd: ‑‑apikey abc ‑‑apisecret *****
-    - 
-      trigger: domene
-      external: true
-      id: 0bd9b320-08e0-4bfe-a535-b979886187e4
-      title: Domeneshop
-      menu: Domeneshop
-      subtitle: Create verification records in Domeneshop DNS
-      arguments:
-        - domene.clientid
-        - domene.clientsecret
-      compatibility: All platforms
-      examples:
-        -
-          name: Typical
-          cmd: ‑‑clientid myclientid ‑‑clientsecret *****
-    - 
-      trigger: dreamhost
-      external: true
-      id: 2bfb3ef8-64b8-47f1-8185-ea427b793c1a
-      title: DreamHost
-      menu: DreamHost
-      subtitle: Create verification records in Dreamhost DNS
-      arguments:
-        - dreamhost.apikey
-      compatibility: All platforms
-      examples:
-        -
-          name: Typical
-          cmd: ‑‑apikey *****
-    - 
-      trigger: godaddy
-      external: true
-      id: 966c4c3d-1572-44c7-9134-5e2bc8fa021d
-      title: GoDaddy
-      menu: GoDaddy
-      subtitle: Create verification records in Godaddy DNS
-      arguments:
-        - godaddy.apikey
-        - godaddy.apisecret
-      compatibility: All platforms
-      examples:
-        -
-          name: Typical
-          cmd: ‑‑apikey mykey ‑‑apisecret *****
-    - 
-      trigger: hetzner
-      external: true
-      id: 7176cc8f-ba08-4b07-aa39-2f5d012c1d5a
-      title: Hetzner
-      menu: Hetzner
-      subtitle: Create verification records in Hetzner DNS
-      arguments:
-        - hetznerapitoken
-        - hetznerzoneid
-      compatibility: All platforms
-      examples:
-        -
-          name: Typical
-          cmd: ‑‑hetznerapitoken ***** [‑‑hetznerzoneId 1234]
-    - 
-      trigger: infomaniak
-      external: true
-      id: d1401d1e-b925-407d-a38b-924d67b2d1b5
-      title: Infomaniak
-      menu: Infomaniak
-      subtitle: Create verification records in Infomaniak DNS
-      arguments:
-        - infomaniak.apitoken
-      compatibility: All platforms
-      examples:
-        -
-          name: Typical
-          cmd: ‑‑apitoken *****
-    - 
-      trigger: linode
-      external: true
-      id: 12fdc54c-be30-4458-8066-2c1c565fe2d9
-      title: Linode
-      provider: Akamai
-      menu: Linode
-      subtitle: Create verification records in Linode DNS
-      arguments:
-        - linode.apitoken
-      compatibility: All platforms
-      examples:
-        -
-          name: Typical
-          cmd: ‑‑apitoken *****
-    - 
-      trigger: lua
-      external: true
-      id: 3b0c3cca-db98-40b7-b678-b34791070d42
-      title: LuaDNS
-      menu: LuaDNS
-      subtitle: Create verification records in LuaDns
-      arguments:
-        - luadnsusername
-        - luadnsapikey
-      compatibility: All platforms
-      examples:
-        -
-          name: Typical
-          cmd: ‑‑luadnsusername myusername ‑‑luadnsapikey *****
-    - 
-      trigger: manual
-      id: e239db3b-b42f-48aa-b64f-46d4f3e9941b
-      title: Manual
-      menu: Manual
-      subtitle: Manually create DNS records
-      compatibility: All platforms
-      examples:
-        -
-          name: Typical
-          cmd: 
-    - 
-      trigger: ns1
-      external: true
-      id: c66cc8be-3046-46c2-a0ba-ec4ec3e7fe96
-      title: NS1/NSONE
-      provider: IBM
-      menu: NS1
-      subtitle: Create verification records in NS1 DNS
-      arguments:
-        - ns1.apikey
-      compatibility: All platforms
-      examples:
-        -
-          name: Typical
-          cmd: ‑‑apikey *****
-    - 
-      trigger: rfc2136
-      external: true
-      id: ed5dc9d1-739c-4f6a-854f-238bf65b63ee
-      title: RFC2136
-      menu: RFC2136
-      subtitle: Create verification records using dynamic updates (RFC2136)
-      arguments:
-        - serverhost
-        - serverport
-        - tsigkeyname
-        - tsigkeysecret
-        - tsigkeyalgorithm
-      compatibility: All platforms
-      examples:
-        -
-          name: Typical
-          cmd: ‑‑serverhost 10.10.10.10 [‑‑serverport 53] ‑‑tsigkeyname mykey ‑‑tsigkeysecret ***** [‑‑tsigkeyalgorithm md5]
-    - 
-      trigger: route53
-      external: true
-      id: 4e5dc595-45c7-4461-929a-8f96a0c96b3d
-      title: Route 53
-      menu: Route 53
-      provider: Amazon AWS
-      subtitle: Create verification records in Amazon AWS Route 53
-      arguments:
-        - route53iamrole
-        - route53accesskeyid
-        - route53secretaccesskey
-      compatibility: All platforms
-      examples:
-        -
-          name: User
-          cmd: ‑‑route53accesskeyid mykeyid ‑‑route53secretaccesskey *****
-        - 
-          name: IAM role
-          cmd: ‑‑route53iamrole myrole
-    - 
-      trigger: script
-      id: 8f1da72e-f727-49f0-8546-ef69e5ecec32
-      title: Custom script
-      menu: Script
-      subtitle: Create verification records with your own script
-      arguments:
-        - dnsscript
-        - dnscreatescript
-        - dnscreatescriptarguments
-        - dnsdeletescript
-        - dnsdeletescriptarguments
-        - dnsscriptparallelism
-      settings:
-        - Script.PowershellExecutablePath
-        - Script.Timeout
-        - Validation.DisableMultiThreading
-      compatibility: All platforms
-      examples:
-        -
-          name: Create script only
-          cmd: ‑‑dnscreatescript c:\create.ps1 [‑‑dnscreatescriptarguments {args}]
-        -
-          name: Separate create and delete scripts
-          cmd: ‑‑dnscreatescript c:\create.ps1 ‑‑dnsdeletescript c:\delete.ps1 [‑‑dnscreatescriptarguments {args}] [‑‑dnsdeletescriptarguments {args}]
-        - 
-          name: Combined script
-          cmd: ‑‑dnsscript c:\create-and-delete.ps1 [‑‑dnscreatescriptarguments {args}] [‑‑dnsdeletescriptarguments {args}]
-    - 
-      trigger: simply
-      external: true
-      id: 3693c40c-7c2f-4b70-aead-27869d8cbdf3
-      title: Simply.com
-      menu: Simply.com
-      subtitle: Create verification records in Simply DNS
-      arguments:
-        - simply.account
-        - simply.apikey
-      compatibility: All platforms
-      examples:
-        -
-          name: Typical
-          cmd: ‑‑account myaccount ‑‑apikey *****
-    - 
-      trigger: tencent
-      external: true
-      id: 6ea628c3-0f74-68bb-cf17-4fdd3d53f3af
-      title: Tencent Cloud
-      menu: Tencent
-      subtitle: Create verification records in Tencent DNS
-      arguments:
-        - tencentapiid
-        - tencentapikey
-      compatibility: All platforms
-      examples:
-        -
-          name: Typical
-          cmd: ‑‑tencentapiid myapiid ‑‑tencentapikey *****
-    - 
-      trigger: transip
-      external: true
-      id: c49a7a9a-f8c9-494a-a6a4-c6b9daae7d9d
-      title: TransIP
-      menu: TransIP
-      subtitle: Create verification records at TransIp
-      arguments:
-        - transip-login
-        - transip-privatekey
-        - transip-privatekeyfile
-      compatibility: All platforms
-      examples:
-        -
-          name: Inline key
-          cmd: ‑‑transip-login mylogin ‑‑transip-privatekey "---- BEGIN PRIVATE KEY ---- **** ---- END PRIVATE KEY ----"
-        -
-          name: Key on disk
-          cmd: ‑‑transip-login mylogin ‑‑transip-privatekeyfile C:\transip.key
+-
+ name: "Filesystem"
+ id: 1c77b3a4-5310-4c46-92c6-00d866e84d6b
+ trigger: filesystem
+ description: "Save verification files on (network) path"
+ type: validation.http
 
-  http:
-    - 
-      trigger: selfhosting
-      id: c7d5e050-9363-4ba1-b3a8-931b31c618b7
-      title: Self-hosting
-      menu: Self-hosting
-      subtitle: Let simple-acme answer HTTP validation request
-      arguments:
-        - selfhosting.validationport
-        - validationprotocol
-      settings:
-        - Execution.DefaultPreExecutionScript
-        - Execution.DefaultPostExecutionScript
-      compatibility: All platforms
-      examples:
-        -
-          name: Typical
-          cmd: '[‑‑validationport 8080] [‑‑validationprotocol https]'
-    - 
-      trigger: filesystem
-      id: 1c77b3a4-5310-4c46-92c6-00d866e84d6b
-      title: Filesystem
-      menu: Filesystem
-      subtitle: Save verification files on (network) path
-      arguments:
-        - filesystem.webroot
-        - filesystem.manualtargetisiis
-        - validationsiteid
-      settings:
-        - Validation.CleanupFolders
-      compatibility: All platforms
-      examples:
-        -
-          name: Path from IIS
-          cmd: '‑‑validationsiteid 1'
-        -
-          name: Manual path
-          cmd: '‑‑webroot c:\httpdocs\'
-    -
-      trigger: ftp
-      page: ftps
-      id: bc27d719-dcf2-41ff-bf08-54db7ea49c48
-      title: FTP(S)
-      menu: FTP(S)
-      subtitle: Upload verification files via FTP(S)
-      arguments:
-        - ftp.webroot
-        - ftp.manualtargetisiis
-        - ftp.username
-        - ftp.password
-      settings:
-        - Validation.CleanupFolders
-        - Validation.Ftp.UseGnuTls 
-      compatibility: All platforms
-      examples:
-        -
-          name: Typical
-          cmd: ‑‑webroot ftps://ftp.example.com:990/path/ ‑‑username simpleacme ‑‑password *****
-    - 
-      trigger: sftp
-      id: 048aa2e7-2bce-4d3e-b731-6e0ed8b8170d
-      title: SFTP
-      menu: SFTP
-      subtitle: Upload verification files via SSH-FTP
-      arguments:
-        - sftp.webroot
-        - sftp.manualtargetisiis
-        - sftp.username
-        - sftp.password
-      settings:
-        - Validation.CleanupFolders
-      compatibility: All platforms
-      examples:
-        -
-          name: Typical
-          cmd: '‑‑webroot sftp://example.com/path/ ‑‑username simple-acme ‑‑password *****'
-    - 
-      trigger: webdav
-      id: 7e191d0e-30d1-47b3-ae2e-442499d33e16
-      title: WebDav
-      menu: WebDav
-      subtitle: Upload verification files via WebDav
-      arguments:
-        - webdav.webroot
-        - webdav.manualtargetisiis
-        - webdav.username
-        - webdav.password
-      settings:
-        - Validation.CleanupFolders
-      compatibility: All platforms
-      examples:
-        -
-          name: Typical
-          cmd: '‑‑webroot webdav://example.com/path/ ‑‑username simple-acme ‑‑password *****'
-    - 
-      trigger: rest
-      external: true
-      id: 11ba2994-ea59-4f2f-b9eb-0eaa2fa3cbfa
-      title: REST request
-      menu: REST
-      subtitle: Send verification files to the server by issuing REST request
-      arguments:
-        - rest-securitytoken
-        - rest-usehttps
-      settings:
-      compatibility: All platforms
-      examples:
-        -
-          name: Typical
-          cmd: '‑‑rest-securitytoken ***** [‑‑rest-usehttps]'
+-
+ name: "Self-hosting"
+ id: c7d5e050-9363-4ba1-b3a8-931b31c618b7
+ trigger: selfhosting
+ description: "Let simple-acme answer HTTP validation request"
+ type: validation.http
 
-  tls-alpn:
-    - 
-      trigger: selfhosting
-      id: a1565064-b208-4467-8ca1-1bd3c08aa500
-      title: Self-hosting
-      menu: Self-hosting
-      subtitle: Let simple-acme answer TLS validation request
-      arguments:
-        - tls-alpn.validationport
-      compatibility: All platforms
-      examples:
-        -
-          name: Typical
-          cmd: '[‑‑validationport 4330]'
+-
+ name: "Self-hosting"
+ id: a1565064-b208-4467-8ca1-1bd3c08aa500
+ trigger: selfhosting
+ description: "Let simple-acme answer TLS validation request"
+ type: validation.tls-alpn
+
+-
+ name: "acme-dns"
+ id: c13acc1b-7571-432b-9652-7a68a5f506c5
+ trigger: acme-dns
+ description: "Create verification records with acme-dns (https://github.com/joohoi/acme-dns)"
+ type: validation.dns
+
+-
+ name: "Aliyun"
+ id: 1d4db2ea-ce7c-46ce-b86f-40b356fcf999
+ trigger: aliyun
+ description: "Create verification records in ALiYun DNS"
+ type: validation.dns
+
+-
+ name: "Azure DNS"
+ id: aa57b028-45fb-4aca-9cac-a63d94c76b4a
+ trigger: azure
+ description: "Create verification records in Azure DNS"
+ type: validation.dns
+
+-
+ name: "Cloudflare"
+ id: 73af2c2e-4cf1-4198-a4c8-1129003cfb75
+ trigger: cloudflare
+ description: "Create verification records in Cloudflare DNS"
+ type: validation.dns
+
+-
+ name: "DigitalOcean"
+ id: 1a87d670-3fa3-4a2a-bb10-491d48feb5db
+ trigger: digitalocean
+ description: "Create verification records on DigitalOcean"
+ type: validation.dns
+
+-
+ name: "DNSExit"
+ id: c9017182-1000-4257-a8da-0553cd1490ec
+ trigger: dnsexit
+ description: "Create verification records in Dnsexit DNS"
+ type: validation.dns
+
+-
+ name: "DNS Made Easy"
+ id: 13993334-2d74-4ff6-801b-833b99bf231d
+ trigger: dnsmadeeasy
+ description: "Create verification records in DnsMadeEasy DNS"
+ type: validation.dns
+
+-
+ name: "Domeneshop"
+ id: 0bd9b320-08e0-4bfe-a535-b979886187e4
+ trigger: domeneshop
+ description: "Create verification records in Domeneshop DNS"
+ type: validation.dns
+
+-
+ name: "DreamHost"
+ id: 2bfb3ef8-64b8-47f1-8185-ea427b793c1a
+ trigger: dreamhost
+ description: "Create verification records in Dreamhost DNS"
+ type: validation.dns
+
+-
+ name: "FTP(S)"
+ id: bc27d719-dcf2-41ff-bf08-54db7ea49c48
+ trigger: ftp
+ description: "Upload verification files via FTP(S)"
+ type: validation.http
+
+-
+ name: "GoDaddy"
+ id: 966c4c3d-1572-44c7-9134-5e2bc8fa021d
+ trigger: godaddy
+ description: "Create verification records in Godaddy DNS"
+ type: validation.dns
+
+-
+ name: "Google Cloud DNS"
+ id: b61505e9-1709-43fd-996f-c74c3686286c
+ trigger: gcpdns
+ description: "Create verification records in Google Cloud DNS"
+ type: validation.dns
+
+-
+ name: "Hetzner"
+ id: 7176cc8f-ba08-4b07-aa39-2f5d012c1d5a
+ trigger: hetzner
+ description: "Create verification records in Hetzner DNS"
+ type: validation.dns
+
+-
+ name: "Infomaniak"
+ id: d1401d1e-b925-407d-a38b-924d67b2d1b5
+ trigger: infomaniak
+ description: "Create verification records in Infomaniak DNS"
+ type: validation.dns
+
+-
+ name: "Linode"
+ id: 12fdc54c-be30-4458-8066-2c1c565fe2d9
+ trigger: linode
+ description: "Create verification records in Linode DNS"
+ type: validation.dns
+
+-
+ name: "LuaDNS"
+ id: 3b0c3cca-db98-40b7-b678-b34791070d42
+ trigger: luadns
+ description: "Create verification records in LuaDNS"
+ type: validation.dns
+
+-
+ name: "NS1/NSONE"
+ id: c66cc8be-3046-46c2-a0ba-ec4ec3e7fe96
+ trigger: ns1
+ description: "Create verification records in NS1 DNS"
+ type: validation.dns
+
+-
+ name: "REST request"
+ id: 11ba2994-ea59-4f2f-b9eb-0eaa2fa3cbfa
+ trigger: rest
+ description: "Send verification files to the server by issuing an http(s) request"
+ type: validation.http
+
+-
+ name: "RFC2136"
+ id: ed5dc9d1-739c-4f6a-854f-238bf65b63ee
+ trigger: rfc2136
+ description: "Create verification records using dynamic updates"
+ type: validation.dns
+
+-
+ name: "Route 53"
+ id: 4e5dc595-45c7-4461-929a-8f96a0c96b3d
+ trigger: route53
+ description: "Create verification records in AWS Route 53"
+ type: validation.dns
+
+-
+ name: "SFTP"
+ id: 048aa2e7-2bce-4d3e-b731-6e0ed8b8170d
+ trigger: sftp
+ description: "Upload verification files via SSH-FTP"
+ type: validation.http
+
+-
+ name: "Simply.com"
+ id: 3693c40c-7c2f-4b70-aead-27869d8cbdf3
+ trigger: simply
+ description: "Create verification records in Simply DNS"
+ type: validation.dns
+
+-
+ name: "Tencent Cloud"
+ id: 6ea628c3-0f74-68bb-cf17-4fdd3d53f3af
+ trigger: tencent
+ description: "Create verification records in Tencent DNS"
+ type: validation.dns
+
+-
+ name: "TransIP"
+ id: c49a7a9a-f8c9-494a-a6a4-c6b9daae7d9d
+ trigger: transip
+ description: "Create verification records at TransIp"
+ type: validation.dns
+
+-
+ name: "WebDav"
+ id: 7e191d0e-30d1-47b3-ae2e-442499d33e16
+ trigger: webdav
+ description: "Upload verification files via WebDav"
+ type: validation.http
+
+-
+ name: "Domain"
+ id: b7c331d4-d875-453e-b83a-2b537ca12535
+ trigger: domain
+ description: "Separate certificate for each registerable domain (e.g. *.example.com)"
+ type: order
+
+-
+ name: "Host"
+ id: 874a86e4-29c7-4294-9ab6-6908866847a0
+ trigger: host
+ description: "Separate certificate for each host (e.g. sub.example.com)"
+ type: order
+
+-
+ name: "Single"
+ id: b705fa7c-1152-4436-8913-e433d7f84c82
+ trigger: single
+ description: "Single certificate"
+ type: order
+
+-
+ name: "Site"
+ id: 74a42b2d-8eaa-4f40-ab6a-f55304254143
+ trigger: site
+ description: "Separate certificate for each IIS site"
+ type: order
+
+-
+ name: "Elliptic Curve"
+ id: 9aadcf71-5241-4c4f-aee1-bfe3f6be3489
+ trigger: ec
+ description: "Generate an EC public/private key pair"
+ type: csr
+
+-
+ name: "RSA"
+ id: b9060d4b-c2d3-49ac-b37f-962e7c3cbe9d
+ trigger: rsa
+ description: "Generate an RSA public/private key pair"
+ type: csr
+
+-
+ name: "Windows Certificate Store"
+ id: e30adc8e-d756-4e16-a6f2-450f784b1a97
+ trigger: certificatestore
+ description: "Add to Windows Certificate Store (Local Computer)"
+ type: store
+
+-
+ name: "PEM files"
+ id: e57c70e4-cd60-4ba6-80f6-a41703e21031
+ trigger: pemfiles
+ description: "Create PEM encoded files (for Apache, nginx, etc.)"
+ type: store
+
+-
+ name: "PFX file"
+ id: 2a2c576f-7637-4ade-b8db-e8613b0bb33e
+ trigger: pfxfile
+ description: "Create PFX/PKCS12 archive file"
+ type: store
+
+-
+ name: "None"
+ id: cfdd7caa-ba34-4e9e-b9de-2a3d64c4f4ec
+ trigger: none
+ description: "No (additional) store steps"
+ type: store
+
+-
+ name: "Central Certificate Store"
+ id: af1f77b6-4e7b-4f96-bba5-c2eeb4d0dd42
+ trigger: centralssl
+ description: "Add to IIS Central Certificate Store"
+ type: store
+
+-
+ name: "Azure Key Vault"
+ id: dbfa91e2-28c0-4b37-857c-df6575dbb388
+ trigger: keyvault
+ description: "Store in Azure Key Vault"
+ type: store
+
+-
+ name: "User Store"
+ id: 95ee94e7-c8e2-40e6-a26f-c9fc3afa9fa5
+ trigger: userstore
+ description: "Add to Windows Certificate Store (Current User)"
+ type: store
+
+-
+ name: "Custom script"
+ id: 3bb22c70-358d-4251-86bd-11858363d913
+ trigger: script
+ description: "Start external script or program"
+ type: installation
+
+-
+ name: "None"
+ id: aecc502c-5f75-43d2-b578-f95d50c79ea1
+ trigger: none
+ description: "No (additional) installation steps"
+ type: installation
+
+-
+ name: "Manage IIS bindings"
+ id: ea6a5be3-f8de-4d27-a6bd-750b619b2ee2
+ trigger: iis
+ description: "Create or update bindings in IIS"
+ type: installation
+

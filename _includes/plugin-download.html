@@ -1,52 +1,28 @@
 <div class="table-responsive my-4 me-5 pe-5">
     <table class="table table-striped">
-{% if include.subtype %}
-    {% assign plugins = site.data.plugins[include.type][include.subtype] %}
-{% else %}
-    {% assign plugins = site.data.plugins[include.type] %}
-{% endif %}
-{% assign plugins = plugins | where: "external", true | sort_natural: "title" %}
+{% assign plugins = site.data.plugins | where: "type", include.type | sort_natural: "name" %}
 {% for plugin in plugins %}
-    {% if plugin.page %}
-        {% assign slug = plugin.page %}
+    {% assign meta = site.data.meta | where: "id", plugin.id | first %}
+    {% unless meta.external %}
+        {% continue %}
+    {% endunless %}
+    {% if meta.download %} 
+        {% assign file = meta.download %}
     {% else %}
-        {% assign slug = plugin.trigger %}  
+        {% assign file = plugin.trigger %}
     {% endif %}
-    {% if plugin.download %}
-        {% assign zip = plugin.download %}
-    {% else %}
-        {% assign zip = plugin.trigger %}  
-    {% endif %}
-    {% if include.subtype %}
-        {% assign link = '/reference/plugins/' | append: include.type | append: '/' | append: include.subtype | append: '/' | append: slug %}
-    {% else %}
-        {% assign link = '/reference/plugins/' | append: include.type | append: '/' | append: slug %}
-    {% endif %}
-    {% if include.subtype %}
-        {% assign download = "plugin." | 
-            append: include.type | 
-            append: "." | 
-            append: include.subtype | 
-            append: "." | 
-            append: zip | 
-            append: ".v" | 
-            append: site.releasebuild | 
-            append: ".zip"
-        %} 
-    {% else %}
-        {% assign download = "plugin." | 
-            append: include.type | 
-            append: "." | 
-            append: zip | 
-            append: ".v" | 
-            append: site.releasebuild | 
-            append: ".zip"
-        %}
-    {% endif %}
+    {% assign download = "plugin." | 
+        append: include.type | 
+        append: "." | 
+        append: file | 
+        append: ".v" | 
+        append: site.releasebuild | 
+        append: ".zip"
+    %}
 <tr>
-    <td class="col-md-2"><a href="https://github.com/simple-acme/simple-acme/releases/download/v{{ site.releasetag }}/{{download}}">{{plugin.title}}</a></td>
-    <td class="col-md-2">{{plugin.provider}}</td>
-    <td class="col-md-2"><a href="{{ link }}">documentation</a></td>
+    <td class="col-md-2"><a href="https://github.com/simple-acme/simple-acme/releases/download/v{{ site.releasetag }}/{{download}}">{{plugin.name}}</a></td>
+    <td class="col-md-2">{{meta.provider}}</td>
+    <td class="col-md-2">{% include plugin-link.html plugin=plugin meta=meta title='documentation' %}</td>
     <td class="col-md-2"></td>
 </tr>
 {% endfor %}

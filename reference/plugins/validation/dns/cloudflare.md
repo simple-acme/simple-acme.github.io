@@ -1,8 +1,6 @@
 ---
 layout: plugin
-plugin_type: validation
-plugin_subtype: dns
-plugin: cloudflare
+plugin: 73af2c2e-4cf1-4198-a4c8-1129003cfb75
 ---
 Create the record in [Cloudflare DNS](https://www.cloudflare.com/dns/). To use this plugin you'll need to obtain a Cloudflare API Token (not Key) that is allowed
 to read and write the DNS records of the zone your domain belongs to.

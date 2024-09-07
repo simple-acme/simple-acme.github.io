@@ -1,8 +1,6 @@
 ---
 layout: plugin
-plugin_type: validation
-plugin_subtype: dns
-plugin: manual
+plugin: e45d62b9-f9a8-441e-b95f-c5ee0dcd8040
 ---
 The client will show the record that is supposed to be created on screen and you will create it manually by whatever means necessary.
 

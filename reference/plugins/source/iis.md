@@ -1,8 +1,8 @@
 ---
 layout: plugin
-plugin_type: source
-plugin: iis                                                
+plugin: 54deb3ee-b5df-4381-8485-fe386054055b
 ---
+
 Create source based on bindings configured in IIS. Automatically updates webroot path (useful for [filesystem validation](/reference/plugins/validation/http/filesystem))
 
 # Filtering bindings

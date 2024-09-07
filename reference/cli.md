@@ -14,25 +14,25 @@ will fail. Instead you need to type `‑‑key "\"-foo\""`.
 
 # Main
 These are the main arguments used to control the programs unattended operation.
-{% assign main = site.data.arguments2 | where: "name", "Main" | first %}
+{% assign main = site.data.arguments | where: "name", "Main" | first %}
 {% include arguments-group.html arguments = main.arguments %}
 
 # Account
 These arguments are used to create a new account for the ACME client during an initial automated run.
-{% assign account = site.data.arguments2 | where: "name", "Account" | first %}
+{% assign account = site.data.arguments | where: "name", "Account" | first %}
 {% include arguments-group.html arguments = account.arguments %}
 
 
-{% for pt in site.data.plugintypes %}
-  {% assign arguments = site.data.arguments2 | where: "plugintype", pt.type | sort_natural: "name" %}
+{% for pt in site.data.types %}
+  {% assign arguments = site.data.arguments | where: "plugintype", pt.type | sort_natural: "name" %}
   {% if arguments.size == 0 %}
     {% continue %}
   {% endif %}
   <h2>{{ pt.title }} </h2>
   {% for argument in arguments %}
   <h3>➡️ {{ argument.name }} </h3>
-    {% assign plugin = site.data.plugins2 | where: "id", argument.pluginid | first %}
-    {% assign plugin-meta = site.data.plugins-meta | where: "id", argument.pluginid | first %}
+    {% assign plugin = site.data.plugins | where: "id", argument.pluginid | first %}
+    {% assign plugin-meta = site.data.meta | where: "id", argument.pluginid | first %}
     {% if plugin-meta.external %}
  <div class="callout-block callout-block-warning pb-1 mt-3">
     <div class="content">
@@ -44,7 +44,7 @@ These arguments are used to create a new account for the ACME client during an i
     {% unless argument.condition == nil %}
 <code>[{{ argument.condition }}]</code>
     {% endunless %}
-    ({% include plugin-link.html plugin=plugin title='documentation' %})
+    ({% include plugin-link.html plugin=plugin meta=plugin-meta title='documentation' %})
 </p>
  {% include arguments-group.html arguments = argument.arguments %}
   {% endfor %}

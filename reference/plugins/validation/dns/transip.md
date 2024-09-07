@@ -1,8 +1,6 @@
 ---
 layout: plugin
-plugin_type: validation
-plugin_subtype: dns
-plugin: transip
+plugin: c49a7a9a-f8c9-494a-a6a4-c6b9daae7d9d
 ---
 Create the record at [TransIP](https://www.transip.nl/). Note that this provider is not very fast updating its records after their API has accepted the changes, so it's highly recommended to roughly double either `PreValidateDnsRetryCount` and/or `PreValidateDnsRetryInterval` when using DNS validation through them.
 

@@ -5,14 +5,20 @@
   type: order
   title: Order
 -
+  type: validation
+  title: Validation
+-
   type: validation.http
-  title: HTTP validation
+  menu: "> HTTP"
+  title: "HTTP validation"
 -
   type: validation.dns
-  title: DNS validation
+  title: "DNS validation"
+  menu: "> DNS"
 -
   type: validation.tls-alpn
-  title: TLS validation
+  title: "TLS validation"
+  menu: "> TLS"
 -
   type: csr
   title: CSR

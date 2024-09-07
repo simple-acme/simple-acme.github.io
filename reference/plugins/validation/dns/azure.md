@@ -1,8 +1,6 @@
 ---
 layout: plugin
-plugin_type: validation
-plugin_subtype: dns
-plugin: azure
+plugin: aa57b028-45fb-4aca-9cac-a63d94c76b4a
 ---
 Create the record in Microsoft [Azure DNS](https://azure.microsoft.com/en-us/services/dns/).
 

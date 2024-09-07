@@ -1,7 +1,6 @@
 ---
 layout: plugin
-plugin_type: store
-plugin: centralssl                                  
+plugin: af1f77b6-4e7b-4f96-bba5-c2eeb4d0dd42                                  
 ---
 
 Designed for the [Central Certificate Store](https://blogs.msdn.microsoft.com/kaushal/2012/10/11/central-certificate-store-ccs-with-iis-8-windows-server-2012/) 

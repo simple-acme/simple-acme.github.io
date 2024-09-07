@@ -45,8 +45,8 @@ Plugins only work with the full build of the program. It is recommended to upgra
 
 ### Validation
 #### DNS
-{% include plugin-download.html type='validation' subtype='dns' %}
+{% include plugin-download.html type='validation.dns' %}
 
 #### HTTP
-{% include plugin-download.html type='validation' subtype='http' %}
+{% include plugin-download.html type='validation.http' %}
 
