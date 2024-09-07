@@ -1,12 +1,7 @@
 {% assign indent = include.level | plus: 1 %}
 {% assign plugins = site.data.plugins | where: "type", include.type | sort_natural: "name" %}
 {% for plugin in plugins %}
-    {% assign meta = site.data.meta | where: "id", plugin.id | first %}
-    {% if meta.page %}
-        {% assign slug = meta.page %}
-    {% else %}
-        {% assign slug = plugin.trigger %}  
-    {% endif %}
+    {% assign slug = plugin.page | default: plugin.trigger %}
     {% assign section = plugin.type | replace: ".", "/" %}
     {% assign linkbase = '/reference/plugins/' | append: section %}
     {% assign link = linkbase | append: '/' | append: slug %}

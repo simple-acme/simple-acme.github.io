@@ -1,6 +1,15 @@
 ---
 layout: plugin
 plugin: bc27d719-dcf2-41ff-bf08-54db7ea49c48
+menu: FTP(S)
+settings:
+   - Validation.CleanupFolders
+   - Validation.Ftp.UseGnuTls 
+compatibility: All platforms
+examples:
+   -
+      name: Typical
+      cmd: ‑‑webroot ftps://ftp.example.com:990/path/ ‑‑username simpleacme ‑‑password *****
 ---
 This plugin uploads the validation challenge to a (secure) FTP server.
 

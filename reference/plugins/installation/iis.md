@@ -1,6 +1,11 @@
 ---
 layout: plugin
 plugin: ea6a5be3-f8de-4d27-a6bd-750b619b2ee2
+compatibility: Windows (admin only)
+examples:
+      - 
+          name: Typical
+          cmd: '[‑‑installationsiteid 14] [‑‑sslport 8443] [‑‑sslipaddress 192.168.0.1]'
 ---
 
 ### Http binding update algorithm

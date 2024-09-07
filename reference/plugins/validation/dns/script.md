@@ -1,6 +1,21 @@
 ---
 layout: plugin
 plugin: 8f1da72e-f727-49f0-8546-ef69e5ecec32
+settings:
+    - Script.PowershellExecutablePath
+    - Script.Timeout
+    - Validation.DisableMultiThreading
+compatibility: All platforms
+examples:
+    -
+        name: Create script only
+        cmd: ‑‑dnscreatescript c:\create.ps1 [‑‑dnscreatescriptarguments {args}]
+    -
+        name: Separate create and delete scripts
+        cmd: ‑‑dnscreatescript c:\create.ps1 ‑‑dnsdeletescript c:\delete.ps1 [‑‑dnscreatescriptarguments {args}] [‑‑dnsdeletescriptarguments {args}]
+    - 
+        name: Combined script
+        cmd: ‑‑dnsscript c:\create-and-delete.ps1 [‑‑dnscreatescriptarguments {args}] [‑‑dnsdeletescriptarguments {args}]
 ---
 Run an external script or program to create or update the validation records.
 

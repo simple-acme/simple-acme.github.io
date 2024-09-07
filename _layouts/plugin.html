@@ -3,7 +3,6 @@ layout: docs
 ---
 
 {% assign plugin = site.data.plugins | where: "id", page.plugin | first %}
-{% assign meta = site.data.meta | where: "id", page.plugin | first %}
 {% assign arguments = site.data.arguments | where: "pluginid", page.plugin | first %}
 
 <script>document.title='{{plugin.name}} | simple-acme'</script>
@@ -25,8 +24,8 @@ layout: docs
                 <td></td>
             </tr>
 
-            {% if meta.external %}
-                {% assign file = meta.download | default: plugin.trigger %}
+            {% if plugin.external %}
+                {% assign file = plugin.download | default: plugin.trigger %}
                 {% assign downloadFake = "plugin." | 
                     append: plugin.type | 
                     append: "." | 
@@ -50,7 +49,7 @@ layout: docs
             {% endif %}
             <tr>
                 <th scope="row">Compatibility</th>
-                <td>{{meta.compatibility}}</td>
+                <td>{{page.compatibility}}</td>
                 <td></td>
             </tr>
         </tbody>
@@ -60,7 +59,7 @@ layout: docs
 <h2>Description</h2>
 {{content}}
 
-{% if meta.external %}
+{% if plugin.external %}
 {% include plugin-seperate.md %}
 {% endif %}
 
@@ -79,17 +78,17 @@ layout: docs
                 <td></td>
             </tr>
             {% include arguments-rows.html arguments=arguments.arguments %}
-            {% include arguments-rows.html argumentnames=meta.arguments %}
+            {% include arguments-rows.html argumentnames=page.arguments %}
         </tbody>
     </table>
 </div>
 
-{% if meta.examples %}
+{% if page.examples %}
 <h2>Examples</h2>
 <div class="table-responsive my-4 me-5 pe-5">
     <table class="table table-striped">
         <tbody>      
-            {% for item in meta.examples %}
+            {% for item in page.examples %}
             <tr>
                 <th class="col-md-3" scope="row">{{ item.name }}</th>
                 <td><code>{{activator}} {{ item.cmd }}</code></td>
@@ -101,8 +100,8 @@ layout: docs
 </div>
 {% endif %}
 
-{% if meta.settings %}
-{% include settings.html settings=meta.settings %}
+{% if page.settings %}
+{% include settings.html settings=page.settings %}
 {% endif %}
 
 <h2>JSON</h2>

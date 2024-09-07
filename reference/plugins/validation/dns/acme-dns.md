@@ -1,6 +1,11 @@
 ---
 layout: plugin
 plugin: c13acc1b-7571-432b-9652-7a68a5f506c5
+compatibility: All platforms
+examples:
+    - 
+        name: Typical
+        cmd: '[‑‑acmednsserver https://acme-dns.example.com/]'   
 ---
 Use an [acme-dns](https://github.com/joohoi/acme-dns) server to handle the validation records. The plugin will ask you to choose an endpoint to use. 
 

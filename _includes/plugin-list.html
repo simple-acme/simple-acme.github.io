@@ -3,9 +3,8 @@
     <table class="table table-striped">
         <tbody>
 {% for plugin in plugins %}
-    {% assign meta = site.data.meta | where: "id", plugin.id | first %}
             <tr>
-                <td>{% include plugin-link.html plugin=plugin meta=meta %}</td>
+                <td>{% include plugin-link.html plugin=plugin %}</td>
                 <td>{{ plugin.description }}</td>
             </tr>
 {% endfor %}

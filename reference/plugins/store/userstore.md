@@ -1,6 +1,11 @@
 ---
 layout: plugin
 plugin: 95ee94e7-c8e2-40e6-a26f-c9fc3afa9fa5
+compatibility: All platforms
+examples:
+    - 
+        name: Typical
+        cmd: '[‑‑keepexisting]' 
 ---
 Like the built-in [certificate store](/reference/plugins/store/certificatestore) plugin, 
 this one places the certificate in the Windows Certificate Store. However, instead of 

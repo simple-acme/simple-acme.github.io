@@ -1,6 +1,31 @@
 ---
 layout: plugin
 plugin: 54deb3ee-b5df-4381-8485-fe386054055b
+compatibility: Windows (admin only)
+arguments:
+    - hidehttps
+examples:
+    - 
+        name: Single binding
+        cmd: '‑‑host example.com [‑‑siteid 1]'
+    - 
+        name: More bindings
+        cmd: '‑‑host example.com,www.example.com [‑‑siteid 1,2,3] [‑‑commonname common.example.com]'
+    - 
+        name: All site bindings
+        cmd: '‑‑siteid 1 [‑‑commonname common.example.com] [‑‑excludebindings exclude.example.com]'
+    - 
+        name: Multiple sites
+        cmd: '‑‑siteid 1,2,3 [‑‑commonname common.example.com] [‑‑excludebindings exclude.example.com]'
+    - 
+        name: All sites
+        cmd: '‑‑siteid s [‑‑commonname common.example.com] [‑‑excludebindings exclude.example.com]'
+    - 
+        name: Pattern
+        cmd: '‑‑host-pattern *.example.??? [‑‑siteid 1,2,3] [‑‑commonname common.example.com] [‑‑excludebindings exclude.example.com]'
+    - 
+        name: Regex
+        cmd: '‑‑host-regex [a-z]{3}\.example(\.com|\.net) [‑‑siteid 1,2,3] [‑‑commonname common.example.com] [‑‑excludebindings exclude.example.com]'    
 ---
 
 Create source based on bindings configured in IIS. Automatically updates webroot path (useful for [filesystem validation](/reference/plugins/validation/http/filesystem))

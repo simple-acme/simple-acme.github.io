@@ -1,6 +1,14 @@
 ---
 layout: plugin
 plugin: 3bb22c70-358d-4251-86bd-11858363d913
+settings:
+    - Script.PowershellExecutablePath
+    - Script.Timeout
+compatibility: All platforms
+examples:
+    - 
+        name: Typical
+        cmd: '‑‑script C:\script.bat [‑‑scriptparameters x]'
 ---
 
 Runs an external script or executable after a succesful renewal. This may be a `.bat` or `.exe` on Windows, `.sh` on Linux or `.ps1` on all platforms. You provide the program with the path to the script and it will run automatically.

@@ -1,6 +1,14 @@
 ---
 layout: plugin
 plugin: aa57b028-45fb-4aca-9cac-a63d94c76b4a
+compatibility: All platforms
+examples:
+    - 
+      name: Service Principal
+      cmd: '‑‑azuretenantid 9741a4c9-0e0b-4f35-abbe-9af735194804 ‑‑azureclientid 2a32943f-e46b-469c-a42d-eb5c54bf798d ‑‑azuresecret ***** ‑‑azuresubscriptionid 6c1e8002-c547-4e93-a9b3-7163f51c380e ‑‑azureresourcegroupname myresourcegroup [‑‑azurehostedzone zone.example.com]'
+    -
+      name: Managaged Identity
+      cmd: '‑‑azureusemsi ‑‑azuresubscriptionid 6c1e8002-c547-4e93-a9b3-7163f51c380e ‑‑azureresourcegroupname myresourcegroup [‑‑azurehostedzone zone.example.com]'
 ---
 Create the record in Microsoft [Azure DNS](https://azure.microsoft.com/en-us/services/dns/).
 

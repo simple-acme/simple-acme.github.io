@@ -32,8 +32,7 @@ These arguments are used to create a new account for the ACME client during an i
   {% for argument in arguments %}
   <h3>➡️ {{ argument.name }} </h3>
     {% assign plugin = site.data.plugins | where: "id", argument.pluginid | first %}
-    {% assign plugin-meta = site.data.meta | where: "id", argument.pluginid | first %}
-    {% if plugin-meta.external %}
+    {% if plugin.external %}
  <div class="callout-block callout-block-warning pb-1 mt-3">
     <div class="content">
         <p>These arguments are for a plugin that requires an additional download.</p>
@@ -44,7 +43,7 @@ These arguments are used to create a new account for the ACME client during an i
     {% unless argument.condition == nil %}
 <code>[{{ argument.condition }}]</code>
     {% endunless %}
-    ({% include plugin-link.html plugin=plugin meta=plugin-meta title='documentation' %})
+    ({% include plugin-link.html plugin=plugin title='documentation' %})
 </p>
  {% include arguments-group.html arguments = argument.arguments %}
   {% endfor %}

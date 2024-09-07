@@ -65,6 +65,9 @@
  name: "Aliyun"
  id: 1d4db2ea-ce7c-46ce-b86f-40b356fcf999
  trigger: aliyun
+ external: true
+ provider: Alibaba
+ page: alibaba
  description: "Create verification records in ALiYun DNS"
  type: validation.dns
 
@@ -72,6 +75,8 @@
  name: "Azure DNS"
  id: aa57b028-45fb-4aca-9cac-a63d94c76b4a
  trigger: azure
+ external: true
+ provider: Microsoft
  description: "Create verification records in Azure DNS"
  type: validation.dns
 
@@ -79,6 +84,7 @@
  name: "Cloudflare"
  id: 73af2c2e-4cf1-4198-a4c8-1129003cfb75
  trigger: cloudflare
+ external: true
  description: "Create verification records in Cloudflare DNS"
  type: validation.dns
 
@@ -86,6 +92,7 @@
  name: "DigitalOcean"
  id: 1a87d670-3fa3-4a2a-bb10-491d48feb5db
  trigger: digitalocean
+ external: true
  description: "Create verification records on DigitalOcean"
  type: validation.dns
 
@@ -93,13 +100,16 @@
  name: "DNSExit"
  id: c9017182-1000-4257-a8da-0553cd1490ec
  trigger: dnsexit
- description: "Create verification records in Dnsexit DNS"
+ external: true
+ description: "Create verification records in DNSExit DNS"
  type: validation.dns
 
 -
  name: "DNS Made Easy"
  id: 13993334-2d74-4ff6-801b-833b99bf231d
  trigger: dnsmadeeasy
+ external: true
+ provider: DigiCert
  description: "Create verification records in DnsMadeEasy DNS"
  type: validation.dns
 
@@ -107,6 +117,8 @@
  name: "Domeneshop"
  id: 0bd9b320-08e0-4bfe-a535-b979886187e4
  trigger: domeneshop
+ external: true
+ page: domene
  description: "Create verification records in Domeneshop DNS"
  type: validation.dns
 
@@ -114,13 +126,15 @@
  name: "DreamHost"
  id: 2bfb3ef8-64b8-47f1-8185-ea427b793c1a
  trigger: dreamhost
- description: "Create verification records in Dreamhost DNS"
+ external: true
+ description: "Create verification records in DreamHost DNS"
  type: validation.dns
 
 -
  name: "FTP(S)"
  id: bc27d719-dcf2-41ff-bf08-54db7ea49c48
  trigger: ftp
+ page: ftps
  description: "Upload verification files via FTP(S)"
  type: validation.http
 
@@ -128,13 +142,18 @@
  name: "GoDaddy"
  id: 966c4c3d-1572-44c7-9134-5e2bc8fa021d
  trigger: godaddy
- description: "Create verification records in Godaddy DNS"
+ external: true
+ description: "Create verification records in GoDaddy DNS"
  type: validation.dns
 
 -
- name: "Google Cloud DNS"
+ name: "Cloud DNS"
  id: b61505e9-1709-43fd-996f-c74c3686286c
  trigger: gcpdns
+ external: true
+ provider: Google
+ page: clouddns
+ download: googledns
  description: "Create verification records in Google Cloud DNS"
  type: validation.dns
 
@@ -142,6 +161,7 @@
  name: "Hetzner"
  id: 7176cc8f-ba08-4b07-aa39-2f5d012c1d5a
  trigger: hetzner
+ external: true
  description: "Create verification records in Hetzner DNS"
  type: validation.dns
 
@@ -149,6 +169,7 @@
  name: "Infomaniak"
  id: d1401d1e-b925-407d-a38b-924d67b2d1b5
  trigger: infomaniak
+ external: true
  description: "Create verification records in Infomaniak DNS"
  type: validation.dns
 
@@ -156,6 +177,8 @@
  name: "Linode"
  id: 12fdc54c-be30-4458-8066-2c1c565fe2d9
  trigger: linode
+ external: true
+ provider: Akamai
  description: "Create verification records in Linode DNS"
  type: validation.dns
 
@@ -163,6 +186,8 @@
  name: "LuaDNS"
  id: 3b0c3cca-db98-40b7-b678-b34791070d42
  trigger: luadns
+ external: true
+ page: lua
  description: "Create verification records in LuaDNS"
  type: validation.dns
 
@@ -170,6 +195,8 @@
  name: "NS1/NSONE"
  id: c66cc8be-3046-46c2-a0ba-ec4ec3e7fe96
  trigger: ns1
+ external: true
+ provider: IBM
  description: "Create verification records in NS1 DNS"
  type: validation.dns
 
@@ -177,6 +204,7 @@
  name: "REST request"
  id: 11ba2994-ea59-4f2f-b9eb-0eaa2fa3cbfa
  trigger: rest
+ external: true
  description: "Send verification files to the server by issuing an http(s) request"
  type: validation.http
 
@@ -184,6 +212,7 @@
  name: "RFC2136"
  id: ed5dc9d1-739c-4f6a-854f-238bf65b63ee
  trigger: rfc2136
+ external: true
  description: "Create verification records using dynamic updates"
  type: validation.dns
 
@@ -191,7 +220,9 @@
  name: "Route 53"
  id: 4e5dc595-45c7-4461-929a-8f96a0c96b3d
  trigger: route53
- description: "Create verification records in AWS Route 53"
+ external: true
+ provider: Amazon AWS
+ description: "Create verification records in Route 53 DNS"
  type: validation.dns
 
 -
@@ -205,13 +236,15 @@
  name: "Simply.com"
  id: 3693c40c-7c2f-4b70-aead-27869d8cbdf3
  trigger: simply
- description: "Create verification records in Simply DNS"
+ external: true
+ description: "Create verification records in Simply.com DNS"
  type: validation.dns
 
 -
  name: "Tencent Cloud"
  id: 6ea628c3-0f74-68bb-cf17-4fdd3d53f3af
  trigger: tencent
+ external: true
  description: "Create verification records in Tencent DNS"
  type: validation.dns
 
@@ -219,7 +252,8 @@
  name: "TransIP"
  id: c49a7a9a-f8c9-494a-a6a4-c6b9daae7d9d
  trigger: transip
- description: "Create verification records at TransIp"
+ external: true
+ description: "Create verification records at TransIP"
  type: validation.dns
 
 -
@@ -310,6 +344,8 @@
  name: "Azure Key Vault"
  id: dbfa91e2-28c0-4b37-857c-df6575dbb388
  trigger: keyvault
+ external: true
+ provider: Microsoft
  description: "Store in Azure Key Vault"
  type: store
 
@@ -317,6 +353,7 @@
  name: "User Store"
  id: 95ee94e7-c8e2-40e6-a26f-c9fc3afa9fa5
  trigger: userstore
+ external: true
  description: "Add to Windows Certificate Store (Current User)"
  type: store
 

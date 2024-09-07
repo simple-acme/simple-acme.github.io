@@ -1,6 +1,7 @@
 ---
 layout: plugin
 plugin: e45d62b9-f9a8-441e-b95f-c5ee0dcd8040
+compatibility: All platforms
 ---
 The client will show the record that is supposed to be created on screen and you will create it manually by whatever means necessary.
 

@@ -1,6 +1,15 @@
 ---
 layout: plugin
-plugin: af1f77b6-4e7b-4f96-bba5-c2eeb4d0dd42                          
+plugin: af1f77b6-4e7b-4f96-bba5-c2eeb4d0dd42
+settings:
+    - Store.CertificateStore.DefaultStore
+    - Store.CertificateStore.PrivateKeyExportable
+    - Store.CertificateStore.UseNextGenerationCryptoApi
+compatibility: Windows
+examples:
+    - 
+        name: Typical
+        cmd: '[‑‑certificatestore My] [‑‑keepexisting] [‑‑acl-fullcontrol "network service,administrators"] [‑‑acl-read "myapp"]'  
 ---
 Saves certificates to the Windows Certificate store. This will always import to the `Computer` store. Refer to the [User Store](/reference/plugins/store/userstore) plugin if you want to have a certificate in the `User` store.
 

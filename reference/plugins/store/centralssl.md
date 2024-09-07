@@ -1,6 +1,15 @@
 ---
 layout: plugin
-plugin: af1f77b6-4e7b-4f96-bba5-c2eeb4d0dd42                                  
+plugin: af1f77b6-4e7b-4f96-bba5-c2eeb4d0dd42
+settings:
+    - Store.CentralSsl.DefaultPath
+    - Store.CentralSsl.DefaultPassword
+    - Store.CentralSsl.DefaultProtectionMode
+compatibility: All platforms
+examples:
+    - 
+        name: Typical
+        cmd: '[‑‑centralsslstore C:\CentralSSL\] [‑‑pfxpassword *****]'                               
 ---
 
 Designed for the [Central Certificate Store](https://blogs.msdn.microsoft.com/kaushal/2012/10/11/central-certificate-store-ccs-with-iis-8-windows-server-2012/) 
