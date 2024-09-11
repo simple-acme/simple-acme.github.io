@@ -6,20 +6,26 @@
         {% continue %}
     {% endunless %}
     {% assign file = plugin.download | default: plugin.trigger %}
-    {% assign download = "plugin." | 
+    {% assign name = "plugin." | 
         append: include.type | 
         append: "." | 
         append: file | 
         append: ".v" | 
-        append: site.releasebuild | 
+        append: site.data.build.releasebuild | 
         append: ".zip"
     %}
+    {% assign download = site.data.build.downloads | where: "name", name | first %}
+    {% unless download == nil %}
 <tr>
-    <td class="col-md-2"><a href="https://github.com/simple-acme/simple-acme/releases/download/v{{ site.releasetag }}/{{download}}">{{plugin.name}}</a></td>
+    <td class="col-md-2"><a href="https://github.com/simple-acme/simple-acme/releases/download/v{{ site.data.build.releasetag }}/{{name}}">{{plugin.name}}</a></td>
     <td class="col-md-2">{{plugin.provider}}</td>
+    <td class="col-md-2">{{download.size}}</td>
     <td class="col-md-2">{% include plugin-link.html plugin=plugin title='documentation' %}</td>
-    <td class="col-md-2"></td>
 </tr>
+<tr>
+    <td colspan="4" style="font-size: 0.7rem">SHA256: {{download.sha256 | downcase }}</td>
+</tr>
+{% endunless %}
 {% endfor %}
 </table>
 </div>

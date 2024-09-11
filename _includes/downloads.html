@@ -1,0 +1,35 @@
+<div class="table-responsive my-4 me-5 pe-5">
+    <table class="table table-striped">
+{% assign archs = "x64,x86,ARM64" | split: "," %}
+{% for arch in archs %}
+    {% assign name = "simple-acme.v" | 
+                        append: site.data.build.releasebuild | 
+                        append: "." | 
+                        append: include.os | 
+                        append: "-" | 
+                        append: arch |
+                        append: "." | 
+                        append: include.type | 
+                        append: ".zip" | 
+                        downcase %}    
+    {% assign download = site.data.build.downloads | where: "name", name | first %}
+    {% unless download == nil %}
+<tr>
+    <td><a href="https://github.com/simple-acme/simple-acme/releases/download/v{{ site.data.build.releasetag }}/{{name}}">{{arch}}</a></td>
+    <td>{{download.size}}</td>
+    <td>{% case arch %}
+        {% when "x64" %}
+          <span>modern Intel/AMD platforms, most likely to work if you're unsure</span>
+        {% when "x86" %}
+        <span>legacy 32 bit systems</span>
+        {% when "ARM64" %}
+        <span>ARM based platforms</span>
+      {% endcase %}</td>
+</tr>
+<tr>
+    <td colspan="4" style="font-size: 0.7rem">SHA256: {{download.sha256 | downcase }}</td>
+</tr>
+    {% endunless %}
+{% endfor %}
+</table>
+</div>

@@ -3,9 +3,9 @@ layout: none
 ---
 {
 	"latest": {
-		"name": "{{ site.releasename }}",
-		"tag": "{{ site.releasetag }}",
-		"build": "{{ site.releasebuild }}",
+		"name": "{{ site.data.build.releasename }}",
+		"tag": "{{ site.data.build.releasetag }}",
+		"build": "{{ site.data.build.releasebuild }}",
 		"done": "maybe?"
 	}
 }

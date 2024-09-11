@@ -1,6 +1,3 @@
-releasename: 2.3.0
-releasetag: 2.3.0.33
-releasebuild: 2.3.0.33
 defaults:
   -
     scope:

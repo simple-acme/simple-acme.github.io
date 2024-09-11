@@ -4,36 +4,32 @@
 # Downloads
 Please check the [System Requirements](/manual/system-requirements) to see if your operating system is supported.
 
-The current release on this page is **{{ site.releasename }}** (build {{ site.releasetag }}). Release notes and downloads for older versions can be obtained from [GitHub](https://github.com/simple-acme/simple-acme/releases/).
+The current release on this page is **{{ site.data.build.releasename }}** (build {{ site.data.build.releasebuild }}). Release notes and downloads for older versions can be obtained from [GitHub](https://github.com/simple-acme/simple-acme/releases/). After downloading you can confirm file integrity using the Powershell command `Get-FileHash` or the `sha265sum` command in Linux.
 
 ---
 
 ### Windows
 ##### Full
-The full builds are larger (~35MB compressed) and support loading external plugins.
-- [x64](https://github.com/simple-acme/simple-acme/releases/download/v{{ site.releasetag }}/simple-acme.v{{ site.releasebuild }}.win-x64.pluggable.zip) - modern Intel/AMD platforms, most likely to work if you're unsure
-- [x86](https://github.com/simple-acme/simple-acme/releases/download/v{{ site.releasetag }}/simple-acme.v{{ site.releasebuild }}.win-x86.pluggable.zip) - legacy 32 bit systems
-- [ARM64](https://github.com/simple-acme/simple-acme/releases/download/v{{ site.releasetag }}/simple-acme.v{{ site.releasebuild }}.win-arm64.pluggable.zip) - ARM based platforms
+The full builds are larger and support loading external plugins.
+{% include downloads.html os='win' type='pluggable' %}
+
 
 ##### Trimmed
-The trimmed builds are smaller (~10MB compressed) but don't support plugins.
-- [x64](https://github.com/simple-acme/simple-acme/releases/download/v{{ site.releasetag }}/simple-acme.v{{ site.releasebuild }}.win-x64.trimmed.zip) - modern Intel/AMD platforms, most likely to work if you're unsure
-- [x86](https://github.com/simple-acme/simple-acme/releases/download/v{{ site.releasetag }}/simple-acme.v{{ site.releasebuild }}.win-x86.trimmed.zip) - legacy 32 bit systems
-- [ARM64](https://github.com/simple-acme/simple-acme/releases/download/v{{ site.releasetag }}/simple-acme.v{{ site.releasebuild }}.win-arm64.trimmed.zip) - ARM based platforms
+The trimmed builds are smaller but don't support plugins.
+{% include downloads.html os='win' type='trimmed' %}
 
 ---
 
 ### Linux
 Support for Linux is in beta at the moment.
 ##### Full
-The full builds are larger (~35MB compressed) and support loading external plugins.
-- [x64](https://github.com/simple-acme/simple-acme/releases/download/v{{ site.releasetag }}/simple-acme.v{{ site.releasebuild }}.linux-x64.pluggable.zip) - modern Intel/AMD platforms, most likely to work if you're unsure
-- [ARM64](https://github.com/simple-acme/simple-acme/releases/download/v{{ site.releasetag }}/simple-acme.v{{ site.releasebuild }}.linux-arm64.pluggable.zip) - ARM based platforms
+The full builds are larger and support loading external plugins.
+{% include downloads.html os='linux' type='trimmed' %}
+
 
 ##### Trimmed
-The trimmed builds are smaller (~10MB compressed) but don't support plugins.
-- [x64](https://github.com/simple-acme/simple-acme/releases/download/v{{ site.releasetag }}/simple-acme.v{{ site.releasebuild }}.linux-x64.trimmed.zip) - modern Intel/AMD platforms, most likely to work if you're unsure
-- [ARM64](https://github.com/simple-acme/simple-acme/releases/download/v{{ site.releasetag }}/simple-acme.v{{ site.releasebuild }}.linux-arm64.trimmed.zip) - ARM based platforms
+The trimmed builds are smaller but don't support plugins.
+{% include downloads.html os='linux' type='trimmed' %}
 
 ---
 
