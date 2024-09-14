@@ -11,10 +11,12 @@
     {% endif %}
     <a class="nav-link{% if active %} active{% endif %}" href="{{ include.item.url }}">{{ include.item.title }}</a>
     {% if include.item.subs %}
+        {% if page.url contains include.item.url %}
         {% for sub in include.item.subs %}
             {% assign next_level = include.level | plus: 1 %}
             {% include sidebarlevel.html item=sub level=next_level %}
         {% endfor %}
+        {% endif %}
     {% endif %}
     {% if include.item.plugins %}
         {% for pt in site.data.types %}

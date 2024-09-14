@@ -12,7 +12,7 @@
 
 manual:
 - title: About
-  url: /manual/about/acme
+  url: /manual/about
   subs: 
   - title: ACME
     url: /manual/about/acme
@@ -23,22 +23,18 @@ manual:
 
 - title: System requirements
   url: /manual/system-requirements
-
 - title: Installation
   url: /manual/installation
-
 - title: Getting started
   url: /manual/getting-started
-
 - title: Automatic renewal
   url: /manual/automatic-renewal
-
+- title: Notifications
+  url: /manual/notifications
 - title: Renewal management
   url: /manual/renewal-management
-
 - title: Validation problems
   url: /manual/validation-problems
-
 - title: Advanced usage
   url: /manual/advanced-use/
   subs: 

@@ -24,7 +24,7 @@ If simple-acme fails to start, you can try the following:
 - If you run into an error like `Failure processing application bundle`, perhaps [this thread](https://github.com/win-acme/win-acme/issues/1632) might provide a solution.
 - If the program doesn't seem to start but an error like `Microsoft.Windows.Apprep.ChxApp_cw5n1h2txyewy:App.AppXc99k5qnnsvxj5szemm7fp3g7y08we5vm.mca` appears in the Event Viewer [this thread](https://github.com/win-acme/win-acme/issues/1491) might provide a solution. 
 
-## Microsoft IIS
+## Windows
 Not all features of this program can work on older versions of IIS.
 
 ### Server Name Indication
@@ -47,3 +47,6 @@ to be configured manually.
 
 ### FTPS bindings
 Updating FTPS binding is only supported for IIS 7.5 (Windows 2008 R2) and above.
+
+## Linux
+Support for Linux should be considered in beta and has so far only been tested on Ubuntu 24.04.
