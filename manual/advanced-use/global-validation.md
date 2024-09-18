@@ -6,8 +6,8 @@ host names across all managed renewals (within the scope of a single ACME servic
 your `‑‑test` endpoint will still have different settings than the regular one). 
 
 ## Motivation
-If you want to have a certificate with hosts from domains, with the DNS for each of 
-them hosted at a different provider. It's not possible to configure that using the 
+If you want to have a certificate with hosts from multiple domains, with the DNS for 
+each of them hosted at a different provider. It's not possible to configure that using the 
 regular renewal configuration process, but by setting global validation options for at
 least of the hosts, it becomes possible.
 

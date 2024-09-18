@@ -1,6 +1,6 @@
 ---
 layout: plugin
-plugin: af1f77b6-4e7b-4f96-bba5-c2eeb4d0dd42
+plugin: e30adc8e-d756-4e16-a6f2-450f784b1a97
 settings:
     - Store.CertificateStore.DefaultStore
     - Store.CertificateStore.PrivateKeyExportable

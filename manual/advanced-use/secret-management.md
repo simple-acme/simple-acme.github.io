@@ -2,14 +2,9 @@
 ---
 # Secrets
 
-Some plugins require authentication information such as a password or API key
-to be able to work, e.g. to login to an FTP server or to update a DNS record.
-These secrets are historically saved in [encrypted](/manual/advanced-use/encryption) 
-form in the [.renewal.json](/manual/advanced-use/renewal-management) files in the 
-configuration folder.
+Some plugins require authentication information such as a password or API key to be able to work, e.g. to login to an FTP server or an API key needed to update a DNS record. These secrets are historically saved in [encrypted](/manual/advanced-use/encryption) form in the [.renewal.json](/manual/advanced-use/renewal-management) files in the configuration folder.
 
-There are also some global secrets, like the proxy server password and the smpt 
-server password, that are stored in [settings.json](/reference/settings).
+There are also some global secrets, like the proxy server password and the SMTP server password, that are stored in [settings.json](/reference/settings).
 
 ## Central Management
 
@@ -26,4 +21,4 @@ configuration files, command line arguments or script installation parameters.
 Currently there is only a single backend for the secret manager, which is a `.json` file 
 in the configuration folder. The location of that file may be modified through
 [settings.json](/reference/settings), for example if you want to share it between different
-ACME endpoints. In the future the idea is to support more backends like Azure KeyVault.
+ACME endpoints. In the future the idea is to support more backends like Azure KeyVault. Implementation of a new backend is fairly straightforward for someone with C# experience, it just requires an assembly that implements [ISecretService](https://github.com/simple-acme/simple-acme/blob/master/src/main.lib/Services/Interfaces/ISecretService.cs). Contributions in this area are most welcome!

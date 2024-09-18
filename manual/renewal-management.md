@@ -1,4 +1,12 @@
 ---
+arguments:
+    - renew
+    - cancel
+    - revoke
+    - id
+    - friendlyname
+settings:
+    - Client.ConfigurationPath
 ---
 # Renewal management
  This program is primarily used to create certificates, but the nature of ACME encourages certificates to be 
@@ -12,8 +20,7 @@ IIS users and the option `M` offers full options, for example for Apache, Exchan
 [command line](/reference/cli). 
 The command line even offers some options that the menu does not, check out the documentation 
 about [plugins](/reference/plugins/) to read all about it.
-- It's also possible to add `.json` files to the folder yourself, either manually or using some clever tooling or 
-scripting, to create a lighty coupled integration between your own management tools and simple-acme.
+- It's also possible to add `.renewal.json` files to the folder yourself, either manually or using some clever tooling or scripting, to create a lighty coupled integration between your own management tools and simple-acme.
 
 ## Modification
 Many users mistakenly try to modify their renewal by issuing commands like `‑‑renew ‑‑webroot C:\NewRoot` 
@@ -34,8 +41,7 @@ mode the script or program calling simple-acme is assumed to know the consequenc
 actually intend to create two very similar certificates, add the `‑‑id` parameter to make them unique 
 and prevent overwrites based on the friendly name.
 
-You can also edit the `.renewal.json` file, but that's not recommended unless you are already familiar 
-with this file format and have a backup ready.
+You can also edit the `.renewal.json` file using any text editor.
 
 ## Deleting/cancelling
 To cancel a renewal means that the certificate will not be renewed anymore. The certificate, bindings 
@@ -44,31 +50,24 @@ this without disturbing your production applications. Only you will have to set 
 alternative certificate solution before the certificate reaches its natural expiration date. 
 - You can cancel a renewal from the main menu. The program will then delete the `.renewal.json` file from 
 disk and forget about it.
-- You can cancel from the command line using the arguments `‑‑cancel [‑‑friendlyname xxx|-id xxx]`. 
+- You can cancel from the command line using the argument `‑‑cancel`. 
 The effects are the same as above.
 - You can delete the `.renewal.json` file yourself. The effects are the same as above.
 
 ## Revocation
-Revoking a certificate should only be done when the private key is believed to have been compromised, 
-not when simply replacing or cancelling it. Revocation can be done from the main menu with
-(`Manage renewals` > `Revoke certificate`)
-- You can revoke from the command line using the arguments `‑‑revoke [‑‑friendlyname xxx|-id xxx]`. 
-The effects are the same as above.
+Certificates can be revoked from the main menu with `Manage renewals` > `Revoke certificate`. You can also do it from the command line using the argument `‑‑revoke`.
+
+<div class="callout-block callout-block-warning pb-1 mt-3">
+    <div class="content">
+        <p>Certificate should only be revoked when the private key is believed to have been compromised, not when simply replacing or cancelling it.</p>
+    </div>
+</div>
 
 ## Internals
-Renewals are stored in the `ConfigPath` which typically means `%ProgramData%\simple-acme\acme-v02.api.letsencrypt.org`, 
-though that can be changed in [settings.json](/reference/settings). Each file that fits the pattern 
-`*.renewal.json` is considered to be a renewal. 
+Renewals are stored in the program's configuration path. Each file that fits the pattern `*.renewal.json` is considered to be a renewal. The files are randomly named by the program, but you are free to rename them if that suits you. The only requirement is that they must be unique, which is enforced by checking that the `"Id"` field in the JSON must match with the name of file. You can specify your own identifier at creation time with the `‑‑id` switch.
 
-### File names
-The files are randomly named by the program, but you are free to rename them if that suits you. The only requirement 
-is that they must be unique, which is enforced by checking that the `"Id"` field in the JSON must match with the 
-name of file. You can specify your own identifier at creation time with the `‑‑id` switch.
-
-### File content
 The renewal files consist of three parts:
-- Metadata, e.g. it's identifier, friendly name and the encrypted version of the password that is used for 
-the cached `.pfx` archive.
+- Metadata, e.g. it's identifier, friendly name and the encrypted version of the password that is used for the cached `.pfx` archive.
 - Plugin configuration, e.g. everything that the [plugins](/reference/plugins/) need to know 
 to do their jobs, according to the command line arguments and menu choices that were given at creation time.
 - History, i.e. a record of each successful and failed attempt to get a certificate based on the file.

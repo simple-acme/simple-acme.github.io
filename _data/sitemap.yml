@@ -35,6 +35,8 @@ manual:
   url: /manual/renewal-management
 - title: Validation problems
   url: /manual/validation-problems
+- title: Account management
+  url: /manual/account-management
 - title: Advanced usage
   url: /manual/advanced-use/
   subs: 
@@ -62,29 +64,17 @@ manual:
 
 - title: Moving servers
   url: /manual/migration
-
 - title: Upgrading
   url: /manual/upgrading/
   subs:
-    - title: to v1.9.5
-      url: /manual/upgrading/to-v1.9.5
-    - title: to v1.9.9
-      url: /manual/upgrading/to-v1.9.9
-    - title: to v2.0.0
-      url: /manual/upgrading/to-v2.0.0
-    - title: to v2.0.11
-      url: /manual/upgrading/to-v2.0.11
-    - title: to v2.1.0
-      url: /manual/upgrading/to-v2.1.0
-    - title: to v2.2.0
-      url: /manual/upgrading/to-v2.2.0
+    - title: from win-acme
+      url: /manual/upgrading/to-v2.3.0
+
 reference:
 - title: Command line
   url: /reference/cli
-
 - title: Settings.json
   url: /reference/settings
-
 - title: Plugins
   url: /reference/plugins
   plugins: 1

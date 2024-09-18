@@ -578,7 +578,7 @@ Store:
         CryptoAPI. For example:
           <ul><li>It will not (fully) work for older versions of Microsoft Exchange (this might only become apparent when installing a service pack)
           <li>It won't be exportable from the IIS Manager, even if <code>PrivateKeyExportable</code> is <code>true</code> (though it will be exportable from MMC).
-          <li><code>--acl-read</code> and <code>--acl-fullcontrol</code> might not work
+          <li><code>--acl-read</code> and <code>--acl-fullcontrol</code> will not work
           </ul>
         "
 
@@ -614,7 +614,7 @@ Store:
     DefaultPath:
       type: string
       subtype: path
-      description: When using the <a href="/reference/plugins/store/pemfiles">PemFiles</a> 
+      description: When using the <a href="/reference/plugins/store/pemfiles">PEM files</a> 
         plugin this path is used by default, saving you the effort of providing 
         it manually. Filling this out makes the <code>‑‑pemfilespath</code> 
         parameter unnecessary in most cases. Renewals created with the 
@@ -624,7 +624,7 @@ Store:
     DefaultPassword:
       type: string
       subtype: secret  
-      description: When using the <a href="/reference/plugins/store/pemfiles">PemFiles</a>
+      description: When using the <a href="/reference/plugins/store/pemfiles">PEM files</a>
         plugin this password is used by default for the <code>.pem</code> files, 
         saving you the effort from providing it manually. Filling this out 
         makes the <code>‑‑pempassword</code> parameter unnecessary in most 

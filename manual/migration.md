@@ -8,7 +8,7 @@ after the DNS has been switched over.
 In the renewal manager you can use the `L` option to generate the command line 
 options that may be helpful to recreate the certificates on the new machine. Note
 that depending on your use of simple-acme this may not be foolproof. Some things which
-are possible to do through the GUI and/or by manipulating `.renewal.json` files behind the
+are possible to do through the TUI and/or by manipulating `.renewal.json` files behind the
 scenes are impossible to translate to command line arguments. Also you may be missing 
 certain dependancies on the new machine, such as vault secrets, acme-dns 
 registrations, etc.
@@ -52,8 +52,8 @@ so that your account will have valid authorizations cached for all domains. Then
 on the new machine you will be able to (also) renew and order new certificates 
 based on the cached validation results.
 - Move the "old" certificates to the new machine, which is easy to accomplish using
-the [PemFiles](/reference/plugins/store/pemfiles), 
-[PfxFile](/reference/plugins/store/pfxfile) or 
+the [PEM files](/reference/plugins/store/pemfiles), 
+[PFX file](/reference/plugins/store/pfxfile) or 
 [CentralSsl](/reference/plugins/store/centralssl) store plugins because they allow
 you to easily copy over the files. If you're using the default [CertificateStore](/reference/plugins/store/certificatestore)
 the process is a bit more difficult though, because you will need to get access to 

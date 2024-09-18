@@ -1,4 +1,6 @@
 ---
+settings:
+- Store.CertificateStore.PrivateKeyExportable
 ---
 # Remote Desktop Services
 How to generate a Certificate for Microsoft Remote Desktop Servers

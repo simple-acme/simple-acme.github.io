@@ -2,15 +2,14 @@
 ---
 # Apache
 To get the certificate in the correct format for Apache (i.e. `.pem` files), you have to active 
-the [PemFiles plugin](/reference/plugins/store/pemfiles) for each of your renewals. 
+the [PEM files plugin](/reference/plugins/store/pemfiles) for each of your renewals. 
 For **new** renewals this can be done either from the command line with `‑‑store pemfiles` or 
 from the main menu with the `M` option, where it will be posed as a question ("How would you 
 like to store this certificate?"). 
 
-Existing renewals that are set up without the PemFiles plugin (which unfortunately includes 
-those [imported](/manual/upgrading/to-v2.0.0) from 1.9.x) cannot be modified with a 
-command line switch or settings change. You will have to re-create them one by one, or manually 
-modify the `.json` files on disk.
+Existing renewals that are set up without the PEM files plugin cannot be modified with a 
+command line switch. You will have to re-create them, edit them using the `Manage renewals` menu, 
+or manually modify the `.renewal.json` files on disk.
 
 ## Getting the certificate in .pem format
 
@@ -21,7 +20,7 @@ modify the `.json` files on disk.
 - Choose or accept the friendly name
 - Pick a validation method. Most common would be to save to a local path
 - Pick your key type
-- Now the critical part: at "How would you like to store this certificate?" pick `Write .pem files to folder (Apache, nginx, etc.)`
+- Now the critical part: at "How would you like to store this certificate?" pick `Create PEM encoded files (for Apache, nginx, etc.)`
 - And so on...
 
 ### Unattended 

@@ -1,4 +1,9 @@
 ---
+arguments:
+ - test
+ - verbose
+settings:
+ - Client.LogPath
 ---
 # Custom logging
 The program uses [Serilog](https://serilog.net/) for logging which is a powerful extensible library.
@@ -12,15 +17,10 @@ simple-acme uses the following five log levels:
 - `Debug` - Additional information that can be useful for troubleshooting
 - `Verbose` - Full logging for submitting bug reports
 
-You can change the log level by adding the following setting:
-
-`<add key="serilog:minimum-level" value="Verbose" />`
-
 ## Included sinks
 - The default sink logs to the console window to provide real time insights.
 - The `event` sink writes to the Windows Event Viewer includes `Error`, `Warning` and selected `Information` messages.
-- The `disk` sink writes rolling log files to `%programdata%\simple-acme\$baseuri$\Log` 
-  (that path can be changed in [settings.json](/reference/settings))
+- The `disk` sink writes rolling log files to the `{Client.LogPath}`.
 
 ## Custom sinks
 There are many types of output channels called [sinks](https://github.com/serilog/serilog/wiki/Provided-Sinks) for all
@@ -39,15 +39,13 @@ The follow piece of code in `serilog.json` adds the process ID to the output of 
 
 ```json
 {
-	"disk": {
-		"WriteTo": [
-			{ 
-				"Name": "File",
-				"Args": { 
-					"outputTemplate": "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] [PID:{ProcessId}] {Message:lj}{NewLine}{Exception}"
-				} 
-			}
-		]
-	}
+  "disk": {
+    "WriteTo": [{ 
+      "Name": "File",
+      "Args": { 
+        "outputTemplate": "[{Level:u3}] [PID:{ProcessId}] {Message:lj}{NewLine}{Exception}"
+      } 
+    }]
+  }
 }
 ```

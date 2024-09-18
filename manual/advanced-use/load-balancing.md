@@ -27,5 +27,4 @@ The [encryption](/manual/advanced-use/encryption) for the config files will have
 in the cluster can read the passwords.
 
 ## Appliance
-If you are using an appliance then you have to use their API and call into that from a `.bat`/`.ps1`/`.exe` 
-using an [installation script](/reference/plugins/installation). 
+If you are using an appliance then you have to use their API and call into that from an [installation script](/reference/plugins/installation/script). 

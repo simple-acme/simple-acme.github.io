@@ -1,4 +1,8 @@
 ---
+arguments:
+    - test
+    - verbose
+    - baseuri
 ---
 # Validation problems
 Validation is an important aspect of the ACME and Let's Encrypt, but there are many subtle ways 
@@ -53,7 +57,7 @@ possible to use.
 ### Firewall
 HTTP validation happens on port 80, so it will have to open on your firewall(s). Let's Encrypt 
 doesn't disclose IP address range(s) for their validation servers, meaning port 80 will have 
-to be accessible from *any* origin, at least for the duration of the validation.
+to be accessible from *any* origin, at least for the duration of the validation. Looking to temporarily open the firewall? See some options [here](/reference/plugins/validation/http/).
 
 ### IPv6 configuration 
 Let's Encrypt will check IPv6 access to your site if `AAAA` records are configured. Many browsers
@@ -61,60 +65,48 @@ and networks don't use IPv6 yet or automatically fallback to IPv4 when an error 
 it might not be immediately obvious that your site is unreachable on IPv6. You can test 
 it [here](http://ipv6-test.com/validate.php).
 
-### FileSystem plugin IIS issues
-Note that it's recommended to use the default `SelfHosting` validation plugin in combination 
-with IIS. The `FileSystem` validation is great of other web servers such as 
-[Apache](/manual/advanced-use/examples/apache), but using it in combination with IIS 
-leads to many potentials issues, described in the following sections.
+### Issues with IIS
+Note that it's recommended to use the default [self-hosting](/reference/plugins/validation/http/selfhosting) validation plugin in combination with IIS. The [other HTTP plugins](/reference/plugins/validation/http/) are great for web servers such as [Apache](/manual/advanced-use/examples/apache), but using them in combination with IIS leads to many potentials issues, highlighted below.
 
-##### CMS modules
-Your CMS might intercept the request and redirect the user to an (error) page. The solution 
-is to configure your CMS to allow unlimited access to the `/.well-known/acme-challenge/` 
-path.
-
-##### Problems with httpHanders
-IIS might not be configured to serve static extensionless files. 
-
-1. In IIS manager go to the `/.well-known/acme-challenge/` folder of the site (you may have to 
-create it). **Don't** do this at the root of the server or the website, because it might 
-break your application(s).
-2. Choose Handler Mappings -> View Ordered List.
-3. Move the StaticFile mapping above the ExtensionlessUrlHandler mappings. 
-
-![Move StaticFile mapping](http://i.stack.imgur.com/nkvrL.png)
-
-##### Anonymous authentication
-Your website might require Windows authentication, client certificates or other 
-authentication methods. Enable anonymous authentication to the `/.well-known/acme-challenge/` 
-path to allow access from the ACME server.
-
-##### Require SSL
-Your website might be configured to exclusively accept SSL traffic, while the validation 
-request comes in on port 80. Disable the "Require SSL" setting for the 
-`/.well-known/acme-challenge/` path to fix that.
-
-##### IP Address and Domain Restrictions
-Your website might use IP Address and Domain Restrictions to provide extra security. 
-The ACME server will have to bypass though. Let's Encrypt does not publicize a list of 
-IP addresses that they can use for validation, so this features needs to be disabled 
-for the `/.well-known/acme-challenge/` path.
-
-##### URL Rewrite 
-If you are using [URL Rewrite](https://www.iis.net/downloads/microsoft/url-rewrite) the 
-validation request might get caught up in that, so you have to make exceptions for 
-the `/.well-known/acme-challenge/` path. For example like so:
-
-```XML
-<rule name="LetsEncrypt Rule" stopProcessing="true">
-    <match url="^\.well-known/acme-challenge/.*$" />
-    <action type="None" />
-</rule>
-```
+<div class="callout-block callout-block-warning pb-1 mt-3">
+    <div class="content">
+        <div class="callout-block callout-block-danger pb-1 mt-3">
+            <div class="content">
+                <p>All of the following should <strong>only</strong> be applied to the <code>/.well-known/acme-challenge/</code> path. Don't do any of this at the root of the server or the website, because it might break your application(s).</p>
+            </div>
+        </div>
+        <p>
+        <strong>CMS:</strong>
+        Your CMS might intercept the request and redirect the user to an (error) page. The solution 
+        is to configure your CMS to allow unlimited access to the challenge path.
+        </p>
+        <p>
+        <strong>Handlers:</strong>
+        IIS might not be configured to serve static extensionless files. Go to "Handler Mappings" > "View Ordered List" and move <code>StaticFile</code> above the various <code>ExtensionlessUrlHandler</code>s.</p>
+        <p><img src="/assets/staticfile.png" /></p>
+        <p><strong>Authentication:</strong>
+        Your website might require NTLM, client certificates or other authentication methods. Enable anonymous authentication to allow access from the ACME server.</p>
+        <p><strong>SSL:</strong>
+        Your website might be configured to exclusively accept HTTPS traffic, while the validation request comes in on port 80. Disable the "Require SSL" setting to fix that.</p>
+        <p><strong>IP/Domain Restrictions:</strong>
+        Your website might use IP Address and Domain Restrictions to provide extra security. 
+        The ACME server will have to bypass though. (Let's Encrypt does not publish a list of 
+        IP addresses that they can use for validation.)
+        </p>
+        <p>
+        <strong>URL Rewrite:</strong>
+        If you are using <a href="https://www.iis.net/downloads/microsoft/url-rewrite">URL Rewrite</a> 
+        the validation request might get caught up in that, so you may need to make an exception for 
+        the challenge path. For example like so: <code>
+            &lt;rule name=&quot;ACME validation&quot; stopProcessing=&quot;true&quot;&gt;
+                &lt;match url=&quot;^\.well-known/acme-challenge/.*$&quot; /&gt;
+                &lt;action type=&quot;None&quot; /&gt;
+            &lt;/rule&gt;
+        </code>
+        </p>
+    </div>
+</div>
 
 ## DNS validation issues
-
-### Name server synchronisation
-Let's Encrypt may query all of your name servers, so they will have to be 
-in sync before submitting the challenge. The program will perform a pre-validation
-'dry run' for a maximum of 5 times with 30 second intervals (configurable in 
-`settings.json`) to allow the DNS changes to be processed.
+The ACME server may query all of your name servers, so they will have to be in sync before submitting the challenge. The program will perform a pre-validation
+'dry run' to allow the DNS changes to be processed. Please check the page on [DNS validation plugins](/reference/plugins/validation/http/) for finetuning options if the pre-validation fails.
