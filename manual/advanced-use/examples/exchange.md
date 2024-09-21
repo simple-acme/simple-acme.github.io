@@ -29,7 +29,7 @@ See [this issue](https://github.com/win-acme/win-acme/issues/1754) for more deta
 - Windows Certificate Store (default)
 `wacs.exe ‑‑source manual ‑‑host mail.example.com,webmail.example.com,autodiscover.example.com ‑‑certificatestore My ‑‑acl-fullcontrol "network service,administrators" ‑‑installation iis,script ‑‑installationsiteid 1 ‑‑script "./Scripts/ImportExchange.v2.ps1" ‑‑scriptparameters "'{CertThumbprint}' 'IIS,SMTP,IMAP' 1 '{CacheFile}' '{CachePassword}' '{CertFriendlyName}'"`
 
-- Central Certificate Store (load balancing etc.)
+- Central Certificate Store ([load balancing](/manual/advanced-use/load-balancing) etc.)
 `wacs.exe ‑‑source manual ‑‑host mail.example.com,webmail.example.com,autodiscover.example.com ‑‑store centralssl,certificatestore ‑‑certificatestore My ‑‑acl-fullcontrol "network service,administrators" ‑‑centralsslstore "C:\Central SSL" ‑‑installation iis,script ‑‑installationsiteid 1 ‑‑script "./Scripts/ImportExchange.v2.ps1" ‑‑scriptparameters "'{CertThumbprint}' 'IIS,SMTP,IMAP' 1 '{CacheFile}' '{CachePassword}' '{CertFriendlyName}'"`
 
 ## Verification

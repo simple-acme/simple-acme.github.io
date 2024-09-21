@@ -1,4 +1,7 @@
 ---
+settings:
+ - Store.DefaultStore
+ - Store.PemFiles.DefaultPath
 ---
 # Apache
 To get the certificate in the correct format for Apache (i.e. `.pem` files), you have to active 
@@ -29,7 +32,7 @@ or manually modify the `.renewal.json` files on disk.
 ### Pro tip
 If you don't want to have to specify the path for the `.pem` files each time, you can 
 edit `settings.json` in the program directory and set `Store.PemFiles.DefaultPath` 
-option.
+option. Also, you can use `Store.DefaultStore` to make PEM files the default output.
      
 ## Configuring Apache
 To use certificates obtained with the help of WACS with the Apache 2.4 server, you need 
@@ -91,6 +94,6 @@ This script is called with parameters:
 `LEWSuriDirectory CertFolder DomainName`
 
 For example:
-`wacs.exe ‑‑source manual ‑‑host www.example.com ‑‑webroot "C:\htdocs\www\example.com" ‑‑validation filesystem ‑‑script "installcert.cmd" ‑‑scriptparameters "acme-v02.api.letsencrypt.org C:\cert www.example.com"`
+`wacs.exe ‑‑source manual ‑‑host www.example.com ‑‑webroot "C:\htdocs\www\example.com" ‑‑validation filesystem --installation script ‑‑script "installcert.cmd" ‑‑scriptparameters "acme-v02.api.letsencrypt.org C:\cert www.example.com"`
 
 Also you must specify a new path to the folder with certificates in your `httpd-vhosts.conf`.

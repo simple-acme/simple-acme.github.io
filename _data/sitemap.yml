@@ -66,10 +66,7 @@ manual:
   url: /manual/migration
 - title: Upgrading
   url: /manual/upgrading/
-  subs:
-    - title: from win-acme
-      url: /manual/upgrading/to-v2.3.0
-
+  
 reference:
 - title: Command line
   url: /reference/cli
