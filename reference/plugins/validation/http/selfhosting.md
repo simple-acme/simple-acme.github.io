@@ -15,7 +15,7 @@ This plugin launches a temporary built-in web listener that stores the validatio
 response in memory. It can share port 80 with IIS and other (Microsoft) software 
 so this doesn't interfere with regular traffic. Not all software supports this 
 port sharing feature though. If you get errors telling you that the listener 
-cannot be started, try to (temporarely) shut down other processes  using the 
+cannot be started, try to (temporarely) shut down other processes using the 
 port, or look for another validation method.
 
 ## Non-default port
@@ -31,6 +31,11 @@ a rule for a specific application (i.e. `wacs.exe`), so you will have to open th
 port to `System`. If you feel that is too generous, you could automate enabling/
 disabling this rule by running a script before and after the validation starts, 
 using the settings described below.
+
+## User access
+By default only adminstrators are allowed to create these kinds of listeners. On Windows
+you can allow regular users to also do this by running 
+`netsh http add urlacl url=http://+:80/.well-known/acme-challenge/ user=myuser`
 
 ## Errors
 If the handler is unable to start you may first try to test which process is using
