@@ -23,6 +23,9 @@
    name: version
    description: "Show version information."
   -
+   name: config
+   description: "Show configuration information."
+  -
    name: renew
    description: "Renew any certificates that are due. This argument is used by the scheduled task. Note that it's not possible to change certificate properties and renew at the same time."
   -
