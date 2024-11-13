@@ -677,6 +677,17 @@ Store:
       default: "default"
       description: Determines how the <code>.pfx</code> file will be encrypted.
 
+  P7bFile:
+    DefaultPath:
+      type: string
+      subtype: path
+      description: When using the <a href="/reference/plugins/store/p7bfile">P7bFile</a> 
+        plugin this path is used by default, saving you the effort of providing 
+        it manually. Filling this out makes the <code>‑‑p7bfilepath</code> 
+        parameter unnecessary in most cases. Renewals created with the 
+        default path will automatically change to any future default value, 
+        meaning this is also a good practice for maintainability.
+
 Installation:
   DefaultInstallation:
       type: string
