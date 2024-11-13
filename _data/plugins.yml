@@ -327,6 +327,13 @@
  type: store
 
 -
+ name: "P7B file"
+ id: 221310a3-14d8-4478-a0f1-3c6d90f2ea51
+ trigger: p7bfile
+ description: "Create P7B archive file (no private key!)"
+ type: store
+
+-
  name: "None"
  id: cfdd7caa-ba34-4e9e-b9de-2a3d64c4f4ec
  trigger: none
@@ -377,4 +384,3 @@
  trigger: iis
  description: "Create or update bindings in IIS"
  type: installation
-

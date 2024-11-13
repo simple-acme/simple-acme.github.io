@@ -114,6 +114,23 @@ Acme:
       built that are difficult to influence. For maximum compatibility with 
       legacy clients we recommend using an alternative provider like <a href="https://zerossl.com">ZeroSSL</a>.
 
+  MaxDomains:
+    type: number
+    default: 100
+    description: Maximum number of host names that can be included in a single certificate.
+    warning: The client cannot override limits imposed by the server. Increase 
+      this value only if you're sure that your server supports it.
+
+  PublicSuffixListUri:
+    type: string
+    subtype: uri
+    default: https://publicsuffix.org/list/public_suffix_list.dat
+    description: Link from where the current version of the public suffix list is downloaded. 
+      This may be set to `""` (empty string) to stop the program from updating the list, or to a
+      custom location to provide your own version. 
+    waring: Using an out-of-date or invalid list may cause errors, only change this if you know 
+      what you're doing!
+
 Execution:
   DefaultPreExecutionScript:
     type: string
