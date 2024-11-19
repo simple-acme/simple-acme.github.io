@@ -7,4 +7,5 @@ examples:
         name: Typical
         cmd: ‑‑tencentapiid myapiid ‑‑tencentapikey *****
 ---
-Create the record at [Tencent](https://www.tencent.com/).
+Create the record at [Tencent Cloud](http://console.cloud.tencent.com/cam/capi).
+<!-- Tencent Docs: https://cloud.tencent.com/document/api/1427/56166 -->
