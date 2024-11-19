@@ -7,4 +7,5 @@ examples:
         name: Typical
         cmd: ‑‑aliyunapiid ***** ‑‑aliyunapisecret ***** [‑‑aliyunserver dns.aliyuncs.com]
 ---
-Create the record at [Alibaba Cloud](https://www.alibabacloud.com/). The default server is `dns.aliyuncs.com`, for more possible options see [this list](https://api.aliyun.com/product/Alidns).
+Create the record at [Alibaba Cloud / Aliyun](http://ram.console.aliyun.com/manage/ak). The default server is `dns.aliyuncs.com`, for more possible options see [this list](https://api.aliyun.com/product/Alidns).
+<!-- ALiYun Docs: https://api.aliyun.com/api/Alidns/2015-01-09/AddDomainRecord -->
