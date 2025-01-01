@@ -9,7 +9,7 @@ examples:
         name: Typical
         cmd: '[‑‑p7bfilepath C:\Certificates\] [‑‑p7bfilename mycert]' 
 ---
-Exports a P7B archive file including the certificate and the chain, and places it in a folder of your choice. By default the 
+Exports a P7B archive file including the certificate and the chain, and places it in a folder of your choice. By default, the 
 file name will be the common name of the certificate (i.e. the primary host name), but this may be overruled.
 
 <div class="callout-block callout-block-danger pb-1 mt-3">

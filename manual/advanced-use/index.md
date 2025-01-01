@@ -12,7 +12,7 @@ reasons to go for full options mode. For example:
 - You are managing dozens or hundreds of certificates
 
 ## Interactive
-This describes the basic steps of an full options rewenal from the interactive menu. It touches 
+This describes the basic steps of a full options renewal from the interactive menu. It touches 
 on concepts described [here](/reference/plugins/), because this mode of operation 
 exposes more of the internal logic of the program to use to your advantage. Don't worry if
 this seems overwhelming: all options have sensible defaults that you can select by just 
@@ -53,7 +53,7 @@ for each subsequent [renewal](/manual/automatic-renewal).
 ## Unattended operation
 By providing the right [command line arguments](/reference/cli) at start up you can do 
 everything that is possible in interactive mode (and more) without having to jump through the menu's.
-This is great way to make simple-acme part of a larger automation workflow.
+This is a great way to make simple-acme part of a larger automation workflow.
 
 An easy way to get started with unattended operation is to set up some certificates manually first and then 
 use the `L` option in the renewal manager to see the equivalent command line arguments. Note that some 

@@ -9,7 +9,7 @@ There are also some global secrets, like the proxy server password and the SMTP 
 ## Central Management
 
 Version 2.1.17 introduced the secret manager to make it easier to re-use and manage
-secrets for renewals. Also it makes it possible to protect those aformentioned global 
+secrets for renewals. Also, it makes it possible to protect those aforementioned global 
 secrets. The secret manager can be accessed from the main menu by going to 
 `More options...` > `Manage secrets`. There you will be presented with a list of currently 
 known secrets (if any) to update/delete them, and an option to add a new one. Each secret 
@@ -18,7 +18,7 @@ configuration files, command line arguments or script installation parameters.
 
 ## Multiple backends
 
-Currently there is only a single backend for the secret manager, which is a `.json` file 
+Currently, there is only a single backend for the secret manager, which is a `.json` file 
 in the configuration folder. The location of that file may be modified through
 [settings.json](/reference/settings), for example if you want to share it between different
 ACME endpoints. In the future the idea is to support more backends like Azure KeyVault. Implementation of a new backend is fairly straightforward for someone with C# experience, it just requires an assembly that implements [ISecretService](https://github.com/simple-acme/simple-acme/blob/master/src/main.lib/Services/Interfaces/ISecretService.cs). Contributions in this area are most welcome!

@@ -19,7 +19,7 @@ Files created are:
 - `{name}-chain.pem` (certificate plus chain)
 - `{name}-chain-only.pem` (chain without certificate)
 
-By default `{name}` will be the common name of the certificate (i.e. the primary host 
+By default, `{name}` will be the common name of the certificate (i.e. the primary host 
 name), but this may be overruled. If you choose to have the `-key.pem` file password 
 protected, you should make sure that the software you intend to consume the key with 
 supports this as well.
