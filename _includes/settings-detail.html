@@ -7,16 +7,16 @@
                     <p>Missing data in settings.yml</p>
                 </div>
             </div>
-        {% endif %} 
+        {% endif %}
         {{ include.setting.description }}
-        {% if include.setting.warning %} 
+        {% if include.setting.warning %}
             <div class="callout-block callout-block-warning pb-1 mt-3">
                 <div class="content">
                     <p>{{ include.setting.warning }}</p>
                 </div>
             </div>
         {% endif %}
-        {% if include.setting.tip %} 
+        {% if include.setting.tip %}
             <div class="callout-block callout-block-success pb-1 mt-3">
                 <div class="content">
                     <p>{{ include.setting.tip }}</p>
@@ -32,18 +32,18 @@
         {% elsif include.setting.subtype == "secret" %}
             <div class="callout-block callout-block-success pb-1 mt-3">
                 <div class="content">
-                    <p>You don't have store a literal password here, but may also place a reference to the <a href="/manual/advanced-use/secret-management">secret vault</a> like <code>"vault://json/mysecret"</code>.</p>
+                    <p>You don't have to store a literal password here, but may also place a reference to the <a href="/manual/advanced-use/secret-management">secret vault</a> like <code>"vault://json/mysecret"</code>.</p>
                 </div>
             </div>
         {% elsif include.setting.subtype == "protectionmode" %}
             <div class="callout-block callout-block-success pb-1 mt-3">
                 <div class="content">
                     <p>
-                        A <code>.pfx</code> file (also known as a PKCS12 archive) may contain the sensitive private key. 
+                        A <code>.pfx</code> file (also known as a PKCS12 archive) may contain the sensitive private key.
                         As a security measure, this can be password protected, but there is more than one algorithm
-                        to do so. 
-                        <strong>RC2-40</strong> is an older method, compatible with all versions of Windows, 
-                        but generally considered unsafe and for that reason unsupported by OpenSSL 3.x. 
+                        to do so.
+                        <strong>RC2-40</strong> is an older method, compatible with all versions of Windows,
+                        but generally considered unsafe and for that reason unsupported by OpenSSL 3.x.
                         <strong>AES-256</strong> is the current best practice, but it only works on Windows 10+ and Windows Server 2019+. simple-acme provides the following settings offer the best combination between compatibility and security:
                     </p>
                     <table class="table table-bordered">
@@ -51,7 +51,7 @@
                         <tr><td><code>"default"</code></td><td>Use RC2-40 on Windows 8 and Windows Server 2016 or below, use AES-256 for Linux and more recent versions of Windows.</td></tr>
                         <tr><td><code>"aes256"</code></td><td>Always use AES-256.</td></tr>
                         <tr><td><code>"legacy"</code></td><td>Always use RC2-40.</td></tr>
-                        <tr><td>Emtpy</td><td>Equivalent to <code>"legacy"</code> for backwards compatibility.</td></tr>        
+                        <tr><td>Emtpy</td><td>Equivalent to <code>"legacy"</code> for backwards compatibility.</td></tr>
                       </table>
                 </div>
             </div>
@@ -59,7 +59,7 @@
             <br><br>
         {% endif %}
         <strong>Type:</strong> {{ include.setting.type }}<br>
-        <strong>Default:</strong> 
+        <strong>Default:</strong>
         {% if include.setting.default %}
             {% if include.setting.type == "string" %}
                 <code>"{{ include.setting.default }}"</code>

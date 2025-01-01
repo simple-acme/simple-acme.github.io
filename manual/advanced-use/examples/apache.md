@@ -62,7 +62,7 @@ Do not forget to uncomment `LoadModule ssl_module modules/mod_ssl.so` in `Apache
 file if it's not already uncommented. You also need to add `Listen 443` or `Listen 80 443`. 
 
 ### Not for XAMPP uses
-You don't need the `/example.com` at the end after `"${SITEROOT}"` so it 
+You don't need the `/example.com` at the end after `"${SITEROOT}"`, so it 
 should just read as: `DocumentRoot "${SITEROOT}"` for that one line or else 
 (at least according to my case), would result in an object not found 404 error 
 when you visit your domain page. 

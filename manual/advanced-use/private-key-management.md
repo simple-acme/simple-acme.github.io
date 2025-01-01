@@ -38,4 +38,4 @@ If you don't want your private key to change for each renewal, you can use the o
 `‑‑reuse-privatekey` when setting up the renewal. This can 
 
 ## Private key cache
-By default simple-acme retains a copy of the private key in its certificate cache. These files are both encrypted and protected by access control lists in the file system. You can disable this feature by setting `Cache.ReuseDays` to `0` There will still be `.pfx` files written to disk containing the certificates (this is used for various other purposes, like detecting source changes, revokation, etc.), but they will not contain any private key information.
+By default simple-acme retains a copy of the private key in its certificate cache. These files are both encrypted and protected by access control lists in the file system. You can disable this feature by setting `Cache.ReuseDays` to `0` There will still be `.pfx` files written to disk containing the certificates (this is used for various other purposes, like detecting source changes, revocation, etc.), but they will not contain any private key information.
