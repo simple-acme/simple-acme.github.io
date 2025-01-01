@@ -26,12 +26,12 @@ layout: docs
 
             {% if plugin.external %}
                 {% assign file = plugin.download | default: plugin.trigger %}
-                {% assign downloadFake = "plugin." | 
-                    append: plugin.type | 
-                    append: "." | 
-                    append: file | 
-                    append: ".v" | 
-                    append: "2.x.x" | 
+                {% assign downloadFake = "plugin." |
+                    append: plugin.type |
+                    append: "." |
+                    append: file |
+                    append: ".v" |
+                    append: "2.x.x" |
                     append: ".zip"
                 %}
                 {% assign download = downloadFake | replace_first: "2.x.x", site.data.build.releasebuild %}
@@ -87,7 +87,7 @@ layout: docs
 <h2>Examples</h2>
 <div class="table-responsive my-4 me-5 pe-5">
     <table class="table table-striped">
-        <tbody>      
+        <tbody>
             {% for item in page.examples %}
             <tr>
                 <th class="col-md-3" scope="row">{{ item.name }}</th>
@@ -103,7 +103,7 @@ layout: docs
 <h2>JSON</h2>
 <div class="table-responsive my-4 me-5 pe-5">
     <table class="table table-striped">
-        <tbody>      
+        <tbody>
             <tr>
                 <th class="col-md-3" scope="row">ID</th>
                 <td><code>{{plugin.id}}</code></td>
