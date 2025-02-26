@@ -23,4 +23,4 @@ by the FluentFTP project explains the reasons behind and limitations of this met
 Using this requires:
    - A change in `settings.config`, `Validation.Ftp.UseGnuTls` should be set to `true`.
    - The pluggable **x64** release of simple-acme (it is not available for x86 or ARM due to limitations of the upstream package, and also doesn't work on the trimmed build) 
-   - Download and extract the additonal build artifact <a href="https://github.com/simple-acme/simple-acme/releases/download/v{{ site.data.build.releasetag }}/gnutls.v{{ site.data.build.releasebuild }}.x64.zip">gnutls.v{{ site.data.build.releasebuild }}.x64.zip</a> for the current release (or find older versions on GitHub).
+   - Download and extract the additonal build artifact <a href="https://github.com/simple-acme/simple-acme/releases/download/{{ site.data.build.releasetag }}/gnutls.v{{ site.data.build.releasebuild }}.x64.zip">gnutls.v{{ site.data.build.releasebuild }}.x64.zip</a> for the current release (or find older versions on GitHub).
