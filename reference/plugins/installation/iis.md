@@ -8,13 +8,13 @@ examples:
           cmd: '[‑‑installationsiteid 14] [‑‑sslport 8443] [‑‑sslipaddress 192.168.0.1]'
 ---
 
-### Http binding update algorithm
-- Existing https bindings in *any* web site linked to the previous certificate are updated to use the new certificate.
+### HTTP binding update algorithm
+- Existing HTTPS bindings in *any* web site linked to the previous certificate are updated to use the new certificate.
 - Hosts names which are determined to not yet have been covered by any existing binding, will be processed further.
-  - All existing https bindings in *source* site whose hostnames match with the new certificate are updated 
+  - All existing HTTPS bindings in *source* site whose hostnames match with the new certificate are updated 
     to use the new certificate. This happens even if they are using certificates issued by other authorities. 
 	(Note that if you want to prevent this from happening, you can use the `‑‑excludebindings` switch).
-  - If no existing https binding can be found, a new binding is created.
+  - If no existing HTTPS binding can be found, a new binding is created.
     - It will create bindings on the specified installation site and fall back to the source site if there is none.
 	- It will use port `443` on IP `*` unless different values are specified with the `‑‑sslport` and/or 
 	  `‑‑sslipaddress` switches.
@@ -41,6 +41,6 @@ examples:
 
 ### Installing to multiple sites
 Due to the logic described above, it's never required to configure the IIS 
-installation step more than once to ensure succesful renewal of all bindings, regardless
+installation step more than once to ensure successful renewal of all bindings, regardless
 of how many different sites you have. However, if you have a complicated scenario,
 you may need to manually tune the bindings to your wishes after the initial run. 

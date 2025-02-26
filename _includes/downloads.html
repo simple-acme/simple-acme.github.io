@@ -2,16 +2,16 @@
     <table class="table table-striped">
 {% assign archs = "x64,x86,ARM64" | split: "," %}
 {% for arch in archs %}
-    {% assign name = "simple-acme.v" | 
-                        append: site.data.build.releasebuild | 
-                        append: "." | 
-                        append: include.os | 
-                        append: "-" | 
+    {% assign name = "simple-acme.v" |
+                        append: site.data.build.releasebuild |
+                        append: "." |
+                        append: include.os |
+                        append: "-" |
                         append: arch |
-                        append: "." | 
-                        append: include.type | 
-                        append: ".zip" | 
-                        downcase %}    
+                        append: "." |
+                        append: include.type |
+                        append: ".zip" |
+                        downcase %}
     {% assign download = site.data.build.downloads | where: "name", name | first %}
     {% unless download == nil %}
 <tr>

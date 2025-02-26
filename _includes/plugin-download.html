@@ -6,12 +6,12 @@
         {% continue %}
     {% endunless %}
     {% assign file = plugin.download | default: plugin.trigger %}
-    {% assign name = "plugin." | 
-        append: include.type | 
-        append: "." | 
-        append: file | 
-        append: ".v" | 
-        append: site.data.build.releasebuild | 
+    {% assign name = "plugin." |
+        append: include.type |
+        append: "." |
+        append: file |
+        append: ".v" |
+        append: site.data.build.releasebuild |
         append: ".zip"
     %}
     {% assign download = site.data.build.downloads | where: "name", name | first %}

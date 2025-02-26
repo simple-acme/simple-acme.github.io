@@ -34,13 +34,13 @@ one(s) you want. Check the [command line reference](/reference/cli) to see how.
 
 There are two other types of plugins that may be interesting to developers of custom solutions:
 
-- A [notification](/manual/notifications) target can be used to send success or error messages to your favorite channel, instead of (or in addition to) the built in emails.
+- A [notification](/manual/notifications) target can be used to send success or error messages to your favorite channel, instead of (or in addition to) the built-in emails.
 - A [secret store](/manual/advanced-use/secret-management) can be used to get and set secrets like passwords and API keys from your favorite management tool, instead of (or in addition to) the built in encrypted JSON file.
 
-Currently there are no alternative implementations for these last two interfaces available as part of this project, but we welcome contributions in these areas.
+Currently, there are no alternative implementations for these last two interfaces available as part of this project, but we welcome contributions in these areas.
 
 ## Pluggable vs. Trimmed releases
 
 A lot of plugins are built-in, but some plugins are distributed as optional extra downloads. 
 When using one of the extra downloads, it's required to use the "pluggable" releases of the 
-main program. Otherwise you may use the "trimmed" releases to save disk space and network bandwidth.
+main program. Otherwise, you may use the "trimmed" releases to save disk space and network bandwidth.

@@ -1,7 +1,7 @@
 {% if include.title == '' or include.title == null %}
     {% assign title = 'Settings' %}
 {% else %}
-    {% assign title = include.title %} 
+    {% assign title = include.title %}
 {% endif %}
 <h2>{{ title }}</h2>
 <div class="table-responsive my-4 me-5 pe-5">
@@ -41,7 +41,7 @@
                     {% assign name = name0 | append: "." | append: name1 | append: "." | append: name2 %}
                 {% endif %}
                 {% include settings-detail.html setting=setting name=name %}
-            {% endfor %}   
-        </tbody>  
+            {% endfor %}
+        </tbody>
     </table>
 </div>

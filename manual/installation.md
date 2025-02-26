@@ -4,7 +4,7 @@
 
 ## Manual
 - [Download](/download) the latest version of the program from this website and unpack the contents of the `.zip` archive to a folder, for example `%programfiles%\simple-acme`.
-- Run `wacs.exe` (or just `wacs` on Linux) as an administrator/superuser. While running under a priviledged context is not required for *all* operations, it will be necessary to set up a scheduled task (or cronjob), manage IIS bindings and handle validation requests internally, i.e. the most common use cases.
+- Run `wacs.exe` (or just `wacs` on Linux) as an administrator/superuser. While running under a privileged context is not required for *all* operations, it will be necessary to set up a scheduled task (or cronjob), manage IIS bindings and handle validation requests internally, i.e. the most common use cases.
 - To update from a previous version, simply unpack the contents of the archive in the same folder, overwriting all files already there. 
 
 ## dotnet

@@ -8,7 +8,7 @@ The fact is that Let's Encrypt has always been fully compliant and accountable t
 ### Domain Validated 
 Let's Encrypt provides only domain validated (DV) certificates. This means that they will put their hand in the fire for the fact that whomever is issued one of their certificates has sufficiently demonstrated control of the included domain(s) to them. 
 
-Here is the crux though: being in control of a domain is not always the same as being its legitimate owner. Hackers can target a website and/or its infrastructure, which if succesful could potentially allow them to issue a certificate using Let's Encrypt without the owners' permission - and without leaving a paper trail.
+Here is the crux though: being in control of a domain is not always the same as being its legitimate owner. Hackers can target a website and/or its infrastructure, which if successful could potentially allow them to issue a certificate using Let's Encrypt without the owners' permission - and without leaving a paper trail.
 
 Commercial providers "solve" this problem by also offering Organisation Validation (OV) certificates. This is the "more secure" and more expensive product that Let's Encrypt lacks and what most of the arguments against it boil down to. 
 

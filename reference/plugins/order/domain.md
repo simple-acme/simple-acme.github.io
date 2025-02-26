@@ -12,8 +12,8 @@ Generates an order/certificate for each registerable domain found in the source.
 - *.contoso.co.uk
 
 Three certificates will be generated: 
-- Certicate A for two `example.com` hosts, 
-- Certicate B for two `contoso.net` hosts
-- Certicate C for one `contoso.co.uk` host
+- Certificate A for two `example.com` hosts, 
+- Certificate B for two `contoso.net` hosts
+- Certificate C for one `contoso.co.uk` host
 
 Not compatible with the [custom CSR](/reference/plugins/source/csr) source.

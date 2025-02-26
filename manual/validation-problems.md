@@ -11,7 +11,7 @@ the issue might be.
 
 ## Testing 
 Run `wacs.exe` with the `‑‑test` and `‑‑verbose` parameters to watch your validation unfold in 
-'slow motion'. This will run against the Let's Encrypt staging server so you don't risk 
+'slow motion'. This will run against the Let's Encrypt staging server, so you don't risk 
 running into any rate limits. If you want to test against the production endpoint, include the
 parameter `‑‑baseuri https://acme-v02.api.letsencrypt.org/` as well.
 
@@ -109,4 +109,4 @@ Note that it's recommended to use the default [self-hosting](/reference/plugins/
 
 ## DNS validation issues
 The ACME server may query all of your name servers, so they will have to be in sync before submitting the challenge. The program will perform a pre-validation
-'dry run' to allow the DNS changes to be processed. Please check the page on [DNS validation plugins](/reference/plugins/validation/http/) for finetuning options if the pre-validation fails.
+'dry run' to allow the DNS changes to be processed. Please check the page on [DNS validation plugins](/reference/plugins/validation/http/) for fine-tuning options if the pre-validation fails.

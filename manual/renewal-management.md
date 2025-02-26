@@ -20,7 +20,7 @@ IIS users and the option `M` offers full options, for example for Apache, Exchan
 [command line](/reference/cli). 
 The command line even offers some options that the menu does not, check out the documentation 
 about [plugins](/reference/plugins/) to read all about it.
-- It's also possible to add `.renewal.json` files to the folder yourself, either manually or using some clever tooling or scripting, to create a lighty coupled integration between your own management tools and simple-acme.
+- It's also possible to add `.renewal.json` files to the folder yourself, either manually or using some clever tooling or scripting, to create a lightly coupled integration between your own management tools and simple-acme.
 
 ## Modification
 Many users mistakenly try to modify their renewal by issuing commands like `‑‑renew ‑‑webroot C:\NewRoot` 
