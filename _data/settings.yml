@@ -136,7 +136,9 @@ Execution:
     type: string
     subtype: path
     description: Path to a script that is executed before renewing a certificate.
-    tip: This may be useful to temporarely relax security measures, e.g. opening port 80 on the firewall.
+    tip: This may be useful to temporarely relax security measures, e.g. opening port 80 
+     on the firewall. See <code>/Script/OpenIIS80FWrule.ps1</code> in the program directory 
+     for an example.
 
   DefaultPostExecutionScript:
     type: string

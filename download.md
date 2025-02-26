@@ -4,11 +4,12 @@
 # Downloads
 Please check the [System Requirements](/manual/system-requirements) to see if your operating system is supported.
 
-The current release on this page is **{{ site.data.build.releasename }}** (build {{ site.data.build.releasebuild }}). Release notes and downloads for older versions can be obtained from [GitHub](https://github.com/simple-acme/simple-acme/releases/). After downloading you can confirm file integrity using the Powershell command `Get-FileHash` or the `sha265sum` command in Linux.
+The current release on this page is **{{ site.data.build.releasename }}** (build {{ site.data.build.releasebuild }} / commit [{{ site.data.build.commit }}](https://github.com/simple-acme/simple-acme/tree/{{ site.data.build.commit }})). Release notes and downloads for older versions can be obtained from [GitHub](https://github.com/simple-acme/simple-acme/releases/). After downloading you can confirm integrity using the Powershell command `Get-FileHash` or the `sha265sum` command in Linux. All binaries except for the Linux executables are kindly signed by the [SignPath Foundation](https://signpath.org/). The "Product version" field in the file details should always reflect the build number and commit mentioned here.
 
 ---
 
 ### Windows
+
 ##### Full
 The full builds are larger and support loading external plugins.
 {% include downloads.html os='win' type='pluggable' %}
@@ -45,4 +46,3 @@ Plugins only work with the full build of the program. It is recommended to upgra
 
 #### HTTP
 {% include plugin-download.html type='validation.http' %}
-

@@ -17,7 +17,7 @@
     {% assign download = site.data.build.downloads | where: "name", name | first %}
     {% unless download == nil %}
 <tr>
-    <td class="col-md-2"><a href="https://github.com/simple-acme/simple-acme/releases/download/v{{ site.data.build.releasetag }}/{{name}}">{{plugin.name}}</a></td>
+    <td class="col-md-2"><a href="https://github.com/simple-acme/simple-acme/releases/download/{{ site.data.build.releasetag }}/{{name}}">{{plugin.name}}</a></td>
     <td class="col-md-2">{{plugin.provider}}</td>
     <td class="col-md-2">{{download.size}}</td>
     <td class="col-md-2">{% include plugin-link.html plugin=plugin title='documentation' %}</td>

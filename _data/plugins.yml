@@ -166,6 +166,16 @@
  type: validation.dns
 
 -
+ name: "HuaWeiCloud"
+ id: ec5a5198-7224-447e-aac5-99c2ccda78a1
+ trigger: huaweicloud
+ external: true
+ provider: HuaWeiCloud
+ page: huaweicloud
+ description: "Create verification records in HuaWeiCloud DNS"
+ type: validation.dns
+
+-
  name: "Infomaniak"
  id: d1401d1e-b925-407d-a38b-924d67b2d1b5
  trigger: infomaniak
@@ -384,3 +394,4 @@
  trigger: iis
  description: "Create or update bindings in IIS"
  type: installation
+
