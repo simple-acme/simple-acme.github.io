@@ -485,6 +485,24 @@
    description: "OPTIONAL: ID of zone the record is associated with."
 
 -
+ name: HuaWeiCloud
+ pluginid: "ec5a5198-7224-447e-aac5-99c2ccda78a1"
+ plugintype: "validation.dns"
+ condition: "--validation huaweicloud"
+ arguments:
+  -
+   name: huaweiclouddnsregion
+   description: "DNS Region. Refer: https://console.huaweicloud.com/apiexplorer/#/endpoint/DNS"
+  -
+   name: huaweicloudkeyid
+   description: "Access KeyId for HuaWeiCloud."
+   secret: true
+  -
+   name: huaweicloudkeysecret
+   description: "Access KeySecret for HuaWeiCloud."
+   secret: true
+
+-
  name: Infomaniak
  pluginid: "d1401d1e-b925-407d-a38b-924d67b2d1b5"
  plugintype: "validation.dns"
@@ -561,7 +579,10 @@
  arguments:
   -
    name: route53iamrole
-   description: "AWS IAM role for the current EC2 instance to login into Amazon Route 53. Note that you should provide the IAM name instead of the ARN."
+   description: "AWS IAM role for the current EC2 instance to login. Note that you should provide the IAM name instead of the ARN."
+  -
+   name: route53arnrole
+   description: "AWS role ARN for the current EC2 instance to login. This may be a full ARN."
   -
    name: route53accesskeyid
    description: "Access key ID to login into Amazon Route 53."
@@ -773,3 +794,4 @@
   -
    name: sslipaddress
    description: "IP address to use for newly created HTTPS bindings. Defaults to *."
+
