@@ -15,7 +15,7 @@
     {% assign download = site.data.build.downloads | where: "name", name | first %}
     {% unless download == nil %}
 <tr>
-    <td><a href="https://github.com/simple-acme/simple-acme/releases/download/v{{ site.data.build.releasetag }}/{{name}}">{{arch}}</a></td>
+    <td><a href="https://github.com/simple-acme/simple-acme/releases/download/{{ site.data.build.releasetag }}/{{name}}">{{arch}}</a></td>
     <td>{{download.size}}</td>
     <td>{% case arch %}
         {% when "x64" %}

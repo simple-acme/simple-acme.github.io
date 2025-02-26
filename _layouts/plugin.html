@@ -37,7 +37,7 @@ layout: docs
                 {% assign download = downloadFake | replace_first: "2.x.x", site.data.build.releasebuild %}
                 <tr>
                     <th scope="row">Download</th>
-                    <td><a href="https://github.com/simple-acme/simple-acme/releases/download/v{{ site.data.build.releasetag }}/{{ download }}">Version {{ site.data.build.releasename }}</a>. Look for older releases on <a href="https://github.com/simple-acme/simple-acme/releases/">GitHub</a> for files named like <strong>{{downloadFake}}</strong></td>
+                    <td><a href="https://github.com/simple-acme/simple-acme/releases/download/{{ site.data.build.releasetag }}/{{ download }}">Version {{ site.data.build.releasename }}</a>. Look for older releases on <a href="https://github.com/simple-acme/simple-acme/releases/">GitHub</a> for files named like <strong>{{downloadFake}}</strong></td>
                     <td></td>
                 </tr>
             {% else %}
