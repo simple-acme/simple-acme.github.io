@@ -4,13 +4,22 @@ layout: none
 {
 	"$schema": "http://json-schema.org/draft-07/schema#",
 	"type": "object",
-	"required": [
-		"Host"
+	"oneOf": [
+		{
+			"required": ["CommonName"]
+		},
+		{
+			"required": ["AlternativeNames"]
+		}
 	],
 	"properties": {
-		"Host": {
-			"type": "string",
-			"$comment": "Should match the file name, i.e. if the file is called 'myid.renewal.json', the value of this property should be 'myid'. This way the file system enforces unique ids."
+		"CommonName": {
+			"type": "string"
+		},
+		"AlternativeNames": {
+			"type": "array",
+			"minItems": 1,
+			"item": "string"
 		}
 	}
 }

@@ -26,51 +26,31 @@ layout: none
 			"$comment": "Password used to protect .pfx files in the cache directory."
 		},
 		"TargetPluginOptions": {
-			"$comment": "Source plugin selection and configuration options (note: the old name for source plugins was target plugins). Reference: https://simple-acme.com/reference/plugins/source/",
-			"$ref": "#/$defs/PluginOptions",
-			"type": "object",
-			"properties": {
-				"Plugin": {
-					"type": "string"
-				}
-			},
-			"allOf": [
-				{
-					"if": {
-						"properties": {
-							"Plugin": {
-								"const": "e239db3b-b42f-48aa-b64f-46d4f3e9941b"
-							}
-						}
-					},
-					"then": {
-						"$ref": "./source/manual.json"
-					}
-				}
-			]
+			"$ref": "#/$defs/SourcePluginOptions",
+			"$comment": "Source plugin selection and configuration options (note: the old name for source plugins was target plugins). Reference: https://simple-acme.com/reference/plugins/source/"
 		},
 		"ValidationPluginOptions": {
-			"$ref": "#/$defs/PluginOptions",
+			"$ref": "#/$defs/ValidationPluginOptions",
 			"$comment": "Validation plugin selection and configuration options. Reference: https://simple-acme.com/reference/plugins/validation/"
 		},
 		"CsrPluginOptions": {
-			"$ref": "#/$defs/PluginOptions",
+			"$ref": "#/$defs/CsrPluginOptions",
 			"$comment": "CSR plugin selection and configuration options. Reference: https://simple-acme.com/reference/plugins/csr/"
 		},
 		"OrderPluginOptions": {
-			"$ref": "#/$defs/PluginOptions",
+			"$ref": "#/$defs/OrderPluginOptions",
 			"$comment": "Order plugin selection and configuration options. Reference: https://simple-acme.com/reference/plugins/order/"
 		},
 		"StorePluginOptions": {
 			"$comment": "Store plugin selection and configuration options. More than one plugin can be selected. Reference: https://simple-acme.com/reference/plugins/store/",
 			"oneOf": [
 				{
-					"$ref": "#/$defs/PluginOptions"
+					"$ref": "#/$defs/StorePluginOptions"
 				},
 				{
 					"type": "array",
 					"minItems": 1,
-					"$ref": "#/$defs/PluginOptions"
+					"$ref": "#/$defs/StorePluginOptions"
 				}
 			]
 		},
@@ -78,13 +58,13 @@ layout: none
 			"$comment": "Installation plugin selection and configuration options. More than one plugin can be selected. Reference: https://simple-acme.com/reference/plugins/installation/",
 			"oneOf": [
 				{
-					"$ref": "#/$defs/PluginOptions"
+					"$ref": "#/$defs/InstallationPluginOptions"
 				},
 				{
 					"type": "array",
 					"minItems": 1,
 					"items": {
-						"$ref": "#/$defs/PluginOptions"
+						"$ref": "#/$defs/InstallationPluginOptions"
 					}
 				}
 			]
@@ -109,6 +89,30 @@ layout: none
 					"$comment": "Should be a GUID matching with one of the documented ones https://simple-acme.com/reference/plugins/."
 				}
 			}
+		},
+		"SourcePluginOptions": {
+			"$ref": "#/$defs/PluginOptions"
+			{% include plugin-schema.md type='source' %}
+		},
+		"ValidationPluginOptions": {
+			"$ref": "#/$defs/PluginOptions"
+			{% include plugin-schema.md type='validation' %}
+		},
+		"CsrPluginOptions": {
+			"$ref": "#/$defs/PluginOptions"
+			{% include plugin-schema.md type='csr' %}
+		},
+		"OrderPluginOptions": {
+			"$ref": "#/$defs/PluginOptions"
+			{% include plugin-schema.md type='order' %}
+		},
+		"StorePluginOptions": {
+			"$ref": "#/$defs/PluginOptions"
+			{% include plugin-schema.md type='store' %}
+		},
+		"InstallationPluginOptions": {
+			"$ref": "#/$defs/PluginOptions"
+			{% include plugin-schema.md type='installation' %}
 		},
 		"HistoryEntry": {
 			"type": "object",
