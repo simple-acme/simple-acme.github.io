@@ -3,15 +3,16 @@
 # System requirements
 ## Windows
 Officially, Microsoft only supports Windows Server 2012 and higher
-for .NET 8.0, which this program builds and depends on. If you're stuck 
+for .NET 9.0, which this program builds and depends on. If you're stuck 
 on an older version of Windows (sorry), consider running the latest 
 version of simple-acme on a different machine and transfering the certificates 
 over to the older machine using an installation script.
 
 If you absolutely must run on the older machine, you can use an older
 release of the software and accept all known bugs and limitations, because
-they are not supported anymore. 
+they are not supported anymore.
 
+- .NET8 (should work on Windows 2012): version [2.3.0.1826](https://github.com/simple-acme/simple-acme/releases/tag/v2.3.0.1826])
 - .NET7 (should work on Windows 2012): version [2.2.9.1](https://github.com/win-acme/win-acme/releases/tag/v2.2.9.1701])
 - .NET6 (should work on Windows 2012): version [2.1.23](https://github.com/win-acme/win-acme/releases/tag/v2.1.23.1315])
 - .NET5 (should work on Windows 2008): version [2.1.20](https://github.com/win-acme/win-acme/releases/tag/v2.1.20])

@@ -1,0 +1,26 @@
+---
+layout: none
+---
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"type": "object",
+	"required": [ "Id" ],
+	"properties": {
+		"Id": {
+			"type": "string",
+			"$comment": "Should match the file name, i.e. if the file is called 'myid.renewal.json', the value of this property should be 'myid'. This way the file system enforces unique ids."
+		},
+		"FriendlyName": {
+			"type": "string",
+			"$comment": "User provided friendly name."
+		},    
+		"LastFriendlyName": {
+			"type": "string",
+			"$comment": "Most recently used friendly name. This may be generated based on the source if user has not specified one."
+		},
+		"PfxPasswordProtected": {
+			"type": "string",
+			"$comment": "Password used to protect .pfx files in the cache directory."
+		}
+	}
+}

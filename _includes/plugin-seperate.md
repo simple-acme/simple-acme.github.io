@@ -8,7 +8,7 @@ and then checking the `Unblock` box on the General tab.<br><br>
 <img src="/assets/unblock-dll.png"></p>
         <div class="callout-block callout-block-warning pb-1 mt-3">
             <div class="content">
-                <p>If you are using simple-acme as a dotnet tool, the folder will be <code>%userprofile%\.dotnet\tools\.store\simple-acme\{{ site.data.build.releasebuild }}\simple-acme\{{ site.data.build.releasebuild }}\tools\net8.0\any</code></p>
+                <p>If you are using simple-acme as a dotnet tool, the folder will be <code>%userprofile%\.dotnet\tools\.store\simple-acme\{{ site.data.build.releasebuild }}\simple-acme\{{ site.data.build.releasebuild }}\tools\net9.0\any</code></p>
             </div>
         </div>
         <p>To verify that the plugin is properly installed you can start the main executable 
