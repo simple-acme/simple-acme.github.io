@@ -40,6 +40,16 @@ layout: docs
                     <td><a href="https://github.com/simple-acme/simple-acme/releases/download/{{ site.data.build.releasetag }}/{{ download }}">Version {{ site.data.build.releasename }}</a>. Look for older releases on <a href="https://github.com/simple-acme/simple-acme/releases/">GitHub</a> for files named like <strong>{{downloadFake}}</strong></td>
                     <td></td>
                 </tr>
+                {% assign package = "simple-acme-" | 
+                    append: plugin.type | replace: ".", "-" | 
+                    append: "-" | 
+                    append: file
+                %}
+                <tr>
+                    <th scope="row">Chocolatey</th>
+                    <td><pre style="display:inline">choco install {{ package }} </pre> (<a href="https://community.chocolatey.org/packages/{{ package }}">details</a>)</td>
+                    <td></td>
+                </tr>
             {% else %}
                 <tr>
                     <th scope="row">Download</th>
