@@ -66,7 +66,7 @@ Certificates can be revoked from the main menu with `Manage renewals` > `Revoke 
 ## Internals
 Renewals are stored in the program's configuration path. Each file that fits the pattern `*.renewal.json` is considered to be a renewal. The files are randomly named by the program, but you are free to rename them if that suits you. The only requirement is that they must be unique, which is enforced by checking that the `"Id"` field in the JSON must match with the name of file. You can specify your own identifier at creation time with the `‑‑id` switch.
 
-The renewal files consist of three parts:
+There is [JSON schema](/schema/renewal.json) published for the renewal files that helps guide users of supporting tools like Visual Studio Code in making modifications manually. Each file has three parts:
 - Metadata, e.g. it's identifier, friendly name and the encrypted version of the password that is used for the cached `.pfx` archive.
 - Plugin configuration, e.g. everything that the [plugins](/reference/plugins/) need to know 
 to do their jobs, according to the command line arguments and menu choices that were given at creation time.
