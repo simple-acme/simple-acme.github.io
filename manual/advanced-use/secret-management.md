@@ -30,3 +30,6 @@ Currently, there are three backends for the secret manager shipped with the prog
 
 In the future the idea is to support more backends like Azure KeyVault and HashiCorp. Implementation of a new backend is fairly straightforward for 
 someone with C# experience, it just requires an assembly that implements [ISecretProvider](https://github.com/simple-acme/simple-acme/blob/main/src/main.lib/Services/Interfaces/ISecretService.cs). Contributions in this area are most welcome!
+
+## Unattended use
+You can add or update a secret to the `json` vault by using the command `--vaultstore --vaultkey mykey --vaultsecret *****`. Fron that point on the provided secret will be usable as `vault://json/mykey`.
