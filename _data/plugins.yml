@@ -9,6 +9,7 @@
  name: "Manual input"
  id: e239db3b-b42f-48aa-b64f-46d4f3e9941b
  trigger: manual
+ schema: true
  description: "Manually enter host names"
  type: source
 
@@ -23,8 +24,8 @@
  name: "Manual"
  id: e45d62b9-f9a8-441e-b95f-c5ee0dcd8040
  trigger: manual
- description: "Create verification records manually (auto-renew not possible)"
- type: validation.dns
+ description: "Perform validation challenge manually (auto-renew not possible)"
+ type: validation
 
 -
  name: "Custom script"
@@ -32,6 +33,13 @@
  trigger: script
  description: "Create verification records with your own script"
  type: validation.dns
+
+-
+ name: "None"
+ id: a37b41dc-b45a-42fe-8d81-82ca409a5491
+ trigger: none
+ description: "Domain(s) are pre-authorized outside of simple-acme"
+ type: validation
 
 -
  name: "Filesystem"
@@ -162,6 +170,7 @@
  id: 7176cc8f-ba08-4b07-aa39-2f5d012c1d5a
  trigger: hetzner
  external: true
+ schema: true
  description: "Create verification records in Hetzner DNS"
  type: validation.dns
 
