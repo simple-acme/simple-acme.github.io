@@ -467,6 +467,14 @@ Validation:
       <code>DnsServers</code> see the correct value, making the process potentially
       slower but more robust.
 
+  DnsPropagationDelay:
+    type: number
+    default: 30
+    description: Amount of time in seconds to wait for DNS propagation to complete 
+     *after* (optional) PreValidation step has been run. This is required for certain
+     providers to synchronise their world-wide servers, even after the geographically 
+     closest ones to simple-acme have already started reflecting the desired records.
+
   AllowDnsSubstitution:
     type: boolean
     default: true
