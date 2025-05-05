@@ -403,4 +403,3 @@
  trigger: iis
  description: "Create or update bindings in IIS"
  type: installation
-

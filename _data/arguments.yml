@@ -6,7 +6,7 @@
    description: "Address of the ACME server to use. The default endpoint can be modified in settings.json."
   -
    name: test
-   description: "Enables testing behaviours in the program which may help with troubleshooting. By default this also switches the ‑‑baseuri to the ACME test endpoint. The default endpoint for test mode can be modified in settings.json."
+   description: "Enables testing behaviours in the program which may help with troubleshooting. By default this also switches the â€‘â€‘baseuri to the ACME test endpoint. The default endpoint for test mode can be modified in settings.json."
   -
    name: verbose
    description: "Print additional log messages to console for troubleshooting and bug reports."
@@ -24,7 +24,7 @@
    description: "Renew any certificates that are due. This argument is used by the scheduled task. Note that it's not possible to change certificate properties and renew at the same time."
   -
    name: force
-   description: "[‑‑renew] Always execute the renewal, disregarding the validity of the current certificates and the prefered schedule."
+   description: "[â€‘â€‘renew] Always execute the renewal, disregarding the validity of the current certificates and the prefered schedule."
   -
    name: nocache
    description: "Bypass the cache on certificate requests. Applies to both new requests and renewals."
@@ -33,10 +33,10 @@
    description: "Create an ACME service account without creating a certificate."
   -
    name: cancel
-   description: "Cancel renewal specified by the ‑‑friendlyname or ‑‑id arguments."
+   description: "Cancel renewal specified by the â€‘â€‘friendlyname or â€‘â€‘id arguments."
   -
    name: revoke
-   description: "Revoke the most recently issued certificate for the renewal specified by the ‑‑friendlyname or ‑‑id arguments."
+   description: "Revoke the most recently issued certificate for the renewal specified by the â€‘â€‘friendlyname or â€‘â€‘id arguments."
   -
    name: list
    description: "List all created renewals in unattended mode."
@@ -45,10 +45,10 @@
    description: "Rewrites all renewal information using current EncryptConfig setting"
   -
    name: id
-   description: "[‑‑source|‑‑cancel|‑‑renew|‑‑revoke] Id of a new or existing renewal, can be used to override the default when creating a new renewal or to specify a specific renewal for other commands."
+   description: "[â€‘â€‘source|â€‘â€‘cancel|â€‘â€‘renew|â€‘â€‘revoke] Id of a new or existing renewal, can be used to override the default when creating a new renewal or to specify a specific renewal for other commands."
   -
    name: friendlyname
-   description: "[‑‑source|‑‑cancel|‑‑renew|‑‑revoke] Friendly name of a new or existing renewal, can be used to override the default when creating a new renewal or to specify a specific renewal for other commands. In the latter case a pattern might be used. You may use a <code>*</code> for a range of any characters and a <code>?</code> for any single character. For example: the pattern <code>example.*</code> will match <code>example.net</code> and <code>example.com</code> (but not <code>my.example.com</code>) and the pattern <code>?.example.com</code> will match <code>a.example.com</code> and <code>b.example.com</code> (but not <code>www.example.com</code>). Note that multiple patterns can be combined by comma seperating them."
+   description: "[â€‘â€‘source|â€‘â€‘cancel|â€‘â€‘renew|â€‘â€‘revoke] Friendly name of a new or existing renewal, can be used to override the default when creating a new renewal or to specify a specific renewal for other commands. In the latter case a pattern might be used. You may use a <code>*</code> for a range of any characters and a <code>?</code> for any single character. For example: the pattern <code>example.*</code> will match <code>example.net</code> and <code>example.com</code> (but not <code>my.example.com</code>) and the pattern <code>?.example.com</code> will match <code>a.example.com</code> and <code>b.example.com</code> (but not <code>www.example.com</code>). Note that multiple patterns can be combined by comma seperating them."
   -
    name: source
    description: "Specify which source plugin to run, bypassing the main menu and triggering unattended mode."
@@ -82,7 +82,7 @@
    secret: true
   -
    name: closeonfinish
-   description: "[‑‑test] Close the application when complete, which usually does not happen when test mode is active. Useful to test unattended operation."
+   description: "[â€‘â€‘test] Close the application when complete, which usually does not happen when test mode is active. Useful to test unattended operation."
   -
    name: hidehttps
    description: "Hide sites that have existing https bindings from interactive mode."
@@ -311,7 +311,7 @@
  arguments:
   -
    name: dnsscript
-   description: "Path to script that creates and deletes validation records, depending on its parameters. If this parameter is provided then ‑‑dnscreatescript and ‑‑dnsdeletescript are ignored."
+   description: "Path to script that creates and deletes validation records, depending on its parameters. If this parameter is provided then â€‘â€‘dnscreatescript and â€‘â€‘dnsdeletescript are ignored."
   -
    name: dnscreatescript
    description: "Path to script that creates the validation TXT record."
@@ -807,4 +807,3 @@
   -
    name: sslipaddress
    description: "IP address to use for newly created HTTPS bindings. Defaults to *."
-
