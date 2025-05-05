@@ -71,6 +71,16 @@
    name: installation
    description: "Specify which installation plugins to use (if any). This may be a comma-separated list."
   -
+   name: vaultstore
+   description: "Store a new value in the secret vault, or overwrite an existing one."
+  -
+   name: vaultkey
+   description: "Key to target for vault commands. This should be in the format like vault://json/mysecret."
+  -
+   name: vaultsecret
+   description: "Secret to save in the vault."
+   secret: true
+  -
    name: closeonfinish
    description: "[‑‑test] Close the application when complete, which usually does not happen when test mode is active. Useful to test unattended operation."
   -
@@ -115,6 +125,9 @@
   -
    name: csrfile
    description: "Specify the location of a CSR file to make a certificate for"
+  -
+   name: csrscript
+   description: "Specify the location of a script that will generate the CSR file on demand"
   -
    name: pkfile
    description: "Specify the location of the private key corresponding to the CSR"
@@ -794,4 +807,3 @@
   -
    name: sslipaddress
    description: "IP address to use for newly created HTTPS bindings. Defaults to *."
-

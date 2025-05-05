@@ -467,6 +467,14 @@ Validation:
       <code>DnsServers</code> see the correct value, making the process potentially
       slower but more robust.
 
+  DnsPropagationDelay:
+    type: number
+    default: 30
+    description: Amount of time in seconds to wait for DNS propagation to complete 
+     *after* (optional) PreValidation step has been run. This is required for certain
+     providers to synchronise their world-wide servers, even after the geographically 
+     closest ones to simple-acme have already started reflecting the desired records.
+
   AllowDnsSubstitution:
     type: boolean
     default: true
@@ -597,7 +605,7 @@ Store:
         CryptoAPI. For example:
           <ul><li>It will not (fully) work for older versions of Microsoft Exchange (this might only become apparent when installing a service pack)</li>
           <li>It won't be exportable from the IIS Manager, even if <code>PrivateKeyExportable</code> is <code>true</code> (though it will be exportable from MMC).</li>
-          <li><code>--acl-read</code> and <code>--acl-fullcontrol</code> will not work</li>
+          <li><code>--acl-read</code> and <code>--acl-fullcontrol</code> may not work on all versions of Windows</li>
           </ul>
         "
 
@@ -706,3 +714,22 @@ Secrets:
       subtype: path  
       description: Location of the file store secrets.
       nullBehaviour: defaults to <code>{Client.ConfigurationPath}\secrets.json</code>
+
+  Script:
+    Get:
+      type: string
+      subtype: path  
+      description: Location of the secret getting script.
+    GetArguments:
+      type: string
+      description: Arguments to pass to the script that retreives a secret. Supported variable substitutions are
+        <div class="callout-block callout-block-success mt-3">
+          <div class="content">
+              <table class="table table-bordered">
+                <tr><th class="col-md-3">Value</th><th>Meaning</th></tr>
+                <tr><td>{key}</td><td>The identifier of the secret being requested, e.g. the "mytoken" part of <pre>vault://script/mytoken</pre></td></tr>
+                <tr><td>{operation}</td><td>Currently hard coded to "get", may get "delete" and "set" at some point in the future.</tr>
+                <tr><td>{vault://vault/key}</td><td>Pass a secret from one of the other vaults to the script. Note that you cannot self-reference.</td></tr>
+              </table>
+          </div>
+      nullBehaviour: defaults to <code>-key {key}</code>

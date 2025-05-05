@@ -12,6 +12,14 @@
         {% assign pluginactive = true %}
     {% endif %}
     {% if page.url contains linkbase %}
+        {% assign visible = true %}
+    {% else %}
+        {% assign visible = false %}
+    {% endif %}
+    {% if section == 'validation' and (page.url contains '/http/' or page.url contains '/dns/' or page.url contains '/tls-alpn/') %}
+        {% assign visible = false %}
+    {% endif %}
+    {% if visible %}
         <li class="nav-item ms-{{ indent }}">
             <a class="nav-link small {% if pluginactive %}active{% endif %}" href="{{ link }}">{{ plugin.name }}</a>
         </li>
