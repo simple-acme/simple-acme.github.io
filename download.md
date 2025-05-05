@@ -25,7 +25,7 @@ The trimmed builds are smaller but don't support plugins.
 Support for Linux is in beta at the moment.
 ##### Full
 The full builds are larger and support loading external plugins.
-{% include downloads.html os='linux' type='trimmed' %}
+{% include downloads.html os='linux' type='pluggable' %}
 
 
 ##### Trimmed
