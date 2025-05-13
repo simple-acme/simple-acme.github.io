@@ -18,6 +18,8 @@ acme:
   - Acme.RetryCount
   - Acme.RetryInterval
   - Acme.PreferredIssuer
+  - Acme.MaxDomains
+  - Acme.PublicSuffixListUri
 execution:
   - Execution.DefaultPreExecutionScript
   - Execution.DefaultPostExecutionScript
@@ -102,6 +104,8 @@ installation:
   - Installation.DefaultInstallation
 secrets:
   - Secrets.Json.FilePath
+  - Secrets.Script.Get
+  - Secrets.Script.GetArguments
 ---
 # Settings.json
 Some of the applications' settings can be modified in a file called `settings.json`. 
