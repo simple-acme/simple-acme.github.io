@@ -35,7 +35,7 @@ These arguments are used to create a new account for the ACME client during an i
     {% if plugin.external %}
  <div class="callout-block callout-block-warning pb-1 mt-3">
     <div class="content">
-        <p>These arguments are for a plugin that requires an additional download.</p>
+        <p>These arguments are for a plugin that requires an additional {% include plugin-link.html plugin=plugin title='download' %}.</p>
     </div>
  </div>
     {% endif %}

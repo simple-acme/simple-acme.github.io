@@ -18,3 +18,13 @@ h1,h2,h3,h4,h5,h6{scroll-margin-top:80px;}
 .docs-nav .nav-link.small:before {
   margin-top:0;
 }
+
+a.anchor {
+  display: block;
+  position: relative;
+  top: -75px;
+  visibility: hidden;
+}
+a.anchor-link {
+  text-decoration: none;
+}

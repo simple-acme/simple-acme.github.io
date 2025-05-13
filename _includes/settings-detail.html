@@ -1,5 +1,9 @@
 <tr>
-    <th class="col-md-3" scope="row"><code>{{ include.name }}</code></th>
+    <th class="col-md-3" scope="row">
+        {% if include.remove != nil %}
+            <a name="{{ include.name }}" class="anchor"></a><a class="anchor-link" href="#{{ include.name }}">⚓</a> 
+        {% endif %}
+        <code>{{ include.name }}</code></th>
     <td>
         {% if include.setting == nil %}
             <div class="callout-block callout-block-danger pb-1 mt-3">

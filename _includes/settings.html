@@ -40,7 +40,7 @@
                     {% assign name2 = labelsplit[2] | strip %}
                     {% assign name = name0 | append: "." | append: name1 | append: "." | append: name2 %}
                 {% endif %}
-                {% include settings-detail.html setting=setting name=name %}
+                {% include settings-detail.html setting=setting name=name remove=include.remove %}
             {% endfor %}
         </tbody>
     </table>
