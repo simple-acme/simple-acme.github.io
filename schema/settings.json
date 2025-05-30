@@ -1,0 +1,12 @@
+---
+layout: none
+---
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "$schema": { "type": "string" },
+        {% include setting-schema.md object=site.data.settings %}
+    }
+}
