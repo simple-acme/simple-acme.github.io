@@ -15,13 +15,18 @@
             {% include setting-schema.md object=value %}
         }
         {% else %}
-            {%if value.type != "string[]" %}
-                "type": ["{{ value.type }}", "null"],
-            {% else %}
+            {%if value.type == "string[]" %}
                 "type": "array",
                 "items": {
                     "type": "string"
                 },
+            {%elsif value.type == "number[]" %}
+                "type": "array",
+                "items": {
+                    "type": "number"
+                },
+            {% else %}
+                "type": ["{{ value.type }}", "null"],
             {% endif %}
             {% assign double_quote = '"' %}
             {% assign escaped_double_quote = '\"' %}
