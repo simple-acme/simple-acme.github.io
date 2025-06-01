@@ -1,6 +1,10 @@
 {% for setting in include.object %}
     {% assign name = setting[0] | trim %}
     {% assign value = setting[1] %}
+    {% if name == 'Plugin' %}
+        {% continue %}
+    {% endif %}
+    {% unless forloop.first %},{% endunless %}
     "{{ name }}": {
         {% assign object = 1 %}
         {% for sub in value %}
@@ -28,9 +32,7 @@
             {% else %}
                 "type": ["{{ value.type }}", "null"],
             {% endif %}
-            {% assign double_quote = '"' %}
-            {% assign escaped_double_quote = '\"' %}
-            "$comment": "{{ value.description | replace: double_quote, escaped_double_quote }}"
+            "$comment": "{{ value.description | replace: '"', '\"' | strip_newlines }}"
         {% endif %}
-    }{% unless forloop.last %},{% endunless %}
+    }
 {% endfor %}
