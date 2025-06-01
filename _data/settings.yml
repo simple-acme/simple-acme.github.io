@@ -175,7 +175,7 @@ Cache:
     type: "number"
     default: "1"
     description:
-      "When renewing or re-creating a previously requested certificate that has the exact same set of domain names, the program will used a cached version for this many days, to prevent users from running into <a href=\"https://letsencrypt.org/docs/rate-limits/\">rate limits</a> while experimenting. Set this to a high value if you regularly re-request the same certificates, e.g. for a Continuous Deployment scenario. 
+      "When renewing or re-creating a previously requested certificate that has the exact same set of domain names, the program will use a cached version for this many days, to prevent users from running into <a href=\"https://letsencrypt.org/docs/rate-limits/\">rate limits</a> while experimenting. Set this to a high value if you regularly re-request the same certificates, e.g. for a Continuous Deployment scenario. 
 
       Setting this to <code>0</code> will not entirely disable the cache (the program also needs the files for different reasons), but it will prevent the files from being used for renewals and will also ensure that no private key material is stored in the cache, unless specifically requested by <code>‑‑reuse-privatekey</code>."
 
@@ -627,4 +627,3 @@ Secrets:
         "defaults to <code>-key {key}</code>"
       description:
         "Arguments to pass to the script that retreives a secret. Supported variable substitutions are <div class=\"callout-block callout-block-success mt-3\"><div class=\"content\"><table class=\"table table-bordered\"><tr><th class=\"col-md-3\">Value</th><th>Meaning</th></tr><tr><td>{key}</td><td>The identifier of the secret being requested, e.g. the \"mytoken\" part of <pre>vault://script/mytoken</pre></td></tr><tr><td>{operation}</td><td>Currently hard coded to \"get\", may get \"delete\" and \"set\" at some point in the future.</td></tr><tr><td>{vault://vault/key}</td><td>Pass a secret from one of the other vaults to the script. Note that you cannot self-reference.</td></tr></table></div></div>"
-
