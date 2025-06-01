@@ -16,6 +16,9 @@ layout: none
 			"type": "string",
 			"$comment": "Should match the file name, i.e. if the file is called 'myid.renewal.json', the value of this property should be 'myid'. This way the file system enforces unique ids."
 		},
+		"Account": {
+			"type": "string"
+		},
 		"FriendlyName": {
 			"type": "string",
 			"$comment": "User provided friendly name."
