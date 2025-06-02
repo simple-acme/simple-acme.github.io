@@ -15,6 +15,7 @@ customized settings.
 {% include settings.html settings=site.data.settings2.cache title='Cache' remove='Cache' %}
 {% include settings.html settings=site.data.settings2.scheduledtask title='Scheduled task' remove='ScheduledTask' %}
 {% include settings.html settings=site.data.settings2.notification title='Notifications' remove='Notification' %}
+{% include settings.html settings=site.data.settings2.security title='Security' remove='Security' %}
 {% include settings.html settings=site.data.settings2.proxy title='Proxy' remove='Proxy' %}
 {% include settings.html settings=site.data.settings2.script title='Script' remove='Script' %}
 {% include settings.html settings=site.data.settings2.validation title='Validation' remove='Validation' %}
