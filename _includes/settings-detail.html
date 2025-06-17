@@ -64,7 +64,7 @@
         {% endif %}
         <strong>Type:</strong> {{ include.setting.type }}<br>
         <strong>Default:</strong>
-        {% if include.setting.default %}
+        {% if include.setting.default and include.setting.default != "null" %}
             {% if include.setting.type == "string" %}
                 <code>"{{ include.setting.default }}"</code>
             {% else %}
@@ -74,7 +74,7 @@
                 ({{ include.setting.defaultExtra }})
             {% endif %}
         {% else %}
-            <span>undefined</span>
+            <span>null</span>
             {% if include.setting.nullBehaviour %}
                 ({{ include.setting.nullBehaviour }})
             {% endif %}

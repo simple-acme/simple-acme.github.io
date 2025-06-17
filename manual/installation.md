@@ -11,7 +11,7 @@
 There is an official [Chocolatey package](https://community.chocolatey.org/packages/simple-acme/) available, which can be installed using `choco install simple-acme` and upgraded to the latest version using `choco upgrade simple-acme`. Note that due to the manual moderation process in use by the Chocolatey community, these versions may sometimes be older than the ones published on this site.
 
 ## dotnet tool
-This is an alternative method to install and update the program. While more convenient than a manual installation, it has two downsides. First it requires [.NET 9.0](https://dotnet.microsoft.com/en-us/download/dotnet/9.0) to be pre-installed on the system and second it makes installing [plugins](/reference/plugins/) more cumbersome.
+This is an alternative method to install and update the program. This requires [.NET 9.0](https://dotnet.microsoft.com/en-us/download/dotnet/9.0) to be pre-installed on the system.
 - Open a command prompt as an administrator (running for the local user only is not supported). 
 - Run `dotnet tool install simple-acme ‑‑global`
 - Run `wacs`

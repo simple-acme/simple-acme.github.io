@@ -69,8 +69,11 @@ You can use `‑‑dnsscriptparallelism` to specify if your script supports para
     </div>
 </div>
 
+## Reference scripts
+Some reference scripts are available on [GitHub](https://github.com/simple-acme/reference-scripts/tree/main/Validation), including ones for EasyDNS, ZoneEdit, deSEC and Windows DNS.
+
 ## External esources
 A lot of good reference scripts are available from the 
 [POSH-ACME](https://github.com/rmbolger/Posh-ACME/tree/master/Posh-ACME/DnsPlugins)
 project. Note that these scripts are **not compatible** with simple-acme. You will have
-to make changes (e.g. in terms of accepted parameter and such) in order to use them.
+to make changes (e.g. in terms of accepted parameters and such) in order to use them.

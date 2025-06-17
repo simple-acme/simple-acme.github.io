@@ -9,7 +9,10 @@ compatibility: All platforms
 examples:
    -
       name: Typical
-      cmd: ‑‑webroot ftps://ftp.example.com:990/path/ ‑‑username simpleacme ‑‑password *****
+      cmd: ‑‑webroot ftps://ftp.example.com:990/mysite ‑‑username mysite ‑‑password *****
+   -
+      name: Locked down
+      cmd: --challengeroot ftps://ftp.example.com:990 ‑‑username simpleacme ‑‑password *****
 ---
 This plugin uploads the validation challenge to a (secure) FTP server.
 

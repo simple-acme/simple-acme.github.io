@@ -1,0 +1,14 @@
+---
+layout: none
+---
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"type": "object",
+    "required": ["Plugin"],
+    "properties": {
+        "Plugin": { "type": "string" }
+    },
+    "oneOf": [
+        {% include plugin-schema.md type='validation' %}
+    ]
+}
