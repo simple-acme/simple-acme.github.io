@@ -327,6 +327,25 @@
   Plugin:
     type: "string"
 
+-
+ name: "Domeneshop"
+ id: 0bd9b320-08e0-4bfe-a535-b979886187e4
+ trigger: domeneshop
+ external: true
+ page: domene
+ description: "Create verification records in Domeneshop DNS"
+ type: validation.dns
+ options:
+  ClientId:
+    type: "string"
+    subtype: "secret"
+
+  ClientSecret:
+    type: "string"
+    subtype: "secret"
+
+  Plugin:
+    type: "string"
 
 -
  name: "DreamHost"
