@@ -210,24 +210,12 @@
     type: "string"
 
   ApiID:
-    Error:
-      type: "boolean"
-
-    Value:
-      type: "string"
-
-    DisplayValue:
-      type: "string"
+    type: "string"
+    subtype: "secret"
 
   ApiSecret:
-    Error:
-      type: "boolean"
-
-    Value:
-      type: "string"
-
-    DisplayValue:
-      type: "string"
+    type: "string"
+    subtype: "secret"
 
   Plugin:
     type: "string"
@@ -255,14 +243,8 @@
     type: "string"
 
   Secret:
-    Error:
-      type: "boolean"
-
-    Value:
-      type: "string"
-
-    DisplayValue:
-      type: "string"
+    type: "string"
+    subtype: "secret"
 
   SubscriptionId:
     type: "string"
@@ -286,14 +268,8 @@
  type: validation.dns
  options:
   ApiToken:
-    Error:
-      type: "boolean"
-
-    Value:
-      type: "string"
-
-    DisplayValue:
-      type: "string"
+    type: "string"
+    subtype: "secret"
 
   Plugin:
     type: "string"
@@ -308,14 +284,8 @@
  type: validation.dns
  options:
   ApiToken:
-    Error:
-      type: "boolean"
-
-    Value:
-      type: "string"
-
-    DisplayValue:
-      type: "string"
+    type: "string"
+    subtype: "secret"
 
   Plugin:
     type: "string"
@@ -330,14 +300,8 @@
  type: validation.dns
  options:
   ApiKey:
-    Error:
-      type: "boolean"
-
-    Value:
-      type: "string"
-
-    DisplayValue:
-      type: "string"
+    type: "string"
+    subtype: "secret"
 
   Plugin:
     type: "string"
@@ -353,57 +317,31 @@
  type: validation.dns
  options:
   ApiKey:
-    Error:
-      type: "boolean"
-
-    Value:
-      type: "string"
-
-    DisplayValue:
-      type: "string"
+    type: "string"
+    subtype: "secret"
 
   ApiSecret:
-    Error:
-      type: "boolean"
-
-    Value:
-      type: "string"
-
-    DisplayValue:
-      type: "string"
+    type: "string"
+    subtype: "secret"
 
   Plugin:
     type: "string"
 
 
 -
- name: "Domeneshop"
- id: 0bd9b320-08e0-4bfe-a535-b979886187e4
- trigger: domeneshop
+ name: "Reference"
+ id: 554b02ba-9e8e-4fcc-9132-d03c5778e227
+ trigger: reference
  external: true
- page: domene
- description: "Create verification records in Domeneshop DNS"
+ description: "Create verification records in Reference DNS"
  type: validation.dns
  options:
   ClientId:
-    Error:
-      type: "boolean"
-
-    Value:
-      type: "string"
-
-    DisplayValue:
-      type: "string"
+    type: "string"
 
   ClientSecret:
-    Error:
-      type: "boolean"
-
-    Value:
-      type: "string"
-
-    DisplayValue:
-      type: "string"
+    type: "string"
+    subtype: "secret"
 
   Plugin:
     type: "string"
@@ -418,14 +356,8 @@
  type: validation.dns
  options:
   ApiKey:
-    Error:
-      type: "boolean"
-
-    Value:
-      type: "string"
-
-    DisplayValue:
-      type: "string"
+    type: "string"
+    subtype: "secret"
 
   Plugin:
     type: "string"
@@ -444,14 +376,8 @@
       type: "string"
 
     Password:
-      Error:
-        type: "boolean"
-
-      Value:
-        type: "string"
-
-      DisplayValue:
-        type: "string"
+      type: "string"
+      subtype: "secret"
 
   Path:
     type: "string"
@@ -475,24 +401,12 @@
  type: validation.dns
  options:
   ApiKey:
-    Error:
-      type: "boolean"
-
-    Value:
-      type: "string"
-
-    DisplayValue:
-      type: "string"
+    type: "string"
+    subtype: "secret"
 
   ApiSecret:
-    Error:
-      type: "boolean"
-
-    Value:
-      type: "string"
-
-    DisplayValue:
-      type: "string"
+    type: "string"
+    subtype: "secret"
 
   Plugin:
     type: "string"
@@ -529,14 +443,8 @@
  type: validation.dns
  options:
   ApiToken:
-    Error:
-      type: "boolean"
-
-    Value:
-      type: "string"
-
-    DisplayValue:
-      type: "string"
+    type: "string"
+    subtype: "secret"
 
   ZoneId:
     type: "string"
@@ -559,24 +467,12 @@
     type: "string"
 
   KeyID:
-    Error:
-      type: "boolean"
-
-    Value:
-      type: "string"
-
-    DisplayValue:
-      type: "string"
+    type: "string"
+    subtype: "secret"
 
   KeySecret:
-    Error:
-      type: "boolean"
-
-    Value:
-      type: "string"
-
-    DisplayValue:
-      type: "string"
+    type: "string"
+    subtype: "secret"
 
   Plugin:
     type: "string"
@@ -591,14 +487,8 @@
  type: validation.dns
  options:
   ApiToken:
-    Error:
-      type: "boolean"
-
-    Value:
-      type: "string"
-
-    DisplayValue:
-      type: "string"
+    type: "string"
+    subtype: "secret"
 
   Plugin:
     type: "string"
@@ -614,14 +504,8 @@
  type: validation.dns
  options:
   ApiToken:
-    Error:
-      type: "boolean"
-
-    Value:
-      type: "string"
-
-    DisplayValue:
-      type: "string"
+    type: "string"
+    subtype: "secret"
 
   Plugin:
     type: "string"
@@ -640,14 +524,8 @@
     type: "string"
 
   APIKey:
-    Error:
-      type: "boolean"
-
-    Value:
-      type: "string"
-
-    DisplayValue:
-      type: "string"
+    type: "string"
+    subtype: "secret"
 
   Plugin:
     type: "string"
@@ -663,14 +541,8 @@
  type: validation.dns
  options:
   ApiKey:
-    Error:
-      type: "boolean"
-
-    Value:
-      type: "string"
-
-    DisplayValue:
-      type: "string"
+    type: "string"
+    subtype: "secret"
 
   Plugin:
     type: "string"
@@ -685,14 +557,8 @@
  type: validation.http
  options:
   SecurityToken:
-    Error:
-      type: "boolean"
-
-    Value:
-      type: "string"
-
-    DisplayValue:
-      type: "string"
+    type: "string"
+    subtype: "secret"
 
   UseHttps:
     type: "boolean"
@@ -719,14 +585,8 @@
     type: "string"
 
   TsigKeySecret:
-    Error:
-      type: "boolean"
-
-    Value:
-      type: "string"
-
-    DisplayValue:
-      type: "string"
+    type: "string"
+    subtype: "secret"
 
   TsigKeyAlgorithm:
     type: "string"
@@ -744,6 +604,9 @@
  description: "Create verification records in Route 53 DNS"
  type: validation.dns
  options:
+  Region:
+    type: "string"
+
   IAMRole:
     type: "string"
 
@@ -754,14 +617,8 @@
     type: "string"
 
   SecretAccessKey:
-    Error:
-      type: "boolean"
-
-    Value:
-      type: "string"
-
-    DisplayValue:
-      type: "string"
+    type: "string"
+    subtype: "secret"
 
   Plugin:
     type: "string"
@@ -779,14 +636,8 @@
       type: "string"
 
     Password:
-      Error:
-        type: "boolean"
-
-      Value:
-        type: "string"
-
-      DisplayValue:
-        type: "string"
+      type: "string"
+      subtype: "secret"
 
   Path:
     type: "string"
@@ -813,14 +664,8 @@
     type: "string"
 
   ApiKey:
-    Error:
-      type: "boolean"
-
-    Value:
-      type: "string"
-
-    DisplayValue:
-      type: "string"
+    type: "string"
+    subtype: "secret"
 
   Plugin:
     type: "string"
@@ -835,24 +680,12 @@
  type: validation.dns
  options:
   ApiID:
-    Error:
-      type: "boolean"
-
-    Value:
-      type: "string"
-
-    DisplayValue:
-      type: "string"
+    type: "string"
+    subtype: "secret"
 
   ApiKey:
-    Error:
-      type: "boolean"
-
-    Value:
-      type: "string"
-
-    DisplayValue:
-      type: "string"
+    type: "string"
+    subtype: "secret"
 
   Plugin:
     type: "string"
@@ -870,14 +703,8 @@
     type: "string"
 
   PrivateKey:
-    Error:
-      type: "boolean"
-
-    Value:
-      type: "string"
-
-    DisplayValue:
-      type: "string"
+    type: "string"
+    subtype: "secret"
 
   Plugin:
     type: "string"
@@ -895,14 +722,8 @@
       type: "string"
 
     Password:
-      Error:
-        type: "boolean"
-
-      Value:
-        type: "string"
-
-      DisplayValue:
-        type: "string"
+      type: "string"
+      subtype: "secret"
 
   Path:
     type: "string"
@@ -1026,14 +847,8 @@
  type: store
  options:
   PemPassword:
-    Error:
-      type: "boolean"
-
-    Value:
-      type: "string"
-
-    DisplayValue:
-      type: "string"
+    type: "string"
+    subtype: "secret"
 
   Path:
     type: "string"
@@ -1062,14 +877,8 @@
     type: "string"
 
   PfxPassword:
-    Error:
-      type: "boolean"
-
-    Value:
-      type: "string"
-
-    DisplayValue:
-      type: "string"
+    type: "string"
+    subtype: "secret"
 
   KeepExisting:
     type: "boolean"
@@ -1123,14 +932,8 @@
     type: "string"
 
   PfxPassword:
-    Error:
-      type: "boolean"
-
-    Value:
-      type: "string"
-
-    DisplayValue:
-      type: "string"
+    type: "string"
+    subtype: "secret"
 
   KeepExisting:
     type: "boolean"
@@ -1161,14 +964,8 @@
     type: "string"
 
   Secret:
-    Error:
-      type: "boolean"
-
-    Value:
-      type: "string"
-
-    DisplayValue:
-      type: "string"
+    type: "string"
+    subtype: "secret"
 
   SubscriptionId:
     type: "string"
@@ -1250,4 +1047,5 @@
 
   Plugin:
     type: "string"
+
 

@@ -1,4 +1,8 @@
 ---
+arguments:
+    - globalvalidation
+    - globalvalidationpriority
+    - globalvalidationpattern
 ---
 # Global validation settings
 Starting from version 2.2.0, you can configure validation settings to apply for all 
@@ -35,3 +39,6 @@ relevant when a hostname matches with multiple patterns.
 ## Storage
 The global validation settings are stored in a file called `validation.json`. Sensitive 
 information is encrypted just like in regular `.renewal.json` files.
+
+## Unattend
+You can add new global validation settings from the command line using the following arguments.
