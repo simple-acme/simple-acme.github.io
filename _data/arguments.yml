@@ -71,6 +71,9 @@
    name: installation
    description: "Specify which installation plugins to use (if any). This may be a comma-separated list."
   -
+   name: profile
+   description: "Specify which certificate profile to use."
+  -
    name: vaultstore
    description: "Store a new value in the secret vault, or overwrite an existing one."
   -
@@ -80,6 +83,15 @@
    name: vaultsecret
    description: "Secret to save in the vault."
    secret: true
+  -
+   name: globalvalidation
+   description: "Create a new global validation option to store in the validation.json file. This will override any other validation options specified at the renewal level."
+  -
+   name: globalvalidationpriority
+   description: "Set priority for the new/updated global validation setting."
+  -
+   name: globalvalidationpattern
+   description: "Set pattern for a new global validation setting, or repeat a previously input pattern to replace/update the validation settings."
   -
    name: closeonfinish
    description: "[‑‑test] Close the application when complete, which usually does not happen when test mode is active. Useful to test unattended operation."
@@ -211,7 +223,10 @@
    description: "Specify IIS site to use for handling validation requests. This will be used to choose the web root path."
   -
    name: webroot
-   description: "Root path of the site that will serve the HTTP validation requests."
+   description: "Root path of the website. Note that /.well-known/acme-challenge/ will be appended automatically. Use ‑‑challengeroot instead if you do not want this to happen, e.g. to use a credential with limited access."
+  -
+   name: challengeroot
+   description: "Root path for the /.well-known/acme-challenge/ folder for this domain."
   -
    name: manualtargetisiis
    description: "Copy default web.config to the .well-known directory."
@@ -244,7 +259,10 @@
    secret: true
   -
    name: webroot
-   description: "Root path of the site that will serve the HTTP validation requests."
+   description: "Root path of the website. Note that /.well-known/acme-challenge/ will be appended automatically. Use ‑‑challengeroot instead if you do not want this to happen, e.g. to use a credential with limited access."
+  -
+   name: challengeroot
+   description: "Root path for the /.well-known/acme-challenge/ folder for this domain."
   -
    name: manualtargetisiis
    description: "Copy default web.config to the .well-known directory."
@@ -278,7 +296,10 @@
    secret: true
   -
    name: webroot
-   description: "Root path of the site that will serve the HTTP validation requests."
+   description: "Root path of the website. Note that /.well-known/acme-challenge/ will be appended automatically. Use ‑‑challengeroot instead if you do not want this to happen, e.g. to use a credential with limited access."
+  -
+   name: challengeroot
+   description: "Root path for the /.well-known/acme-challenge/ folder for this domain."
   -
    name: manualtargetisiis
    description: "Copy default web.config to the .well-known directory."
@@ -298,7 +319,10 @@
    secret: true
   -
    name: webroot
-   description: "Root path of the site that will serve the HTTP validation requests."
+   description: "Root path of the website. Note that /.well-known/acme-challenge/ will be appended automatically. Use ‑‑challengeroot instead if you do not want this to happen, e.g. to use a credential with limited access."
+  -
+   name: challengeroot
+   description: "Root path for the /.well-known/acme-challenge/ folder for this domain."
   -
    name: manualtargetisiis
    description: "Copy default web.config to the .well-known directory."
@@ -433,17 +457,18 @@
    secret: true
 
 -
- name: Domeneshop
- pluginid: "0bd9b320-08e0-4bfe-a535-b979886187e4"
+ name: Reference
+ pluginid: "554b02ba-9e8e-4fcc-9132-d03c5778e227"
  plugintype: "validation.dns"
- condition: "--validation domeneshop"
+ condition: "--validation reference"
  arguments:
   -
    name: clientid
-   description: "Domeneshop ClientID (token)."
+   description: "Reference ClientId"
   -
    name: clientsecret
-   description: "Domeneshop Client Secret."
+   description: "Reference ClientSecret"
+   secret: true
 
 -
  name: DreamHost
@@ -590,6 +615,9 @@
  plugintype: "validation.dns"
  condition: "--validation route53"
  arguments:
+  -
+   name: route53region
+   description: "AWS region to use for authentication (default: us-east-1)"
   -
    name: route53iamrole
    description: "AWS IAM role for the current EC2 instance to login. Note that you should provide the IAM name instead of the ARN."
@@ -807,3 +835,4 @@
   -
    name: sslipaddress
    description: "IP address to use for newly created HTTPS bindings. Defaults to *."
+

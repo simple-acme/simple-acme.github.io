@@ -13,12 +13,12 @@ examples:
 
 Runs an external script or executable after a successful renewal. This may be a `.bat` or `.exe` on Windows, `.sh` on Linux or `.ps1` on all platforms. You provide the program with the path to the script and it will run automatically.
 
-## Example scripts
-Many examples of `.ps1` scripts are included with the program in the `Scripts` folder included in the main distribution package, for example for Exchange, RDS and SQL Server. Please use these as a reference only.
+## Reference scripts
+Many examples of `.ps1` scripts are published on [GitHub](https://github.com/simple-acme/reference-scripts/tree/main/Installation), including ones for Exchange, RDS, WinRM, Admin Center, SSTP, SQL Server, Java KeyStore (JKS), Azure, Sparx and Veeam. Please use these as a reference only.
 
 <div class="callout-block callout-block-danger pb-1 mt-3">
     <div class="content">
-        <p>Example scripts have been tested by their authors, but as always you should exercise <strong>extreme caution</strong> when running something that you find on the internet, because every environment is different. You may have a different system design or software versions, so always test thoroughly and create your own local copy to prevent future versions of the example from causing issues.</p>
+        <p>Reference scripts have been tested by their authors, but as always you should exercise <strong>extreme caution</strong> when running something that you find on the internet. Your configuration or software versions may be different than those of the original contributor, so always test thoroughly and maintain your own local copy.</p>
     </div>
 </div>
 

@@ -9,7 +9,8 @@ How to generate a Certificate for Microsoft Remote Desktop Servers
 Assuming you've a simple all in one Remote Desktop Server setup with the roles RD Gateway, 
 RD Connection Broker and RD Web Access, you have to import the certificate into the IIS 
 site and additionally configure it for the installed RD roles. For IIS the standard plugin 
-is used, for the RD roles, the included `ImportRDSFull.ps1` is used.
+is used, for the RD roles, the reference script `ImportRDSFull.ps1` is used, which can be 
+downloaded [here](https://github.com/simple-acme/reference-scripts/tree/main/Installation).
 
 ## Configuration
 In order for this script to work, the private key of the certificate needs to be marked 
@@ -21,7 +22,7 @@ don't specify a value, the script uses the local computer's fully qualified doma
 
 ## Unattended
 - When specific domain names are configured in the IIS bindings, we can use them automatically
-`wacs.exe ‑‑source iis ‑‑siteid 1 ‑‑certificatestore My ‑‑installation iis,script ‑‑script "Scripts\ImportRDSFull.ps1" ‑‑scriptparameters "{CertThumbprint}"`
+`wacs.exe ‑‑source iis ‑‑siteid 1 ‑‑certificatestore My ‑‑installation iis,script ‑‑script "C:\scripts\ImportRDSFull.ps1" ‑‑scriptparameters "{CertThumbprint}"`
 
 - When only blank/catch-all binding are configured in IIS, we have to be explicit about the domain name(s) that we want
-`wacs.exe ‑‑source manual ‑‑host rds.example.com ‑‑certificatestore My ‑‑installation iis,script ‑‑installationsiteid 1 ‑‑script "Scripts\ImportRDSFull.ps1" ‑‑scriptparameters "{CertThumbprint}"`
+`wacs.exe ‑‑source manual ‑‑host rds.example.com ‑‑certificatestore My ‑‑installation iis,script ‑‑installationsiteid 1 ‑‑script "C:\scripts\ImportRDSFull.ps1" ‑‑scriptparameters "{CertThumbprint}"`

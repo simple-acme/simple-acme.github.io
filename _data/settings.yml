@@ -10,7 +10,7 @@ Client:
     subtype: "path"
     default: "null"
     nullBehaviour:
-      "resolves to <code>%programdata%\\{Client.ClientName}\\{ACME.DefaultBaseUri}</code>"
+      "resolves to <code>%programdata%\\{Client.ClientName}\\{Acme.DefaultBaseUri}</code>"
     description:
       "Change the location where the program stores its (temporary) files."
 
@@ -23,6 +23,15 @@ Client:
     description:
       "The path where log files for the past 31 days are stored."
 
+  PluginPath:
+    type: "string"
+    subtype: "path"
+    default: "null"
+    nullBehaviour:
+      "resolves to <code>%programdata%\\{Client.ClientName}\\plugins</code>"
+    description:
+      "The path where additional plugins can be stored."
+
   VersionCheck:
     type: "boolean"
     default: "false"
@@ -34,7 +43,9 @@ UI:
     type: "string"
     default: "yyyy/M/d H:mm:ss"
     description:
-      "A string that is used to format the date of the certificates friendly name. <a href=\"https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings\">Documentation</a> for possibilities is available from Microsoft."
+      "A string that is used to format dates in the user interface. <a href=\"https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings\">Documentation</a> for possibilities is available from Microsoft."
+    tip:
+      "A date in this format is also appended to the friendly name of generated certificates. You can disable that using <code>{Security.FriendlyNameDateTimeStamp}</code>."
 
   PageSize:
     type: "number"
@@ -111,6 +122,11 @@ Acme:
     warning:
       "Note that this only really works for Apache and other software that uses <code>.pem</code> files to store certificates. Windows has its own opinions about how chains should be built that are difficult to influence. For maximum compatibility with legacy clients we recommend using an alternative provider like <a href=\"https://zerossl.com\">ZeroSSL</a>."
 
+  CertificateProfile:
+    type: "string"
+    description:
+      "Choose which <a href=\"https://letsencrypt.org/2025/01/09/acme-profiles/\">Certificate Profile</a> should be chosen if the server offers more than one of them."
+
   MaxDomains:
     type: "number"
     default: "100"
@@ -133,15 +149,17 @@ Execution:
     type: "string"
     subtype: "path"
     description:
-      "Path to a script that is executed before renewing a certificate."
+      "Path to a script that is executed before attempting to renew any certificate."
     tip:
-      "This may be useful to temporarely relax security measures, e.g. opening port 80 on the firewall. See <code>/Script/OpenIIS80FWrule.ps1</code> in the program directory for an example."
+      "This may be useful to temporarily relax security measures, e.g. opening port 80 on the firewall. Click <a href=\"https://github.com/simple-acme/reference-scripts/tree/main/Execution\">here</a> for examples."
 
   DefaultPostExecutionScript:
     type: "string"
     subtype: "path"
     description:
-      "Path to a script that is called after renewing a certificate, this may be useful to undo any actions taken by the script configured as the <code>DefaultPreExecutionScript</code>. Not to be confused with the <a href=\"/reference/plugins/installation/script\">script installation</a> plugin. The difference is that the installation plugin can be configured separately for each renewal and has access to a lot more context about the new and previous certificates. Also when the installation script fails, the renewal will be retried later. That is not the case for the pre/post execution scripts. Any errors there are logged but otherwise ignored."
+      "Path to a script that is called after attempting to renew any certificate. This may be useful to undo any actions taken by the script configured as the <code>DefaultPreExecutionScript</code>. Not to be confused with the <a href=\"/reference/plugins/installation/script\">script installation</a> plugin. The difference between these two is that the installation plugin can be configured separately for each renewal and has access to a lot more context about the new and previous certificates. Also when the installation script fails, the renewal will be retried later. That is not the case for the pre/post execution scripts. Any errors there are logged but otherwise ignored."
+    tip:
+      "Click <a href=\"https://github.com/simple-acme/reference-scripts/tree/main/Execution\">here</a> for examples."
 
 Proxy:
   Url:
@@ -627,3 +645,4 @@ Secrets:
         "defaults to <code>-key {key}</code>"
       description:
         "Arguments to pass to the script that retreives a secret. Supported variable substitutions are <div class=\"callout-block callout-block-success mt-3\"><div class=\"content\"><table class=\"table table-bordered\"><tr><th class=\"col-md-3\">Value</th><th>Meaning</th></tr><tr><td>{key}</td><td>The identifier of the secret being requested, e.g. the \"mytoken\" part of <pre>vault://script/mytoken</pre></td></tr><tr><td>{operation}</td><td>Currently hard coded to \"get\", may get \"delete\" and \"set\" at some point in the future.</td></tr><tr><td>{vault://vault/key}</td><td>Pass a secret from one of the other vaults to the script. Note that you cannot self-reference.</td></tr></table></div></div>"
+

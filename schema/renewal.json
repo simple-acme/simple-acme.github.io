@@ -36,7 +36,7 @@ layout: none
 			"$comment": "Source plugin selection and configuration options (note: the old name for source plugins was target plugins). Reference: https://simple-acme.com/reference/plugins/source/"
 		},
 		"ValidationPluginOptions": {
-			"$ref": "#/$defs/ValidationPluginOptions",
+			"$ref": "/schema/validationplugins.json",
 			"$comment": "Validation plugin selection and configuration options. Reference: https://simple-acme.com/reference/plugins/validation/"
 		},
 		"CsrPluginOptions": {
@@ -88,19 +88,6 @@ layout: none
 		}
 	},
 	"$defs": {
-		"PluginOptions": {
-			"type": "object",
-			"required": [
-				"Plugin"
-			],
-			"properties": {
-				"Plugin": {
-					"type": "string",
-					"pattern": "^[A-Za-z0-9\\-]{36}$",
-					"$comment": "Should be a GUID matching with one of the documented ones https://simple-acme.com/reference/plugins/."
-				}
-			}
-		},
 		"SourcePluginOptions": {
 			"type": "object",
 			"required": ["Plugin"],
@@ -109,16 +96,6 @@ layout: none
 			},
 			"oneOf": [
 				{% include plugin-schema.md type='source' %}
-			]
-		},
-		"ValidationPluginOptions": {
-			"type": "object",
-			"required": ["Plugin"],
-			"properties": {
-				"Plugin": { "type": "string" }
-			},
-			"oneOf": [
-				{% include plugin-schema.md type='validation' %}
 			]
 		},
 		"CsrPluginOptions": {

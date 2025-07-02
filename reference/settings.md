@@ -7,6 +7,13 @@ created on first run, copied from `settings_default.json`. This allows you to
 <code>xcopy</code> new releases without worrying about overwriting your previously 
 customized settings.
 
+## Inheritance
+You can create server-specific `settings.json` files in `%programdata%\simple-acme` 
+to override settings for specific endpoints. Also you can apply specific settings to 
+each renewal invidually by create a `Settings` key in the `*.renewal.json` file. It is
+recommended to use an editor with support for JSON schema like [Visual Studio Code](https://code.visualstudio.com/) for
+this purpose.
+
 {% include settings.html settings=site.data.settings2.client title='Client' remove='Client' %}
 {% include settings.html settings=site.data.settings2.ui title='UI' remove='UI' %}
 {% include settings.html settings=site.data.settings2.acme title='ACME' remove='Acme' %}

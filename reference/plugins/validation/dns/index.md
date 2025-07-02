@@ -4,6 +4,7 @@ settings:
     - Validation.PreValidateDnsRetryCount
     - Validation.PreValidateDnsRetryInterval
     - Validation.PreValidateDnsLocal
+    - Validation.DnsPropagationDelay
     - Validation.AllowDnsSubstitution
     - Validation.DnsServers
 ---

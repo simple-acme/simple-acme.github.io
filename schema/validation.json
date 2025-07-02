@@ -1,0 +1,50 @@
+---
+layout: none
+---
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"type": "object",
+	"additionalProperties": false,
+	"properties": {
+		"$schema": {
+			"type": "string"
+		},
+		"Options": {
+			"type": "array",
+			"items": {
+				"$ref": "#/$defs/GlobalValidationOptions"
+			}
+		}
+	},
+	"$defs": {
+		"GlobalValidationOptions": {
+			"type": "object",
+			"additionalProperties": false,
+			"oneOf": [
+        		{
+            		"required": ["Priority", "Regex", "ValidationPluginOptions"]
+        		},
+				{
+            		"required": ["Priority", "Pattern", "ValidationPluginOptions"]
+        		}
+			],	
+			"properties": {
+				"Priority": {
+					"type": "number",
+					"$comment": "Priority of this rule (lower number = higher priority)"
+				},
+				"Regex": {
+					"type": "string",
+					"$comment": "Regular expression match"
+				},
+				"Pattern": {
+					"type": "string",
+					"$comment": "Pattern match"
+				},
+				"ValidationPluginOptions": {
+					"$ref": "/schema/validationplugins.json"
+				}
+			}
+		}
+	}
+}
