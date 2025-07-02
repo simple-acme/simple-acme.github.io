@@ -14,6 +14,7 @@ sidebar: home
 	[Windows Store](/reference/plugins/store/certificatestore), 
 	[IIS CCS](/reference/plugins/store/centralssl), 
 	[PEM files](/reference/plugins/store/pemfiles), 
-	[PFX/PKCS12 files](/reference/plugins/store/pfxfile) or
+	[PFX/PKCS12 files](/reference/plugins/store/pfxfile),
+	[P7B file](/reference/plugins/store/p7bfile) or 
 	[Azure KeyVault](/reference/plugins/store/keyvault)
 - Send notifications on success and/or failure.
