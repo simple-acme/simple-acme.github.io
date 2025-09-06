@@ -1,16 +1,16 @@
 ---
 settings:
-    - Notifications.SmtpServer
-    - Notifications.SmtpPort
-    - Notifications.SmtpUser
-    - Notifications.SmtpPassword
-    - Notifications.SmtpSecure
-    - Notifications.SmtpSecureMode
-    - Notifications.SmtpSenderName
-    - Notifications.SenderAddress
-    - Notifications.ReceiverAddresses
-    - Notifications.EmailOnSuccess
-    - Notifications.ComputerName
+    - Notification.SmtpServer
+    - Notification.SmtpPort
+    - Notification.SmtpUser
+    - Notification.SmtpPassword
+    - Notification.SmtpSecure
+    - Notification.SmtpSecureMode
+    - Notification.SmtpSenderName
+    - Notification.SenderAddress
+    - Notification.ReceiverAddresses
+    - Notification.EmailOnSuccess
+    - Notification.ComputerName
 ---
 # Notifications
 You can receive notifications about failed (and optionally successful) renewals via email by configuring the required SMTP server details in `settings.json`. You can test these notifications from the menu (`More options...` > `Test notification`).
