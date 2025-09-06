@@ -6,7 +6,7 @@ settings:
     - Notification.SmtpPassword
     - Notification.SmtpSecure
     - Notification.SmtpSecureMode
-    - Notification.SmtpSenderName
+    - Notification.SenderName
     - Notification.SenderAddress
     - Notification.ReceiverAddresses
     - Notification.EmailOnSuccess
