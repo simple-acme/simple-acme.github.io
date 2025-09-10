@@ -342,7 +342,7 @@ Security:
     type: "boolean"
     default: "true"
     description:
-      "Uses Microsoft Data Protection API to encrypt sensitive parts of the configuration, e.g. passwords. This may be disabled to share the configuration across a cluster of machines."
+      "Uses Microsoft Data Protection API to encrypt sensitive parts of the configuration (e.g. passwords) using the machine key. This may be disabled to share the configuration across a cluster of machines."
     warning:
       "Not supported on Linux."
 
@@ -351,6 +351,14 @@ Security:
     default: "true"
     description:
       "Add the issue date and time to the friendly name of requested certificates. This feature should be disabled if you require full control over the final certificate friendly name."
+
+  AllowDangerousCertificateReparse:
+    type: "boolean"
+    default: "false"
+    description:
+      "Allow dangerous certificate reparsing with disabled limits if initial parsing fails. Only enable if you need compatibility with legacy or non-standard certificates."
+    warning:
+      "Disabling limits may reduce security. Use only if necessary."
 
 Script:
   Timeout:
@@ -621,6 +629,12 @@ Installation:
       "Default installation plugin(s)."
     tip:
       "This may be a comma separated value for multiple default installation plugins."
+
+  IIS:
+    BindingFlags:
+      type: "string[]"
+      description:
+        "Flags to apply to newly created IIS bindings. Valid options are <code>DisableHTTP2</code>, <code>DisableOCSPStp</code>, <code>DisableQUIC</code>, <code>DisableTLS13</code>, <code>DisableLegacyTLS</code> and <code>NegotiateClientCert</code>. Multiple values may be comma separated."
 
 Secrets:
   Json:

@@ -330,27 +330,27 @@
 -
  name: Custom script
  pluginid: "8f1da72e-f727-49f0-8546-ef69e5ecec32"
- plugintype: "validation.dns"
+ plugintype: "validation"
  condition: "--validation script"
  arguments:
   -
-   name: dnsscript
-   description: "Path to script that creates and deletes validation records, depending on its parameters. If this parameter is provided then ‑‑dnscreatescript and ‑‑dnsdeletescript are ignored."
+   name: validationscript
+   description: "Path to script that handles both preparation and cleanup, depending on its parameters. If this parameter is provided then ‑‑ValidationPrepareScript and ‑‑ValidationCleanupScript are ignored."
   -
-   name: dnscreatescript
-   description: "Path to script that creates the validation TXT record."
+   name: validationpreparescript
+   description: "Script that prepares to handle the validation challenge."
   -
-   name: dnscreatescriptarguments
-   description: "Default parameters passed to the script are \"create {Identifier} {RecordName} {Token}\", but that can be customized using this argument."
+   name: validationpreparescriptarguments
+   description: "Arguments passed to the preparation script. If not specified these will be \"create {Identifier} {RecordName} {Token}\" for DNS challenges or \"prepare {Identifier} {Path} {Token}\" for HTTP challenges."
   -
-   name: dnsdeletescript
-   description: "Path to script to remove TXT record."
+   name: validationcleanupscript
+   description: "Script that cleans up after validation has completed."
   -
-   name: dnsdeletescriptarguments
-   description: "Default parameters passed to the script are \"delete {Identifier} {RecordName} {Token}\", but that can be customized using this argument."
+   name: validationcleanupscriptarguments
+   description: "Arguments passed to the cleanup script. If not specified these will be \"delete {Identifier} {RecordName} {Token}\" for DNS challenges or \"cleanup {Identifier} {Path} {Token}\" for HTTP challenges."
   -
-   name: dnsscriptparallelism
-   description: "Configure parallelism mode. 0 is fully serial (default), 1 allows multiple records to be created simultaneously, 2 allows multiple records to be validated simultaneously and 3 is a combination of both forms of parallelism."
+   name: validationscriptparallelism
+   description: "Configure parallelism mode. 0 is fully serial (default), 1 allows multiple preparations to run simultaneously, 2 allows multiple validations to run simultaneously and 3 is a combination of both forms of parallelism."
 
 -
  name: acme-dns
@@ -457,17 +457,17 @@
    secret: true
 
 -
- name: Reference
- pluginid: "554b02ba-9e8e-4fcc-9132-d03c5778e227"
+ name: Domeneshop
+ pluginid: "0bd9b320-08e0-4bfe-a535-b979886187e4"
  plugintype: "validation.dns"
- condition: "--validation reference"
+ condition: "--validation domeneshop"
  arguments:
   -
    name: clientid
-   description: "Reference ClientId"
+   description: "Domeneshop ClientID (token)."
   -
    name: clientsecret
-   description: "Reference ClientSecret"
+   description: "Domeneshop Client Secret."
    secret: true
 
 -
@@ -679,10 +679,27 @@
    description: "Private key generated in the control panel (saved to a file on disk)."
 
 -
+ name: Webnames
+ pluginid: "86c8d86b-2069-4048-9bf1-fadb07e84d61"
+ plugintype: "validation.dns"
+ condition: "--validation webnames"
+ arguments:
+  -
+   name: apiusername
+   description: "Webnames API Username"
+  -
+   name: apikey
+   description: "Webnames API Key"
+   secret: true
+  -
+   name: apioverridebaseurl
+   description: "Webnames API Base URL Override (leave blank except for testing/debugging)"
+
+-
  name: Self-hosting
  pluginid: "a1565064-b208-4467-8ca1-1bd3c08aa500"
  plugintype: "validation.tls-alpn"
- condition: "--validationmode tls-alpn-01 --validation selfhosting"
+ condition: "--validation selfhosting"
  arguments:
   -
    name: validationport

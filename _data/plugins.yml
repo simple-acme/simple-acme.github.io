@@ -92,9 +92,12 @@
  name: "Custom script"
  id: 8f1da72e-f727-49f0-8546-ef69e5ecec32
  trigger: script
- description: "Create verification records with your own script"
- type: validation.dns
+ description: "Perform validation challenge with your own script"
+ type: validation
  options:
+  ChallengeType:
+    type: "string"
+
   Script:
     type: "string"
 
@@ -121,7 +124,7 @@
  name: "None"
  id: a37b41dc-b45a-42fe-8d81-82ca409a5491
  trigger: none
- description: "Domain(s) are pre-authorized outside of simple-acme"
+ description: "Certificate(s) are pre-authorized outside of simple-acme"
  type: validation
  options:
   Plugin:
@@ -327,6 +330,7 @@
   Plugin:
     type: "string"
 
+
 -
  name: "Domeneshop"
  id: 0bd9b320-08e0-4bfe-a535-b979886187e4
@@ -346,6 +350,7 @@
 
   Plugin:
     type: "string"
+
 
 -
  name: "DreamHost"
@@ -733,6 +738,28 @@
 
   IsRootPath:
     type: "boolean"
+
+  Plugin:
+    type: "string"
+
+
+-
+ name: "Webnames"
+ id: 86c8d86b-2069-4048-9bf1-fadb07e84d61
+ trigger: webnames
+ external: true
+ description: "Create verification DNS TXT records via Webnames.ca REST API"
+ type: validation.dns
+ options:
+  APIUsername:
+    type: "string"
+
+  APIKey:
+    type: "string"
+    subtype: "secret"
+
+  APIOverrideBaseURL:
+    type: "string"
 
   Plugin:
     type: "string"

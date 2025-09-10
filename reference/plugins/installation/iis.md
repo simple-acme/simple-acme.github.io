@@ -2,11 +2,15 @@
 layout: plugin
 plugin: ea6a5be3-f8de-4d27-a6bd-750b619b2ee2
 compatibility: Windows (admin only)
+settings:
+  - Installation.IIS.BindingFlags
 examples:
       - 
           name: Typical
           cmd: '[‑‑installationsiteid 14] [‑‑sslport 8443] [‑‑sslipaddress 192.168.0.1]'
 ---
+
+This plugins manages bindings in the Microsoft IIS web server.
 
 ### HTTP binding update algorithm
 - Existing HTTPS bindings in *any* web site linked to the previous certificate are updated to use the new certificate.
