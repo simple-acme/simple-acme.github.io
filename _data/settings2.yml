@@ -57,6 +57,7 @@ notification:
 security:
   - Security.EncryptConfig
   - Security.FriendlyNameDateTimeStamp
+  - Security.AllowDangerousCertificateReparse
 script:
   - Script.Timeout
   - Script.PowershellExecutablePath
@@ -106,6 +107,7 @@ p7bfile:
   - Store.P7bFile.DefaultPath
 installation:
   - Installation.DefaultInstallation
+  - Installation.IIS.BindingFlags
 secrets:
   - Secrets.Json.FilePath
   - Secrets.Script.Get
