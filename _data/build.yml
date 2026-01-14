@@ -1,18 +1,178 @@
-releasename: 2.3.0-local
-releasetag: 2.3.0-local
-releasebuild: 2.3.0.1234
-commit: b077a4d4117ca07b8a386a4cca4c95cd4f43e349
+releasename: v2.3.5
+releasetag: v2.3.5
+releasebuild: 2.3.5.2195
+commit: 65bb28619f10cb3a1faf4ac2dc30ed0e516dbe20
 downloads:
 
   - 
-    name: mscordbi.v2.3.0-local.win-x64.zip
-    size: 508,1 KB
-    sha256: 87CF5E125E5556015556ECA760E842E35527C4382801F39E48F877773701EF65
+    name: gnutls.v2.3.5.2195.x64.zip
+    size: 1,6 MB
+    sha256: 2841E3663365054CA835C9763111806621C27DBFBCA417D53D7CC7287E18B1E8
   - 
-    name: plugin.store.keyvault.v2.3.0-local.zip
+    name: mscordbi.v2.3.5.2195.win-arm64.zip
+    size: 520,5 KB
+    sha256: 159F2560CE444F195E37A1CF3F7C0E222385AF6791CB1345448320E6B88A676B
+  - 
+    name: mscordbi.v2.3.5.2195.win-x64.zip
+    size: 506,1 KB
+    sha256: DF144982B9A369AF63168E136DBAB1EC6C6C8DA0606C2D7D3E4F170BBBD854D2
+  - 
+    name: mscordbi.v2.3.5.2195.win-x86.zip
+    size: 446,4 KB
+    sha256: F2D0411B96C67A9798C3F5F5586DB34347E0EDA56B8569F6CFB13063D70B534E
+  - 
+    name: plugin.store.keyvault.v2.3.5.2195.zip
+    size: 1,5 MB
+    sha256: A6267E6AAED88C7EF15DE1EFDBDF6150366AC2852CA03028D4332A4C89DDF0F3
+  - 
+    name: plugin.store.userstore.v2.3.5.2195.zip
+    size: 18,8 KB
+    sha256: 4B4D973BEC8C23D151E9CEC82892D7F3C87DCF5AB73650F8D391757601C4C16E
+  - 
+    name: plugin.validation.dns.acme.v2.3.5.2195.zip
+    size: 26,8 KB
+    sha256: E9FE5E81F7DD055A64AF9C7C3741A6A29F29DED7CFC44C63020FE545532B08AE
+  - 
+    name: plugin.validation.dns.aliyun.v2.3.5.2195.zip
+    size: 765,1 KB
+    sha256: CD586A364FCA58D3AFEAED03D01599DD84C41CD4851B1209C53050D8A5ED7215
+  - 
+    name: plugin.validation.dns.azure.v2.3.5.2195.zip
     size: 1,4 MB
-    sha256: 7FA972AB2ABFBB40B4DE976E5890D0305F7A9DFBD6C486C16DAC2BECF9E0B214
+    sha256: 075261F079E591E35E4BC81B611583D032FE7FCAD0B827B2F7EF82DF5D73CEDC
   - 
-    name: simple-acme.v2.3.0-local.win-x64.pluggable.zip
-    size: 33,4 MB
-    sha256: 03643AC6B7A5CC90847E66CDD87B5570D01FEB810545D3AD4B7724777FBE8BBE
+    name: plugin.validation.dns.cloudflare.v2.3.5.2195.zip
+    size: 313,9 KB
+    sha256: 238E903BE66B0789C1BC8C1F39C6499350F5015FD28FC15C04628A711728FD39
+  - 
+    name: plugin.validation.dns.digitalocean.v2.3.5.2195.zip
+    size: 435,6 KB
+    sha256: 40B8151EF9D14A6303B8EF6CF4D5DA38A5BD53EF3D32E153568241BAD8B5F7E9
+  - 
+    name: plugin.validation.dns.dnsexit.v2.3.5.2195.zip
+    size: 292,1 KB
+    sha256: 620FAAFA60522ACB22478747CA4EE09A382C9D5478707E16FE82B83C3DA28176
+  - 
+    name: plugin.validation.dns.dnsmadeeasy.v2.3.5.2195.zip
+    size: 294,2 KB
+    sha256: 7689667433F1B50D34FAB08D5B8D578CAAF03441D806344A7D794B66DDE564FD
+  - 
+    name: plugin.validation.dns.domeneshop.v2.3.5.2195.zip
+    size: 69,2 KB
+    sha256: E90AB0053E2BB86474C3D1BB4EB66FFB31E78CED9432F7A5D6E5148899B0FF79
+  - 
+    name: plugin.validation.dns.dreamhost.v2.3.5.2195.zip
+    size: 22,5 KB
+    sha256: 922BEE0B7EFFF179ABF3BACF204DC2911802D10D8A9EAC86D1F5A1C2BC5863EA
+  - 
+    name: plugin.validation.dns.godaddy.v2.3.5.2195.zip
+    size: 291,6 KB
+    sha256: A00610349A5304645B0DD851E385EAA9DBE28EFC1F23FE3B1D75EE065D61981C
+  - 
+    name: plugin.validation.dns.googledns.v2.3.5.2195.zip
+    size: 593,1 KB
+    sha256: 1F173F67B9907FA24288A373BE470FBB5B42690D075F4F7492E02C6EA61DDE60
+  - 
+    name: plugin.validation.dns.hetzner.v2.3.5.2195.zip
+    size: 29,0 KB
+    sha256: 727A22C858DD7D42DE73AAB9A988C1F9E9C54A84FA27C43084B05A6106C1F71F
+  - 
+    name: plugin.validation.dns.huaweicloud.v2.3.5.2195.zip
+    size: 856,6 KB
+    sha256: BBEE08930D997CF93AC08E7CCE89A1F014167E913539F899FBEF2289B5105EDD
+  - 
+    name: plugin.validation.dns.infomaniak.v2.3.5.2195.zip
+    size: 293,0 KB
+    sha256: FEF46F2232824F09664D70F9D97B821DE5ED49FECDBEC5D7FFEA58B61560AB7A
+  - 
+    name: plugin.validation.dns.linode.v2.3.5.2195.zip
+    size: 293,5 KB
+    sha256: 14AEA0E4CAB75056599A7F39D122AE3F742C7BB2D444F80D7C39FDF9E5026D7F
+  - 
+    name: plugin.validation.dns.luadns.v2.3.5.2195.zip
+    size: 23,1 KB
+    sha256: 9FFCDECAE4C76DE2ED417D837B8B3279D49FBAD2381AF4FB43FFB379E838188D
+  - 
+    name: plugin.validation.dns.ns1.v2.3.5.2195.zip
+    size: 24,0 KB
+    sha256: A97C18889FA92B3E87335866B774348D4F48300B576CA507B37794A19B5DD637
+  - 
+    name: plugin.validation.dns.rfc2136.v2.3.5.2195.zip
+    size: 194,9 KB
+    sha256: 53AFF33DCA52EBCF191F84F0B3BA1EF153E840129DF3F14F398506E4225C1C73
+  - 
+    name: plugin.validation.dns.route53.v2.3.5.2195.zip
+    size: 543,5 KB
+    sha256: E9B8EBDC0E0B5E7FF2DED789BCE51125F67CDCA7E8B04B6FE33316687C3CD3B6
+  - 
+    name: plugin.validation.dns.simply.v2.3.5.2195.zip
+    size: 26,9 KB
+    sha256: 9584BDB8BCC012F0A9E3906B181734904F7FBFA6873FEBC38C86F77ED299E5B7
+  - 
+    name: plugin.validation.dns.tencent.v2.3.5.2195.zip
+    size: 299,3 KB
+    sha256: 4DC157D9A1C3BEFFD5AC4EF43743084FBC6FA36026604B439580209C8BC2EEF8
+  - 
+    name: plugin.validation.dns.transip.v2.3.5.2195.zip
+    size: 303,3 KB
+    sha256: C11604E3618FE557F66336E2E3F36EA9A9BF26C3BB2B08813BC72D179A4CACBC
+  - 
+    name: plugin.validation.dns.webnames.v2.3.5.2195.zip
+    size: 22,6 KB
+    sha256: C54C592A642B3A3F5F0F4D2E9FA4D4598C5192C4F83F553A19763661D5C32EE8
+  - 
+    name: plugin.validation.http.ftp.v2.3.5.2195.zip
+    size: 1,9 MB
+    sha256: 0155F825E258D2C3AFA11C93DE8BF370AFF1B8E41C9FEA8DA13C99FE5CC989A5
+  - 
+    name: plugin.validation.http.rest.v2.3.5.2195.zip
+    size: 23,2 KB
+    sha256: 020CA3EE7EFAD92DA78708D0DF6EFF7DF88846F902E65D77FFC54C64AA4902AD
+  - 
+    name: plugin.validation.http.sftp.v2.3.5.2195.zip
+    size: 219,3 KB
+    sha256: 2D10A42D7E3AE5FB585D8DDE65687CC17B03752EC197A8CBE0C4F4CD8DE54663
+  - 
+    name: plugin.validation.http.webdav.v2.3.5.2195.zip
+    size: 54,5 KB
+    sha256: C41AAC1E3DE573A6799B32935D187CF6FBF10BACCA6BA681002A635E1849275D
+  - 
+    name: simple-acme.v2.3.5.2195.linux-arm64.pluggable.zip
+    size: 33,2 MB
+    sha256: 300BF383418A17B97ADB2482E25C578C687FCE452F6FACBCE73CF89355C6C9C6
+  - 
+    name: simple-acme.v2.3.5.2195.linux-arm64.trimmed.zip
+    size: 10,7 MB
+    sha256: 37CEE0BE5E08D32AE156B7DC1D2F4EDE0499DC7FAFCCD312F14C8558841C11B7
+  - 
+    name: simple-acme.v2.3.5.2195.linux-x64.pluggable.zip
+    size: 34,5 MB
+    sha256: F87950707DA0B51FDE41B302EE165C6CB9AA837F229C49127584CF503739053C
+  - 
+    name: simple-acme.v2.3.5.2195.linux-x64.trimmed.zip
+    size: 11,0 MB
+    sha256: EA3CD6BF579160CD9DEC30D73E2CD523BA44F7BC1A49168ADAB60A62BC9C3D89
+  - 
+    name: simple-acme.v2.3.5.2195.win-arm64.pluggable.zip
+    size: 33,7 MB
+    sha256: EBAAFB9D93DCEBB165DDFCC07D60230E2773399C213CC96BE650878D628D6FB1
+  - 
+    name: simple-acme.v2.3.5.2195.win-arm64.trimmed.zip
+    size: 10,7 MB
+    sha256: B74A1F052E4197133B5BD15C61BC484CFB7D12D0128156A4F82CAD5E13677C81
+  - 
+    name: simple-acme.v2.3.5.2195.win-x64.pluggable.zip
+    size: 34,7 MB
+    sha256: 279D9DB504573691FEE61887915894D6ED334FDD91855F8487806BD5568740AE
+  - 
+    name: simple-acme.v2.3.5.2195.win-x64.trimmed.zip
+    size: 10,8 MB
+    sha256: 0E350B7B76FA49F4FD65C789B30BBF90E5C8D981F2ECDF06BF90DCC86D77B4B8
+  - 
+    name: simple-acme.v2.3.5.2195.win-x86.pluggable.zip
+    size: 32,4 MB
+    sha256: F9B89FDA52693A65C8A4581C4F4605CE2C588A269CFFB920DE935697E56DF3B6
+  - 
+    name: simple-acme.v2.3.5.2195.win-x86.trimmed.zip
+    size: 10,1 MB
+    sha256: BC65D3B994488177263809AD09F588509ABBE32E2924A3420756EA9283BCA703

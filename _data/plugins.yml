@@ -4,13 +4,37 @@
  trigger: csr
  description: "CSR created by another program"
  type: source
+ options:
+  CsrFile:
+    type: "string"
+
+  CsrScript:
+    type: "string"
+
+  PkFile:
+    type: "string"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "Manual input"
  id: e239db3b-b42f-48aa-b64f-46d4f3e9941b
  trigger: manual
+ schema: true
  description: "Manually enter host names"
  type: source
+ options:
+  CommonName:
+    type: "string"
+
+  AlternativeNames:
+    type: "string[]"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "IIS bindings"
@@ -18,20 +42,94 @@
  trigger: iis
  description: "Read bindings from IIS"
  type: source
+ options:
+  CommonName:
+    type: "string"
+
+  IncludePattern:
+    type: "string"
+
+  IncludeRegex:
+    type: "string"
+
+  IncludeHosts:
+    type: "string[]"
+
+  ExcludeHosts:
+    type: "string[]"
+
+  IncludeTypes:
+    type: "string[]"
+
+  IncludeSiteIds:
+    type: "number[]"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "Manual"
  id: e45d62b9-f9a8-441e-b95f-c5ee0dcd8040
  trigger: manual
- description: "Create verification records manually (auto-renew not possible)"
- type: validation.dns
+ description: "Perform validation challenge manually (auto-renew not possible)"
+ type: validation
+ options:
+  Path:
+    type: "string"
+
+  CopyWebConfig:
+    type: "boolean"
+
+  IsRootPath:
+    type: "boolean"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "Custom script"
  id: 8f1da72e-f727-49f0-8546-ef69e5ecec32
  trigger: script
- description: "Create verification records with your own script"
- type: validation.dns
+ description: "Perform validation challenge with your own script"
+ type: validation
+ options:
+  ChallengeType:
+    type: "string"
+
+  Script:
+    type: "string"
+
+  CreateScript:
+    type: "string"
+
+  CreateScriptArguments:
+    type: "string"
+
+  DeleteScript:
+    type: "string"
+
+  DeleteScriptArguments:
+    type: "string"
+
+  Parallelism:
+    type: "number"
+
+  Plugin:
+    type: "string"
+
+
+-
+ name: "None"
+ id: a37b41dc-b45a-42fe-8d81-82ca409a5491
+ trigger: none
+ description: "Certificate(s) are pre-authorized outside of simple-acme"
+ type: validation
+ options:
+  Plugin:
+    type: "string"
+
 
 -
  name: "Filesystem"
@@ -39,6 +137,22 @@
  trigger: filesystem
  description: "Save verification files on (network) path"
  type: validation.http
+ options:
+  SiteId:
+    type: "number"
+
+  Path:
+    type: "string"
+
+  CopyWebConfig:
+    type: "boolean"
+
+  IsRootPath:
+    type: "boolean"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "Self-hosting"
@@ -46,6 +160,16 @@
  trigger: selfhosting
  description: "Let simple-acme answer HTTP validation request"
  type: validation.http
+ options:
+  Port:
+    type: "number"
+
+  Https:
+    type: "boolean"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "Self-hosting"
@@ -53,6 +177,13 @@
  trigger: selfhosting
  description: "Let simple-acme answer TLS validation request"
  type: validation.tls-alpn
+ options:
+  Port:
+    type: "number"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "acme-dns"
@@ -60,6 +191,13 @@
  trigger: acme-dns
  description: "Create verification records with acme-dns (https://github.com/joohoi/acme-dns)"
  type: validation.dns
+ options:
+  BaseUri:
+    type: "string"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "Aliyun"
@@ -70,6 +208,21 @@
  page: alibaba
  description: "Create verification records in ALiYun DNS"
  type: validation.dns
+ options:
+  ApiServer:
+    type: "string"
+
+  ApiID:
+    type: "string"
+    subtype: "secret"
+
+  ApiSecret:
+    type: "string"
+    subtype: "secret"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "Azure DNS"
@@ -79,6 +232,35 @@
  provider: Microsoft
  description: "Create verification records in Azure DNS"
  type: validation.dns
+ options:
+  AzureEnvironment:
+    type: "string"
+
+  UseMsi:
+    type: "boolean"
+
+  ClientId:
+    type: "string"
+
+  ResourceGroupName:
+    type: "string"
+
+  Secret:
+    type: "string"
+    subtype: "secret"
+
+  SubscriptionId:
+    type: "string"
+
+  TenantId:
+    type: "string"
+
+  HostedZone:
+    type: "string"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "Cloudflare"
@@ -87,6 +269,14 @@
  external: true
  description: "Create verification records in Cloudflare DNS"
  type: validation.dns
+ options:
+  ApiToken:
+    type: "string"
+    subtype: "secret"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "DigitalOcean"
@@ -95,6 +285,14 @@
  external: true
  description: "Create verification records on DigitalOcean"
  type: validation.dns
+ options:
+  ApiToken:
+    type: "string"
+    subtype: "secret"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "DNSExit"
@@ -103,6 +301,14 @@
  external: true
  description: "Create verification records in DNSExit DNS"
  type: validation.dns
+ options:
+  ApiKey:
+    type: "string"
+    subtype: "secret"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "DNS Made Easy"
@@ -112,6 +318,18 @@
  provider: DigiCert
  description: "Create verification records in DnsMadeEasy DNS"
  type: validation.dns
+ options:
+  ApiKey:
+    type: "string"
+    subtype: "secret"
+
+  ApiSecret:
+    type: "string"
+    subtype: "secret"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "Domeneshop"
@@ -121,6 +339,18 @@
  page: domene
  description: "Create verification records in Domeneshop DNS"
  type: validation.dns
+ options:
+  ClientId:
+    type: "string"
+    subtype: "secret"
+
+  ClientSecret:
+    type: "string"
+    subtype: "secret"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "DreamHost"
@@ -129,6 +359,14 @@
  external: true
  description: "Create verification records in DreamHost DNS"
  type: validation.dns
+ options:
+  ApiKey:
+    type: "string"
+    subtype: "secret"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "FTP(S)"
@@ -137,6 +375,27 @@
  page: ftps
  description: "Upload verification files via FTP(S)"
  type: validation.http
+ options:
+  Credential:
+    UserName:
+      type: "string"
+
+    Password:
+      type: "string"
+      subtype: "secret"
+
+  Path:
+    type: "string"
+
+  CopyWebConfig:
+    type: "boolean"
+
+  IsRootPath:
+    type: "boolean"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "GoDaddy"
@@ -145,6 +404,18 @@
  external: true
  description: "Create verification records in GoDaddy DNS"
  type: validation.dns
+ options:
+  ApiKey:
+    type: "string"
+    subtype: "secret"
+
+  ApiSecret:
+    type: "string"
+    subtype: "secret"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "Cloud DNS"
@@ -156,14 +427,36 @@
  download: googledns
  description: "Create verification records in Google Cloud DNS"
  type: validation.dns
+ options:
+  ServiceAccountKeyPath:
+    type: "string"
+
+  ProjectId:
+    type: "string"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "Hetzner"
  id: 7176cc8f-ba08-4b07-aa39-2f5d012c1d5a
  trigger: hetzner
  external: true
+ schema: true
  description: "Create verification records in Hetzner DNS"
  type: validation.dns
+ options:
+  ApiToken:
+    type: "string"
+    subtype: "secret"
+
+  ZoneId:
+    type: "string"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "HuaWeiCloud"
@@ -174,6 +467,21 @@
  page: huaweicloud
  description: "Create verification records in HuaWeiCloud DNS"
  type: validation.dns
+ options:
+  DnsRegion:
+    type: "string"
+
+  KeyID:
+    type: "string"
+    subtype: "secret"
+
+  KeySecret:
+    type: "string"
+    subtype: "secret"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "Infomaniak"
@@ -182,6 +490,14 @@
  external: true
  description: "Create verification records in Infomaniak DNS"
  type: validation.dns
+ options:
+  ApiToken:
+    type: "string"
+    subtype: "secret"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "Linode"
@@ -191,6 +507,14 @@
  provider: Akamai
  description: "Create verification records in Linode DNS"
  type: validation.dns
+ options:
+  ApiToken:
+    type: "string"
+    subtype: "secret"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "LuaDNS"
@@ -200,6 +524,17 @@
  page: lua
  description: "Create verification records in LuaDNS"
  type: validation.dns
+ options:
+  Username:
+    type: "string"
+
+  APIKey:
+    type: "string"
+    subtype: "secret"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "NS1/NSONE"
@@ -209,6 +544,14 @@
  provider: IBM
  description: "Create verification records in NS1 DNS"
  type: validation.dns
+ options:
+  ApiKey:
+    type: "string"
+    subtype: "secret"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "REST request"
@@ -217,6 +560,17 @@
  external: true
  description: "Send verification files to the server by issuing an http(s) request"
  type: validation.http
+ options:
+  SecurityToken:
+    type: "string"
+    subtype: "secret"
+
+  UseHttps:
+    type: "boolean"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "RFC2136"
@@ -225,6 +579,26 @@
  external: true
  description: "Create verification records using dynamic updates"
  type: validation.dns
+ options:
+  ServerHost:
+    type: "string"
+
+  ServerPort:
+    type: "number"
+
+  TsigKeyName:
+    type: "string"
+
+  TsigKeySecret:
+    type: "string"
+    subtype: "secret"
+
+  TsigKeyAlgorithm:
+    type: "string"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "Route 53"
@@ -234,6 +608,26 @@
  provider: Amazon AWS
  description: "Create verification records in Route 53 DNS"
  type: validation.dns
+ options:
+  Region:
+    type: "string"
+
+  IAMRole:
+    type: "string"
+
+  ARNRole:
+    type: "string"
+
+  AccessKeyId:
+    type: "string"
+
+  SecretAccessKey:
+    type: "string"
+    subtype: "secret"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "SFTP"
@@ -241,6 +635,27 @@
  trigger: sftp
  description: "Upload verification files via SSH-FTP"
  type: validation.http
+ options:
+  Credential:
+    UserName:
+      type: "string"
+
+    Password:
+      type: "string"
+      subtype: "secret"
+
+  Path:
+    type: "string"
+
+  CopyWebConfig:
+    type: "boolean"
+
+  IsRootPath:
+    type: "boolean"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "Simply.com"
@@ -249,6 +664,17 @@
  external: true
  description: "Create verification records in Simply.com DNS"
  type: validation.dns
+ options:
+  Account:
+    type: "string"
+
+  ApiKey:
+    type: "string"
+    subtype: "secret"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "Tencent Cloud"
@@ -257,6 +683,18 @@
  external: true
  description: "Create verification records in Tencent DNS"
  type: validation.dns
+ options:
+  ApiID:
+    type: "string"
+    subtype: "secret"
+
+  ApiKey:
+    type: "string"
+    subtype: "secret"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "TransIP"
@@ -265,6 +703,17 @@
  external: true
  description: "Create verification records at TransIP"
  type: validation.dns
+ options:
+  Login:
+    type: "string"
+
+  PrivateKey:
+    type: "string"
+    subtype: "secret"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "WebDav"
@@ -272,6 +721,49 @@
  trigger: webdav
  description: "Upload verification files via WebDav"
  type: validation.http
+ options:
+  Credential:
+    UserName:
+      type: "string"
+
+    Password:
+      type: "string"
+      subtype: "secret"
+
+  Path:
+    type: "string"
+
+  CopyWebConfig:
+    type: "boolean"
+
+  IsRootPath:
+    type: "boolean"
+
+  Plugin:
+    type: "string"
+
+
+-
+ name: "Webnames"
+ id: 86c8d86b-2069-4048-9bf1-fadb07e84d61
+ trigger: webnames
+ external: true
+ description: "Create verification DNS TXT records via Webnames.ca REST API"
+ type: validation.dns
+ options:
+  APIUsername:
+    type: "string"
+
+  APIKey:
+    type: "string"
+    subtype: "secret"
+
+  APIOverrideBaseURL:
+    type: "string"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "Domain"
@@ -279,6 +771,10 @@
  trigger: domain
  description: "Separate certificate for each registerable domain (e.g. *.example.com)"
  type: order
+ options:
+  Plugin:
+    type: "string"
+
 
 -
  name: "Host"
@@ -286,6 +782,10 @@
  trigger: host
  description: "Separate certificate for each host (e.g. sub.example.com)"
  type: order
+ options:
+  Plugin:
+    type: "string"
+
 
 -
  name: "Single"
@@ -293,6 +793,10 @@
  trigger: single
  description: "Single certificate"
  type: order
+ options:
+  Plugin:
+    type: "string"
+
 
 -
  name: "Site"
@@ -300,6 +804,10 @@
  trigger: site
  description: "Separate certificate for each IIS site"
  type: order
+ options:
+  Plugin:
+    type: "string"
+
 
 -
  name: "Elliptic Curve"
@@ -307,6 +815,16 @@
  trigger: ec
  description: "Generate an EC public/private key pair"
  type: csr
+ options:
+  OcspMustStaple:
+    type: "boolean"
+
+  ReusePrivateKey:
+    type: "boolean"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "RSA"
@@ -314,6 +832,16 @@
  trigger: rsa
  description: "Generate an RSA public/private key pair"
  type: csr
+ options:
+  OcspMustStaple:
+    type: "boolean"
+
+  ReusePrivateKey:
+    type: "boolean"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "Windows Certificate Store"
@@ -321,6 +849,22 @@
  trigger: certificatestore
  description: "Add to Windows Certificate Store (Local Computer)"
  type: store
+ options:
+  StoreName:
+    type: "string"
+
+  AclFullControl:
+    type: "string[]"
+
+  AclRead:
+    type: "string[]"
+
+  KeepExisting:
+    type: "boolean"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "PEM files"
@@ -328,6 +872,23 @@
  trigger: pemfiles
  description: "Create PEM encoded files (for Apache, nginx, etc.)"
  type: store
+ options:
+  PemPassword:
+    type: "string"
+    subtype: "secret"
+
+  Path:
+    type: "string"
+
+  FileName:
+    type: "string"
+
+  KeepExisting:
+    type: "boolean"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "PFX file"
@@ -335,6 +896,23 @@
  trigger: pfxfile
  description: "Create PFX/PKCS12 archive file"
  type: store
+ options:
+  Path:
+    type: "string"
+
+  FileName:
+    type: "string"
+
+  PfxPassword:
+    type: "string"
+    subtype: "secret"
+
+  KeepExisting:
+    type: "boolean"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "P7B file"
@@ -342,6 +920,19 @@
  trigger: p7bfile
  description: "Create P7B archive file (no private key!)"
  type: store
+ options:
+  Path:
+    type: "string"
+
+  FileName:
+    type: "string"
+
+  KeepExisting:
+    type: "boolean"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "None"
@@ -349,6 +940,13 @@
  trigger: none
  description: "No (additional) store steps"
  type: store
+ options:
+  KeepExisting:
+    type: "boolean"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "Central Certificate Store"
@@ -356,6 +954,20 @@
  trigger: centralssl
  description: "Add to IIS Central Certificate Store"
  type: store
+ options:
+  Path:
+    type: "string"
+
+  PfxPassword:
+    type: "string"
+    subtype: "secret"
+
+  KeepExisting:
+    type: "boolean"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "Azure Key Vault"
@@ -365,6 +977,41 @@
  provider: Microsoft
  description: "Store in Azure Key Vault"
  type: store
+ options:
+  AzureEnvironment:
+    type: "string"
+
+  UseMsi:
+    type: "boolean"
+
+  ClientId:
+    type: "string"
+
+  ResourceGroupName:
+    type: "string"
+
+  Secret:
+    type: "string"
+    subtype: "secret"
+
+  SubscriptionId:
+    type: "string"
+
+  TenantId:
+    type: "string"
+
+  VaultName:
+    type: "string"
+
+  CertificateName:
+    type: "string"
+
+  KeepExisting:
+    type: "boolean"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "User Store"
@@ -373,6 +1020,13 @@
  external: true
  description: "Add to Windows Certificate Store (Current User)"
  type: store
+ options:
+  KeepExisting:
+    type: "boolean"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "Custom script"
@@ -380,6 +1034,16 @@
  trigger: script
  description: "Start external script or program"
  type: installation
+ options:
+  Script:
+    type: "string"
+
+  ScriptParameters:
+    type: "string"
+
+  Plugin:
+    type: "string"
+
 
 -
  name: "None"
@@ -387,6 +1051,10 @@
  trigger: none
  description: "No (additional) installation steps"
  type: installation
+ options:
+  Plugin:
+    type: "string"
+
 
 -
  name: "Manage IIS bindings"
@@ -394,4 +1062,17 @@
  trigger: iis
  description: "Create or update bindings in IIS"
  type: installation
+ options:
+  SiteId:
+    type: "number"
+
+  NewBindingIp:
+    type: "string"
+
+  NewBindingPort:
+    type: "number"
+
+  Plugin:
+    type: "string"
+
 
