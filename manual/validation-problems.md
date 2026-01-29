@@ -50,7 +50,7 @@ select the `tlsserver` profile.
 
 ### Non-public domains
 Let's Encrypt can only be used to issue certificates for domains living on the
-public internet. Interal domains or Active Directory host names are therefor not
+public internet. Internal domains or Active Directory host names are therefore not
 possible to use.
 
 ## HTTP validation issues

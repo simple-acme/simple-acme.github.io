@@ -11,7 +11,7 @@ A validation plugin is responsible for providing the ACME server with proof that
 challenge types, three of which are supported by simple-acme. For wildcard identifiers, only DNS-01 validation is accepted by Let's Encrypt.
 
 ## Supported challenge types
-The following challenge types are supported by simple-acme. Various plugins exist to automate handeling the challenge. E.g. the file required for HTTP-01 validation may be placed on the local filesystem or uploaded via FTP, and the DNS record required for DNS-01 validation may be created at different providers.
+The following challenge types are supported by simple-acme. Various plugins exist to automate handling the challenge. E.g. the file required for HTTP-01 validation may be placed on the local filesystem or uploaded via FTP, and the DNS record required for DNS-01 validation may be created at different providers.
 <div class="table-responsive my-4 me-5 pe-5">
     <table class="table table-striped">
         <tbody>

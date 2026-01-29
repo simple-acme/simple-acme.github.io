@@ -84,7 +84,7 @@ if "%~1" == "" exit
 if not exist "%2" md "%2" >nul
 set certlist=%3-chain.pem,%3-key.pem
 echo Script running...
-for %%a in (%certlist%) do copy /y "%ProgramData%\simple-acme\%1\%%a" "%2\" >nul && echo. [INFO] Install %%a to Certificate Store in %2... OK || echo. [WARN] Install certificate %%a fieled!
+for %%a in (%certlist%) do copy /y "%ProgramData%\simple-acme\%1\%%a" "%2\" >nul && echo. [INFO] Install %%a to Certificate Store in %2... OK || echo. [WARN] Install certificate %%a failed!
 echo. [INFO] Restarting service...
 C:\Apache24\bin\httpd.exe -k restart
 echo. [INFO] Service restarted.
