@@ -7,16 +7,20 @@ There are five methods to obtain the program.
 There is an official [WinGet](https://learn.microsoft.com/en-us/windows/package-manager/winget/) package available. 
 - Run `winget install simple-acme` to install the program
 - Run `winget upgrade simple-acme` to upgrade to the latest version
-Note that WinGet is only available on Windows 10 version 1809 and later or Windows Server 2025.
+
+Note that WinGet is only available on Windows 10 version 1809 and later or on Windows Server 2025 or later.
 
 ## Manual
-Manual downloads are of course also possible. You can [download](/download) the latest version of the program from this website (hosted at GitHub) and unpack the contents of the `.zip` archive to a folder, for example `%programfiles%\simple-acme`. The website lists SHA256 hashes for manual integrity validation. To update from a previous version, simply unpack the contents of the archive to the same folder as the previous version, overwriting all files already there. Settings and renewals will be preserved!
+Manual downloads hosted at GitHub and linked on this website on the [download page](/download) unpack the contents of the `.zip` archive to a folder, for example `%programfiles%\simple-acme`. The website lists SHA256 hashes for manual integrity validation. 
+
+To update from a previous version, simply unpack the contents of the archive to the same folder as the previous version, overwriting all files already there. Settings and renewals will be preserved!
 
 ## Chocolatey
 There is an official [Chocolatey package](https://community.chocolatey.org/packages/simple-acme/) available.
 - Install [Chocolatey](https://chocolatey.org/)
 - Run `choco install simple-acme` to install the program
 - Run `choco upgrade simple-acme` to upgrade to the latest version
+
 Note that due to the manual moderation process in use by the Chocolatey community, there may be couple of days delay.
 
 ## dotnet tool
@@ -27,6 +31,7 @@ There is an official [NuGet package](https://www.nuget.org/packages/simple-acme)
 
 ## Build it yourself!
 You can clone the repo using `git clone https://github.com/simple-acme/simple-acme` and create your own build using the script `.\build\appveyor-local.ps1`. This requires at least [git](https://git-scm.com/) and the [.NET 9.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0).
+
 
 # Starting
 Run `wacs.exe` (or just `wacs` on Linux) as an administrator/superuser. While running under a privileged context is not required for *all* operations, it will be necessary to set up a scheduled task (or cronjob), manage IIS bindings and handle validation requests internally, i.e. the most common use cases.
