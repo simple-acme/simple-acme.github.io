@@ -24,7 +24,7 @@ Create the record in Amazon AWS [Route53](https://aws.amazon.com/route53/). This
 
 ## IAM
 The IAM role method can only work from inside an EC2 instance. Note that the program
-expects to recieve an IAM role *name*, so not the full ARN.
+expects to receive an IAM role *name*, so not the full ARN.
 
 ## ARN
 The ARN role method can work from anywhere.

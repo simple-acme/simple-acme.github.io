@@ -81,7 +81,7 @@ You can use `‑‑validationscriptparallelism` to specify if your script suppor
         </thead>
         <tbody>
             <tr><td><code>0</code></td><td>Serial, default serial behaviour</td></tr>
-            <tr><td><code>1</code></td><td>Allow multiple validations to be prepared at the same time. Only do this when you are sure multiple instances of "prepare" running at the same time will not interfere with eachother. Typically difficult to achieve and therefor not recommended.</td></tr>
+            <tr><td><code>1</code></td><td>Allow multiple validations to be prepared at the same time. Only do this when you are sure multiple instances of "prepare" running at the same time will not interfere with each other. Typically difficult to achieve and therefore not recommended.</td></tr>
             <tr><td><code>2</code></td><td>Allow multiple validations to run at the same time. This is possible in theory with every method, but you must be sure that your script is non-destructive, e.g. it should not overwrite pre-existing records or files, nor delete more than what is specifically asked for</td></tr>
             <tr><td><code>3</code></td><td>Combination of 1 and 2</td></tr>
             </tbody></table></div>
