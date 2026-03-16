@@ -12,7 +12,7 @@ Here is the crux though: being in control of a domain is not always the same as 
 
 Commercial providers "solve" this problem by also offering Organisation Validation (OV) certificates. This is the "more secure" and more expensive product that Let's Encrypt lacks and what most of the arguments against it boil down to. 
 
-OV certificates are technically identical to DV certificates - i.e. they offer same level of encryption - but they include additional meta data fields incidating who payed for them, guaranteed to be correct by the issuer. Theoretically this allows end users to make more informed decisions on whether to trust them or not. 
+OV certificates are technically identical to DV certificates - i.e. they offer same level of encryption - but they include additional meta data fields indicating who paid for them, guaranteed to be correct by the issuer. Theoretically this allows end users to make more informed decisions on whether to trust them or not. 
 
 The problem is that the number of users actually doing that rounds down to zero, because these extra fields don't show up anywhere near the regular browsing experience; users often need to click through multiple popups to get to it.
 

@@ -5,7 +5,7 @@
         <p>To verify that the plugin is properly installed you can start the main executable 
 with <code>‑‑verbose</code> and it will print information about found and loaded plugins at 
 start up. When the plugin is loaded, it manifests itself as extra menu choices and
-command line parameters being made availalbe.</p>
+command line parameters being made available.</p>
     <div class="callout-block callout-block-warning pb-1 mt-3">
         <div class="content">
             <p>All releases published to third party package managers like Chocolatey and NuGet support plugins, but if you download simple-acme manually, you must choose a <code>pluggable</code> version instead of the <code>trimmed</code> one to use it.</p>

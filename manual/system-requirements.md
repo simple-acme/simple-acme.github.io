@@ -5,7 +5,7 @@
 Officially, Microsoft only supports Windows Server 2012 and higher
 for .NET 9.0, which this program builds and depends on. If you're stuck 
 on an older version of Windows (sorry), consider running the latest 
-version of simple-acme on a different machine and transfering the certificates 
+version of simple-acme on a different machine and transferring the certificates 
 over to the older machine using an installation script.
 
 If you absolutely must run on the older machine, you can use an older
@@ -33,7 +33,7 @@ Not all features of this program can work on older versions of IIS.
 Server Name Indication (SNI) is supported from IIS 8.0 (Windows Server 2012) and above. This feature allows you to have multiple HTTPS certificates on the same IP address. Without it, you can only configure a single certificate per IP address. If you want to have SSL for multiple sites with multiple domains with IIS 7.5 or lower all bound to the same IP address your choices are to either create a single certificate for all sites, or to use a wildcard certificate.
 
 #### Configuring the IP address
-When simple-acme creates the binding for a new certificate, it will bind the wildcard (*) IP address by default. In other words, incoming connections on all network interfaces will handeled using the certificate. You can customize this with the `‑‑sslipaddress` switch from the command line, or manually after simple-acme created the binding. On renewal, the program will preserve whatever setting is configured in IIS.
+When simple-acme creates the binding for a new certificate, it will bind the wildcard (*) IP address by default. In other words, incoming connections on all network interfaces will handled using the certificate. You can customize this with the `‑‑sslipaddress` switch from the command line, or manually after simple-acme created the binding. On renewal, the program will preserve whatever setting is configured in IIS.
 
 #### Wildcard bindings
 Wildcard bindings are only supported on IIS 10 (Windows Server 2016+). Wildcard 

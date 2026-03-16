@@ -31,8 +31,8 @@ You may use a `*` for a range of any characters and a `?` for any single charact
 example: the pattern `example.*` will match `example.net` and `example.com` (but not 
 `my.example.com`) and the pattern `?.example.com` will match `a.example.com` and
 `b.example.com` (but not `www.example.com`). Note that multiple patterns can be combined
-by comma seperating them.
-- A number incidating priority. Settings with a lower value for the priority will be 
+by comma separating them.
+- A number indicating priority. Settings with a lower value for the priority will be 
 processed first, e.g. priority 1 will take preference over priority 2. This is only 
 relevant when a hostname matches with multiple patterns.
 
