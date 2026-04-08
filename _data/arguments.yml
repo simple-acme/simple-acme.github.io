@@ -381,6 +381,17 @@
    secret: true
 
 -
+ name: Arsys
+ pluginid: "2472d0c3-d3de-4bbc-806d-f36786ae94ed"
+ plugintype: "validation.dns"
+ condition: "--validation arsys"
+ arguments:
+  -
+   name: dnsapikey
+   description: "Arsys DNS API Key"
+   secret: true
+
+-
  name: Azure DNS
  pluginid: "aa57b028-45fb-4aca-9cac-a63d94c76b4a"
  plugintype: "validation.dns"
@@ -410,6 +421,17 @@
    secret: true
 
 -
+ name: Bunny
+ pluginid: "86feb060-ac79-49d0-85c3-ef55687c2660"
+ plugintype: "validation.dns"
+ condition: "--validation bunny"
+ arguments:
+  -
+   name: apikey
+   description: "APIKey for your Bunny Account."
+   secret: true
+
+-
  name: Cloudflare
  pluginid: "73af2c2e-4cf1-4198-a4c8-1129003cfb75"
  plugintype: "validation.dns"
@@ -419,6 +441,26 @@
    name: cloudflareapitoken
    description: "API Token for Cloudflare."
    secret: true
+
+-
+ name: Czechia
+ pluginid: "837692a9-25bc-4adc-908e-dc3316f11e32"
+ plugintype: "validation.dns"
+ condition: "--validation czechia"
+ arguments:
+  -
+   name: apibaseuri
+   description: "Czechia API base uri (default: https://api.czechia.com/api)"
+  -
+   name: apitoken
+   description: "Czechia API token (AuthorizationToken header)"
+   secret: true
+  -
+   name: zonename
+   description: "DNS zone name used in the endpoint URL, e.g. example.com"
+  -
+   name: ttl
+   description: "TXT record TTL (default: 3600)"
 
 -
  name: DigitalOcean
@@ -521,6 +563,9 @@
   -
    name: hetznerzoneid
    description: "OPTIONAL: ID of zone the record is associated with."
+  -
+   name: usehetznercloud
+   description: "Use the Hetzner Cloud API."
 
 -
  name: HuaWeiCloud

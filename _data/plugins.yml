@@ -225,6 +225,22 @@
 
 
 -
+ name: "Arsys"
+ id: 2472d0c3-d3de-4bbc-806d-f36786ae94ed
+ trigger: arsys
+ external: true
+ description: "Create verification records in Arsys DNS"
+ type: validation.dns
+ options:
+  DNSApiKey:
+    type: "string"
+    subtype: "secret"
+
+  Plugin:
+    type: "string"
+
+
+-
  name: "Azure DNS"
  id: aa57b028-45fb-4aca-9cac-a63d94c76b4a
  trigger: azure
@@ -263,6 +279,22 @@
 
 
 -
+ name: "Bunny"
+ id: 86feb060-ac79-49d0-85c3-ef55687c2660
+ trigger: bunny
+ external: true
+ description: "Create verification records in Bunny.net DNS"
+ type: validation.dns
+ options:
+  APIKey:
+    type: "string"
+    subtype: "secret"
+
+  Plugin:
+    type: "string"
+
+
+-
  name: "Cloudflare"
  id: 73af2c2e-4cf1-4198-a4c8-1129003cfb75
  trigger: cloudflare
@@ -273,6 +305,31 @@
   ApiToken:
     type: "string"
     subtype: "secret"
+
+  Plugin:
+    type: "string"
+
+
+-
+ name: "Czechia"
+ id: 837692a9-25bc-4adc-908e-dc3316f11e32
+ trigger: czechia
+ external: true
+ description: "Create verification records in Czechia DNS"
+ type: validation.dns
+ options:
+  ApiBaseUri:
+    type: "string"
+
+  ApiToken:
+    type: "string"
+    subtype: "secret"
+
+  ZoneName:
+    type: "string"
+
+  Ttl:
+    type: "number"
 
   Plugin:
     type: "string"
@@ -443,7 +500,6 @@
  id: 7176cc8f-ba08-4b07-aa39-2f5d012c1d5a
  trigger: hetzner
  external: true
- schema: true
  description: "Create verification records in Hetzner DNS"
  type: validation.dns
  options:
@@ -453,6 +509,9 @@
 
   ZoneId:
     type: "string"
+
+  UseHetznerCloud:
+    type: "boolean"
 
   Plugin:
     type: "string"

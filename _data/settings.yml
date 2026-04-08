@@ -21,7 +21,7 @@ Client:
     nullBehaviour:
       "resolves to <code>{Client.ConfigurationPath}\\Log</code>"
     description:
-      "The path where log files for the past 31 days are stored."
+      "The path where log files are stored. By default, daily log files are retained for up to 120 days, but this can be changed in the logging configuration."
 
   PluginPath:
     type: "string"
@@ -272,70 +272,88 @@ ScheduledTask:
       "Configures random time to wait for starting the scheduled task. This spreads the load on the servers and thus prevents users from getting <code>TooManyRequests</code> errors."
 
 Notification:
-  SmtpServer:
-    type: "string"
-    subtype: "host"
-    description:
-      "SMTP server to use for sending email notifications. Required to receive renewal failure notifications."
-
-  SmtpPort:
-    type: "number"
-    default: "25"
-    description:
-      "SMTP server port number."
-
-  SmtpUser:
-    type: "string"
-    description:
-      "User name for the SMTP server, in case of authenticated SMTP."
-
-  SmtpPassword:
-    type: "string"
-    subtype: "secret"
-    description:
-      "Password for the SMTP server, in case of authenticated SMTP."
-
-  SmtpSecure:
-    type: "boolean"
-    default: "false"
-    description:
-      "Change to <code>true</code> to enable secure SMTP."
-
-  SmtpSecureMode:
-    type: "number"
-    default: "1"
-    description:
-      "Control the way the connection with the mail server is established. Only change this if you run into connection issues.<div class=\"callout-block callout-block-success mt-3\"><div class=\"content\"><table class=\"table table-bordered\"><tr><th class=\"col-md-3\">Value</th><th>Meaning</th></tr><tr><td>1</td><td>Automatic (based on port number)</td></tr><tr><td>2</td><td>Implicit TLS</td></tr><tr><td>3</td><td>Explicit TLS (required)</td></tr><tr><td>4</td><td>Explicit TLS (when available)</td></tr></table></div></div>"
-
-  SenderName:
-    type: "string"
-    nullBehaviour:
-      "equivalent to <code>{Client.ClientName}</code>"
-    description:
-      "Display name to use as the sender of notification emails."
-
-  SenderAddress:
-    type: "string"
-    subtype: "email"
-    description:
-      "Email address to use as the sender of notification emails. Required to receive renewal notifications."
-
-  ReceiverAddresses:
-    type: "string[]"
-    subtype: "email"
-    description:
-      "Email address to use as the sender of notification emails. Required to receive renewal failure notifications. The correct format for the receiver is <code>[\"example@example.com\"]</code> for a single address and <code>[\"example1@example.com\", \"example2@example.com\"]</code> for multiple addresses."
-
-  EmailOnSuccess:
-    type: "boolean"
-    default: "false"
-    description:
-      "Send an email notification when a certificate has been successfully created or renewed, as opposed to the default behavior that only send failure notifications. Only works if at least <code>SmtpServer</code>, <code>SmtpSenderAddress</code> and<code>SmtpReceiverAddress</code> have been configured."
-
   ComputerName:
     type: "string"
     description:
-      "This value replaces the computer machine name reported in emails."
+      "This value replaces the computer machine name reported in notifications."
+
+  Email:
+    SmtpServer:
+      type: "string"
+      subtype: "host"
+      description:
+        "SMTP server to use for sending email notifications. Required to receive renewal failure notifications."
+
+    SmtpPort:
+      type: "number"
+      default: "25"
+      description:
+        "SMTP server port number."
+
+    SmtpUser:
+      type: "string"
+      description:
+        "User name for the SMTP server, in case of authenticated SMTP."
+
+    SmtpPassword:
+      type: "string"
+      subtype: "secret"
+      description:
+        "Password for the SMTP server, in case of authenticated SMTP."
+
+    SmtpSecure:
+      type: "boolean"
+      default: "false"
+      description:
+        "Change to <code>true</code> to enable secure SMTP."
+
+    SmtpSecureMode:
+      type: "number"
+      default: "1"
+      description:
+        "Control the way the connection with the mail server is established. Only change this if you run into connection issues.<div class=\"callout-block callout-block-success mt-3\"><div class=\"content\"><table class=\"table table-bordered\"><tr><th class=\"col-md-3\">Value</th><th>Meaning</th></tr><tr><td>1</td><td>Automatic (based on port number)</td></tr><tr><td>2</td><td>Implicit TLS</td></tr><tr><td>3</td><td>Explicit TLS (required)</td></tr><tr><td>4</td><td>Explicit TLS (when available)</td></tr></table></div></div>"
+
+    SenderName:
+      type: "string"
+      nullBehaviour:
+        "equivalent to <code>{Client.ClientName}</code>"
+      description:
+        "Display name to use as the sender of notification emails."
+
+    SenderAddress:
+      type: "string"
+      subtype: "email"
+      description:
+        "Email address to use as the sender of notification emails. Required to receive renewal notifications."
+
+    ReceiverAddresses:
+      type: "string[]"
+      subtype: "email"
+      description:
+        "Email address to use as the sender of notification emails. Required to receive renewal failure notifications. The correct format for the receiver is <code>[\"example@example.com\"]</code> for a single address and <code>[\"example1@example.com\", \"example2@example.com\"]</code> for multiple addresses."
+
+    NotifyOnSuccess:
+      type: "boolean"
+      default: "false"
+      description:
+        "Send an email notification when a certificate has been successfully created or renewed, as opposed to the default behavior that only send failure notifications. Only works if at least <code>SmtpServer</code>, <code>SmtpSenderAddress</code> and<code>SmtpReceiverAddress</code> have been configured."
+
+  Script:
+    Path:
+      type: "string"
+      description:
+        "Path to external script or program to run for notifications. Supported extensions: <code>.ps1</code>, <code>.sh</code>, <code>.exe</code>, <code>.bat</code>, <code>.cmd</code> (Windows only)."
+
+    Parameters:
+      type: "string"
+      description:
+        "Parameters for the notification script. May include tokens like <code>{EventType}</code> (created, success, success-with-errors, failure, cancel, test), <code>{RenewalId}</code>, <code>{FriendlyName}</code>, <code>{Errors}</code>, <code>{Log}</code> (base64-encoded), and <code>{vault://json/key}</code> for secrets."
+
+    NotifyOnSuccess:
+      type: "boolean"
+      default: "false"
+      description:
+        "Send a script notification when a certificate has been successfully created or renewed, as opposed to the default behavior that only sends failure notifications."
 
 Security:
   EncryptConfig:
@@ -592,6 +610,13 @@ Store:
       subtype: "secret"
       description:
         "When using the <a href=\"/reference/plugins/store/pemfiles\">PEM files</a> plugin this password is used by default for the <code>.pem</code> files, saving you the effort of providing it manually. Filling this out makes the <code>‑‑pempassword</code> argument unnecessary in most cases. Renewals created with the default password will automatically change to any future default value, meaning this is also a good practice for maintainability."
+
+    KeyFormat:
+      type: "string"
+      nullBehaviour:
+        "equivalent to <code>\"PKCS#1\"</code>"
+      description:
+        "Choose between the older <code>\"PKCS#1\"</code> format for legacy applications, or the more modern <code>\"PKCS#8\"</code> for enhanced security and modern applications."
 
   PfxFile:
     DefaultPath:
