@@ -15,7 +15,7 @@ settings:
 ---
 # Automatic renewal
 
-## Scheduled task
+## Daily checks
 A single scheduled task or cronjob is responsible to renew *all* certificates created by the program, but will only do so when it's actually necessary. The task is created by the program itself after successfully creating the first certificate. The task runs once every day and checks five conditions to determine if it should renew:
 
 - The certificate is getting too old. This is based on the known history and validity dates, recorded in the internal certificate cache and `*.renewal.json` files. Certificates are considered due for renewal when it's been issued more than `ScheduledTask.RenewalDays` days in the past, *or* it is valid for less than `ScheduledTask.RenewalMinimumValidDays` days in the future.
@@ -24,15 +24,16 @@ A single scheduled task or cronjob is responsible to renew *all* certificates cr
 - The certificate has been revoked by the user.
 - The certificate has not been successfully installed yet.
 
-### Customization
+### Task Scheduler (Windows)
 Some properties for the scheduled task can be changed in [settings.json](/reference/settings#scheduled-task) or the Task Scheduler, as long as its name is left unmodified. By default, it runs randomly between 9:00am and 11:00am (to help spread load at the server) using the `SYSTEM` account.
+### Cronjob (Linux)
+On Linux, simple-acme writes a bash script to `/etc/cron.daily/` and assumes that this will be automatically executed by the cron daemon. You may need to add it manually to the crontab, depening on your specific distribution.
 
 ### Health checks
-The health of the scheduled task is checked each time the program is run manually. It can also be (re)created from the menu (`More options...` > `(Re)create scheduled task`).
+The health of the scheduled task or cronjob is checked each time the program is run manually. It can also be (re)created from the menu (`More options...` > `(Re)create scheduled task`).
 
 ### Monitoring
-The renewal process can be monitored from the Windows Event Viewer and log files 
-written to `%programdata%\simple-acme\$baseuri$\Log`. Logs are retained for 120 days by default. You can also set up [notifications](/manual/notifications) to be informed about any problems that the program encounters.
+The renewal process can be monitored from the Windows Event Viewer and log files written to `%programdata%\simple-acme\$baseuri$\Log`. Logs are retained for 120 days by default. You can also set up [notifications](/manual/notifications) to be informed about any problems that the program encounters.
 
 ## Testing and troubleshooting
 To test or troubleshoot the renewal process, renewals can be triggered manually from the menu or the command line with `‑‑renew ‑‑force` switches. We recommend doing so while running with the `‑‑verbose` parameter to get maximum log visibility. When listing the details for a renewal, the program will show any errors that have been recorded during previous runs.

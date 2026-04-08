@@ -35,7 +35,9 @@ subsequently find the passwords in plain text.
 
 ## Reuse private keys
 If you don't want your private key to change for each renewal, you can use the option 
-`‑‑reuse-privatekey` when setting up the renewal. This can 
+`‑‑reuse-privatekey` when setting up the renewal. This can be useful to support 
+[DANE](https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities) for 
+mail servers.
 
 ## Private key cache
 By default simple-acme retains a copy of the private key in its certificate cache. These files are both encrypted and protected by access control lists in the file system. You can disable this feature by setting `Cache.ReuseDays` to `0` There will still be `.pfx` files written to disk containing the certificates (this is used for various other purposes, like detecting source changes, revocation, etc.), but they will not contain any private key information.
