@@ -17,7 +17,7 @@ response will be `y` with some specific headers set as well.
 different geographic locations or different protocols (IPv4/IPv6).
 - Let's Encrypt does **not** disclose the source locations of these requests, which 
 effectively means that the domain has to be accessible for the public, 
-at least for the duration of the validation. IF you need to temporarly open a firewall
+at least for the duration of the validation. IF you need to temporarily open a firewall
 for this purpose, check out the settings below.
 
 {% include plugin-list.html type='validation.http' %}

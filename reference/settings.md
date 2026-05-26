@@ -10,7 +10,7 @@ customized settings.
 ## Inheritance
 You can create server-specific `settings.json` files in `%programdata%\simple-acme` 
 to override settings for specific endpoints. Also you can apply specific settings to 
-each renewal invidually by create a `Settings` key in the `*.renewal.json` file. It is
+each renewal individually by create a `Settings` key in the `*.renewal.json` file. It is
 recommended to use an editor with support for JSON schema like [Visual Studio Code](https://code.visualstudio.com/) for
 this purpose.
 
