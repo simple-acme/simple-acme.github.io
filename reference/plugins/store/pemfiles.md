@@ -4,6 +4,7 @@ plugin: e57c70e4-cd60-4ba6-80f6-a41703e21031
 settings:
     - Store.PemFiles.DefaultPath
     - Store.PemFiles.DefaultPassword
+    - Store.PemFiles.KeyFormat
 compatibility: All platforms
 examples:
     - 
@@ -22,4 +23,4 @@ Files created are:
 By default, `{name}` will be the common name of the certificate (i.e. the primary host 
 name), but this may be overruled. If you choose to have the `-key.pem` file password 
 protected, you should make sure that the software you intend to consume the key with 
-supports this as well.
+supports this as well. 
