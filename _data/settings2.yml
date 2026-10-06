@@ -46,6 +46,7 @@ notification:
   - Notification.ComputerName
 email:
   - Notification.Email.SmtpServer
+  - Notification.Email.SmtpLocalDomain
   - Notification.Email.SmtpPort
   - Notification.Email.SmtpUser
   - Notification.Email.SmtpPassword

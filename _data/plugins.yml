@@ -11,6 +11,9 @@
   CsrScript:
     type: "string"
 
+  CsrScriptArguments:
+    type: "string"
+
   PkFile:
     type: "string"
 
@@ -389,6 +392,22 @@
 
 
 -
+ name: "DnsMint"
+ id: 87b5008b-62f2-4dd6-9fd7-30b46e4ddfd5
+ trigger: dnsmint
+ external: true
+ description: "Create verification records in DNSMint"
+ type: validation.dns
+ options:
+  ApiKey:
+    type: "string"
+    subtype: "secret"
+
+  Plugin:
+    type: "string"
+
+
+-
  name: "Domeneshop"
  id: 0bd9b320-08e0-4bfe-a535-b979886187e4
  trigger: domeneshop
@@ -553,6 +572,41 @@
   ApiToken:
     type: "string"
     subtype: "secret"
+
+  Plugin:
+    type: "string"
+
+
+-
+ name: "IPProjects"
+ id: 6370923c-7840-4e8c-b003-a3b514312e5a
+ trigger: ipprojects
+ external: true
+ description: "Create verification records at ip-projects.de"
+ type: validation.dns
+ options:
+  ApiKey:
+    type: "string"
+    subtype: "secret"
+
+  Plugin:
+    type: "string"
+
+
+-
+ name: "Level27"
+ id: 55891a42-ca55-4085-b107-b6a0c4f6f30b
+ trigger: level27
+ external: true
+ description: "Create verification records in Level27 DNS"
+ type: validation.dns
+ options:
+  ApiKey:
+    type: "string"
+    subtype: "secret"
+
+  ApiBaseUrl:
+    type: "string"
 
   Plugin:
     type: "string"
@@ -1064,6 +1118,10 @@
 
   CertificateName:
     type: "string"
+
+  CertificatePassword:
+    type: "string"
+    subtype: "secret"
 
   KeepExisting:
     type: "boolean"

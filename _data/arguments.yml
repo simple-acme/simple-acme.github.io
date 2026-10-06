@@ -141,6 +141,9 @@
    name: csrscript
    description: "Specify the location of a script that will generate the CSR file on demand"
   -
+   name: csrarguments
+   description: "Arguments passed to the CSR script"
+  -
    name: pkfile
    description: "Specify the location of the private key corresponding to the CSR"
 
@@ -499,6 +502,17 @@
    secret: true
 
 -
+ name: DnsMint
+ pluginid: "87b5008b-62f2-4dd6-9fd7-30b46e4ddfd5"
+ plugintype: "validation.dns"
+ condition: "--validation dnsmint"
+ arguments:
+  -
+   name: apikey
+   description: "DNSMint API key, carrying the dns01:write scope."
+   secret: true
+
+-
  name: Domeneshop
  pluginid: "0bd9b320-08e0-4bfe-a535-b979886187e4"
  plugintype: "validation.dns"
@@ -595,6 +609,31 @@
    name: apitoken
    description: "Infomaniak API token."
    secret: true
+
+-
+ name: IPProjects
+ pluginid: "6370923c-7840-4e8c-b003-a3b514312e5a"
+ plugintype: "validation.dns"
+ condition: "--validation ipprojects"
+ arguments:
+  -
+   name: apikey
+   description: "API Access Key from Dashboard"
+   secret: true
+
+-
+ name: Level27
+ pluginid: "55891a42-ca55-4085-b107-b6a0c4f6f30b"
+ plugintype: "validation.dns"
+ condition: "--validation level27"
+ arguments:
+  -
+   name: apikey
+   description: "API key for your Level27 account. Get one from the Level27 control panel (https://app.level27.eu/account/profile/security)."
+   secret: true
+  -
+   name: apibaseurl
+   description: "Optional. Level27 API base URL. Defaults to https://api.level27.eu/v1."
 
 -
  name: Linode
@@ -841,7 +880,11 @@
    description: "The name of the vault"
   -
    name: certificatename
-   description: "The name of the certificate"
+   description: "The name for the certificate. Defaults to the friendly name."
+  -
+   name: certificatepassword
+   description: "The password for the certificate"
+   secret: true
   -
    name: azureenvironment
    description: "This can be used to specify a specific Azure endpoint. Valid inputs are AzureCloud (default), AzureChinaCloud, AzureGermanCloud, AzureUSGovernment or a specific URI for an Azure Stack implementation."
