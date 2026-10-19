@@ -30,5 +30,5 @@ Example: `[--baseuri https://commercialca.com/acme/] --eab-key-identifier mykey 
 ## Multiple accounts
 The program supports using multiple accounts per server, should you need it. This feature is only available from the command line, but it allows different renewals to use different accounts with the same server.
 
-## Deleting accounts
-There's no built-in function to delete an account, but it can be done by navigating to the configuration path and deleting the files `Registration_v2` and `Signer_v2` from disk. This won't affect any renewals or certificates: a new account can simply be created instead.
+## Remove account
+An account can be deactivated and deleted using the menu option `More options...` > `ACME account details` > `Deactivate and delete`. If you want to remove the account without deactivating at the server, you can remove the files `Registration_v2` and `Signer_v2` from disk in the configuration path for the endpoint. Either method will not affect any renewals or certificates, though you will need to register a new account (with the same name, if you deleted a named account) before they can renew again.
