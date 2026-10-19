@@ -15,10 +15,12 @@ Designed for [Apache](/manual/advanced-use/examples/apache), nginx and other web
 Exports a `.pem` file for the certificate and private key and places them a folder of your choice.
 
 Files created are:
-- `{name}-crt.pem` (certificate)
-- `{name}-key.pem` (private key)
-- `{name}-chain.pem` (certificate plus chain)
-- `{name}-chain-only.pem` (chain without certificate)
+- `{name}-crt.pem` - certificate
+- `{name}-key.pem` - private key
+- `{name}-chain.pem` - certificate and intermediates (no root)
+- `{name}-chain-full.pem` - certificate and full chain (including root)
+- `{name}-chain-only.pem` - intermediates only (no certificate, no root)
+- `{name}-chain-only-full.pem` - full chain only (no certificate, including root)
 
 By default, `{name}` will be the common name of the certificate (i.e. the primary host 
 name), but this may be overruled. If you choose to have the `-key.pem` file password 

@@ -284,6 +284,14 @@ Notification:
       description:
         "SMTP server to use for sending email notifications. Required to receive renewal failure notifications."
 
+    SmtpLocalDomain:
+      type: "string"
+      subtype: "host"
+      nullBehaviour:
+        "the local IP address will be used"
+      description:
+        "Domain name used in the SMTP HELO or EHLO command."
+
     SmtpPort:
       type: "number"
       default: "25"
