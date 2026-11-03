@@ -8,7 +8,7 @@ settings:
 
 Some plugins require authentication information such as a password or API key to be able to work, e.g. to login to an FTP server or an API key needed to update a DNS record. These secrets are historically saved in [encrypted](/manual/advanced-use/encryption) form in the [.renewal.json](/manual/advanced-use/renewal-management) files in the configuration folder.
 
-There are also some global secrets, like the proxy server password and the SMTP server password, that are stored in [settings.json](/reference/settings).
+There are also some global secrets, like the proxy server password, the SMTP server password and [webhook](/manual/notifications#webhooks) URLs, that are stored in [settings.json](/reference/settings).
 
 ## Central Management
 
