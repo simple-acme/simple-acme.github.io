@@ -60,6 +60,13 @@ script:
   - Notification.Script.Path
   - Notification.Script.Parameters
   - Notification.Script.NotifyOnSuccess
+webhook:
+  - Notification.Webhook.Url
+  - Notification.Webhook.Format
+  - Notification.Webhook.TemplatePath
+  - Notification.Webhook.Headers
+  - Notification.Webhook.IncludeLog
+  - Notification.Webhook.NotifyOnSuccess
 security:
   - Security.EncryptConfig
   - Security.FriendlyNameDateTimeStamp
