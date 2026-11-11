@@ -26,7 +26,7 @@ The following challenge types are supported by simple-acme. Various plugins exis
                 <td></td>
             </tr>
             <tr>
-                <td><a href="/reference/plugins/validation/tls-alpns/">TLS-ALPN-01</a></td>
+                <td><a href="/reference/plugins/validation/tls-alpn/">TLS-ALPN-01</a></td>
                 <td>Present self-siged certificate on port 443</td>
                 <td></td>
             </tr>
